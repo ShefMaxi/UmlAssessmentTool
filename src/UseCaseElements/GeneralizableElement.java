@@ -35,7 +35,5 @@ public class GeneralizableElement extends PackagedElement {
 		// TODO Auto-generated method stub
 		return super.toString() + "name : " + name;
 	}
-	public static void main(String[] args) {
-		
-	}
+
 }

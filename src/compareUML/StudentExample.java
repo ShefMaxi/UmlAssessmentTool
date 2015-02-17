@@ -3,9 +3,7 @@ package compareUML;
 import java.util.ArrayList;
 
 import PackagedElements.PackagedElement;
-import UseCaseElements.AssociationElement;
-import UseCaseElements.UMLElement;
-
+import UseCaseElements.*;
 public class StudentExample {
 	protected ArrayList<PackagedElement> umlElements;
 	protected String fileName;
