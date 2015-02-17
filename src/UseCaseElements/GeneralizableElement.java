@@ -10,8 +10,11 @@ public class GeneralizableElement extends PackagedElement {
 		// TODO Auto-generated constructor stub
 		super(type, id);
 		this.name = name;
-		if (generalizable) {
+		if (generalization != null) {
+			this.generalizable = true;
 			this.generalization = generalization;
+		} else {
+			this.generalizable = false;
 		}
 	}
 	
