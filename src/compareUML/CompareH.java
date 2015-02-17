@@ -51,37 +51,46 @@ public class CompareH {
 					else if (packagedElement instanceof AssociationElement) {
 						AssociationElement assoele = (AssociationElement) packagedElement;
 						for (PackagedElement stdassoele : studentElements) {
-							if (assoele.getFirstMemberEnd()
+							if(assoele.getFirstMemberType()
 									.compareToIgnoreCase(
 											((AssociationElement) stdassoele)
-													.getFirstMemberEnd()) == 0
+													.getFirstMemberType())==0&&
+													assoele.getSecondMemberType()
+															.compareToIgnoreCase(
+																	((AssociationElement) stdassoele)
+																			.getSecondMemberType())==0){
+							if (assoele.getFirstMemberName()
+									.compareToIgnoreCase(
+											((AssociationElement) stdassoele)
+													.getFirstMemberName()) == 0
 									&& assoele
-											.getSecondMemberEnd()
+											.getSecondMemberName()
 											.compareToIgnoreCase(
 													((AssociationElement) stdassoele)
-															.getSecondMemberEnd()) != 0) {
+															.getSecondMemberName()) != 0) {
 								assoelenumber = assoelenumber + 0.5;
-							} else if (assoele.getFirstMemberEnd()
+							} else if (assoele.getFirstMemberName()
 									.compareToIgnoreCase(
 											((AssociationElement) stdassoele)
-													.getFirstMemberEnd()) != 0
+													.getFirstMemberName()) != 0
 									&& assoele
-											.getSecondMemberEnd()
+											.getSecondMemberName()
 											.compareToIgnoreCase(
 													((AssociationElement) stdassoele)
-															.getSecondMemberEnd()) == 0) {
+															.getSecondMemberName()) == 0) {
 								assoelenumber = assoelenumber + 0.5;
-							} else if (assoele.getFirstMemberEnd()
+							} else if (assoele.getFirstMemberName()
 									.compareToIgnoreCase(
 											((AssociationElement) stdassoele)
-													.getFirstMemberEnd()) == 0
+													.getFirstMemberName()) == 0
 									&& assoele
-											.getSecondMemberEnd()
+											.getSecondMemberName()
 											.compareToIgnoreCase(
 													((AssociationElement) stdassoele)
-															.getSecondMemberEnd()) == 0) {
+															.getSecondMemberName()) == 0) {
 								assoelenumber++;
 							}
+						}
 						}
 					}
 				}
