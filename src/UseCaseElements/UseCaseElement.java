@@ -39,6 +39,18 @@ public class UseCaseElement extends GeneralizableElement {
 		}
 	}
 	
+	public boolean hasIncludeAdditionLink(){
+		return this.hasIncludeAddition;
+	}
+	
+	public boolean hasExcludeAdditionLink(){
+		return this.hasExcludeAddition;
+	}
+	
+	public boolean hasExtensionAdditionLink(){
+		return this.hasExtensionPoint;
+	}
+	
 	public String getIncludeAddition(){
 		return this.includeAddition;
 	}
