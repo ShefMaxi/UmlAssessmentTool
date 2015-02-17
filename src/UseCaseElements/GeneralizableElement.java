@@ -3,7 +3,7 @@ package UseCaseElements;
 import PackagedElements.PackagedElement;
 
 public class GeneralizableElement extends PackagedElement {
-	protected String generalization;
+	protected String generalization;//goal object id
 	protected boolean generalizable;
 	protected String name;
 	public GeneralizableElement(String type, String id, String name, String generalization) {

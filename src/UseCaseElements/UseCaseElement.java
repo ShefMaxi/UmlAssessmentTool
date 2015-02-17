@@ -5,14 +5,38 @@ public class UseCaseElement extends GeneralizableElement {
 	private String includeAddition;
 	private String excludeAddition;
 	private String extensionPoint;
+	private boolean hasIncludeAddition;
+	private boolean hasExcludeAddition;
+	private boolean hasExtensionPoint;
 	
 	public UseCaseElement(String type, String id, String name,
 			String generalization, String inludeAddition, String excludeAddition, String extensionPoint) {
 		super(type, id, name, generalization);
-		// TODO Auto-generated constructor stub
-		this.includeAddition=inludeAddition;
-		this.excludeAddition=excludeAddition;
-		this.extensionPoint=extensionPoint;
+		
+		
+		if (inludeAddition!=null) {
+			this.hasIncludeAddition=true;
+			this.includeAddition=inludeAddition;
+
+		} else {
+			this.hasIncludeAddition=false;
+		}
+		
+		if (excludeAddition!=null) {
+			this.hasExcludeAddition=true;
+			this.excludeAddition=excludeAddition;
+
+		} else {
+			this.hasExcludeAddition=false;
+		}
+		
+		if (extensionPoint!=null) {
+			this.hasExtensionPoint=true;
+			this.extensionPoint=extensionPoint;
+
+		} else {
+			this.hasExtensionPoint=false;
+		}
 	}
 	
 	public String getIncludeAddition(){
