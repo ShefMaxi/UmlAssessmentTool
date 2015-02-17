@@ -1,4 +1,5 @@
 package FileHandler;
+import FileHandler.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -6,13 +7,21 @@ import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.io.*;
+import java.nio.file.Path;
 
 public class ExtractZipContents {
+	
 
-	public static void main(String[] args) {
+	public ExtractZipContents() {
+		// TODO Auto-generated constructor stub
+	}
 
+	public  static String  extractFile(String fileName) {
+				
+	
 		try {
-			ZipFile zipFile = new ZipFile("C:/Users/Dell/Desktop/heoeoeoeo_2/project9.zip");
+			ZipFile zipFile = new ZipFile("code_examples.zip");
 			Enumeration<?> enu = zipFile.entries();
 			while (enu.hasMoreElements()) {
 				ZipEntry zipEntry = (ZipEntry) enu.nextElement();
@@ -24,15 +33,23 @@ public class ExtractZipContents {
 						name, size, compressedSize);
 
 				File file = new File(name);
-				if (name.endsWith("/")) {
+				if (name.endsWith("/"))
+					//if (file.exists())
+				{
 					file.mkdirs();
 					continue;
+					//file.flush();
 				}
+					
 
 				File parent = file.getParentFile();
 				if (parent != null) {
-					parent.mkdirs();
+					File path =new File ("C:/Users/Salisu/workspace/ExtractedFolder/");
+					path.mkdir();
+					//parent.mkdirs();
 				}
+				//Path.flush();
+				//path.close();
 
 				InputStream is = zipFile.getInputStream(zipEntry);
 				FileOutputStream fos = new FileOutputStream(file);
@@ -49,6 +66,8 @@ public class ExtractZipContents {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return "";
 	}
+	
 
 }
