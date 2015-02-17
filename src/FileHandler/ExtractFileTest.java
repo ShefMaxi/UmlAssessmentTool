@@ -14,7 +14,7 @@ public class ExtractFileTest {
 	public static void main(String[] args) {
 		ExtractZipContents extractZipContent = new ExtractZipContents();
 		
-		extractZipContent.extractFile("code_examples.zip");
+		extractZipContent.extractFile("gradebook.zip");
 		try {
 			ExampleXMIDriver.readXMIFile();
 			System.out.println("READ.");
