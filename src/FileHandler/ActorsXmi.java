@@ -1,3 +1,5 @@
+package FileHandler;
+
 public class ActorsXmi {
     private String id;
     private String name;
@@ -29,6 +31,6 @@ public class ActorsXmi {
     public String toString() {
         return "Usecase:: ID="+this.id+" Name=" + this.name  + " Type=" + this.type  ;
     }
-     
+
 }
 
