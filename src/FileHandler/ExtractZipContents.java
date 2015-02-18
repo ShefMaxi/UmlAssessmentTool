@@ -17,7 +17,8 @@ public class ExtractZipContents {
 		// TODO Auto-generated constructor stub
 	}
 
-	public  static String  extractFile(String fileName) {
+	public  static String  extractFile()//(String fileName) 
+	{
 				
 	
 		try {
@@ -42,13 +43,12 @@ public class ExtractZipContents {
 				}
 					
 
-				File parent = file.getParentFile();
-				if (parent != null) {
-					File path =new File ("C:/Users/Salisu/workspace/ExtractedFolder/");
-					path.mkdir();
+				//boolean parent = file.createNewFile();// getParentFile();
+				//if (parent != null) {
+					//File path =new File ("C:/Users/Salisu/workspace/ExtractedFolder/");
+					//path.mkdirs();
 					//parent.mkdirs();
-				}
-				//Path.flush();
+				//}
 				//path.close();
 
 				InputStream is = zipFile.getInputStream(zipEntry);

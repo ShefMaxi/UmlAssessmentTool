@@ -14,10 +14,10 @@ public class ExtractFileTest {
 	public static void main(String[] args) {
 		ExtractZipContents extractZipContent = new ExtractZipContents();
 		
-		extractZipContent.extractFile("gradebook.zip");
+		extractZipContent.extractFile();//("code_examples.zip");
 		try {
-			ExampleXMIDriver.readXMIFile();
-			System.out.println("READ.");
+			//ExampleXMIDriver.readXMIFile();
+			//System.out.println("READ.");
 			//ExampleXMIDriver.print(list);
 		} catch (Exception e) {
 			// TODO: handle exception
