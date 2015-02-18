@@ -17,8 +17,8 @@ public class LecturerExample {
 		this.umlElements.add(new GeneralizableElement("Actor", "ertyuio", "Paul",null));
 		this.umlElements.add(new GeneralizableElement("Actor", "gthyjik2", "Kyle","ertyuio"));
 		this.umlElements.add(new UseCaseElement("UseCase", "kjhgf", "This is a usecase",null,null,null,null));
-		this.umlElements.add(new UseCaseElement("UseCase", "kjhgf1", "This is a usecase","kjhgf",null,null,null));
-		this.umlElements.add(new UseCaseElement("UseCase", "kjhgf2", "This is a usecase",null,null,null,null));
+		this.umlElements.add(new UseCaseElement("UseCase", "kjhgf1", "This is  usecase","kjhgf",null,null,null));
+		this.umlElements.add(new UseCaseElement("UseCase", "kjhgf2", "This is  usecases",null,null,null,null));
 		this.umlElements.add(new AssociationElement("gsfg", "ertyuio", "kjhgf"));
 		this.umlElements.add(new AssociationElement("fghdfadf", "gthyjik2", "kjhgf"));
 	}

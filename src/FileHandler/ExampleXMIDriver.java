@@ -1,7 +1,7 @@
 package FileHandler;
 
 import FileHandler.*;
-import PackagedElements.AssociationElement;
+import PackagedElements.AssociationElements;
 import PackagedElements.PackagedElement;
 import PackagedElements.UMLElement;
 
@@ -83,7 +83,7 @@ public class ExampleXMIDriver {
 					}
 				}
 				/////////
-				packagedList.add(new AssociationElement( attributeArray[1], ownedEnd[0], ownedEnd[1]));
+				packagedList.add(new AssociationElements( attributeArray[1], ownedEnd[0], ownedEnd[1]));
 			}
 			else{
 				packagedList.add(new UMLElement(attributeArray[0], attributeArray[1], attributeArray[2]));
