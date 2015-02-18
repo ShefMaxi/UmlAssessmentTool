@@ -34,6 +34,7 @@ public class CompareH {
 			ArrayList<PackagedElement> lecturerElements = LecturerMap.get(key);
 			ArrayList<PackagedElement> studentElements = StudentMap.get(key);
 			for (PackagedElement packagedElement : lecturerElements) {
+				if(packagedElement instanceof GeneralizableElement){
 				// lecturer's packagedElement
 				GeneralizableElement geneele = (GeneralizableElement) packagedElement;
 				// pick student's packagedElement
@@ -47,6 +48,8 @@ public class CompareH {
 							umlelenumber++;
 						}
 					}
+				}
+				}
 					// pick student's AssociationElement
 					else if (packagedElement instanceof AssociationElement) {
 						AssociationElement assoele = (AssociationElement) packagedElement;
@@ -95,7 +98,6 @@ public class CompareH {
 					}
 				}
 			}
-		}
 		correctnumber = assoelenumber + umlelenumber;
 		System.out.println("correct number in total is " + correctnumber);
 		System.out.println("correct umlelement number is " + umlelenumber);
