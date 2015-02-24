@@ -23,7 +23,8 @@ public class ExampleXMIDriver {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			ExampleXMIDriver.readXMIFile();
+			List<PackagedElement> a = ExampleXMIDriver.readXMIFile();
+			a.toString();
 			System.out.println("READ.");
 			//ExampleXMIDriver.print(list);
 		} catch (Exception e) {
@@ -50,6 +51,8 @@ public class ExampleXMIDriver {
 		// get all children element
 		List<Element> childrenElements = rootElement.getChildren();
 		List<PackagedElement> packagedList=null;
+		packagedList = new ArrayList<PackagedElement>();
+
 		// print the attributes of all elements
 		for (Element element : childrenElements) {
 			if (element.getName().equals("packagedElement")){
@@ -69,7 +72,6 @@ public class ExampleXMIDriver {
 
 			}
 			//List<PackagedElement>
-			packagedList = new ArrayList<PackagedElement>();
 			if (attributeArray[0].equals("uml:Association")){
 				/////////////
 				String[] ownedEnd = new String[2];
@@ -91,7 +93,7 @@ public class ExampleXMIDriver {
 			}
 			
 			
-			System.out.println(packagedList.get(packagedList.size() - 1));
+//			System.out.println(packagedList.get(packagedList.size() - 1));
 			
 			
 			}
@@ -109,6 +111,7 @@ public class ExampleXMIDriver {
 			String attrName = ele.getName();
 			//System.out.println("Element : " + attrName);
 		}
+		
 	}
 
 	public static void print(String str) {
