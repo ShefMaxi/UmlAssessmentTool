@@ -41,7 +41,7 @@ public class GUI extends JFrame{
 			button1.addMouseListener(new MouseAdapter(){
 				public void mouseClicked(MouseEvent event){
 			int i = chooser.showOpenDialog(button1);	
-		    if(i== chooser.APPROVE_OPTION){ //打开文件
+		    if(i== chooser.APPROVE_OPTION){  // open file
 		        String path = chooser.getSelectedFile().getAbsolutePath();
 		        String name = chooser.getSelectedFile().getName();
 		        System.out.println("get current path："+path+";\n get current name："+name);
@@ -54,7 +54,7 @@ public class GUI extends JFrame{
 			button2.addMouseListener(new MouseAdapter(){
 				public void mouseClicked(MouseEvent event){
 			int i = chooser.showOpenDialog(button1);	
-		    if(i== chooser.APPROVE_OPTION){ //打开文件
+		    if(i== chooser.APPROVE_OPTION){ 
 		        String path = chooser.getSelectedFile().getAbsolutePath();
 		        String name = chooser.getSelectedFile().getName();
 		        System.out.println("get current path："+path+";\n get current name："+name);
