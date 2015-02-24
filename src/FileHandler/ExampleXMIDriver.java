@@ -40,7 +40,7 @@ public class ExampleXMIDriver {
 	public static List<PackagedElement> readXMIFile() throws JDOMException, IOException {
 		// initializtion
 		SAXBuilder xmiBuilder = new SAXBuilder();
-		Document document = xmiBuilder.build(new File("project9.xmi"));
+		Document document = xmiBuilder.build(new File("project11.xmi"));
 		// get root element
 		Element rootElement = document.getRootElement();
 		
@@ -80,11 +80,22 @@ public class ExampleXMIDriver {
 				if (nextChildrenElements.size() > 0) {
 					for (Element element2 : nextChildrenElements) {
 						if (element2.getName().equals("ownedEnd")){
+							
 							ownedEnd[i] = element2.getAttributeValue("type");
+							//////////////////
+							/*for(PackagedElement p : packagedList){
+								String temp = p.getId();
+								if (ownedEnd[i].equals(temp))
+									ownedEnd[i]=p.getType();
+							}*/
+								//System.out.println(p.getId());
+							//////////////////
 							i++;
 						}
 					}
 				}
+				///////////////////
+				
 				/////////
 				packagedList.add(new AssociationElements( attributeArray[1], ownedEnd[0], ownedEnd[1]));
 			}
@@ -93,13 +104,16 @@ public class ExampleXMIDriver {
 			}
 			
 			
-//			System.out.println(packagedList.get(packagedList.size() - 1));
+			System.out.println(packagedList.get(packagedList.size() - 1));
 			
 			
 			}
 			
-		}
-		
+		}//for(AssociationElements a : packagedList)
+			//System.out.println(a);
+		//for(PackagedElement p : packagedList)
+			//System.out.println(p.getId());
+		//System.out.println(packagedList);
 		return packagedList;
 	}
 	
