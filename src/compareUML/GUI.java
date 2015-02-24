@@ -3,12 +3,14 @@ package compareUML;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+//Interface written by Shupeng
 public class GUI extends JFrame{
 		private JPanel panel1=new JPanel();
 		private JPanel panel2=new JPanel();
@@ -23,6 +25,7 @@ public class GUI extends JFrame{
 			add(panel2);	
 		}
 		private void layoutPanel1(){
+			JFileChooser chooser = new JFileChooser();
 			JButton button1=new JButton("upload lecuturer's XMI files");
 			JButton button2=new JButton("upload student's XMI files");
 			JButton button3=new JButton("compare");
@@ -34,6 +37,20 @@ public class GUI extends JFrame{
 			panel1.add(button3);
 			panel1.add(button4);
 			panel1.add(button5);
+			// upload function
+			button1.addMouseListener(new MouseAdapter(){
+				public void mouseClicked(MouseEvent event){
+			int i = chooser.showOpenDialog(button1);	
+		    if(i== chooser.APPROVE_OPTION){ //打开文件
+		        String path = chooser.getSelectedFile().getAbsolutePath();
+		        String name = chooser.getSelectedFile().getName();
+		        System.out.println("get current path："+path+";\n get current name："+name);
+		    }else{
+		        System.out.println("没有选中文件");
+		    }
+				   
+			}
+		});
 		}
 		private void layoutPanel2(){
 			JButton button=new JButton("score");
@@ -44,7 +61,11 @@ public class GUI extends JFrame{
 			textField.setBounds(20, 50, 200, 100);
 			panel2.add(textField);
 			panel2.add(button);
-		
+			button.addMouseListener(new MouseAdapter(){
+				public void mouseClicked(MouseEvent event){
+					textField.setText("waiting");
+				}
+			});
 		}
 	}
 
