@@ -36,7 +36,7 @@ public class ExampleXMIDriver {
 	 * @throws JDOMException
 	 * @throws IOException
 	 */
-	public static List<Element> readXMIFile() throws JDOMException, IOException {
+	public static List<PackagedElement> readXMIFile() throws JDOMException, IOException {
 		// initializtion
 		SAXBuilder xmiBuilder = new SAXBuilder();
 		Document document = xmiBuilder.build(new File("project9.xmi"));
@@ -49,7 +49,7 @@ public class ExampleXMIDriver {
 		
 		// get all children element
 		List<Element> childrenElements = rootElement.getChildren();
-		
+		List<PackagedElement> packagedList=null;
 		// print the attributes of all elements
 		for (Element element : childrenElements) {
 			if (element.getName().equals("packagedElement")){
@@ -68,7 +68,8 @@ public class ExampleXMIDriver {
 				
 
 			}
-			List<PackagedElement> packagedList = new ArrayList<PackagedElement>();
+			//List<PackagedElement>
+			packagedList = new ArrayList<PackagedElement>();
 			if (attributeArray[0].equals("uml:Association")){
 				/////////////
 				String[] ownedEnd = new String[2];
@@ -97,7 +98,7 @@ public class ExampleXMIDriver {
 			
 		}
 		
-		return childrenElements;
+		return packagedList;
 	}
 	
 	//--------------------------------------------------------------------------------
