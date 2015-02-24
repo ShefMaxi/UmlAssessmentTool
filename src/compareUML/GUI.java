@@ -46,7 +46,7 @@ public class GUI extends JFrame{
 		        String name = chooser.getSelectedFile().getName();
 		        System.out.println("get current path："+path+";\n get current name："+name);
 		    }else{
-		        System.out.println("没有选中文件");
+		        System.out.println("There is no Selection");
 		    }
 				   
 			}
