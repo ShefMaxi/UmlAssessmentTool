@@ -79,6 +79,7 @@ public class CompareH {
 													 stdassoele
 															.getSecondMemberEnd()) != 0) {
 								assoelenumber = assoelenumber + 0.5;
+								
 							} else if (assoele.getFirstMemberEnd()
 									.compareToIgnoreCase(
 											 stdassoele
@@ -101,9 +102,11 @@ public class CompareH {
 								assoelenumber++;
 							}
 						//}
+								System.out.println(stdassoele.getFirstMemberType());
 						}
 						System.out.println(assoele
 								.getSecondMemberEnd());
+						
 					}
 							
 					// pick student's usecaseelement
@@ -148,6 +151,7 @@ public class CompareH {
 		System.out.println("correct genelization number is " + geneelenumber);
 		System.out.println("correct association number is " + assoelenumber);
 		System.out.println("correct usecase number is " + ucnumber);
+		
 	}
 
 	// get keys from result of preprocessForUseCase
