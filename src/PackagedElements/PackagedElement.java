@@ -1,6 +1,6 @@
 package PackagedElements;
 
-public class PackagedElement {	// abstract
+public abstract class PackagedElement {	// abstract
 	protected String type;
 	protected String id;
 	
@@ -22,4 +22,6 @@ public class PackagedElement {	// abstract
 		// TODO Auto-generated method stub
 		return "type : " + type + " id : " + id;
 	}
+	
+	public abstract int getScore();
 }

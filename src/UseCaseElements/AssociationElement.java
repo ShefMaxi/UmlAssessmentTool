@@ -57,4 +57,8 @@ public class AssociationElement extends PackagedElement{
 		return super.toString() + " 1st M : " + firstMemberEnd
 				+ " 2nd M : " + secondMemberEnd;
 	}
+	
+	public int getScore(){
+		return 1;
+	}
 }
