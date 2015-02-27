@@ -18,142 +18,23 @@ public class CompareH {
     double exaddnumber =0;
     double expnumber =0;
     
-	public CompareH() {
-		LecturerExample l = new LecturerExample();
-		StudentExample s = new StudentExample();
-		ElementsPreprocessor lectureProcessor = new ElementsPreprocessor(
-				l.umlElements);
-		HashMap<String, ArrayList<PackagedElement>> LecturerMap = lectureProcessor
-				.preprocessForUseCase();
+	public CompareH(ArrayList<PackagedElement> StudentFile) {
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
-				s.umlElements);
+				StudentFile);
 		HashMap<String, ArrayList<PackagedElement>> StudentMap = studentProcessor
 				.preprocessForUseCase();
 
 		// ---------------------------------------------------------------------------------------		
-		String[] LecturerKeys = forkeys(LecturerMap);
+		String[] LecturerKeys = forkeys(StudentMap);
 		// ----------------------------------------------------------------------------------------
 
 		for (String key : LecturerKeys) {
-			ArrayList<PackagedElement> lecturerElements = LecturerMap.get(key);
 			ArrayList<PackagedElement> studentElements = StudentMap.get(key);
-			for (PackagedElement packagedElement : lecturerElements) {				
-				if(packagedElement instanceof GeneralizableElement&&!(packagedElement instanceof UseCaseElement)){
-				// lecturer's packagedElement
-				GeneralizableElement geneele = (GeneralizableElement) packagedElement;
-				// pick student's packagedElement
-				for (PackagedElement stdgeneEle : studentElements) {					
-					GeneralizableElement stdgeneele = (GeneralizableElement) stdgeneEle;																
-						if(geneele.getType().compareToIgnoreCase(stdgeneele.getType())==0){
-						// pick student's GeneralizableElement	and compare name													
-							if (geneele.getName().compareToIgnoreCase(
-								(stdgeneele).getName()) == 0) {
-							geneelenumber++;
-						}
-					}
-					
-				}
-				}
-										
-				// pick student's AssociationElement					
-					else if (packagedElement instanceof AssociationElement) {
-						AssociationElement assoele = (AssociationElement) packagedElement;
-						for (PackagedElement stdassoEle : studentElements) {						
-							AssociationElement stdassoele=(AssociationElement) stdassoEle;
-							/*if(assoele.getFirstMemberType()
-									.compareToIgnoreCase(
-											stdassoele.getFirstMemberType())==0&&
-													assoele.getSecondMemberType()
-															.compareToIgnoreCase(
-																	 stdassoele
-																			.getSecondMemberType())==0){
-							*/									
-							//compare firstmembername and secondmembername
-								if (assoele.getFirstMemberEnd()
-									.compareToIgnoreCase(
-											 stdassoele
-													.getFirstMemberEnd()) == 0
-									&& assoele
-											.getSecondMemberEnd()
-											.compareToIgnoreCase(
-													 stdassoele
-															.getSecondMemberEnd()) != 0) {
-								assoelenumber = assoelenumber + 0.5;
-								
-							} else if (assoele.getFirstMemberEnd()
-									.compareToIgnoreCase(
-											 stdassoele
-													.getFirstMemberEnd()) != 0
-									&& assoele
-											.getSecondMemberEnd()
-											.compareToIgnoreCase(
-													 stdassoele
-															.getSecondMemberEnd()) == 0) {
-								assoelenumber = assoelenumber + 0.5;
-							} else if (assoele.getFirstMemberEnd()
-									.compareToIgnoreCase(
-											 stdassoele
-													.getFirstMemberEnd()) == 0
-									&& assoele
-											.getSecondMemberEnd()
-											.compareToIgnoreCase(
-													 stdassoele
-															.getSecondMemberEnd()) == 0) {
-								assoelenumber++;
-							}
-						//}
-								System.out.println(stdassoele.getFirstMemberType());
-						}
-						System.out.println(assoele
-								.getSecondMemberEnd());
-						
-					}
-							
-					// pick student's usecaseelement
-					 if(packagedElement instanceof UseCaseElement){
-						UseCaseElement ucele=(UseCaseElement) packagedElement;
-						for (PackagedElement stducEle : studentElements){							
-							UseCaseElement stducele=(UseCaseElement) stducEle;
-						// compare usecase name							
-							if(ucele.getType().compareToIgnoreCase(stducele.getType())==0){								
-							if(ucele.getName().compareToIgnoreCase(stducele.getName())==0){
-								ucnamenumber++;
-							}
-							}							
-						//compare generalization
-					   // if(ucele.isGeneralizable()==true&&stducele.isGeneralizable()==true){					    	
-					   // }
-					//compare inludeAddition
-							if(ucele.hasIncludeAdditionLink()==true&&stducele.hasIncludeAdditionLink()==true){
-							if(ucele.getIncludeAddition().compareToIgnoreCase(stducele.getIncludeAddition())==0){
-								inaddnumber++;
-							}
-							}
-				//compare excludeAddition
-							if(ucele.hasExtensionAdditionLink()==true&&stducele.hasExtensionAdditionLink()==true){
-								if(ucele.getExtensionAddition().compareToIgnoreCase(stducele.getExtensionAddition())==0){
-									exaddnumber++;
-								}
-								}
-				//compare extensionPoint
-							if(ucele.hasExtensionAdditionLink()==true&&stducele.hasExtensionAdditionLink()==true){
-								if(ucele.getExtensionPoint().compareToIgnoreCase(stducele.getExtensionPoint())==0){
-									expnumber++;
-								}
-								}								
-						}						
-						}
-					}
-				}
-		ucnumber= ucnamenumber+inaddnumber+exaddnumber+expnumber;	
-		correctnumber = assoelenumber + geneelenumber+ucnumber;
-		System.out.println("correct number in total is " + correctnumber);
-		System.out.println("correct genelization number is " + geneelenumber);
-		System.out.println("correct association number is " + assoelenumber);
-		System.out.println("correct usecase number is " + ucnumber);
-		
+			for (PackagedElement packagedElement : studentElements) {							
+				packagedElement.compareTo(packagedElement);											
+			}
 	}
-
+	}
 	// get keys from result of preprocessForUseCase
 	public static String[] forkeys(HashMap<String, ArrayList<PackagedElement>> h) {
 		Set<String> myKeys = h.keySet();

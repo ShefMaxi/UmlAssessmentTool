@@ -59,6 +59,42 @@ public class AssociationElement extends PackagedElement{
 	}
 	
 	public double compareTo(PackagedElement packagedElement){
-		return .0;
+		double marks = 0.0;
+		if (packagedElement instanceof AssociationElement) {
+			AssociationElement studentElement=(AssociationElement) packagedElement;
+			if (this.getFirstMemberEnd()
+					.compareToIgnoreCase(
+							studentElement
+									.getFirstMemberEnd()) == 0
+					&& this
+							.getSecondMemberEnd()
+							.compareToIgnoreCase(
+									studentElement
+											.getSecondMemberEnd()) != 0) {
+				marks = marks + 0.5;
+				
+			} else if (this.getFirstMemberEnd()
+					.compareToIgnoreCase(
+							studentElement
+									.getFirstMemberEnd()) != 0
+					&& this
+							.getSecondMemberEnd()
+							.compareToIgnoreCase(
+									studentElement
+											.getSecondMemberEnd()) == 0) {
+				marks = marks + 0.5;
+			} else if (this.getFirstMemberEnd()
+					.compareToIgnoreCase(
+							studentElement
+									.getFirstMemberEnd()) == 0
+					&& this
+							.getSecondMemberEnd()
+							.compareToIgnoreCase(
+									studentElement
+											.getSecondMemberEnd()) == 0) {
+				marks++;
+			}
+		}		
+		return marks;
 	}
 }

@@ -2,6 +2,8 @@ package UseCaseElements;
 
 import java.util.ArrayList;
 
+import PackagedElements.PackagedElement;
+
 //written by yan zhang
 public class UseCaseElement extends GeneralizableElement {
 
@@ -64,5 +66,34 @@ public class UseCaseElement extends GeneralizableElement {
 	public ArrayList<String> getExtensionPoint() {
 		return this.extensionPoints;
 	}
-
+	public double compareTo(PackagedElement packagedElement){
+		double marks=0.0;
+		if(packagedElement instanceof UseCaseElement){
+			UseCaseElement studentElement=(UseCaseElement) packagedElement;
+			// compare usecase name							
+			if(this.getType().compareToIgnoreCase(studentElement.getType())==0){								
+			if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
+				marks++;
+			}
+			}	
+			//compare generalization
+			   // if(ucele.isGeneralizable()==true&&stducele.isGeneralizable()==true){					    	
+			   // }
+			//compare inludeAddition
+			if(this.hasIncludeAdditionLink()==true&&studentElement.hasIncludeAdditionLink()==true){
+			if(this.getIncludeAddition().compareToIgnoreCase(studentElement.getIncludeAddition())==0){
+				marks++;
+			}
+			}
+			//compare excludeAddition
+			if(this.hasExtensionAdditionLink()==true&&studentElement.hasExtensionAdditionLink()==true){
+				if(this.getExtensionAddition().compareToIgnoreCase(studentElement.getExtensionAddition())==0){
+					marks++;
+				}
+				}
+			//compare extensionPoints		
+	}
+		return marks;
 }
+}
+

@@ -44,7 +44,7 @@ public class GeneralizableElement extends PackagedElement {
 	public double compareTo(PackagedElement packagedElement) {
 		// compare to student's element
 		double marks = 0.0;
-		if (packagedElement instanceof GeneralizableElement) {
+		if (packagedElement instanceof GeneralizableElement&&!(packagedElement instanceof UseCaseElement)) {
 			// student's packagedElement
 			GeneralizableElement studentElement = (GeneralizableElement) packagedElement;
 			if (this.getType().compareToIgnoreCase(studentElement.getType()) == 0) {
