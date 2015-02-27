@@ -58,7 +58,7 @@ public class AssociationElement extends PackagedElement{
 				+ " 2nd M : " + secondMemberEnd;
 	}
 	
-	public int getScore(){
-		return 1;
+	public double compareTo(PackagedElement packagedElement){
+		return .0;
 	}
 }

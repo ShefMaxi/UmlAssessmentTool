@@ -23,5 +23,5 @@ public abstract class PackagedElement {	// abstract
 		return "type : " + type + " id : " + id;
 	}
 	
-	public abstract int getScore();
+	public abstract double compareTo(PackagedElement packagedElement);
 }
