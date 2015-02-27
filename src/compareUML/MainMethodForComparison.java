@@ -1,6 +1,6 @@
 package compareUML;
 
-public class MAIN {
+public class MainMethodForComparison {
 	public static void main(String[] args) {
 		CompareH h=new CompareH();
 		GUI frame=new GUI();
