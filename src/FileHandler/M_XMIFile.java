@@ -70,7 +70,7 @@ public class M_XMIFile {
 						
 						String extensionAddition=null;
 						
-						String extensionPoint=null;
+						ArrayList<String> extensionPoints=new ArrayList<String>();
 						
 						List<Element> nextChildrenElements = element.getChildren();
 						
@@ -100,20 +100,21 @@ public class M_XMIFile {
 								}
 								if (childElement.getName().equals("extensionPoint")) {
 									
-									extensionPoint = childElement.getAttributeValue("name");
+									String extensionPoint = childElement.getAttributeValue("name");
+									
+									extensionPoints.add(extensionPoint);
 								}
 							}
 						}
 						
 						packagedList.add(new UseCaseElement(attributeArray[0], attributeArray[1],
 								attributeArray[2], generalization, inludeAddition, extensionAddition,
-								extensionPoint));
+								extensionPoints));
 						System.out.println(attributeArray[0]+" # "+attributeArray[1]+" # "+attributeArray[2]
 								+" # "+generalization+" # "+inludeAddition+" # "+extensionAddition
-								+" # "+extensionPoint);
+								+" # "+extensionPoints);
 					}// end of usecase
 					
-					////////////////////////////////////////////association
 					if (attributeArray[0].equals("uml:Association")) {
 						
 						String firstMember=null;
@@ -195,114 +196,6 @@ public class M_XMIFile {
 	
 	public static void main(String[] args) throws JDOMException, IOException {
 		
-		M_XMIFile.readXMIFile("project9.xmi");
-		
-		//System.out.println(packagedList);
+		M_XMIFile.readXMIFile("project1.xmi");
 	}
 }
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-/*public class M_XMIFile {
-	// add .jar
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		try {
-			List<PackagedElement> a = M_XMIFile.readXMIFile();
-			a.toString();
-			System.out.println("READ.");
-			//ExampleXMIDriver.print(list);
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("Can't read.");
-		}
-	}
-
-	/**
-	 * @throws JDOMException
-	 * @throws IOException
-	 *\/
-	public static List<PackagedElement> readXMIFile() throws JDOMException, IOException {
-		// initializtion
-		SAXBuilder xmiBuilder = new SAXBuilder();
-		Document document = xmiBuilder.build(new File("project11.xmi"));
-		// get root element
-		Element rootElement = document.getRootElement();
-		
-		
-		// print all attributes
-		System.out.println("\n");
-		
-		// get all children element
-		List<Element> childrenElements = rootElement.getChildren();
-		List<PackagedElement> packagedList=null;
-		packagedList = new ArrayList<PackagedElement>();
-
-		// print the attributes of all elements
-		for (Element element : childrenElements) {
-			if (element.getName().equals("packagedElement")){
-			System.out.println("\nnext element: ");
-			
-			//////////////////////////////////////////////////////////////////
-			List<Attribute> list = element.getAttributes();
-			
-			
-			String[] attributeArray = new String[list.size()];
-			for (int i = 0; i < list.size(); ++i) {
-				Attribute attr = (Attribute) list.get(i);
-				String attrName = attr.getName();
-				String attrValue = attr.getValue();
-				attributeArray[i] = attrValue;
-				
-
-			}
-			//List<PackagedElement>
-			if (attributeArray[0].equals("uml:Association")){
-				/////////////
-				String[] ownedEnd = new String[2];
-				int i=0;
-				List<Element> nextChildrenElements = element.getChildren();
-				if (nextChildrenElements.size() > 0) {
-					for (Element element2 : nextChildrenElements) {
-						if (element2.getName().equals("ownedEnd")){
-							
-							ownedEnd[i] = element2.getAttributeValue("type");
-							//////////////////
-							/*for(PackagedElement p : packagedList){
-								String temp = p.getId();
-								if (ownedEnd[i].equals(temp))
-									ownedEnd[i]=p.getType();
-							}*\/
-								//System.out.println(p.getId());
-							//////////////////
-							i++;
-						}
-					}
-				}
-				///////////////////
-				
-				/////////
-				packagedList.add(new AssociationElements( attributeArray[1], ownedEnd[0], ownedEnd[1]));
-			}
-			else{
-				packagedList.add(new UMLElement(attributeArray[0], attributeArray[1], attributeArray[2]));
-			}
-			
-			
-			System.out.println(packagedList.get(packagedList.size() - 1));
-			
-			
-			}
-			
-		}//for(AssociationElements a : packagedList)
-			//System.out.println(a);
-		//for(PackagedElement p : packagedList)
-			//System.out.println(p.getId());
-		//System.out.println(packagedList);
-		return packagedList;
-	}
-	
-	//--------------------------------------------------------------------------------
-
-
-}*/
