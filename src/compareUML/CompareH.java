@@ -7,7 +7,9 @@ import PackagedElements.PackagedElement;
 import UseCaseElements.*;
 
 //Comparison method for Usecase diagram, written by Shupeng
-public class CompareH {   
+public class CompareH {
+	protected double finalmarks=0.0;
+	protected double marks=0.0;
 	public CompareH(ArrayList<PackagedElement> StudentFile) {
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
 				StudentFile);
@@ -21,7 +23,8 @@ public class CompareH {
 		for (String key : LecturerKeys) {
 			ArrayList<PackagedElement> studentElements = StudentMap.get(key);
 			for (PackagedElement packagedElement : studentElements) {							
-				packagedElement.compareTo(packagedElement);											
+				marks=packagedElement.compareTo(packagedElement);	
+				finalmarks=finalmarks+marks;
 			}
 	}
 	}
@@ -31,5 +34,8 @@ public class CompareH {
 		String[] keys = new String[myKeys.size()];
 		myKeys.toArray(keys);
 		return keys;
+	}
+	public double getFinalMarks(){
+		return finalmarks;
 	}
 }
