@@ -1,8 +1,6 @@
 package FileHandler;
 
-import PackagedElements.AssociationElements;
 import PackagedElements.PackagedElement;
-import PackagedElements.UMLElement;
 import UseCaseElements.*;
 
 import java.io.File;
@@ -70,7 +68,7 @@ public class M_XMIFile {
 						
 						String inludeAddition=null;
 						
-						String excludeAddition=null;
+						String extensionAddition=null;
 						
 						String extensionPoint=null;
 						
@@ -98,7 +96,7 @@ public class M_XMIFile {
 									
 									String excludeAdditionnId = childElement.getAttributeValue("extendedCase");
 									
-									excludeAddition = extractChildAttributeValues(childrenElements, excludeAdditionnId);
+									extensionAddition = extractChildAttributeValues(childrenElements, excludeAdditionnId);
 								}
 								if (childElement.getName().equals("extensionPoint")) {
 									
@@ -108,10 +106,10 @@ public class M_XMIFile {
 						}
 						
 						packagedList.add(new UseCaseElement(attributeArray[0], attributeArray[1],
-								attributeArray[2], generalization, inludeAddition, excludeAddition,
+								attributeArray[2], generalization, inludeAddition, extensionAddition,
 								extensionPoint));
 						System.out.println(attributeArray[0]+" # "+attributeArray[1]+" # "+attributeArray[2]
-								+" # "+generalization+" # "+inludeAddition+" # "+excludeAddition
+								+" # "+generalization+" # "+inludeAddition+" # "+extensionAddition
 								+" # "+extensionPoint);
 					}// end of usecase
 					

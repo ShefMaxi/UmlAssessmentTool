@@ -1,18 +1,20 @@
 package UseCaseElements;
 
+import java.util.ArrayList;
+
 //written by yan zhang
 public class UseCaseElement extends GeneralizableElement {
 
 	private String includeAddition;
 	private String extensionAddition;
-	private String extensionPoint;
+	private ArrayList<String> extensionPoints;
 	private boolean hasIncludeAddition;
 	private boolean hasExtensionAddition;
 	private boolean hasExtensionPoint;
 
 	public UseCaseElement(String type, String id, String name,
 			String generalization, String inludeAddition,
-			String extensionAddition, String extensionPoint) {
+			String extensionAddition, ArrayList<String> extensionPoints) {
 		super(type, id, name, generalization);
 
 		if (inludeAddition != null) {
@@ -29,9 +31,9 @@ public class UseCaseElement extends GeneralizableElement {
 			this.hasExtensionAddition = false;
 		}
 
-		if (extensionPoint != null) {
+		if (extensionPoints != null) {
 			this.hasExtensionPoint = true;
-			this.extensionPoint = extensionPoint;
+			this.extensionPoints = extensionPoints;
 
 		} else {
 			this.hasExtensionPoint = false;
@@ -59,8 +61,8 @@ public class UseCaseElement extends GeneralizableElement {
 		return this.extensionAddition;
 	}
 
-	public String getExtensionPoint() {
-		return this.extensionPoint;
+	public ArrayList<String> getExtensionPoint() {
+		return this.extensionPoints;
 	}
 
 }
