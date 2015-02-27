@@ -12,15 +12,26 @@ public class MAIN {
 		//CompareH h=new CompareH();
 		GUI frame=new GUI();
 		frame.setVisible(true);
-		M_XMIFile lecturerXMI = new M_XMIFile();
-		lecturerXMI.readXMIFile(frame.getLecuturerPath());
-		lecturerXMI.getPackagedList();
-		
-		M_ZipFiles studentsZip = new M_ZipFiles();
-		studentsZip.extractFile(frame.getStudentPath());
-		for(String str : studentsZip.getEntriesList()){
-			M_XMIFile studentXMI = new M_XMIFile();
-			studentXMI.readXMIFile(str);
+		try{
+			M_XMIFile lecturerXMI = new M_XMIFile();
+			String lecuturerPath = frame.getLecuturerPath();
+			if(lecuturerPath.endsWith(".xmi")){
+				lecturerXMI.readXMIFile(lecuturerPath);
+				lecturerXMI.getPackagedList();
+			}
+			
+			M_ZipFiles studentsZip = new M_ZipFiles();
+			String studentPat = frame.getStudentPath();
+			if(studentPat.endsWith(".zip")){
+				studentsZip.extractFile(studentPat);
+				for(String str : studentsZip.getEntriesList()){
+					M_XMIFile studentXMI = new M_XMIFile();
+					studentXMI.readXMIFile(str);
+					studentXMI.getPackagedList();
+			}
+			}
+		}catch (NullPointerException e){
+			
 		}
 		
 		
