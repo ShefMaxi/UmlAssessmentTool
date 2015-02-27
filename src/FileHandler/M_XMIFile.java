@@ -15,7 +15,7 @@ import org.jdom2.input.SAXBuilder;
 
 public class M_XMIFile {
 	
-	public static List<PackagedElement> packagedList = new ArrayList<PackagedElement>();
+	public List<PackagedElement> packagedList = new ArrayList<PackagedElement>();
 	
 	public void readXMIFile(String fileName) throws JDOMException, IOException {
 		

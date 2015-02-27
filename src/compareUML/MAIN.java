@@ -17,7 +17,7 @@ public class MAIN {
 			String lecuturerPath = frame.getLecuturerPath();
 			if(lecuturerPath.endsWith(".xmi")){
 				lecturerXMI.readXMIFile(lecuturerPath);
-				lecturerXMI.getPackagedList();
+				System.out.println(lecturerXMI.getPackagedList());
 			}
 			
 			M_ZipFiles studentsZip = new M_ZipFiles();
