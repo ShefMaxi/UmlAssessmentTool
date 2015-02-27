@@ -1,5 +1,7 @@
 package UseCaseElements;
 
+import java.util.ArrayList;
+
 import PackagedElements.PackagedElement;
 
 public class GeneralizableElement extends PackagedElement {
@@ -32,15 +34,27 @@ public class GeneralizableElement extends PackagedElement {
 	public boolean isGeneralizable() {
 		return this.generalizable;
 	}
-	
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString() + "name : " + name;
 	}
-	
-	public int getScore(){
-		return 1;
+
+	public double compareTo(PackagedElement packagedElement) {
+		// compare to student's element
+		double marks = 0.0;
+		if (packagedElement instanceof GeneralizableElement) {
+			// student's packagedElement
+			GeneralizableElement studentElement = (GeneralizableElement) packagedElement;
+			if (this.getType().compareToIgnoreCase(studentElement.getType()) == 0) {
+				if (this.getName().compareToIgnoreCase(
+						(studentElement).getName()) == 0) {
+					marks++;
+				}
+			}
+		}
+		return marks;
 	}
 
 }
