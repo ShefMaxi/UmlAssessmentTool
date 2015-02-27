@@ -7,9 +7,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.lang.model.element.PackageElement;
-
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -20,7 +17,7 @@ public class M_XMIFile {
 	
 	public static List<PackagedElement> packagedList = new ArrayList<PackagedElement>();
 	
-	public static void readXMIFile(String fileName) throws JDOMException, IOException {
+	public void readXMIFile(String fileName) throws JDOMException, IOException {
 		
 		SAXBuilder xmiBuilder = new SAXBuilder();
 		
@@ -196,8 +193,8 @@ public class M_XMIFile {
 		return (ArrayList<PackagedElement>)packagedList;
 	}
 	
-	public static void main(String[] args) throws JDOMException, IOException {
+	/*public static void main(String[] args) throws JDOMException, IOException {
 		
 		M_XMIFile.readXMIFile("project9.xmi");
-	}
+	}*/
 }

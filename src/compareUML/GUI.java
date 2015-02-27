@@ -5,15 +5,21 @@ import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.print.DocFlavor.URL;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import org.omg.CORBA.PRIVATE_MEMBER;
 //Interface written by Shupeng
 public class GUI extends JFrame{
 		private JPanel panel1=new JPanel();
 		private JPanel panel2=new JPanel();
+		private String path1;
+		private String path2;
+		//static String path;
 		public GUI(){
 			setSize(500,250);
 			setLocation(400,400);
@@ -42,9 +48,10 @@ public class GUI extends JFrame{
 				public void mouseClicked(MouseEvent event){
 			int i = chooser.showOpenDialog(button1);	
 		    if(i== chooser.APPROVE_OPTION){  // open file
-		        String path = chooser.getSelectedFile().getAbsolutePath();
+		        path1 = chooser.getSelectedFile().getAbsolutePath();
 		        String name = chooser.getSelectedFile().getName();
-		        System.out.println("get current path£º"+path+";\n get current name£º"+name);
+		        path1 = path1.replace('\\', '/');
+		        System.out.println("kkget current path£º"+path1+";\n get current name£º"+name);
 		    }else{
 		        System.out.println("There is no Selection");
 		    }
@@ -55,9 +62,10 @@ public class GUI extends JFrame{
 				public void mouseClicked(MouseEvent event){
 			int i = chooser.showOpenDialog(button1);	
 		    if(i== chooser.APPROVE_OPTION){ 
-		        String path = chooser.getSelectedFile().getAbsolutePath();
+		        path2 = chooser.getSelectedFile().getAbsolutePath();
 		        String name = chooser.getSelectedFile().getName();
-		        System.out.println("get current path£º"+path+";\n get current name£º"+name);
+		        path2 = path2.replace('\\', '/');
+		        System.out.println("get current path£º"+path2+";\n get current name£º"+name);
 		    }else{
 		        System.out.println("There is no Selection");
 		    }
@@ -79,6 +87,13 @@ public class GUI extends JFrame{
 					textField.setText("waiting");
 				}
 			});
+		}
+		
+		public String getLecuturerPath(){
+			return path1;
+		}
+		public String getStudentPath(){
+			return path2;
 		}
 	}
 
