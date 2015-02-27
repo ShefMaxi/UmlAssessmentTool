@@ -1,65 +1,65 @@
 package UseCaseElements;
+
 //written by yan zhang
 public class UseCaseElement extends GeneralizableElement {
 
 	private String includeAddition;
-	private String excludeAddition;
+	private String extensionAddition;
 	private String extensionPoint;
 	private boolean hasIncludeAddition;
-	private boolean hasExcludeAddition;
+	private boolean hasExtensionAddition;
 	private boolean hasExtensionPoint;
-	
+
 	public UseCaseElement(String type, String id, String name,
-			String generalization, String inludeAddition, String excludeAddition, String extensionPoint) {
+			String generalization, String inludeAddition,
+			String extensionAddition, String extensionPoint) {
 		super(type, id, name, generalization);
-		
-		
-		if (inludeAddition!=null) {
-			this.hasIncludeAddition=true;
-			this.includeAddition=inludeAddition;
 
+		if (inludeAddition != null) {
+			this.hasIncludeAddition = true;
+			this.includeAddition = inludeAddition;
 		} else {
-			this.hasIncludeAddition=false;
+			this.hasIncludeAddition = false;
 		}
-		
-		if (excludeAddition!=null) {
-			this.hasExcludeAddition=true;
-			this.excludeAddition=excludeAddition;
 
+		if (extensionAddition != null) {
+			this.hasExtensionAddition = true;
+			this.extensionAddition = extensionAddition;
 		} else {
-			this.hasExcludeAddition=false;
+			this.hasExtensionAddition = false;
 		}
-		
-		if (extensionPoint!=null) {
-			this.hasExtensionPoint=true;
-			this.extensionPoint=extensionPoint;
+
+		if (extensionPoint != null) {
+			this.hasExtensionPoint = true;
+			this.extensionPoint = extensionPoint;
 
 		} else {
-			this.hasExtensionPoint=false;
+			this.hasExtensionPoint = false;
 		}
 	}
-	
-	public boolean hasIncludeAdditionLink(){
+
+	// accessors
+	public boolean hasIncludeAdditionLink() {
 		return this.hasIncludeAddition;
 	}
-	
-	public boolean hasExcludeAdditionLink(){
-		return this.hasExcludeAddition;
+
+	public boolean hasExtensionAdditionLink() {
+		return this.hasExtensionAddition;
 	}
-	
-	public boolean hasExtensionAdditionLink(){
+
+	public boolean hasExtensionPoint() {
 		return this.hasExtensionPoint;
 	}
-	
-	public String getIncludeAddition(){
+
+	public String getIncludeAddition() {
 		return this.includeAddition;
 	}
-	
-	public String getExcludeAddition(){
-		return this.excludeAddition;
+
+	public String getExtensionAddition() {
+		return this.extensionAddition;
 	}
-	
-	public String getExtensionPoint(){
+
+	public String getExtensionPoint() {
 		return this.extensionPoint;
 	}
 
