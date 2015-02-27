@@ -130,8 +130,8 @@ public class CompareH {
 							}
 							}
 				//compare excludeAddition
-							if(ucele.hasExcludeAdditionLink()==true&&stducele.hasExcludeAdditionLink()==true){
-								if(ucele.getExcludeAddition().compareToIgnoreCase(stducele.getExcludeAddition())==0){
+							if(ucele.hasExtensionAdditionLink()==true&&stducele.hasExtensionAdditionLink()==true){
+								if(ucele.getExtensionAddition().compareToIgnoreCase(stducele.getExtensionAddition())==0){
 									exaddnumber++;
 								}
 								}
