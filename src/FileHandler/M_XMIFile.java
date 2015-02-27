@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.lang.model.element.PackageElement;
+
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -189,13 +191,13 @@ public class M_XMIFile {
 		return generalization;
 	}
 	
-	public List<PackagedElement> getPackagedList() {
+	public ArrayList<PackagedElement> getPackagedList() {
 		
-		return packagedList;
+		return (ArrayList<PackagedElement>)packagedList;
 	}
 	
 	public static void main(String[] args) throws JDOMException, IOException {
 		
-		M_XMIFile.readXMIFile("project1.xmi");
+		M_XMIFile.readXMIFile("project9.xmi");
 	}
 }
