@@ -13,6 +13,11 @@ import javax.swing.JFileChooser;
  */
 public class GUIForAssessmentTool extends javax.swing.JFrame {
 
+	private boolean lecturerFileIsSelected = false;
+	private boolean studentFileIsSelected = false;
+	private String studentFilePath;
+	private String lecturerFilePath;
+	
     /**
      * Creates new form GUIForAssessmentTool
      */
@@ -143,18 +148,40 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
     private void jButtonForLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonForLecturerActionPerformed
         // TODO add your handling code here:
-        JFileChooser jFileChooser1 = new javax.swing.JFileChooser();
-        jFileChooser1.setDialogTitle("Choose a file");
-        //jFileChooser1.showOpenDialog(jLabel1);
-        jFileChooser1.showOpenDialog(null);
+        JFileChooser jFileChooser = new javax.swing.JFileChooser();
+        jFileChooser.setDialogTitle("Choose a file");
+        int fileIsChosen = jFileChooser.showOpenDialog(null);
+        if (fileIsChosen == JFileChooser.APPROVE_OPTION) {
+        	String path = jFileChooser.getSelectedFile().getAbsolutePath();
+			String name = jFileChooser.getSelectedFile().getName();
+			path = path.replace('\\', '/');
+			lecturerFilePath = path;
+			System.out.println("current path£º" + path
+					+ ";\ncurrent name£º" + name);
+			this.lecturerFileIsSelected = true;
+		} else {
+			System.out.println("Lecture File not chosen");
+			this.lecturerFileIsSelected = false;
+		}
     }//GEN-LAST:event_jButtonForLecturerActionPerformed
 
     private void jButtonForStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonForStudentsActionPerformed
         // TODO add your handling code here:
-        JFileChooser jFileChooser1 = new javax.swing.JFileChooser();
-        jFileChooser1.setDialogTitle("Choose a file");
-        //jFileChooser1.showOpenDialog(jLabel1);
-        jFileChooser1.showOpenDialog(null);
+        JFileChooser jFileChooser = new javax.swing.JFileChooser();
+        jFileChooser.setDialogTitle("Choose a file");
+        int fileIsChosen = jFileChooser.showOpenDialog(null);
+        if (fileIsChosen == JFileChooser.APPROVE_OPTION) {
+        	String path = jFileChooser.getSelectedFile().getAbsolutePath();
+			String name = jFileChooser.getSelectedFile().getName();
+			path = path.replace('\\', '/');
+			studentFilePath = path;
+			System.out.println("current path£º" + path
+					+ ";\ncurrent name£º" + name);
+			this.studentFileIsSelected = true;
+		} else {
+			System.out.println("Student File not chosen");
+			this.studentFileIsSelected = false;
+		}
     }//GEN-LAST:event_jButtonForStudentsActionPerformed
 
     /**
@@ -168,7 +195,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
