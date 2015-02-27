@@ -77,8 +77,11 @@ public class UseCaseElement extends GeneralizableElement {
 			}
 			}	
 			//compare generalization
-			   // if(ucele.isGeneralizable()==true&&stducele.isGeneralizable()==true){					    	
-			   // }
+			    if(this.isGeneralizable()==true&&studentElement.isGeneralizable()==true){		
+			    	if(this.getGeneralization().compareToIgnoreCase(studentElement.getGeneralization())==0){
+			    		marks++;
+			    	}
+			    }
 			//compare inludeAddition
 			if(this.hasIncludeAdditionLink()==true&&studentElement.hasIncludeAdditionLink()==true){
 			if(this.getIncludeAddition().compareToIgnoreCase(studentElement.getIncludeAddition())==0){
@@ -91,7 +94,10 @@ public class UseCaseElement extends GeneralizableElement {
 					marks++;
 				}
 				}
-			//compare extensionPoints		
+			//compare extensionPoints
+			if(this.getExtensionPoint().equals(studentElement.getExtensionPoint())){
+				marks++;
+			}
 	}
 		return marks;
 }
