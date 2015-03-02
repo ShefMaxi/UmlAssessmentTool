@@ -15,10 +15,10 @@ import org.jdom2.input.SAXBuilder;
 
 public class XMIFileParser {
 	
-	private List<PackagedElement> packagedList = new ArrayList<PackagedElement>();
+	private List<PackagedElement> packagedList= null;
 	
 	public void readXMIFile(String fileName) throws JDOMException, IOException {
-		
+		packagedList = new ArrayList<PackagedElement>();
 		SAXBuilder xmiBuilder = new SAXBuilder();
 		
 		Document document = xmiBuilder.build(new File(fileName));
