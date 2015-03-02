@@ -80,6 +80,8 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
         jTextAreaForLog.setColumns(20);
         jTextAreaForLog.setRows(5);
+        jTextAreaForLog.setLineWrap(true);
+        jTextAreaForLog.setWrapStyleWord(true);
         jTextAreaForLog.setEditable(false);
         jScrollPane3.setViewportView(jTextAreaForLog);
 
@@ -157,9 +159,15 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonForStartAssessmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonForStartAssessmentActionPerformed
-    	if (studentFilePath != null && lecturerFilePath != null) {
+    	if (!this.studentFileIsSelected) {
+			this.jTextAreaForLog.append("Students' file is not selected.\n");
+		}
+    	if (!this.lecturerFileIsSelected) {
+			this.jTextAreaForLog.append("Lecturer's file is not selected.\n");
+		}
+    	if (this.studentFileIsSelected && this.lecturerFileIsSelected) {
     		this.jTextAreaForLog.append("Start Assessment.\n");
-			//System.out.println("Start Assessment");
+    		// start assessment
 		}
         
     	// TODO add your handling code here:
@@ -175,11 +183,11 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			String name = jFileChooser.getSelectedFile().getName();
 			path = path.replace('\\', '/');
 			lecturerFilePath = path;
-			System.out.println("current path£º" + path
-					+ ";\ncurrent name£º" + name);
+			this.jTextAreaForLog.append("current path£º" + path
+					+ ";\ncurrent name£º" + name + "\n");
 			this.lecturerFileIsSelected = true;
 		} else {
-			System.out.println("Lecture File not chosen");
+			this.jTextAreaForLog.append("Lecture File not chosen.\n");
 			this.lecturerFileIsSelected = false;
 			this.lecturerFilePath = null;
 		}
@@ -195,11 +203,11 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			String name = jFileChooser.getSelectedFile().getName();
 			path = path.replace('\\', '/');
 			studentFilePath = path;
-			System.out.println("current path£º" + path
-					+ ";\ncurrent name£º" + name);
+			this.jTextAreaForLog.append("current path£º" + path
+					+ ";\ncurrent name£º" + name + "\n");
 			this.studentFileIsSelected = true;
 		} else {
-			System.out.println("Student File not chosen");
+			this.jTextAreaForLog.append("Student File not chosen.\n");
 			this.studentFileIsSelected = false;
 			this.studentFilePath = null;
 		}
