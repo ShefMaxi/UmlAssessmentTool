@@ -15,7 +15,6 @@ import org.jdom2.input.SAXBuilder;
 
 import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
-import PackagedElements.AssociationElements;
 import PackagedElements.PackagedElement;
 import UseCaseElements.AssociationElement;
 import UseCaseElements.GeneralizableElement;
@@ -66,7 +65,7 @@ public class XMLReaderClass {
 							}
 						}
 				}
-				packagedList.add(new AssociationElements( AllAttributeValues[1], ownedEnd[0], ownedEnd[1]));
+				packagedList.add(new AssociationElement( AllAttributeValues[1], ownedEnd[0], ownedEnd[1]));
 			}
 			 if (AllAttributeValues[0].equals("uml:Actor")){
 				String [] generalization =new String[2];
