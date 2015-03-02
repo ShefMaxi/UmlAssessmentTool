@@ -3,19 +3,20 @@ package UseCaseElements;
 import PackagedElements.PackagedElement;
 
 public class AssociationElement extends PackagedElement{
-	protected String firstMemberEnd;	// the real id of first member
-	protected String secondMemberEnd;
+// the real id of first member
 	protected String firstMemberType;
 	protected String firstMemberName;
 	protected String secondMemberType;
 	protected String secondMemberName;
 	
 
-	public AssociationElement(String id, String firstMember, String secondMember) {
+	public AssociationElement(String id, String firstMemberName, String secondMemberName, String firstMemberType, String secondMemberType) {
 		// TODO Auto-generated constructor stub\
 		super("Association", id);
-		this.firstMemberEnd = firstMember;
-		this.secondMemberEnd = secondMember;
+		this.firstMemberName = firstMemberName;
+		this.secondMemberName = secondMemberName;
+		this.firstMemberType = firstMemberType;
+		this.secondMemberType = secondMemberType;
 	}
 	
 	public void setTypeAndName(String name1, String type1, String name2, String type2) {
@@ -27,13 +28,7 @@ public class AssociationElement extends PackagedElement{
 	
 	// --- get methods
 	
-	public String getFirstMemberEnd() {
-		return firstMemberEnd;
-	}
 	
-	public String getSecondMemberEnd() {
-		return secondMemberEnd;
-	}
 	
 	public String getFirstMemberName() {
 		return firstMemberName;
@@ -54,44 +49,44 @@ public class AssociationElement extends PackagedElement{
 	
 	@Override
 	public String toString() {
-		return super.toString() + " 1st M : " + firstMemberEnd
-				+ " 2nd M : " + secondMemberEnd;
+		return super.toString() + " 1st M : " + firstMemberName
+				+ " 2nd M : " + secondMemberName;
 	}
 	
 	public double compareTo(PackagedElement packagedElement){
 		double marks = 0.0;
 		if (packagedElement instanceof AssociationElement) {
 			AssociationElement studentElement=(AssociationElement) packagedElement;
-			if (this.getFirstMemberEnd()
+			if (this.getFirstMemberName()
 					.compareToIgnoreCase(
 							studentElement
-									.getFirstMemberEnd()) == 0
+									.getFirstMemberName()) == 0
 					&& this
-							.getSecondMemberEnd()
+							.getSecondMemberName()
 							.compareToIgnoreCase(
 									studentElement
-											.getSecondMemberEnd()) != 0) {
+											.getSecondMemberName()) != 0) {
 				marks = marks + 0.5;
 				
-			} else if (this.getFirstMemberEnd()
+			} else if (this.getFirstMemberName()
 					.compareToIgnoreCase(
 							studentElement
-									.getFirstMemberEnd()) != 0
+									.getFirstMemberName()) != 0
 					&& this
-							.getSecondMemberEnd()
+							.getSecondMemberName()
 							.compareToIgnoreCase(
 									studentElement
-											.getSecondMemberEnd()) == 0) {
+											.getSecondMemberName()) == 0) {
 				marks = marks + 0.5;
-			} else if (this.getFirstMemberEnd()
+			} else if (this.getFirstMemberName()
 					.compareToIgnoreCase(
 							studentElement
-									.getFirstMemberEnd()) == 0
+									.getFirstMemberName()) == 0
 					&& this
-							.getSecondMemberEnd()
+							.getSecondMemberName()
 							.compareToIgnoreCase(
 									studentElement
-											.getSecondMemberEnd()) == 0) {
+											.getSecondMemberName()) == 0) {
 				marks++;
 			}
 		}		

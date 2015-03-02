@@ -50,7 +50,7 @@ public class XMIFileParser {
 									
 									String generalizationId = childElement.getAttributeValue("general");
 									
-									generalization = extractChildAttributeValues(childrenElements, generalizationId);
+									generalization = extractChildAttributeValues(childrenElements, generalizationId)[1];
 								}
 							}
 						}
@@ -79,21 +79,21 @@ public class XMIFileParser {
 									
 									String generalizationId = childElement.getAttributeValue("general");
 									
-									generalization = extractChildAttributeValues(childrenElements, generalizationId);
+									generalization = extractChildAttributeValues(childrenElements, generalizationId)[1];
 								}
 								
 								if (childElement.getName().equals("include")) {
 									
 									String inludeAdditionId = childElement.getAttributeValue("addition");
 									
-									inludeAddition = extractChildAttributeValues(childrenElements, inludeAdditionId);
+									inludeAddition = extractChildAttributeValues(childrenElements, inludeAdditionId)[1];
 								}
 								
 								if (childElement.getName().equals("extend")) {
 									
 									String excludeAdditionnId = childElement.getAttributeValue("extendedCase");
 									
-									extensionAddition = extractChildAttributeValues(childrenElements, excludeAdditionnId);
+									extensionAddition = extractChildAttributeValues(childrenElements, excludeAdditionnId)[1];
 								}
 								if (childElement.getName().equals("extensionPoint")) {
 									
@@ -111,10 +111,8 @@ public class XMIFileParser {
 					
 					if (attributeArray[0].equals("uml:Association")) {
 						
-						String firstMember=null;
-						
-						String secondMember=null;
-						
+						String[] firstMember=null;
+						String[] secondMember=null;
 						String[] ownedEnd = new String[2];
 						
 						int i=0;
@@ -133,12 +131,12 @@ public class XMIFileParser {
 								}
 									
 								firstMember = extractChildAttributeValues(childrenElements, ownedEnd[0]);
-									
+								
 								secondMember = extractChildAttributeValues(childrenElements, ownedEnd[1]);
 								}
 							}
 						
-						packagedList.add(new AssociationElement(attributeArray[1], firstMember, secondMember));
+						packagedList.add(new AssociationElement(attributeArray[1], firstMember[1], secondMember[1], firstMember[0], secondMember[0]));
 					}// end of association
 					
 				}// end of UseCase diagram
@@ -162,9 +160,9 @@ public class XMIFileParser {
 			return attributeArray;
 	}
 	
-	private String extractChildAttributeValues(List<Element> childrenElements, String id) {
+	private String[] extractChildAttributeValues(List<Element> childrenElements, String id) {
 		
-		String generalization=null;
+		String[] generalization= new String[2];
 		
 		for (Element element2 : childrenElements) {
 			
@@ -173,8 +171,9 @@ public class XMIFileParser {
 			if (element2.getName().equals("packagedElement")) {
 				
 				if (attributeArray2[1].equals(id)) {
-					
-					generalization=attributeArray2[2];
+					generalization[0] = attributeArray2[0];
+					generalization[1]=attributeArray2[2];
+					return generalization;
 				}
 			}
 		}

@@ -34,11 +34,10 @@ public class AssessmentMark {
 			totalPoints += selectedLecturerElements.size();
 			if (totalPoints == 6) {
 				for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
-				
-				for (PackagedElement studentPackagedElement : selectedStudentElements) {
-					marks += lecturerPackagedElement
-							.compareTo(studentPackagedElement);
-				}
+					for (PackagedElement studentPackagedElement : selectedStudentElements) {
+						marks += lecturerPackagedElement
+								.compareTo(studentPackagedElement);
+					}
 				}
 			}
 			
