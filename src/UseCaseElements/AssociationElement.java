@@ -56,11 +56,7 @@ public class AssociationElement extends PackagedElement{
 	public double compareTo(PackagedElement packagedElement){
 		double marks = 0.0;
 		if (packagedElement instanceof AssociationElement) {
-<<<<<<< HEAD
-			AssociationElement studentElement=(AssociationElement) packagedElement;			
-=======
-			AssociationElement studentElement=(AssociationElement) packagedElement;
->>>>>>> origin/master
+         AssociationElement studentElement = (AssociationElement) packagedElement;
 			if (this.getFirstMemberName()
 					.compareToIgnoreCase(
 							studentElement
@@ -69,7 +65,6 @@ public class AssociationElement extends PackagedElement{
 							.getSecondMemberName()
 							.compareToIgnoreCase(
 									studentElement
-<<<<<<< HEAD
 											.getSecondMemberName()) == 0) {
 				return marks=marks+1;
 			}				
@@ -81,32 +76,7 @@ public class AssociationElement extends PackagedElement{
 				if(this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
 					return	marks = marks + 0.5;
 					}				
-			}					
-=======
-											.getSecondMemberName()) != 0) {
-				marks = marks + 0.5;
-				
-			} else if (this.getFirstMemberName()
-					.compareToIgnoreCase(
-							studentElement
-									.getFirstMemberName()) != 0
-					&& this
-							.getSecondMemberName()
-							.compareToIgnoreCase(
-									studentElement
-											.getSecondMemberName()) == 0) {
-				marks = marks + 0.5;
-			} else if (this.getFirstMemberName()
-					.compareToIgnoreCase(
-							studentElement
-									.getFirstMemberName()) == 0
-					&& this
-							.getSecondMemberName()
-							.compareToIgnoreCase(
-									studentElement
-											.getSecondMemberName()) == 0) {
-				marks++;
->>>>>>> origin/master
+			}									
 			}
 		return marks;
 		}			
