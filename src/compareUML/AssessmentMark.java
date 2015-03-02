@@ -8,7 +8,7 @@ import UseCaseElements.*;
 
 //Comparison method for Usecase diagram, written by Shupeng
 public class AssessmentMark {
-	protected double finalMarks=0.0;
+	protected double finalMark=0.0;
 	protected double marks=0.0;
 	public AssessmentMark(ArrayList<PackagedElement> StudentFile) {
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
@@ -24,7 +24,7 @@ public class AssessmentMark {
 			ArrayList<PackagedElement> studentElements = StudentMap.get(key);
 			for (PackagedElement packagedElement : studentElements) {							
 				marks=packagedElement.compareTo(packagedElement);	
-				finalMarks=finalMarks+marks;
+				finalMark=finalMark+marks;
 			}
 	}
 	}
@@ -36,6 +36,6 @@ public class AssessmentMark {
 		return keys;
 	}
 	public double getFinalMarks(){
-		return finalMarks;
+		return finalMark;
 	}
 }
