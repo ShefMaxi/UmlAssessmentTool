@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_qDERAMDhEeSs8rjlMJ9_hw" name="maxitester2">
+  <eAnnotations xmi:id="_qDERAcDhEeSs8rjlMJ9_hw" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_qDERAsDhEeSs8rjlMJ9_hw" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_qDERA8DhEeSs8rjlMJ9_hw" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_qDERBMDhEeSs8rjlMJ9_hw" name="paul"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qDERBcDhEeSs8rjlMJ9_hw" memberEnd="_qDERBsDhEeSs8rjlMJ9_hw _qDERCMDhEeSs8rjlMJ9_hw" navigableOwnedEnd="_qDERBsDhEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_qDERBsDhEeSs8rjlMJ9_hw" visibility="public" type="_qDERGsDhEeSs8rjlMJ9_hw" association="_qDERBcDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERB8DhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qDERCMDhEeSs8rjlMJ9_hw" visibility="public" type="_qDERBMDhEeSs8rjlMJ9_hw" association="_qDERBcDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERCcDhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qDERCsDhEeSs8rjlMJ9_hw" memberEnd="_qDERC8DhEeSs8rjlMJ9_hw _qDERDcDhEeSs8rjlMJ9_hw" navigableOwnedEnd="_qDERC8DhEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_qDERC8DhEeSs8rjlMJ9_hw" visibility="public" type="_qDERIcDhEeSs8rjlMJ9_hw" association="_qDERCsDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERDMDhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qDERDcDhEeSs8rjlMJ9_hw" visibility="public" type="_qDERBMDhEeSs8rjlMJ9_hw" association="_qDERCsDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERDsDhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_qDERD8DhEeSs8rjlMJ9_hw" name="abc"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qDEREMDhEeSs8rjlMJ9_hw" memberEnd="_qDEREcDhEeSs8rjlMJ9_hw _qDERE8DhEeSs8rjlMJ9_hw" navigableOwnedEnd="_qDEREcDhEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_qDEREcDhEeSs8rjlMJ9_hw" visibility="public" type="_qDERGsDhEeSs8rjlMJ9_hw" association="_qDEREMDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDEREsDhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qDERE8DhEeSs8rjlMJ9_hw" visibility="public" type="_qDERD8DhEeSs8rjlMJ9_hw" association="_qDEREMDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERFMDhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qDERFcDhEeSs8rjlMJ9_hw" memberEnd="_qDERFsDhEeSs8rjlMJ9_hw _qDERGMDhEeSs8rjlMJ9_hw" navigableOwnedEnd="_qDERFsDhEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_qDERFsDhEeSs8rjlMJ9_hw" visibility="public" type="_qDERIcDhEeSs8rjlMJ9_hw" association="_qDERFcDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERF8DhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qDERGMDhEeSs8rjlMJ9_hw" visibility="public" type="_qDERD8DhEeSs8rjlMJ9_hw" association="_qDERFcDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERGcDhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_qDERGsDhEeSs8rjlMJ9_hw" name="writeCode">
+    <ownedComment xmi:id="_qDERG8DhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERHMDhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERHcDhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERHsDhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERH8DhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERIMDhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_qDERIcDhEeSs8rjlMJ9_hw" name="debugCode">
+    <ownedComment xmi:id="_qDERIsDhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERI8DhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERJMDhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERJcDhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERJsDhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qDERJ8DhEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_qDERKMDhEeSs8rjlMJ9_hw" name="nicolas"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qDERKcDhEeSs8rjlMJ9_hw" memberEnd="_qDERKsDhEeSs8rjlMJ9_hw _qDERLMDhEeSs8rjlMJ9_hw" navigableOwnedEnd="_qDERKsDhEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_qDERKsDhEeSs8rjlMJ9_hw" visibility="public" type="_qDERGsDhEeSs8rjlMJ9_hw" association="_qDERKcDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERK8DhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qDERLMDhEeSs8rjlMJ9_hw" visibility="public" type="_qDERKMDhEeSs8rjlMJ9_hw" association="_qDERKcDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERLcDhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qDERLsDhEeSs8rjlMJ9_hw" memberEnd="_qDERL8DhEeSs8rjlMJ9_hw _qDERMcDhEeSs8rjlMJ9_hw" navigableOwnedEnd="_qDERL8DhEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_qDERL8DhEeSs8rjlMJ9_hw" visibility="public" type="_qDERIcDhEeSs8rjlMJ9_hw" association="_qDERLsDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERMMDhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qDERMcDhEeSs8rjlMJ9_hw" visibility="public" type="_qDERKMDhEeSs8rjlMJ9_hw" association="_qDERLsDhEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qDERMsDhEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>
