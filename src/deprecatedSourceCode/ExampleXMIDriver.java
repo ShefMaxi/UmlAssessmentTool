@@ -1,4 +1,4 @@
-package FileHandler;
+package deprecatedSourceCode;
 
 import FileHandler.*;
 import PackagedElements.PackagedElement;

@@ -1,4 +1,4 @@
-package FileHandler;
+package deprecatedSourceCode;
 
 import java.awt.print.Printable;
 import java.io.File;

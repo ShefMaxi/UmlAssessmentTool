@@ -1,4 +1,4 @@
-package compareUML;
+package deprecatedSourceCode;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
