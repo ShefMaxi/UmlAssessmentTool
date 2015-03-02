@@ -61,40 +61,28 @@ public class AssociationElement extends PackagedElement{
 	public double compareTo(PackagedElement packagedElement){
 		double marks = 0.0;
 		if (packagedElement instanceof AssociationElement) {
-			AssociationElement studentElement=(AssociationElement) packagedElement;
-			if (this.getFirstMemberEnd()
+			AssociationElement studentElement=(AssociationElement) packagedElement;			
+			if (this.getFirstMemberName()
 					.compareToIgnoreCase(
 							studentElement
-									.getFirstMemberEnd()) == 0
+									.getFirstMemberName()) == 0
 					&& this
-							.getSecondMemberEnd()
+							.getSecondMemberName()
 							.compareToIgnoreCase(
 									studentElement
-											.getSecondMemberEnd()) != 0) {
-				marks = marks + 0.5;
-				
-			} else if (this.getFirstMemberEnd()
-					.compareToIgnoreCase(
-							studentElement
-									.getFirstMemberEnd()) != 0
-					&& this
-							.getSecondMemberEnd()
-							.compareToIgnoreCase(
-									studentElement
-											.getSecondMemberEnd()) == 0) {
-				marks = marks + 0.5;
-			} else if (this.getFirstMemberEnd()
-					.compareToIgnoreCase(
-							studentElement
-									.getFirstMemberEnd()) == 0
-					&& this
-							.getSecondMemberEnd()
-							.compareToIgnoreCase(
-									studentElement
-											.getSecondMemberEnd()) == 0) {
-				marks++;
+											.getSecondMemberName()) == 0) {
+				return marks=marks+1;
+			}				
+			else if (this.getFirstMemberType().equalsIgnoreCase("Actor")){
+				if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0){
+				return	marks = marks + 0.5;
+				}				
+			} else if (this.getSecondMemberType().equalsIgnoreCase("Actor")){
+				if(this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
+					return	marks = marks + 0.5;
+					}				
+			}					
 			}
-		}		
 		return marks;
-	}
+		}			
 }
