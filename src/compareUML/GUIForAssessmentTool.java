@@ -5,7 +5,15 @@
  */
 package compareUML;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.swing.JFileChooser;
+
+import org.jdom2.JDOMException;
+
+import FileHandler.XMIFileParser;
+import FileHandler.ZipFileHandler;
 
 /**
  *
@@ -168,6 +176,10 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     	if (this.studentFileIsSelected && this.lecturerFileIsSelected) {
     		this.jTextAreaForLog.append("Start Assessment.\n");
     		// start assessment
+    		ZipFileHandler zipFileHandler = new ZipFileHandler();
+    		zipFileHandler.extractFile(studentFilePath);
+    		AssessXMIFiles(zipFileHandler.getEntriesList());
+    		this.jTextAreaForLog.append("Finished Assessment.");
 		}
         
     	// TODO add your handling code here:
@@ -217,6 +229,25 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonForOutputActionPerformed
 
+    private void AssessXMIFiles(ArrayList<String> paths) {
+    	XMIFileParser xmiFileParser = new XMIFileParser();
+    	for (String path : paths) {
+    		try {
+				xmiFileParser.readXMIFile(path);
+				AssessmentMark xmiAssessor = new AssessmentMark(xmiFileParser.getPackagedList());
+				double mark = xmiAssessor.getFinalMarks();
+				this.jTextAreaForLog.append("The student mark is " + mark + ".\n");
+			} catch (IOException e) {
+				// TODO: handle exception
+				System.err.println("IOException.");
+			} catch (JDOMException e2) {
+				// TODO: handle exception
+				System.err.println("JDOM exception.");
+			}
+			
+		}
+    	
+    }
     /**
      * @param args the command line arguments
      */

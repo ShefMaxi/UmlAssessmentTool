@@ -9,9 +9,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.io.*;
 
-public class M_ZipFiles {
+public class ZipFileHandler {
 	
-	public static List<String> entriesList = new ArrayList<String>();
+	private List<String> entriesList = new ArrayList<String>();
 	
 	public  void extractFile(String inputFile) {
 		
@@ -84,13 +84,12 @@ public class M_ZipFiles {
 		}
 	}
 	
-	public List<String> getEntriesList() {
-		
-		return entriesList;
+	public ArrayList<String> getEntriesList() {
+		return (ArrayList<String>)entriesList;
 	}
 	
 	public static void main(String[] args) {
-		M_ZipFiles extractZipContent = new M_ZipFiles();
+		ZipFileHandler extractZipContent = new ZipFileHandler();
 		
 		extractZipContent.extractFile("C:/Users/Dell/workspace/test/code_examples.zip");
 		System.out.println(extractZipContent.getEntriesList());
