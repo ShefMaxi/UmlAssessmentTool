@@ -12,7 +12,7 @@ import PackagedElements.PackagedElement;
 public class ElementsPreprocessor {
 
 	// private String[] DIAGRAMTYPE = {"usecase", "class", ""};
-	protected String[] USECASE_ELEMENT_TYPE = { "Actor", "Usecase", "Association" };
+	protected String[] USECASE_ELEMENT_TYPE = { "uml:Actor", "uml:Usecase", "Association" };
 	protected String diagramType;
 	protected ArrayList<PackagedElement> diagramElements;
 

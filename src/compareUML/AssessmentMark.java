@@ -9,7 +9,7 @@ import UseCaseElements.*;
 //Comparison method for Usecase diagram, written by Shupeng
 public class AssessmentMark {
 	protected double marks = 0.0;
-
+	protected int totalPoints = 0;
 	public AssessmentMark(ArrayList<PackagedElement> studentElements,
 			ArrayList<PackagedElement> lecturerElements) {
 
@@ -21,7 +21,6 @@ public class AssessmentMark {
 				lecturerElements);
 		HashMap<String, ArrayList<PackagedElement>> lecturerMap = lecturerProcessor
 				.preprocessForUseCase();
-
 		// ---------------------------------------------------------------------------------------
 		String[] lecturerKeys = forkeys(lecturerMap);
 		// ----------------------------------------------------------------------------------------
@@ -31,12 +30,18 @@ public class AssessmentMark {
 					.get(key);
 			ArrayList<PackagedElement> selectedStudentElements = studentMap
 					.get(key);
-			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
+			System.out.println(selectedLecturerElements.size());
+			totalPoints += selectedLecturerElements.size();
+			if (totalPoints == 6) {
+				for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
+				
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
 				}
+				}
 			}
+			
 		}
 	}
 
@@ -49,6 +54,8 @@ public class AssessmentMark {
 	}
 
 	public double getFinalMarks() {
-		return marks;
+		System.out.println(totalPoints);
+		System.out.println(marks);
+		return 100*marks/totalPoints;
 	}
 }
