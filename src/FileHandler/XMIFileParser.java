@@ -57,8 +57,6 @@ public class XMIFileParser {
 						
 						packagedList.add(new GeneralizableElement(attributeArray[0], attributeArray[1],
 								attributeArray[2], generalization));
-						System.out.println(attributeArray[0]+" # "+attributeArray[1]+" # "
-								+attributeArray[2]+" # "+generalization);
 					}// end of actor
 					
 					if (attributeArray[0].equals("uml:UseCase")) {

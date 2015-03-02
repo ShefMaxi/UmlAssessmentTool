@@ -29,21 +29,22 @@ public class ElementsPreprocessor {
 		// TODO Auto-generated constructor stub
 		this.diagramElements = elements;
 		identifyDiagramType();
+
 	}
 
 	protected boolean identifyDiagramType() {
 		for (PackagedElement packagedElement : diagramElements) {
-			if (packagedElement.getType().compareToIgnoreCase("Actor") == 0) {
+			if (packagedElement.getType().compareToIgnoreCase("uml:Actor") == 0) {
 				this.diagramType = "UseCase";
 				return true;
-			} else if (packagedElement.getType().compareToIgnoreCase("Class") == 0) {
-				this.diagramType = "Class";
+			} else if (packagedElement.getType().compareToIgnoreCase("uml:Class") == 0) {
+				this.diagramType = "uml:Class";
 				return true;
 			} else if (packagedElement.getType().compareToIgnoreCase(
 					"OpaqueAction") == 0) {
 				this.diagramType = "Activity";
 				return true;
-			} else if (packagedElement.getType().compareToIgnoreCase("State") == 0) {
+			} else if (packagedElement.getType().compareToIgnoreCase("uml:State") == 0) {
 				// need to re-check
 				this.diagramType = "StateMachine";
 				return true;

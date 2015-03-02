@@ -8,26 +8,38 @@ import UseCaseElements.*;
 
 //Comparison method for Usecase diagram, written by Shupeng
 public class AssessmentMark {
-	protected double finalMark=0.0;
-	protected double marks=0.0;
-	public AssessmentMark(ArrayList<PackagedElement> StudentFile) {
+	protected double marks = 0.0;
+
+	public AssessmentMark(ArrayList<PackagedElement> studentElements,
+			ArrayList<PackagedElement> lecturerElements) {
+
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
-				StudentFile);
-		HashMap<String, ArrayList<PackagedElement>> StudentMap = studentProcessor
+				studentElements);
+		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor
+				.preprocessForUseCase();
+		ElementsPreprocessor lecturerProcessor = new ElementsPreprocessor(
+				lecturerElements);
+		HashMap<String, ArrayList<PackagedElement>> lecturerMap = lecturerProcessor
 				.preprocessForUseCase();
 
-		// ---------------------------------------------------------------------------------------		
-		String[] LecturerKeys = forkeys(StudentMap);
+		// ---------------------------------------------------------------------------------------
+		String[] lecturerKeys = forkeys(lecturerMap);
 		// ----------------------------------------------------------------------------------------
 
-		for (String key : LecturerKeys) {
-			ArrayList<PackagedElement> studentElements = StudentMap.get(key);
-			for (PackagedElement packagedElement : studentElements) {							
-				marks=packagedElement.compareTo(packagedElement);	
-				finalMark=finalMark+marks;
+		for (String key : lecturerKeys) {
+			ArrayList<PackagedElement> selectedLecturerElements = lecturerMap
+					.get(key);
+			ArrayList<PackagedElement> selectedStudentElements = studentMap
+					.get(key);
+			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
+				for (PackagedElement studentPackagedElement : selectedStudentElements) {
+					marks += lecturerPackagedElement
+							.compareTo(studentPackagedElement);
+				}
 			}
+		}
 	}
-	}
+
 	// get keys from result of preprocessForUseCase
 	public static String[] forkeys(HashMap<String, ArrayList<PackagedElement>> h) {
 		Set<String> myKeys = h.keySet();
@@ -35,7 +47,8 @@ public class AssessmentMark {
 		myKeys.toArray(keys);
 		return keys;
 	}
-	public double getFinalMarks(){
-		return finalMark;
+
+	public double getFinalMarks() {
+		return marks;
 	}
 }

@@ -14,6 +14,7 @@ import org.jdom2.JDOMException;
 
 import FileHandler.XMIFileParser;
 import FileHandler.ZipFileHandler;
+import PackagedElements.PackagedElement;
 
 /**
  *
@@ -176,10 +177,10 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     	if (this.studentFileIsSelected && this.lecturerFileIsSelected) {
     		this.jTextAreaForLog.append("Start Assessment.\n");
     		// start assessment
-    		ZipFileHandler zipFileHandler = new ZipFileHandler();
-    		zipFileHandler.extractFile(studentFilePath);
-    		AssessXMIFiles(zipFileHandler.getEntriesList());
-    		this.jTextAreaForLog.append("Finished Assessment.");
+//    		ZipFileHandler zipFileHandler = new ZipFileHandler();
+//    		zipFileHandler.extractFile(studentFilePath);
+    		AssessXMIFiles();
+    		this.jTextAreaForLog.append("Finished Assessment.\n");
 		}
         
     	// TODO add your handling code here:
@@ -229,23 +230,40 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonForOutputActionPerformed
 
-    private void AssessXMIFiles(ArrayList<String> paths) {
+    private void AssessXMIFiles() {
     	XMIFileParser xmiFileParser = new XMIFileParser();
-    	for (String path : paths) {
-    		try {
-				xmiFileParser.readXMIFile(path);
-				AssessmentMark xmiAssessor = new AssessmentMark(xmiFileParser.getPackagedList());
-				double mark = xmiAssessor.getFinalMarks();
-				this.jTextAreaForLog.append("The student mark is " + mark + ".\n");
-			} catch (IOException e) {
-				// TODO: handle exception
-				System.err.println("IOException.");
-			} catch (JDOMException e2) {
-				// TODO: handle exception
-				System.err.println("JDOM exception.");
-			}
-			
+    	try {
+    		xmiFileParser.readXMIFile(lecturerFilePath);
+    		ArrayList<PackagedElement> lecturersElements = xmiFileParser.getPackagedList();
+    		xmiFileParser.readXMIFile(studentFilePath);
+    		ArrayList<PackagedElement> studentElements = xmiFileParser.getPackagedList();
+    		
+    		AssessmentMark xmiAssessor = new AssessmentMark(studentElements, lecturersElements);
+    		
+    		this.jTextAreaForLog.append("The student final mark for usecase diagram is " + xmiAssessor.getFinalMarks() + "%\n");
+    		
+		} catch (IOException e) {
+			// TODO: handle exception
+		} catch (JDOMException e) {
+			// TODO: handle exception
 		}
+    	
+    	
+//    	for (String path : paths) {
+//    		try {
+//				xmiFileParser.readXMIFile(path);
+//				AssessmentMark xmiAssessor = new AssessmentMark(xmiFileParser.getPackagedList());
+//				double mark = xmiAssessor.getFinalMarks();
+//				this.jTextAreaForLog.append("The student mark is " + mark + ".\n");
+//			} catch (IOException e) {
+//				// TODO: handle exception
+//				System.err.println("IOException.");
+//			} catch (JDOMException e2) {
+//				// TODO: handle exception
+//				System.err.println("JDOM exception.");
+//			}
+//			
+//		}
     	
     }
     /**
