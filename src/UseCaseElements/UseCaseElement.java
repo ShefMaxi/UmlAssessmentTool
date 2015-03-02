@@ -72,9 +72,9 @@ public class UseCaseElement extends GeneralizableElement {
 			UseCaseElement studentElement=(UseCaseElement) packagedElement;
 			// compare usecase name							
 			if(this.getType().compareToIgnoreCase(studentElement.getType())==0){								
-			if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
-				marks++;
-			}
+				if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
+					marks++;
+				}
 			}	
 			//compare generalization
 			    if(this.isGeneralizable()==true&&studentElement.isGeneralizable()==true){		
@@ -84,9 +84,9 @@ public class UseCaseElement extends GeneralizableElement {
 			    }
 			//compare inludeAddition
 			if(this.hasIncludeAdditionLink()==true&&studentElement.hasIncludeAdditionLink()==true){
-			if(this.getIncludeAddition().compareToIgnoreCase(studentElement.getIncludeAddition())==0){
-				marks++;
-			}
+				if(this.getIncludeAddition().compareToIgnoreCase(studentElement.getIncludeAddition())==0){
+					marks++;
+				}
 			}
 			//compare excludeAddition
 			if(this.hasExtensionAdditionLink()==true&&studentElement.hasExtensionAdditionLink()==true){
@@ -95,11 +95,12 @@ public class UseCaseElement extends GeneralizableElement {
 				}
 				}
 			//compare extensionPoints
-			if(this.getExtensionPoint().equals(studentElement.getExtensionPoint())){
-				marks++;
-			}
-	}
+//			if(this.getExtensionPoint().equals(studentElement.getExtensionPoint())){
+//				marks++;
+//			}
+//			else{}
+		}
 		return marks;
-}
+	}
 }
 

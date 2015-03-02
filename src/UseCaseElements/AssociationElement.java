@@ -17,6 +17,8 @@ public class AssociationElement extends PackagedElement{
 		this.secondMemberName = secondMemberName;
 		this.firstMemberType = firstMemberType;
 		this.secondMemberType = secondMemberType;
+		System.out.println(firstMemberType);
+		System.out.println(secondMemberType);
 	}
 	
 	public void setTypeAndName(String name1, String type1, String name2, String type2) {

@@ -32,13 +32,12 @@ public class AssessmentMark {
 					.get(key);
 			System.out.println(selectedLecturerElements.size());
 			totalPoints += selectedLecturerElements.size();
-			if (totalPoints == 6) {
 				for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 					for (PackagedElement studentPackagedElement : selectedStudentElements) {
 						marks += lecturerPackagedElement
 								.compareTo(studentPackagedElement);
 					}
-				}
+				
 			}
 			
 		}
