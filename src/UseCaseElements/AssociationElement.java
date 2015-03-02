@@ -70,7 +70,7 @@ public class AssociationElement extends PackagedElement{
 											.getSecondMemberName()) == 0) {
 				return marks=marks+1;
 			}				
-			else if (this.getFirstMemberType().equalsIgnoreCase("Actor")){
+			/*else if (this.getFirstMemberType().equalsIgnoreCase("Actor")){
 				if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0){
 				return	marks = marks + 0.5;
 				}				
@@ -78,7 +78,7 @@ public class AssociationElement extends PackagedElement{
 				if(this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
 					return	marks = marks + 0.5;
 					}				
-			}									
+			}	*/								
 			}
 		return marks;
 		}			
