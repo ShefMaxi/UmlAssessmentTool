@@ -1,4 +1,4 @@
-package FileHandler;
+package deprecatedSourceCode;
 
 import java.io.File;
 import java.io.FileOutputStream;
