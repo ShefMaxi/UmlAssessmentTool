@@ -107,9 +107,6 @@ public class XMIFileParser {
 						packagedList.add(new UseCaseElement(attributeArray[0], attributeArray[1],
 								attributeArray[2], generalization, inludeAddition, extensionAddition,
 								extensionPoints));
-						System.out.println(attributeArray[0]+" # "+attributeArray[1]+" # "+attributeArray[2]
-								+" # "+generalization+" # "+inludeAddition+" # "+extensionAddition
-								+" # "+extensionPoints);
 					}// end of usecase
 					
 					if (attributeArray[0].equals("uml:Association")) {
@@ -142,7 +139,6 @@ public class XMIFileParser {
 							}
 						
 						packagedList.add(new AssociationElement(attributeArray[1], firstMember, secondMember));
-						System.out.println(attributeArray[0]+" # "+attributeArray[1]+" # "+firstMember+" # "+secondMember);
 					}// end of association
 					
 				}// end of UseCase diagram
@@ -190,9 +186,4 @@ public class XMIFileParser {
 		
 		return (ArrayList<PackagedElement>)packagedList;
 	}
-	
-	/*public static void main(String[] args) throws JDOMException, IOException {
-		
-		M_XMIFile.readXMIFile("project9.xmi");
-	}*/
 }

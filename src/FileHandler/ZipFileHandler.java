@@ -16,7 +16,11 @@ public class ZipFileHandler {
 	public  void extractFile(String inputFile) {
 		
 		String destinationFile = "C:/Uml Assessment Tool/";
-
+		
+		File dir = new File(destinationFile);
+		
+		dir.mkdir();
+		
 		try {
 			
 			ZipFile zipFile = new ZipFile(inputFile);
@@ -86,15 +90,5 @@ public class ZipFileHandler {
 	
 	public ArrayList<String> getEntriesList() {
 		return (ArrayList<String>)entriesList;
-	}
-	
-	public static void main(String[] args) {
-		ZipFileHandler extractZipContent = new ZipFileHandler();
-		
-		extractZipContent.extractFile("C:/Users/Paul/Documents/GitHub/UmlAssessmentTool/project9.zip");
-		System.out.println(extractZipContent.getEntriesList());
-		System.out.println(extractZipContent.getEntriesList().size());
-		
-		
 	}
 }
