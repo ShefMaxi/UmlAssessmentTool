@@ -195,8 +195,8 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			String name = jFileChooser.getSelectedFile().getName();
 			path = path.replace('\\', '/');
 			lecturerFilePath = path;
-			this.jTextAreaForLog.append("current path£º" + path
-					+ ";\ncurrent name£º" + name + "\n");
+			this.jTextAreaForLog.append("current path:" + path
+					+ ";\ncurrent name:" + name + "\n");
 			this.lecturerFileIsSelected = true;
 		} else {
 			this.jTextAreaForLog.append("Lecture File not chosen.\n");
@@ -215,8 +215,8 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			String name = jFileChooser.getSelectedFile().getName();
 			path = path.replace('\\', '/');
 			studentFilePath = path;
-			this.jTextAreaForLog.append("current path£º" + path
-					+ ";\ncurrent name£º" + name + "\n");
+			this.jTextAreaForLog.append("current path:" + path
+					+ ";\ncurrent name:" + name + "\n");
 			this.studentFileIsSelected = true;
 		} else {
 			this.jTextAreaForLog.append("Student File not chosen.\n");
