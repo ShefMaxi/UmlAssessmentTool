@@ -42,7 +42,8 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
         jButtonForStartAssessment = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextAreaForLog = new javax.swing.JTextArea();
+        jButtonForOutput = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -77,9 +78,17 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
             }
         });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        jTextAreaForLog.setColumns(20);
+        jTextAreaForLog.setRows(5);
+        jTextAreaForLog.setEditable(false);
+        jScrollPane3.setViewportView(jTextAreaForLog);
+
+        jButtonForOutput.setText("Output");
+        jButtonForOutput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonForOutputActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,26 +102,29 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelForTitle))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(144, 144, 144)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(49, 49, 49)
-                                            .addComponent(jButtonForStartAssessment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabelForStudents)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButtonForStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabelForLecturer)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButtonForLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(144, 144, 144)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabelForStudents)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jButtonForStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabelForLecturer)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jButtonForLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(167, 167, 167)
+                                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, 0)))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)))
+                        .addGap(80, 80, 80)
+                        .addComponent(jButtonForStartAssessment, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110)
+                        .addComponent(jButtonForOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)))
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -131,9 +143,11 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonForStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelForStudents))
-                        .addGap(73, 73, 73)
-                        .addComponent(jButtonForStartAssessment, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
+                        .addGap(85, 85, 85)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonForStartAssessment, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonForOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58)
                         .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(96, Short.MAX_VALUE))
@@ -143,7 +157,12 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonForStartAssessmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonForStartAssessmentActionPerformed
-        // TODO add your handling code here:
+    	if (studentFilePath != null && lecturerFilePath != null) {
+    		this.jTextAreaForLog.append("Start Assessment.\n");
+			//System.out.println("Start Assessment");
+		}
+        
+    	// TODO add your handling code here:
     }//GEN-LAST:event_jButtonForStartAssessmentActionPerformed
 
     private void jButtonForLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonForLecturerActionPerformed
@@ -162,6 +181,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 		} else {
 			System.out.println("Lecture File not chosen");
 			this.lecturerFileIsSelected = false;
+			this.lecturerFilePath = null;
 		}
     }//GEN-LAST:event_jButtonForLecturerActionPerformed
 
@@ -181,8 +201,13 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 		} else {
 			System.out.println("Student File not chosen");
 			this.studentFileIsSelected = false;
+			this.studentFilePath = null;
 		}
     }//GEN-LAST:event_jButtonForStudentsActionPerformed
+    
+    private void jButtonForOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonForOutputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonForOutputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +246,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonForLecturer;
+    private javax.swing.JButton jButtonForOutput;
     private javax.swing.JButton jButtonForStartAssessment;
     private javax.swing.JButton jButtonForStudents;
     private javax.swing.JLabel jLabelForLecturer;
@@ -228,6 +254,6 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelForTitle;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextAreaForLog;
     // End of variables declaration//GEN-END:variables
 }
