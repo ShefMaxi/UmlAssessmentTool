@@ -52,8 +52,8 @@ public class AssessmentMark {
 	}
 
 	public double getFinalMarks() {
-		System.out.println(totalPoints);
-		System.out.println(marks);
+		System.out.println("total point is: "+totalPoints);
+		System.out.println("correct comparison amount is: "+marks);
 		return 100*marks/totalPoints;
 	}
 }
