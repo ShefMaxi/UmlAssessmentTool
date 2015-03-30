@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_K3IxAMyIEeS6h4prtE-Sxw" name="statemachine">
-  <eAnnotations xmi:id="_K3IxAcyIEeS6h4prtE-Sxw" source="Objing">
-    <contents xmi:type="uml:Property" xmi:id="_K3IxAsyIEeS6h4prtE-Sxw" name="exporterVersion">
-      <defaultValue xmi:type="uml:LiteralString" xmi:id="_K3IxA8yIEeS6h4prtE-Sxw" value="3.0.0"/>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_dcdRcNa8EeS4FbDJMaEHOw" name="statemachine">
+  <eAnnotations xmi:id="_dcdRcda8EeS4FbDJMaEHOw" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_dcdRcta8EeS4FbDJMaEHOw" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_dcdRc9a8EeS4FbDJMaEHOw" value="3.0.0"/>
     </contents>
   </eAnnotations>
-  <packagedElement xmi:type="uml:StateMachine" xmi:id="_K3IxBMyIEeS6h4prtE-Sxw" name="State Machine">
-    <region xmi:id="_K3IxBcyIEeS6h4prtE-Sxw">
-      <subvertex xmi:type="uml:FinalState" xmi:id="_K3IxBsyIEeS6h4prtE-Sxw" name="Final State"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_K3IxB8yIEeS6h4prtE-Sxw" name="Initial State"/>
-      <subvertex xmi:type="uml:State" xmi:id="_K3IxCMyIEeS6h4prtE-Sxw" name="good name 1"/>
-      <subvertex xmi:type="uml:State" xmi:id="_K3IxCcyIEeS6h4prtE-Sxw" name="good name 2"/>
-      <transition xmi:id="_K3IxCsyIEeS6h4prtE-Sxw" name="Transition" source="_K3IxB8yIEeS6h4prtE-Sxw" target="_K3IxCMyIEeS6h4prtE-Sxw"/>
-      <transition xmi:id="_K3IxC8yIEeS6h4prtE-Sxw" name="Transition" source="_K3IxCMyIEeS6h4prtE-Sxw" target="_K3IxCcyIEeS6h4prtE-Sxw"/>
-      <transition xmi:id="_K3IxDMyIEeS6h4prtE-Sxw" name="Transition" source="_K3IxCcyIEeS6h4prtE-Sxw" target="_K3IxBsyIEeS6h4prtE-Sxw"/>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_dcdRdNa8EeS4FbDJMaEHOw" name="State Machine">
+    <region xmi:id="_dcdRdda8EeS4FbDJMaEHOw">
+      <subvertex xmi:type="uml:FinalState" xmi:id="_dcdRdta8EeS4FbDJMaEHOw" name="Final State"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_dcdRd9a8EeS4FbDJMaEHOw" name="Initial State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_dcdReNa8EeS4FbDJMaEHOw" name="good name 1"/>
+      <subvertex xmi:type="uml:State" xmi:id="_dcdReda8EeS4FbDJMaEHOw" name="good name 2"/>
+      <subvertex xmi:type="uml:State" xmi:id="_dcdReta8EeS4FbDJMaEHOw" name="State"/>
+      <transition xmi:id="_dcdRe9a8EeS4FbDJMaEHOw" name="Transition" source="_dcdRd9a8EeS4FbDJMaEHOw" target="_dcdReNa8EeS4FbDJMaEHOw"/>
+      <transition xmi:id="_dcdRfNa8EeS4FbDJMaEHOw" name="Transition" source="_dcdReda8EeS4FbDJMaEHOw" target="_dcdRdta8EeS4FbDJMaEHOw"/>
+      <transition xmi:id="_dcdRfda8EeS4FbDJMaEHOw" name="Transition1" source="_dcdReda8EeS4FbDJMaEHOw" target="_dcdReta8EeS4FbDJMaEHOw" guard="_dcdRfta8EeS4FbDJMaEHOw">
+        <ownedRule xmi:id="_dcdRfta8EeS4FbDJMaEHOw" name="nice" constrainedElement="_dcdRfda8EeS4FbDJMaEHOw">
+          <specification xmi:type="uml:LiteralString" xmi:id="_dcdRf9a8EeS4FbDJMaEHOw" value="nice"/>
+        </ownedRule>
+      </transition>
     </region>
   </packagedElement>
 </uml:Model>
