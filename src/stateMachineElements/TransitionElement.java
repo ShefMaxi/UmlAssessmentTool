@@ -6,11 +6,28 @@ public class TransitionElement extends PackagedElement {
 	protected String name;
 	protected SubvertexElement sourceElement;
 	protected SubvertexElement targetElement;
+	protected Guard guard;
 	public TransitionElement(String id, String name, SubvertexElement source, SubvertexElement target) {
 		super("transition", id);
 		this.name = name;
 		this.sourceElement = source;
 		this.targetElement = target;
+	}
+	
+	public void setGuard(Guard guard) {
+		this.guard = guard;
+	}
+	
+	public Guard getGuard() {
+		return guard;
+	}
+	
+	public SubvertexElement getSourceElement() {
+		return sourceElement;
+	}
+	
+	public SubvertexElement getTargetElement() {
+		return targetElement;
 	}
 	
 	@Override
