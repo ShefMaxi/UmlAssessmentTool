@@ -14,6 +14,10 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
 public class XMIFileParser {
+	// usecase 		: 1
+	// class  		: 2
+	// activity		: 3
+	// statemachine : 4
 	
 	private List<PackagedElement> packagedList= null;
 	
@@ -185,4 +189,16 @@ public class XMIFileParser {
 		
 		return (ArrayList<PackagedElement>)packagedList;
 	}
+
+	public int checkDiagramType(String filePath) throws JDOMException, IOException {
+		SAXBuilder xmiBuilder = new SAXBuilder();
+		Document document = xmiBuilder.build(new File(filePath));
+		// to do
+		return 0;
+	}
+	
+	public List<PackagedElement> readStateMachineXMIFile() {
+		return new ArrayList<>();
+	}
+
 }
