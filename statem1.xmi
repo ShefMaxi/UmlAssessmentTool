@@ -14,7 +14,7 @@
       <transition xmi:id="_v8cr0thyEeSqcaiLcMJrdg" name="Transition" source="_v8cExthyEeSqcaiLcMJrdg" target="_v8cr0dhyEeSqcaiLcMJrdg"/>
       <transition xmi:id="_v8cr09hyEeSqcaiLcMJrdg" name="Transition" source="_v8cEx9hyEeSqcaiLcMJrdg" target="_v8cExthyEeSqcaiLcMJrdg" guard="_v8cr1NhyEeSqcaiLcMJrdg">
         <ownedRule xmi:id="_v8cr1NhyEeSqcaiLcMJrdg" name=";;;;llll" constrainedElement="_v8cr09hyEeSqcaiLcMJrdg">
-          <specification xmi:type="uml:LiteralString" xmi:id="_v8cr1dhyEeSqcaiLcMJrdg" value=";;;;llll"/>
+          <specification xmi:type="uml:LiteralString" xmi:id="_v8cr1dhyEeSqcaiLcMJrdg" value=";;;;llll"></specification>
         </ownedRule>
       </transition>
       <transition xmi:id="_v8cr1thyEeSqcaiLcMJrdg" name="Transition" source="_v8cr0NhyEeSqcaiLcMJrdg" target="_v8cEx9hyEeSqcaiLcMJrdg"/>
