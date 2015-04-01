@@ -7,10 +7,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
+import org.jdom2.filter.ElementFilter;
 import org.jdom2.input.SAXBuilder;
 
 public class XMIFileParser {
@@ -193,7 +195,11 @@ public class XMIFileParser {
 	public int checkDiagramType(String filePath) throws JDOMException, IOException {
 		SAXBuilder xmiBuilder = new SAXBuilder();
 		Document document = xmiBuilder.build(new File(filePath));
-		// to do
+		Element root = document.getRootElement();
+		ElementFilter filter = new org.jdom2.filter.ElementFilter("usecase");
+		for (Element element : root.getDescendants(filter)) {
+			System.out.println(element.getTextNormalize());
+		}
 		return 0;
 	}
 	
@@ -201,4 +207,16 @@ public class XMIFileParser {
 		return new ArrayList<>();
 	}
 
+	public static void main(String[] args) {
+		XMIFileParser parser = new XMIFileParser();
+		try {
+			parser.checkDiagramType("maxitester1.xmi");
+		} catch (JDOMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
