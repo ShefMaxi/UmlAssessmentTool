@@ -22,7 +22,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkevsDiEeSs8rjlMJ9_hw"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_ibkev8DiEeSs8rjlMJ9_hw" name="shupeng"/>
+  <packagedElement xmi:id="_ibkev8DiEeSs8rjlMJ9_hw" name="shupeng" credit="20"></packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_ibkewMDiEeSs8rjlMJ9_hw" memberEnd="_ibkewcDiEeSs8rjlMJ9_hw _ibkew8DiEeSs8rjlMJ9_hw" navigableOwnedEnd="_ibkewcDiEeSs8rjlMJ9_hw">
     <ownedEnd xmi:id="_ibkewcDiEeSs8rjlMJ9_hw" visibility="public" type="_ibke1cDiEeSs8rjlMJ9_hw" association="_ibkewMDiEeSs8rjlMJ9_hw">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkewsDiEeSs8rjlMJ9_hw"/>
