@@ -18,6 +18,7 @@ import org.jdom2.input.SAXBuilder;
 import org.jast.xml.*;
 import org.jast.xpath.*;
 
+import stateMachineElements.Guard;
 import stateMachineElements.SubvertexElement;
 import stateMachineElements.TransitionElement;
 
@@ -62,17 +63,14 @@ public class XMIFileParser {
 	public static void main(String[] args) {
 		XMIFileParser parser = new XMIFileParser();
 		try {
-			parser.checkDiagramType("statem.xmi");
-			ArrayList<PackagedElement> output = parser.readStateMachineXMIFile("statem.xmi");
+			parser.checkDiagramType("statem1.xmi");
+			ArrayList<PackagedElement> output = parser.readStateMachineXMIFile("statem1.xmi");
 			for (PackagedElement packagedElement : output) {
-				System.out.println(packagedElement + "..");
+				System.out.println(packagedElement);
 			}
-			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (XMLError e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -110,13 +108,16 @@ public class XMIFileParser {
 						.get(0).getValue(), attributes.get(1).getValue(),
 						matchingMap.get(attributes.get(2).getValue()),
 						matchingMap.get(attributes.get(3).getValue()));
+				if (attributes.size() == 5) {
+					element.setGuard(new Guard(content.getContent(0)
+							.getAttributes().get(1).getValue()));
+				}
 				result.add(element);
 			}
 		}
 
 		return result;
 	}
-
 	
 	
 	public void readXMIFile(String fileName) throws JDOMException, IOException {

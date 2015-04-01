@@ -6,7 +6,7 @@ public class TransitionElement extends PackagedElement {
 	protected String name;
 	protected SubvertexElement sourceElement;
 	protected SubvertexElement targetElement;
-	protected Guard guard;
+	protected Guard guard = null;
 	public TransitionElement(String id, String name, SubvertexElement source, SubvertexElement target) {
 		super("transition", id);
 		this.name = name;
@@ -38,7 +38,11 @@ public class TransitionElement extends PackagedElement {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString() + " name : " + name + " source : " 
+		if (this.guard == null) {
+			return super.toString() + " name : " + name + " source : " 
 				+ sourceElement.getName() + " target : " + targetElement.getName();
+		}
+		return super.toString() + " name : " + name + " source : " 
+		+ sourceElement.getName() + " target : " + targetElement.getName() + " guard : " + this.guard;
 	}
 }
