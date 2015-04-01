@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.jdom2.Attribute;
@@ -16,6 +17,9 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jast.xml.*;
 import org.jast.xpath.*;
+
+import stateMachineElements.SubvertexElement;
+import stateMachineElements.TransitionElement;
 
 public class XMIFileParser {
 	// usecase		 : 1
@@ -55,12 +59,52 @@ public class XMIFileParser {
 		return 0;
 	}
 
-	public List<PackagedElement> readStateMachineXMIFile() {
+	public static void main(String[] args) {
+		XMIFileParser parser = new XMIFileParser();
+		try {
+			parser.readStateMachineXMIFile("statemachine.xmi");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (XMLError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public ArrayList<PackagedElement> readStateMachineXMIFile(String filePath)
+			throws IOException, XMLError {
+		ArrayList<PackagedElement> result = new ArrayList<>();
+		File xmiFile = new File(filePath);
+		XMLReader reader = new XMLReader(xmiFile);
+		org.jast.xml.Document document = reader.readDocument();
+		XPath query = new XPath("//region");
+		List<Content> contentsList = query.match(document);
+		Content rootContent = contentsList.get(0);
 		
-		
-		
-		
-		
+		HashMap<String, SubvertexElement> matchingMap = new HashMap<>();
+		List<Content> allContents = rootContent.getContents();
+		for (Content content : allContents) {
+			if (content.getName().compareToIgnoreCase("subvertex") == 0) {
+				List<org.jast.xml.Attribute> attributes = content
+						.getAttributes();
+				SubvertexElement element = new SubvertexElement(attributes.get(
+						0).getValue(), attributes.get(1).getValue(), attributes
+						.get(2).getValue());
+				result.add(element);
+				matchingMap.put(attributes.get(1).getValue(),
+						(SubvertexElement)result.get(result.size() - 1));
+
+			} else if (content.getName().compareToIgnoreCase("transition") == 0) {
+				List<org.jast.xml.Attribute> attributes = content
+						.getAttributes();
+				TransitionElement element = new TransitionElement(attributes
+						.get(0).getValue(), attributes.get(1).getValue(),
+						matchingMap.get(attributes.get(2).getValue()),
+						matchingMap.get(attributes.get(3).getValue()));
+			}
+		}
+
 		return new ArrayList<>();
 	}
 
