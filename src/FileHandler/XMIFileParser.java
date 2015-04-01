@@ -62,7 +62,12 @@ public class XMIFileParser {
 	public static void main(String[] args) {
 		XMIFileParser parser = new XMIFileParser();
 		try {
-			parser.readStateMachineXMIFile("statemachine.xmi");
+			parser.checkDiagramType("statem.xmi");
+			ArrayList<PackagedElement> output = parser.readStateMachineXMIFile("statem.xmi");
+			for (PackagedElement packagedElement : output) {
+				System.out.println(packagedElement + "..");
+			}
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,16 +79,19 @@ public class XMIFileParser {
 
 	public ArrayList<PackagedElement> readStateMachineXMIFile(String filePath)
 			throws IOException, XMLError {
+
 		ArrayList<PackagedElement> result = new ArrayList<>();
 		File xmiFile = new File(filePath);
 		XMLReader reader = new XMLReader(xmiFile);
 		org.jast.xml.Document document = reader.readDocument();
+
 		XPath query = new XPath("//region");
 		List<Content> contentsList = query.match(document);
 		Content rootContent = contentsList.get(0);
-		
+
 		HashMap<String, SubvertexElement> matchingMap = new HashMap<>();
 		List<Content> allContents = rootContent.getContents();
+
 		for (Content content : allContents) {
 			if (content.getName().compareToIgnoreCase("subvertex") == 0) {
 				List<org.jast.xml.Attribute> attributes = content
@@ -93,7 +101,7 @@ public class XMIFileParser {
 						.get(2).getValue());
 				result.add(element);
 				matchingMap.put(attributes.get(1).getValue(),
-						(SubvertexElement)result.get(result.size() - 1));
+						(SubvertexElement) result.get(result.size() - 1));
 
 			} else if (content.getName().compareToIgnoreCase("transition") == 0) {
 				List<org.jast.xml.Attribute> attributes = content
@@ -102,12 +110,15 @@ public class XMIFileParser {
 						.get(0).getValue(), attributes.get(1).getValue(),
 						matchingMap.get(attributes.get(2).getValue()),
 						matchingMap.get(attributes.get(3).getValue()));
+				result.add(element);
 			}
 		}
 
-		return new ArrayList<>();
+		return result;
 	}
 
+	
+	
 	public void readXMIFile(String fileName) throws JDOMException, IOException {
 		packagedList = new ArrayList<PackagedElement>();
 		SAXBuilder xmiBuilder = new SAXBuilder();
