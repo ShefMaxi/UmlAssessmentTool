@@ -6,20 +6,13 @@ import UseCaseElements.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
-
 
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
-import org.jdom2.filter.ElementFilter;
-import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
-import org.jdom2.xpath.XPathExpression;
-import org.jdom2.xpath.XPathFactory;
 import org.jast.xml.*;
 import org.jast.xpath.*;
 
@@ -39,7 +32,6 @@ public class XMIFileParser {
 		XPath classPath = new XPath("//packagedElement[@xmi:type='uml:Class']");
 		XPath activityPath = new XPath("//packagedElement[@xmi:type='uml:Activity']");
 		XPath stateMachinePath = new XPath("//packagedElement[@xmi:type='uml:StateMachine']");
-		List<Content> result = usecasePath.match(document);
 		if (usecasePath.match(document).size() != 0) {
 			System.out.println("usecase");
 			return 1;
@@ -53,40 +45,15 @@ public class XMIFileParser {
 			System.out.println("state machine");
 			return 4;
 		}
-//		
-//		for (Content content : result) {
-//			System.out.println(content.getName() + "..");
-//			List<org.jast.xml.Attribute> attrList = content.getAttributes();
-//			for (org.jast.xml.Attribute attribute : attrList) {
-//				System.out.println(".." + attribute.getName() + " " + attribute.getValue());
-//			}
-//		}
-//		
+
 		return 0;
 	}
-	public static void main(String[] args) {
-		XMIFileParser parser = new XMIFileParser();
-		try {
-			System.out.println("did read");
-			parser.checkDiagramType("statemachine.xmi");
-		} catch (JDOMException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-		
+	
 		
 	public List<PackagedElement> readStateMachineXMIFile() {
 		return new ArrayList<>();
 	}
 
-
-	
-	
-	
 	
 	public void readXMIFile(String fileName) throws JDOMException, IOException {
 		packagedList = new ArrayList<PackagedElement>();
@@ -253,9 +220,7 @@ public class XMIFileParser {
 	}
 	
 	public ArrayList<PackagedElement> getPackagedList() {
-		
 		return (ArrayList<PackagedElement>)packagedList;
 	}
-
 
 }
