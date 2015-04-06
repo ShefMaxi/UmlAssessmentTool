@@ -1,10 +1,11 @@
 package FileHandler;
 
+import ClassElements.ClassAssociationElement;
+import ClassElements.ClassElement;
 import PackagedElements.PackagedElement;
 import UseCaseElements.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,11 +61,26 @@ public class XMIFileParser {
 		return 0;
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		XMIFileParser parser = new XMIFileParser();
 		try {
 			parser.checkDiagramType("statem1.xmi");
 			ArrayList<PackagedElement> output = parser.readStateMachineXMIFile("statem1.xmi");
+			for (PackagedElement packagedElement : output) {
+				System.out.println(packagedElement);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (XMLError e) {
+			e.printStackTrace();
+		}
+	}*/
+	
+	public static void main(String[] args) throws JDOMException {
+		XMIFileParser parser = new XMIFileParser();
+		try {
+			parser.checkDiagramType("project6.xmi");
+			ArrayList<PackagedElement> output = parser.readClassXMIFile("project6.xmi");
 			for (PackagedElement packagedElement : output) {
 				System.out.println(packagedElement);
 			}
@@ -119,186 +135,220 @@ public class XMIFileParser {
 		return result;
 	}
 	
+	public ArrayList<PackagedElement> readClassXMIFile(String filePath)
+			throws IOException, XMLError, JDOMException {
+		
+		ArrayList<PackagedElement> packagedList = new ArrayList<>();
+		SAXBuilder xmiBuilder = new SAXBuilder();
+		Document document = xmiBuilder.build(new File(filePath));
+		Element rootElement = document.getRootElement();
+		List<Element> childrenElements = rootElement.getChildren();
+		
+		for (Element element : childrenElements) {
+			String[] attributeArray = extractAttributeValues(element);
+			
+			if (element.getName().equals("packagedElement")) {
+				if (attributeArray[0].equals("uml:Class")) {
+					ArrayList<String> operation = null;
+					operation = new ArrayList<>();
+					String generalization = null;
+					HashMap<String, String> map = null;
+					map = new HashMap<>();
+					ArrayList<HashMap<String, String>> attribute = null;
+					attribute = new ArrayList<>();
+					List<Element> nextChildrenElements = element.getChildren();
+					if (nextChildrenElements.size() > 0) {
+						for (Element childElement : nextChildrenElements) {
+							if (childElement.getName().equals("ownedAttribute")) {
+								String attr = childElement.getAttributeValue("name");
+								String type = childElement.getChild("type").getAttributeValue("href");
+								type = type.substring(type.lastIndexOf('#')+1, type.length());
+								map.put(attr, type);
+								attribute.add(map);
+							}
+							else if (childElement.getName().equals("ownedOperation")) {
+								String attr = childElement.getAttributeValue("name");
+								operation.add(attr);
+							}
+							else if (childElement.getName().equals("generalization")) {
+								String generalizationId = childElement.getAttributeValue("general");
+								generalization = extractChildAttributeValues(
+										childrenElements, generalizationId)[1];
+							}
+						}
+					}
+					packagedList.add(new ClassElement(attributeArray[0],attributeArray[1], 
+							attributeArray[2], operation, generalization, attribute));
+				}// end of class
+				
+				if (attributeArray[0].equals("uml:Association")) {
+					String firstMemberName = null;
+					String secondMemberName = null;
+					String[] lowerValue = new String[2];
+					String[] upperValue = new String[2];
+					String[] endRole = new String[2];
+					String type = "Association";
+					String[] ownedEnd = new String[2];
+					int i = 0;
+					List<Element> nextChildrenElements = element.getChildren();
+					if (nextChildrenElements.size() > 0) {
+						for (Element childElement : nextChildrenElements) {
+							if (childElement.getName().equals("ownedEnd")) {
+								ownedEnd[i] = childElement.getAttributeValue("type");
+								if(childElement.getAttributeValue("aggregation") != null) {
+									if(childElement.getAttributeValue("aggregation").equals("shared"))
+										type = "Aggregation";
+									else if(childElement.getAttributeValue("aggregation").equals("composite"))
+										type = "Composition";
+								}
+								if(childElement.getChild("lowerValue") != null) {
+									if(childElement.getChild("lowerValue").getAttributeValue("value") != null) {
+										lowerValue[i] = childElement.getChild("lowerValue")
+												.getAttributeValue("value");
+									}
+									else 
+										lowerValue[i] = "0";
+								}
+								else
+									lowerValue[i] = "1";
+								if(childElement.getChild("upperValue") != null) {
+									if(childElement.getChild("upperValue").getAttributeValue("value") != null) {
+										upperValue[i] = childElement.getChild("upperValue")
+												.getAttributeValue("value");
+									}
+									else 
+										upperValue[i] = "0";
+								}
+								else
+									upperValue[i] = "1";
+							}
+							endRole[i] = childElement.getAttributeValue("name");
+							i++;
+						}
+						firstMemberName = extractNames(childrenElements, ownedEnd[0]);
+						secondMemberName = extractNames(childrenElements, ownedEnd[1]);
+					}
+					packagedList.add(new ClassAssociationElement(type, firstMemberName,
+							lowerValue[0], upperValue[0], endRole[0], secondMemberName,
+							lowerValue[1], upperValue[1], endRole[1]));
+				}// end of association
+			}
+		}
+		return packagedList;
+	}
 	
 	public void readXMIFile(String fileName) throws JDOMException, IOException {
 		packagedList = new ArrayList<PackagedElement>();
 		SAXBuilder xmiBuilder = new SAXBuilder();
-
 		Document document = xmiBuilder.build(new File(fileName));
-
 		Element rootElement = document.getRootElement();
-
 		List<Element> childrenElements = rootElement.getChildren();
-
+		
 		for (Element element : childrenElements) {
-
 			String[] attributeArray = extractAttributeValues(element);
-
+			
 			if (element.getName().equals("packagedElement")) {
-
-				if (attributeArray[0].equals("uml:Actor")
-						|| attributeArray[0].equals("uml:UseCase")
-						|| attributeArray[0].equals("uml:Association")) {
-
-					if (attributeArray[0].equals("uml:Actor")) {
-
-						String generalization = null;
-
-						List<Element> nextChildrenElements = element
-								.getChildren();
-
-						if (nextChildrenElements.size() > 0) {
-
-							for (Element childElement : nextChildrenElements) {
-
-								if (childElement.getName().equals(
-										"generalization")) {
-
-									String generalizationId = childElement
-											.getAttributeValue("general");
-
-									generalization = extractChildAttributeValues(
-											childrenElements, generalizationId)[1];
-								}
+				if (attributeArray[0].equals("uml:Actor")) {
+					String generalization = null;
+					List<Element> nextChildrenElements = element.getChildren();
+					if (nextChildrenElements.size() > 0) {
+						for (Element childElement : nextChildrenElements) {
+							if (childElement.getName().equals("generalization")) {
+								String generalizationId = childElement.getAttributeValue("general");
+								generalization = extractChildAttributeValues(
+										childrenElements, generalizationId)[1];
 							}
 						}
+					}
+					packagedList.add(new GeneralizableElement(attributeArray[0],
+							attributeArray[1], attributeArray[2], generalization));
+				}// end of actor
 
-						packagedList.add(new GeneralizableElement(
-								attributeArray[0], attributeArray[1],
-								attributeArray[2], generalization));
-					}// end of actor
-
-					if (attributeArray[0].equals("uml:UseCase")) {
-
-						String generalization = null;
-
-						String inludeAddition = null;
-
-						String extensionAddition = null;
-
-						ArrayList<String> extensionPoints = new ArrayList<String>();
-
-						List<Element> nextChildrenElements = element
-								.getChildren();
-
-						if (nextChildrenElements.size() > 0) {
-
-							for (Element childElement : nextChildrenElements) {
-
-								if (childElement.getName().equals(
-										"generalization")) {
-
-									String generalizationId = childElement
-											.getAttributeValue("general");
-
-									generalization = extractChildAttributeValues(
-											childrenElements, generalizationId)[1];
-								}
-
-								if (childElement.getName().equals("include")) {
-
-									String inludeAdditionId = childElement
-											.getAttributeValue("addition");
-
-									inludeAddition = extractChildAttributeValues(
-											childrenElements, inludeAdditionId)[1];
-								}
-
-								if (childElement.getName().equals("extend")) {
-
-									String excludeAdditionnId = childElement
-											.getAttributeValue("extendedCase");
-
-									extensionAddition = extractChildAttributeValues(
-											childrenElements,
-											excludeAdditionnId)[1];
-								}
-								if (childElement.getName().equals(
-										"extensionPoint")) {
-
-									String extensionPoint = childElement
-											.getAttributeValue("name");
-
-									extensionPoints.add(extensionPoint);
-								}
+				if (attributeArray[0].equals("uml:UseCase")) {
+					String generalization = null;
+					String inludeAddition = null;
+					String extensionAddition = null;
+					ArrayList<String> extensionPoints = new ArrayList<String>();
+					List<Element> nextChildrenElements = element.getChildren();
+					if (nextChildrenElements.size() > 0) {
+						for (Element childElement : nextChildrenElements) {
+							if (childElement.getName().equals("generalization")) {
+								String generalizationId = childElement.getAttributeValue("general");
+								generalization = extractChildAttributeValues(
+										childrenElements, generalizationId)[1];
+							}
+							if (childElement.getName().equals("include")) {
+							String inludeAdditionId = childElement.getAttributeValue("addition");
+								inludeAddition = extractChildAttributeValues(
+										childrenElements, inludeAdditionId)[1];
+							}
+							if (childElement.getName().equals("extend")) {
+								String excludeAdditionnId = childElement.getAttributeValue("extendedCase");
+								extensionAddition = extractChildAttributeValues(
+										childrenElements,excludeAdditionnId)[1];
+							}
+							if (childElement.getName().equals("extensionPoint")) {
+								String extensionPoint = childElement.getAttributeValue("name");
+								extensionPoints.add(extensionPoint);
 							}
 						}
+					}
+					packagedList.add(new UseCaseElement(attributeArray[0], attributeArray[1], attributeArray[2],
+							generalization, inludeAddition, extensionAddition, extensionPoints));
+				}// end of usecase
 
-						packagedList.add(new UseCaseElement(attributeArray[0],
-								attributeArray[1], attributeArray[2],
-								generalization, inludeAddition,
-								extensionAddition, extensionPoints));
-					}// end of usecase
-
-					if (attributeArray[0].equals("uml:Association")) {
-
-						String[] firstMember = null;
-						String[] secondMember = null;
-						String[] ownedEnd = new String[2];
-
-						int i = 0;
-
-						List<Element> nextChildrenElements = element
-								.getChildren();
-
-						if (nextChildrenElements.size() > 0) {
-
-							for (Element childElement : nextChildrenElements) {
-
-								if (childElement.getName().equals("ownedEnd")) {
-
-									ownedEnd[i] = childElement
-											.getAttributeValue("type");
-
-									i++;
-								}
-
-								firstMember = extractChildAttributeValues(
-										childrenElements, ownedEnd[0]);
-
-								secondMember = extractChildAttributeValues(
-										childrenElements, ownedEnd[1]);
+				if (attributeArray[0].equals("uml:Association")) {
+					String[] firstMember = null;
+					String[] secondMember = null;
+					String[] ownedEnd = new String[2];
+					int i = 0;
+					List<Element> nextChildrenElements = element.getChildren();
+					if (nextChildrenElements.size() > 0) {
+						for (Element childElement : nextChildrenElements) {
+							if (childElement.getName().equals("ownedEnd")) {
+								ownedEnd[i] = childElement.getAttributeValue("type");
+								i++;
 							}
+							firstMember = extractChildAttributeValues(childrenElements, ownedEnd[0]);
+							secondMember = extractChildAttributeValues(childrenElements, ownedEnd[1]);
 						}
-
-						packagedList.add(new AssociationElement(
-								attributeArray[1], firstMember[1],
-								secondMember[1], firstMember[0],
-								secondMember[0]));
-					}// end of association
-
-				}// end of UseCase diagram
-
-				// else if (){} // for other types of UML diagrams
+					}
+					packagedList.add(new AssociationElement(attributeArray[1], firstMember[1],
+							secondMember[1], firstMember[0], secondMember[0]));
+				}// end of association
 			}
 		}
 	}
+	
+	private String extractNames(List<Element> childrenElements, String id) {
+		String name = null;
+		for (Element element2 : childrenElements) {
+			String[] attributeArray2 = extractAttributeValues(element2);
+			if (element2.getName().equals("packagedElement")) {
+				if (attributeArray2[1].equals(id)) {
+					name = attributeArray2[2];
+					return name;
+				}
+			}
+		}
+		return name;
+	}
 
 	private String[] extractAttributeValues(Element element) {
-
 		List<Attribute> list = element.getAttributes();
-
 		String[] attributeArray = new String[list.size()];
-
 		for (int i = 0; i < list.size(); ++i) {
-
 			attributeArray[i] = list.get(i).getValue();
 		}
-
 		return attributeArray;
 	}
 
 	private String[] extractChildAttributeValues(
 			List<Element> childrenElements, String id) {
-
 		String[] generalization = new String[2];
-
 		for (Element element2 : childrenElements) {
-
 			String[] attributeArray2 = extractAttributeValues(element2);
-
 			if (element2.getName().equals("packagedElement")) {
-
 				if (attributeArray2[1].equals(id)) {
 					generalization[0] = attributeArray2[0];
 					generalization[1] = attributeArray2[2];
@@ -306,7 +356,6 @@ public class XMIFileParser {
 				}
 			}
 		}
-
 		return generalization;
 	}
 

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 import PackagedElements.PackagedElement;
 
 
@@ -44,6 +42,10 @@ public String getGeneralization() {
 		return null;
 	}
 	return this.generalization;
+}
+public String toString() {
+	return super.toString() + " name : " + name + " operation : " + operation 
+			+ " attribute : " + attribute + " generalization : " + generalization;
 }
 @Override
 public double compareTo(PackagedElement packagedElement) {
