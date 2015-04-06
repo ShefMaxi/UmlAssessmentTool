@@ -1,4 +1,4 @@
-package ActivityDiagramElements;
+package activityElements;
 
 import PackagedElements.PackagedElement;
 
