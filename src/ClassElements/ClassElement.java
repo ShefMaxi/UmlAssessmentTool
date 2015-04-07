@@ -47,6 +47,7 @@ public String toString() {
 	return super.toString() + " name : " + name + " operation : " + operation 
 			+ " attribute : " + attribute + " generalization : " + generalization;
 }
+@SuppressWarnings({ "unchecked" })
 @Override
 public double compareTo(PackagedElement packagedElement) {
 	double marks=0.0;		
