@@ -1,7 +1,6 @@
 package FileHandler;
 
-import ClassElements.ClassAssociationElement;
-import ClassElements.ClassElement;
+import ClassElements.*;
 import PackagedElements.PackagedElement;
 import UseCaseElements.*;
 
@@ -228,6 +227,7 @@ public class XMIFileParser {
 						firstMemberName = extractNames(childrenElements, ownedEnd[0]);
 						secondMemberName = extractNames(childrenElements, ownedEnd[1]);
 					}
+					// please fix this error
 					packagedList.add(new ClassAssociationElement(type, firstMemberName,
 							lowerValue[0], upperValue[0], endRole[0], secondMemberName,
 							lowerValue[1], upperValue[1], endRole[1]));
