@@ -70,7 +70,24 @@ public class ClassAssociationElement extends PackagedElement{
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
 	double marks=0.0;
-	
+	if (packagedElement instanceof ClassAssociationElement){
+		ClassAssociationElement studentElement=(ClassAssociationElement) packagedElement;		
+			//compare linked object name
+			if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0&&this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
+			marks++;
+			}
+			//compare multiplicity,1 point each for correct multiplicity
+			if(this.getFirstMemberUpperValue().compareToIgnoreCase(studentElement.getFirstMemberUpperValue())==0&&this.getFirstMemberLowerValue().compareToIgnoreCase(studentElement.getFirstMemberLowerValue())==0){
+				marks++;
+			}
+			if(this.getSecondMemberLowerValue().compareToIgnoreCase(studentElement.getSecondMemberLowerValue())==0&&this.getSecondMemberUpperValue().compareToIgnoreCase(studentElement.getSecondMemberUpperValue())==0){
+				marks++;
+			}
+			//compare end roles
+			if(this.getFirstMemberEndRole().compareToIgnoreCase(studentElement.getFirstMemberEndRole())==0&&this.getSecondMemberEndRole().compareToIgnoreCase(studentElement.getSecondMemberEndRole())==0){
+				marks++;
+			}
+		}	
 	return marks;
 	}
 }

@@ -68,7 +68,7 @@ public class AssociationElement extends PackagedElement{
 							.compareToIgnoreCase(
 									studentElement
 											.getSecondMemberName()) == 0) {
-				return marks=marks+1;
+				 marks++;
 			}				
 			/*else if (this.getFirstMemberType().equalsIgnoreCase("Actor")){
 				if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0){

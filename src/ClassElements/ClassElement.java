@@ -13,8 +13,8 @@ protected ArrayList<String> operation;
 protected String generalization;
 protected ArrayList<HashMap<String, String>> attribute;
 protected boolean generalizable;
-	public ClassElement(String type, String id,String name,ArrayList<String> operation,String generalization,ArrayList<HashMap<String, String>> attribute) {
-		super(type, id);		
+	public ClassElement(String type, String name,ArrayList<String> operation,String generalization,ArrayList<HashMap<String, String>> attribute) {
+		super(type, null);		
 		this.name=name;
 		this.operation=operation;
 		this.attribute=attribute;
@@ -49,10 +49,10 @@ public String toString() {
 }
 @Override
 public double compareTo(PackagedElement packagedElement) {
-	double marks=0.0;	
-	//compare class name
+	double marks=0.0;		
 	if (packagedElement instanceof ClassElement){
 		ClassElement studentElement=(ClassElement) packagedElement;
+		//compare class name
 		if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
 			marks++;
 		}
@@ -73,7 +73,7 @@ public double compareTo(PackagedElement packagedElement) {
 	    //get every HashMap from ArrayList
 	    HashMap<String, String>[] lecAttributes=(HashMap<String, String>[]) this.getAttribute().toArray();
 	    HashMap<String, String>[] stuAttributes=(HashMap<String, String>[]) studentElement.getAttribute().toArray();
-	    //get a pair(name,type) per HashMap and compare them
+	    //get a pair(name,type) from per HashMap and compare them
 	    for(int i=0;i<lecAttributes.length;i++){
 	    Map.Entry<String, String> lecturer=(Map.Entry<String, String>) lecAttributes[i];
 	    for(int j=0;j<stuAttributes.length;j++){	    	
