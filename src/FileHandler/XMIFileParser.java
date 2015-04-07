@@ -78,8 +78,8 @@ public class XMIFileParser {
 	public static void main(String[] args) throws JDOMException {
 		XMIFileParser parser = new XMIFileParser();
 		try {
-			parser.checkDiagramType("project6.xmi");
-			ArrayList<PackagedElement> output = parser.readClassXMIFile("project6.xmi");
+			parser.checkDiagramType("project7.xmi");
+			ArrayList<PackagedElement> output = parser.readClassXMIFile("project7.xmi");
 			for (PackagedElement packagedElement : output) {
 				System.out.println(packagedElement);
 			}
@@ -176,7 +176,7 @@ public class XMIFileParser {
 							}
 						}
 					}
-					packagedList.add(new ClassElement(attributeArray[0],attributeArray[1], 
+					packagedList.add(new ClassElement(attributeArray[0], 
 							attributeArray[2], operation, generalization, attribute));
 				}// end of class
 				
@@ -227,11 +227,82 @@ public class XMIFileParser {
 						firstMemberName = extractNames(childrenElements, ownedEnd[0]);
 						secondMemberName = extractNames(childrenElements, ownedEnd[1]);
 					}
-					// please fix this error
 					packagedList.add(new ClassAssociationElement(type, firstMemberName,
 							lowerValue[0], upperValue[0], endRole[0], secondMemberName,
 							lowerValue[1], upperValue[1], endRole[1]));
 				}// end of association
+				
+				if (attributeArray[0].equals("uml:AssociationClass")) {
+					ArrayList<String> operation = null;
+					operation = new ArrayList<>();
+					HashMap<String, String> map = null;
+					map = new HashMap<>();
+					ArrayList<HashMap<String, String>> attribute = null;
+					attribute = new ArrayList<>();
+					String firstMemberName = null;
+					String secondMemberName = null;
+					String[] lowerValue = new String[2];
+					String[] upperValue = new String[2];
+					String[] endRole = new String[2];
+					String type = "AssociationClass";
+					String[] ownedEnd = new String[2];
+					int i = 0;
+					List<Element> nextChildrenElements = element.getChildren();
+					if (nextChildrenElements.size() > 0) {
+						for (Element childElement : nextChildrenElements) {
+							//endRole[i] = childElement.getAttributeValue("name");
+							if (childElement.getName().equals("ownedAttribute")) {
+								String attr = childElement.getAttributeValue("name");
+								String attrType = childElement.getChild("type").getAttributeValue("href");
+								attrType = attrType.substring(attrType.lastIndexOf('#')+1, attrType.length());
+								map.put(attr, attrType);
+								attribute.add(map);
+							}
+							else if (childElement.getName().equals("ownedOperation")) {
+								String attr = childElement.getAttributeValue("name");
+								operation.add(attr);
+							}
+							else if (childElement.getName().equals("ownedEnd")) {
+								ownedEnd[i] = childElement.getAttributeValue("type");
+								if(childElement.getAttributeValue("aggregation") != null) {
+									if(childElement.getAttributeValue("aggregation").equals("shared"))
+										type = "AggregationClass";
+									else if(childElement.getAttributeValue("aggregation").equals("composite"))
+										type = "CompositionClass";
+								}
+								if(childElement.getChild("lowerValue") != null) {
+									if(childElement.getChild("lowerValue").getAttributeValue("value") != null) {
+										lowerValue[i] = childElement.getChild("lowerValue")
+												.getAttributeValue("value");
+									}
+									else 
+										lowerValue[i] = "0";
+								}
+								else
+									lowerValue[i] = "1";
+								if(childElement.getChild("upperValue") != null) {
+									if(childElement.getChild("upperValue").getAttributeValue("value") != null) {
+										upperValue[i] = childElement.getChild("upperValue")
+												.getAttributeValue("value");
+									}
+									else 
+										upperValue[i] = "0";
+								}
+								else
+									upperValue[i] = "1";
+								endRole[i] = childElement.getAttributeValue("name");
+								i++;
+							}
+							//endRole[i] = childElement.getAttributeValue("name");
+							//i++;
+						}
+						firstMemberName = extractNames(childrenElements, ownedEnd[0]);
+						secondMemberName = extractNames(childrenElements, ownedEnd[1]);
+					}
+					packagedList.add(new AssociationClassElement(type, firstMemberName,
+							lowerValue[0], upperValue[0], endRole[0], secondMemberName,
+							lowerValue[1], upperValue[1], endRole[1], operation, attribute));
+				}// end of class association
 			}
 		}
 		return packagedList;
