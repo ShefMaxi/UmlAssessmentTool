@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import packagedElements.PackagedElement;
-
+// test github
 public class AssociationClassElement_old extends PackagedElement{
 	protected String name;
 	protected ArrayList<String> operation;
