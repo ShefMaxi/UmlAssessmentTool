@@ -1,4 +1,4 @@
-/*package deprecatedSourceCode;
+package deprecatedSourceCode;
 
 import java.io.IOException;
 
@@ -36,10 +36,9 @@ public class MAIN {
 		}
 
 		
-		 * try { //M_XMIFile.readXMIFile(args[0]); } catch (IOException e) { //
-		 * TODO: handle exception } catch (JDOMException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
+//		 * try { //M_XMIFile.readXMIFile(args[0]); } catch (IOException e) { //
+//		 * TODO: handle exception } catch (JDOMException e) { // TODO
+//		 * Auto-generated catch block e.printStackTrace(); }
 		 
 	}
 }
-*/

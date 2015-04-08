@@ -1,38 +1,38 @@
-//package deprecatedSourceCode;
-//
-//import java.awt.FlowLayout;
-//import java.awt.GridLayout;
-//import java.awt.event.MouseAdapter;
-//import java.awt.event.MouseEvent;
-//
-//import javax.print.DocFlavor.URL;
-//import javax.swing.JButton;
-//import javax.swing.JFileChooser;
-//import javax.swing.JFrame;
-//import javax.swing.JPanel;
-//import javax.swing.JTextField;
-//
-//import org.omg.CORBA.PRIVATE_MEMBER;
-//
-////Interface written by Shupeng
-//public class GUI extends JFrame {
-//	private JPanel panel1 = new JPanel();
-//	private JPanel panel2 = new JPanel();
-//	private String path1;
-//	private String path2;
-//
-//	// static String path;
-//	public GUI() {
-//		setSize(500, 250);
-//		setLocation(400, 400);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		layoutPanel1();
-//		layoutPanel2();
-//		setLayout(new GridLayout(1, 1));
-//		add(panel1);
-//		add(panel2);
-//	}
-//
+package deprecatedSourceCode;
+
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.print.DocFlavor.URL;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import org.omg.CORBA.PRIVATE_MEMBER;
+
+//Interface written by Shupeng
+public class GUI extends JFrame {
+	private JPanel panel1 = new JPanel();
+	private JPanel panel2 = new JPanel();
+	private String path1;
+	private String path2;
+
+	// static String path;
+	public GUI() {
+		setSize(500, 250);
+		setLocation(400, 400);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//layoutPanel1();
+		layoutPanel2();
+		setLayout(new GridLayout(1, 1));
+		add(panel1);
+		add(panel2);
+	}
+
 //	private void layoutPanel1() {
 //		JFileChooser chooser = new JFileChooser();
 //		JButton button1 = new JButton("upload lecuturer's XMI files");
@@ -78,28 +78,28 @@
 //			}
 //		});
 //	}
-//
-//	private void layoutPanel2() {
-//		JButton button = new JButton("score");
-//		JTextField textField = new JTextField();
-//		panel2.setLayout(null);
-//		button.setLocation(20, 20);
-//		button.setSize(100, 20);
-//		textField.setBounds(20, 50, 200, 100);
-//		panel2.add(textField);
-//		panel2.add(button);
-//		button.addMouseListener(new MouseAdapter() {
-//			public void mouseClicked(MouseEvent event) {
-//				textField.setText("waiting");
-//			}
-//		});
-//	}
-//
-//	public String getLecuturerPath() {
-//		return path1;
-//	}
-//
-//	public String getStudentPath() {
-//		return path2;
-//	}
-//}
+
+	private void layoutPanel2() {
+		JButton button = new JButton("score");
+		JTextField textField = new JTextField();
+		panel2.setLayout(null);
+		button.setLocation(20, 20);
+		button.setSize(100, 20);
+		textField.setBounds(20, 50, 200, 100);
+		panel2.add(textField);
+		panel2.add(button);
+		button.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent event) {
+				//textField.setText("waiting");
+			}
+		});
+	}
+
+	public String getLecuturerPath() {
+		return path1;
+	}
+
+	public String getStudentPath() {
+		return path2;
+	}
+}
