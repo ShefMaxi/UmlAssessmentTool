@@ -1,4 +1,4 @@
-package PackagedElements;
+package packagedElements;
 
 public abstract class PackagedElement {	// abstract
 	protected String type;

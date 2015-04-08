@@ -2,7 +2,7 @@ package activityElements;
 
 import java.util.HashSet;
 
-import PackagedElements.PackagedElement;
+import packagedElements.PackagedElement;
 
 public class DecisionNodeElement extends ActivityNodes {
 

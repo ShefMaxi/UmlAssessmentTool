@@ -1,10 +1,10 @@
-package ClassElements;
+package classElements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import PackagedElements.PackagedElement;
+import packagedElements.PackagedElement;
 
 
 public class ClassElement extends PackagedElement{

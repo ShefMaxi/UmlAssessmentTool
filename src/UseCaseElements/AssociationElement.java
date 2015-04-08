@@ -1,6 +1,6 @@
-package UseCaseElements;
+package useCaseElements;
 
-import PackagedElements.PackagedElement;
+import packagedElements.PackagedElement;
 
 public class AssociationElement extends PackagedElement{
 // the real id of first member

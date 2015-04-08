@@ -1,7 +1,7 @@
 package activityElements;
 
-import PackagedElements.PackagedElement;
-import UseCaseElements.*;
+import packagedElements.PackagedElement;
+import useCaseElements.*;
 
 import java.io.File;
 import java.io.IOException;

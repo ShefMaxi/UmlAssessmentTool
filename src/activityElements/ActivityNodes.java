@@ -1,6 +1,6 @@
 package activityElements;
 
-import PackagedElements.PackagedElement;
+import packagedElements.PackagedElement;
 
 public abstract class ActivityNodes extends PackagedElement {
 

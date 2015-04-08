@@ -1,8 +1,8 @@
-package UseCaseElements;
+package useCaseElements;
 
 import java.util.ArrayList;
 
-import PackagedElements.PackagedElement;
+import packagedElements.PackagedElement;
 
 //written by yan zhang
 public class UseCaseElement extends GeneralizableElement {

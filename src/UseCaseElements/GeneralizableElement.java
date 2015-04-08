@@ -1,8 +1,9 @@
-package UseCaseElements;
+package useCaseElements;
+
 
 import java.util.ArrayList;
 
-import PackagedElements.PackagedElement;
+import packagedElements.PackagedElement;
 
 public class GeneralizableElement extends PackagedElement {
 	protected String generalization;//goal object id

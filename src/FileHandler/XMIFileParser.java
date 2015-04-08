@@ -1,8 +1,8 @@
-package FileHandler;
+package fileHandler;
 
-import ClassElements.*;
-import PackagedElements.PackagedElement;
-import UseCaseElements.*;
+import classElements.*;
+import packagedElements.PackagedElement;
+import useCaseElements.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +28,7 @@ public class XMIFileParser {
 	// activity		 : 3
 	// statemachine	 : 4
 
+	
 	private List<PackagedElement> packagedList = null;
 
 	public int checkDiagramType(String filePath) throws IOException, XMLError {
@@ -60,21 +61,6 @@ public class XMIFileParser {
 		return 0;
 	}
 
-	/*public static void main(String[] args) {
-		XMIFileParser parser = new XMIFileParser();
-		try {
-			parser.checkDiagramType("statem1.xmi");
-			ArrayList<PackagedElement> output = parser.readStateMachineXMIFile("statem1.xmi");
-			for (PackagedElement packagedElement : output) {
-				System.out.println(packagedElement);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (XMLError e) {
-			e.printStackTrace();
-		}
-	}*/
-	
 	public static void main(String[] args) throws JDOMException {
 		XMIFileParser parser = new XMIFileParser();
 		try {

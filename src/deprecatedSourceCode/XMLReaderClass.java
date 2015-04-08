@@ -15,9 +15,9 @@ import org.jdom2.input.SAXBuilder;
 
 import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
-import PackagedElements.PackagedElement;
-import UseCaseElements.AssociationElement;
-import UseCaseElements.GeneralizableElement;
+import packagedElements.PackagedElement;
+import useCaseElements.AssociationElement;
+import useCaseElements.GeneralizableElement;
 
 public class XMLReaderClass {
 

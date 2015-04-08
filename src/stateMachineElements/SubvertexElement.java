@@ -1,6 +1,6 @@
 package stateMachineElements;
 
-import PackagedElements.PackagedElement;
+import packagedElements.PackagedElement;
 
 public class SubvertexElement extends PackagedElement {
 	protected String name;

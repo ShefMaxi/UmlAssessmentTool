@@ -5,8 +5,7 @@ import java.io.IOException;
 import org.jdom2.JDOMException;
 
 import deprecatedSourceCode.GUI;
-import FileHandler.XMIFileParser;
-import FileHandler.ZipFileHandler;
+import fileHandler.*;
 
 public class MAIN {
 	public static void main(String[] args) throws JDOMException, IOException {

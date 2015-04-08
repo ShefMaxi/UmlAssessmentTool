@@ -3,8 +3,8 @@ package compareUML;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-import PackagedElements.PackagedElement;
-import UseCaseElements.*;
+import packagedElements.PackagedElement;
+import useCaseElements.*;
 
 //Comparison method for Usecase diagram, written by Shupeng
 public class AssessmentMark {

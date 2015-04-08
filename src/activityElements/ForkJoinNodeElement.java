@@ -1,6 +1,6 @@
 package activityElements;
 
-import PackagedElements.PackagedElement;
+import packagedElements.PackagedElement;
 
 public class ForkJoinNodeElement extends ActivityNodes {
 

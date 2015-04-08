@@ -12,9 +12,8 @@ import javax.swing.JFileChooser;
 
 import org.jdom2.JDOMException;
 
-import FileHandler.XMIFileParser;
-import FileHandler.ZipFileHandler;
-import PackagedElements.PackagedElement;
+import fileHandler.*;
+import packagedElements.PackagedElement;
 
 /**
  *
