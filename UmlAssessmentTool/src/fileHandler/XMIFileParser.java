@@ -1,7 +1,7 @@
 package fileHandler;
 
 import classElements.*;
-import packagedElements.PackagedElement;
+import packagedElements.*;
 import useCaseElements.*;
 
 import java.io.File;
@@ -38,7 +38,8 @@ public class XMIFileParser {
 		// reader.close();
 		XPath usecasePath = new XPath(
 				"//packagedElement[@xmi:type='uml:Actor']");
-		XPath classPath = new XPath("//packagedElement[@xmi:type='uml:Class']");
+		XPath classPath = new XPath(
+				"//packagedElement[@xmi:type='uml:Class']");
 		XPath activityPath = new XPath(
 				"//packagedElement[@xmi:type='uml:Activity']");
 		XPath stateMachinePath = new XPath(
