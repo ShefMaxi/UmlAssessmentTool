@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_R2bcoN0WEeSbg_GDhyqC4A" name="project1">
+  <eAnnotations xmi:id="_R2bcod0WEeSbg_GDhyqC4A" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_R2bcot0WEeSbg_GDhyqC4A" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_R2bco90WEeSbg_GDhyqC4A" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_R2bcpN0WEeSbg_GDhyqC4A" name="Class1"/>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_R2bcpd0WEeSbg_GDhyqC4A" name="Class2" memberEnd="_R2bcqN0WEeSbg_GDhyqC4A _R2bcqt0WEeSbg_GDhyqC4A">
+    <ownedAttribute xmi:id="_R2bcpt0WEeSbg_GDhyqC4A" name="Attribute" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_R2bcp90WEeSbg_GDhyqC4A" name="Operation" visibility="public"/>
+    <ownedEnd xmi:id="_R2bcqN0WEeSbg_GDhyqC4A" visibility="public" type="_R2bcrN0WEeSbg_GDhyqC4A" association="_R2bcpd0WEeSbg_GDhyqC4A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R2bcqd0WEeSbg_GDhyqC4A"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_R2bcqt0WEeSbg_GDhyqC4A" visibility="public" type="_R2bcpN0WEeSbg_GDhyqC4A" association="_R2bcpd0WEeSbg_GDhyqC4A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R2bcq90WEeSbg_GDhyqC4A"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_R2bcrN0WEeSbg_GDhyqC4A" name="Class"/>
+</uml:Model>
