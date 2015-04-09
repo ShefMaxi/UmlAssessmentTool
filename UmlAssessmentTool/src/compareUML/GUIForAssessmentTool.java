@@ -6,14 +6,9 @@
 package compareUML;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.swing.JFileChooser;
-
 import org.jdom2.JDOMException;
-
 import fileHandler.*;
-import packagedElements.PackagedElement;
 
 /**
  *

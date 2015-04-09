@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 import packagedElements.PackagedElement;
-import useCaseElements.*;
 //usecase		 : 1
 //class		 : 2
 //activity		 : 3
