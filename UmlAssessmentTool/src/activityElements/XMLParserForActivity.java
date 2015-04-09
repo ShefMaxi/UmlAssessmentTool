@@ -9,9 +9,6 @@ import java.util.List;
 import org.jast.xml.*;
 import org.jast.xpath.*;
 
-import stateMachineElements.Guard;
-import stateMachineElements.SubvertexElement;
-import stateMachineElements.TransitionElement;
 import packagedElements.PackagedElement;
 
 public class XMLParserForActivity {
@@ -22,7 +19,6 @@ public class XMLParserForActivity {
 			throws IOException, XMLError {
 
 		HashMap<String, String> NameIdMap = new HashMap<>();
-		
 		ArrayList<PackagedElement> result = new ArrayList<>();
 		File xmiFile = new File(filePath);
 		XMLReader reader = new XMLReader(xmiFile);
@@ -70,36 +66,51 @@ public class XMLParserForActivity {
 		
 		System.out.println(NameIdMap);
 		
-		
-		
-		
-//		List<Content> allContents = rootContent.getContents();
+		for (Content node : nodeElementList) {
+			
+			String inPartition = null;
+			String name = null;
+			String incomingName = null;
+			String outgoingName = null;
+			boolean inputValue = false;
+			boolean outputValue = false;
+			List<Attribute> attributes = node.getAttributes();
+			
+			switch (attributes.get(0).getValue()) {
+			case "uml:OpaqueAction":
+				for (Attribute attribute : attributes) {
+					if (attribute.getIdentifier().equals("inPartition")) {
+						inPartition=NameIdMap.get(attribute.getValue());
+					}
+					if (attribute.getIdentifier().equals("outgoing")) {
+						outgoingName=NameIdMap.get(attribute.getValue());
+					}
+					if (attribute.getIdentifier().equals("incoming")) {
+						incomingName=NameIdMap.get(attribute.getValue());
+					}
+					if (node.hasContents()) {
+						Element e = (Element) node.getContent(1);
+						System.out.println(e);
+					}
+					
+				}
+				if (attributes.size()>3) {
+					name = attributes.get(2).getValue();
+				}
 
-//		for (Content content : allContents) {
-//			if (content.getName().compareToIgnoreCase("subvertex") == 0) {
-//				List<org.jast.xml.Attribute> attributes = content
-//						.getAttributes();
-//				SubvertexElement element = new SubvertexElement(attributes.get(
-//						0).getValue(), attributes.get(1).getValue(), attributes
-//						.get(2).getValue());
-//				result.add(element);
-//				matchingMap.put(attributes.get(1).getValue(),
-//						(SubvertexElement) result.get(result.size() - 1));
-//
-//			} else if (content.getName().compareToIgnoreCase("transition") == 0) {
-//				List<org.jast.xml.Attribute> attributes = content
-//						.getAttributes();
-//				TransitionElement element = new TransitionElement(attributes
-//						.get(0).getValue(), attributes.get(1).getValue(),
-//						matchingMap.get(attributes.get(2).getValue()),
-//						matchingMap.get(attributes.get(3).getValue()));
-//				if (attributes.size() == 5) {
-//					element.setGuard(new Guard(content.getContent(0)
-//							.getAttributes().get(1).getValue()));
-//				}
-//				result.add(element);
-//			}
-//		}
+				PackagedElement oa = new ActionNodeElement(attributes.get(0).getValue(),
+						attributes.get(1).getValue(),inPartition, name, 
+						incomingName, outgoingName, inputValue, outputValue);
+				result.add(oa);
+				break;
+
+			default:
+				break;
+			}
+		}
+		
+		
+
 
 		return result;
 	}
