@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Set;
 import packagedElements.PackagedElement;
 //usecase		 : 1
-//class		 : 2
+//class			 : 2
 //activity		 : 3
 //statemachine	 : 4
 
