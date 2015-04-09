@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_txs58N6xEeSsAPpQxptldg" name="project6">
+  <eAnnotations xmi:id="_txthAN6xEeSsAPpQxptldg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_txthAd6xEeSsAPpQxptldg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_txthAt6xEeSsAPpQxptldg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_txthA96xEeSsAPpQxptldg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_txthBN6xEeSsAPpQxptldg" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_txthBd6xEeSsAPpQxptldg" name="Initial Node" outgoing="_txthDN6xEeSsAPpQxptldg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_txthBt6xEeSsAPpQxptldg" name="insert card" outgoing="_txthDt6xEeSsAPpQxptldg" incoming="_txthDN6xEeSsAPpQxptldg">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_txthB96xEeSsAPpQxptldg" name="Enter pin" outgoing="_txthEN6xEeSsAPpQxptldg" incoming="_txthDt6xEeSsAPpQxptldg">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_txthCN6xEeSsAPpQxptldg" name="confiscate Pin" outgoing="_txthEt6xEeSsAPpQxptldg">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_txthCd6xEeSsAPpQxptldg" name="Display Menu" outgoing="_txthFN6xEeSsAPpQxptldg" incoming="_txthFt6xEeSsAPpQxptldg">
+      <body></body>
+    </node>
+    <node xmi:type="uml:MergeNode" xmi:id="_txthCt6xEeSsAPpQxptldg" name="Decision-Merge" outgoing="_txthFt6xEeSsAPpQxptldg" incoming="_txthEN6xEeSsAPpQxptldg _txthEt6xEeSsAPpQxptldg"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_txthC96xEeSsAPpQxptldg" name="Activity Final Node" incoming="_txthFN6xEeSsAPpQxptldg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_txthDN6xEeSsAPpQxptldg" name="ControlFlow" source="_txthBd6xEeSsAPpQxptldg" target="_txthBt6xEeSsAPpQxptldg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_txthDd6xEeSsAPpQxptldg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_txthDt6xEeSsAPpQxptldg" name="ControlFlow" source="_txthBt6xEeSsAPpQxptldg" target="_txthB96xEeSsAPpQxptldg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_txthD96xEeSsAPpQxptldg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_txthEN6xEeSsAPpQxptldg" name="ControlFlow" source="_txthB96xEeSsAPpQxptldg" target="_txthCt6xEeSsAPpQxptldg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_txthEd6xEeSsAPpQxptldg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_txthEt6xEeSsAPpQxptldg" name="ObjectFlow" source="_txthCN6xEeSsAPpQxptldg" target="_txthCt6xEeSsAPpQxptldg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_txthE96xEeSsAPpQxptldg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_txthFN6xEeSsAPpQxptldg" name="ControlFlow" source="_txthCd6xEeSsAPpQxptldg" target="_txthC96xEeSsAPpQxptldg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_txthFd6xEeSsAPpQxptldg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_txthFt6xEeSsAPpQxptldg" name="ObjectFlow" source="_txthCt6xEeSsAPpQxptldg" target="_txthCd6xEeSsAPpQxptldg">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_txthF96xEeSsAPpQxptldg">
+        <body>Valid Pin</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_txthGN6xEeSsAPpQxptldg" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>
