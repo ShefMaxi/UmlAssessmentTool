@@ -232,12 +232,11 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     private void AssessXMIFiles() {
     	XMIFileParser xmiFileParser = new XMIFileParser();
     	try {
-    		xmiFileParser.readXMIFile(lecturerFilePath);
-    		ArrayList<PackagedElement> lecturersElements = xmiFileParser.getPackagedList();
-    		xmiFileParser.readXMIFile(studentFilePath);
-    		ArrayList<PackagedElement> studentElements = xmiFileParser.getPackagedList();
     		
-    		AssessmentMark xmiAssessor = new AssessmentMark(studentElements, lecturersElements);
+    		Diagram lecturerDiagram = xmiFileParser.readXMIFile(lecturerFilePath);
+    		Diagram studentDigram = xmiFileParser.readXMIFile(studentFilePath);
+    		
+    		AssessmentMark xmiAssessor = new AssessmentMark(studentDigram, lecturerDiagram);
     		
     		this.jTextAreaForLog.append("The student final mark for usecase diagram is " + xmiAssessor.getFinalMarks() + "%\n");
     		

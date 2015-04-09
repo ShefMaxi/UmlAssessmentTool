@@ -5,27 +5,31 @@ import java.util.HashMap;
 import java.util.Set;
 import packagedElements.PackagedElement;
 import useCaseElements.*;
+//usecase		 : 1
+//class		 : 2
+//activity		 : 3
+//statemachine	 : 4
 
 //Comparison method for Usecase diagram, written by Shupeng
 public class AssessmentMark {
 	protected double marks = 0.0;
 	protected int totalPoints = 0;
-	private ArrayList<PackagedElement> studentElements;
-	private ArrayList<PackagedElement> lecturerElements;
+	private Diagram studentDiagram = null;
+	private Diagram lecturerDiagram = null;
 
-	public AssessmentMark(ArrayList<PackagedElement> studentElements,
-			ArrayList<PackagedElement> lecturerElements) {
-		this.lecturerElements = lecturerElements;
-		this.studentElements = studentElements;
+	public AssessmentMark(Diagram studentDiagram,
+			Diagram lecturerDiagram) {
+		this.studentDiagram = studentDiagram;
+		this.lecturerDiagram = lecturerDiagram;
 	}
 
 	private void assessUsecaseDiagram() {
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
-				studentElements);
+				studentDiagram.getElements());
 		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor
 				.preprocessForUseCase();
 		ElementsPreprocessor lecturerProcessor = new ElementsPreprocessor(
-				lecturerElements);
+				lecturerDiagram.getElements());
 		HashMap<String, ArrayList<PackagedElement>> lecturerMap = lecturerProcessor
 				.preprocessForUseCase();
 		// ---------------------------------------------------------------------------------------
@@ -57,6 +61,24 @@ public class AssessmentMark {
 	}
 
 	public double getFinalMarks() {
+
+		
+		switch (studentDiagram.getDiagramType()) {
+		case 1:
+			assessUsecaseDiagram();
+			break;
+		case 2:
+			
+			break;
+		case 3:
+			
+			break;
+		case 4:
+			
+			break;
+		default:
+			break;
+		}
 		System.out.println("total point is: " + totalPoints);
 		System.out.println("correct comparison amount is: " + marks);
 		return 100 * marks / totalPoints;
