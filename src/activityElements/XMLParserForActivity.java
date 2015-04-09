@@ -12,7 +12,7 @@ import org.jast.xpath.*;
 import stateMachineElements.Guard;
 import stateMachineElements.SubvertexElement;
 import stateMachineElements.TransitionElement;
-import PackagedElements.PackagedElement;
+import packagedElements.PackagedElement;
 
 public class XMLParserForActivity {
 	
