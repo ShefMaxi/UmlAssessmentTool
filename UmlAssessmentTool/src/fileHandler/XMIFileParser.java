@@ -299,6 +299,7 @@ public class XMIFileParser {
 						secondMemberName = extractNames(childrenElements,
 								ownedEnd[1]);
 					}
+					// unfixed error
 					packagedList.add(new AssociationClassElement(type,
 							firstMemberName, lowerValue[0], upperValue[0],
 							endRole[0], secondMemberName, lowerValue[1],
