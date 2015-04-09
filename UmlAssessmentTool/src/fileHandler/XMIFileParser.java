@@ -18,6 +18,7 @@ import org.jdom2.input.SAXBuilder;
 import org.jast.xml.*;
 import org.jast.xpath.*;
 
+import compareUML.Diagram;
 import stateMachineElements.Guard;
 import stateMachineElements.SubvertexElement;
 import stateMachineElements.TransitionElement;
@@ -29,9 +30,9 @@ public class XMIFileParser {
 	// statemachine	 : 4
 
 	
-	private List<PackagedElement> packagedList = null;
+	private ArrayList<PackagedElement> packagedList = null;
 
-	public int checkDiagramType(String filePath) throws IOException, XMLError {
+	private int checkDiagramType(String filePath) throws IOException, XMLError {
 		File xmiFile = new File(filePath);
 		XMLReader reader = new XMLReader(xmiFile);
 		org.jast.xml.Document document = reader.readDocument();
@@ -77,7 +78,7 @@ public class XMIFileParser {
 		}
 	}
 
-	public ArrayList<PackagedElement> readStateMachineXMIFile(String filePath)
+	private ArrayList<PackagedElement> readStateMachineXMIFile(String filePath)
 			throws IOException, XMLError {
 
 		ArrayList<PackagedElement> result = new ArrayList<>();
@@ -121,7 +122,7 @@ public class XMIFileParser {
 		return result;
 	}
 	
-	public ArrayList<PackagedElement> readClassXMIFile(String filePath)
+	private ArrayList<PackagedElement> readClassXMIFile(String filePath)
 			throws IOException, XMLError, JDOMException {
 		
 		ArrayList<PackagedElement> packagedList = new ArrayList<>();
@@ -296,10 +297,10 @@ public class XMIFileParser {
 		return packagedList;
 	}
 	
-	public void readXMIFile(String fileName) throws JDOMException, IOException {
+	private ArrayList<PackagedElement> readUsecaseXMIFile(String filePath) throws JDOMException, IOException {
 		packagedList = new ArrayList<PackagedElement>();
 		SAXBuilder xmiBuilder = new SAXBuilder();
-		Document document = xmiBuilder.build(new File(fileName));
+		Document document = xmiBuilder.build(new File(filePath));
 		Element rootElement = document.getRootElement();
 		List<Element> childrenElements = rootElement.getChildren();
 		
@@ -377,6 +378,35 @@ public class XMIFileParser {
 				}// end of association
 			}
 		}
+		return packagedList;
+		
+	}
+	
+	private ArrayList<PackagedElement> readActivityXMIFile(String filePath) {
+		return new ArrayList<>();
+	}
+	
+	public Diagram readXMIFile(String filePath) throws IOException, XMLError, JDOMException {
+		Diagram diagram = null;
+		int diagramType = this.checkDiagramType(filePath);
+		switch (diagramType) {
+		case 1:
+			diagram = new Diagram(readUsecaseXMIFile(filePath), diagramType);
+			break;
+		case 2:
+			diagram = new Diagram(readClassXMIFile(filePath), diagramType);
+
+			break;
+		case 3:
+			diagram = new Diagram(readActivityXMIFile(filePath), diagramType);
+			break;
+		case 4:
+			diagram = new Diagram(readStateMachineXMIFile(filePath), diagramType);
+			break;
+		default:
+			break;
+		}
+		return diagram;
 	}
 	
 	private String extractNames(List<Element> childrenElements, String id) {

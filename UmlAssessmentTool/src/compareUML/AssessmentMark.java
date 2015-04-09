@@ -10,9 +10,16 @@ import useCaseElements.*;
 public class AssessmentMark {
 	protected double marks = 0.0;
 	protected int totalPoints = 0;
+	private ArrayList<PackagedElement> studentElements;
+	private ArrayList<PackagedElement> lecturerElements;
+
 	public AssessmentMark(ArrayList<PackagedElement> studentElements,
 			ArrayList<PackagedElement> lecturerElements) {
+		this.lecturerElements = lecturerElements;
+		this.studentElements = studentElements;
+	}
 
+	private void assessUsecaseDiagram() {
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
 				studentElements);
 		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor
@@ -32,14 +39,12 @@ public class AssessmentMark {
 					.get(key);
 			System.out.println(selectedLecturerElements.size());
 			totalPoints += selectedLecturerElements.size();
-				for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
-					for (PackagedElement studentPackagedElement : selectedStudentElements) {
-						marks += lecturerPackagedElement
-								.compareTo(studentPackagedElement);
-					}
-				
+			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
+				for (PackagedElement studentPackagedElement : selectedStudentElements) {
+					marks += lecturerPackagedElement
+							.compareTo(studentPackagedElement);
+				}
 			}
-			
 		}
 	}
 
@@ -52,8 +57,8 @@ public class AssessmentMark {
 	}
 
 	public double getFinalMarks() {
-		System.out.println("total point is: "+totalPoints);
-		System.out.println("correct comparison amount is: "+marks);
-		return 100*marks/totalPoints;
+		System.out.println("total point is: " + totalPoints);
+		System.out.println("correct comparison amount is: " + marks);
+		return 100 * marks / totalPoints;
 	}
 }
