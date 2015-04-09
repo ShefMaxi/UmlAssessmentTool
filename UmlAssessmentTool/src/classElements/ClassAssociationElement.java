@@ -70,7 +70,7 @@ public class ClassAssociationElement extends PackagedElement{
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
 	double marks=0.0;
-	if (packagedElement instanceof ClassAssociationElement){
+	if (packagedElement instanceof ClassAssociationElement&&!(packagedElement instanceof AssociationClassElement)){
 		ClassAssociationElement studentElement=(ClassAssociationElement) packagedElement;		
 			//compare linked object name
 			if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0&&this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
