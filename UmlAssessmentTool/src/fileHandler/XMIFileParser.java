@@ -24,12 +24,11 @@ import stateMachineElements.SubvertexElement;
 import stateMachineElements.TransitionElement;
 
 public class XMIFileParser {
-	// usecase		 : 1
-	// class		 : 2
-	// activity		 : 3
-	// statemachine	 : 4
+	// usecase 		: 1
+	// class 		: 2
+	// activity 	: 3
+	// statemachine : 4
 
-	
 	private ArrayList<PackagedElement> packagedList = null;
 
 	private int checkDiagramType(String filePath) throws IOException, XMLError {
@@ -39,8 +38,7 @@ public class XMIFileParser {
 		// reader.close();
 		XPath usecasePath = new XPath(
 				"//packagedElement[@xmi:type='uml:Actor']");
-		XPath classPath = new XPath(
-				"//packagedElement[@xmi:type='uml:Class']");
+		XPath classPath = new XPath("//packagedElement[@xmi:type='uml:Class']");
 		XPath activityPath = new XPath(
 				"//packagedElement[@xmi:type='uml:Activity']");
 		XPath stateMachinePath = new XPath(
@@ -61,21 +59,6 @@ public class XMIFileParser {
 		}
 
 		return 0;
-	}
-
-	public static void main(String[] args) throws JDOMException {
-		XMIFileParser parser = new XMIFileParser();
-		try {
-			parser.checkDiagramType("project7.xmi");
-			ArrayList<PackagedElement> output = parser.readClassXMIFile("project7.xmi");
-			for (PackagedElement packagedElement : output) {
-				System.out.println(packagedElement);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (XMLError e) {
-			e.printStackTrace();
-		}
 	}
 
 	private ArrayList<PackagedElement> readStateMachineXMIFile(String filePath)
@@ -121,19 +104,19 @@ public class XMIFileParser {
 
 		return result;
 	}
-	
+
 	private ArrayList<PackagedElement> readClassXMIFile(String filePath)
 			throws IOException, XMLError, JDOMException {
-		
+
 		ArrayList<PackagedElement> packagedList = new ArrayList<>();
 		SAXBuilder xmiBuilder = new SAXBuilder();
 		Document document = xmiBuilder.build(new File(filePath));
 		Element rootElement = document.getRootElement();
 		List<Element> childrenElements = rootElement.getChildren();
-		
+
 		for (Element element : childrenElements) {
 			String[] attributeArray = extractAttributeValues(element);
-			
+
 			if (element.getName().equals("packagedElement")) {
 				if (attributeArray[0].equals("uml:Class")) {
 					ArrayList<String> operation = null;
@@ -147,27 +130,34 @@ public class XMIFileParser {
 					if (nextChildrenElements.size() > 0) {
 						for (Element childElement : nextChildrenElements) {
 							if (childElement.getName().equals("ownedAttribute")) {
-								String attr = childElement.getAttributeValue("name");
-								String type = childElement.getChild("type").getAttributeValue("href");
-								type = type.substring(type.lastIndexOf('#')+1, type.length());
+								String attr = childElement
+										.getAttributeValue("name");
+								String type = childElement.getChild("type")
+										.getAttributeValue("href");
+								type = type.substring(
+										type.lastIndexOf('#') + 1,
+										type.length());
 								map.put(attr, type);
 								attribute.add(map);
-							}
-							else if (childElement.getName().equals("ownedOperation")) {
-								String attr = childElement.getAttributeValue("name");
+							} else if (childElement.getName().equals(
+									"ownedOperation")) {
+								String attr = childElement
+										.getAttributeValue("name");
 								operation.add(attr);
-							}
-							else if (childElement.getName().equals("generalization")) {
-								String generalizationId = childElement.getAttributeValue("general");
+							} else if (childElement.getName().equals(
+									"generalization")) {
+								String generalizationId = childElement
+										.getAttributeValue("general");
 								generalization = extractChildAttributeValues(
 										childrenElements, generalizationId)[1];
 							}
 						}
 					}
-					packagedList.add(new ClassElement(attributeArray[0], 
-							attributeArray[2], operation, generalization, attribute));
+					packagedList.add(new ClassElement(attributeArray[0],
+							attributeArray[2], operation, generalization,
+							attribute));
 				}// end of class
-				
+
 				if (attributeArray[0].equals("uml:Association")) {
 					String firstMemberName = null;
 					String secondMemberName = null;
@@ -181,46 +171,53 @@ public class XMIFileParser {
 					if (nextChildrenElements.size() > 0) {
 						for (Element childElement : nextChildrenElements) {
 							if (childElement.getName().equals("ownedEnd")) {
-								ownedEnd[i] = childElement.getAttributeValue("type");
-								if(childElement.getAttributeValue("aggregation") != null) {
-									if(childElement.getAttributeValue("aggregation").equals("shared"))
+								ownedEnd[i] = childElement
+										.getAttributeValue("type");
+								if (childElement
+										.getAttributeValue("aggregation") != null) {
+									if (childElement.getAttributeValue(
+											"aggregation").equals("shared"))
 										type = "Aggregation";
-									else if(childElement.getAttributeValue("aggregation").equals("composite"))
+									else if (childElement.getAttributeValue(
+											"aggregation").equals("composite"))
 										type = "Composition";
 								}
-								if(childElement.getChild("lowerValue") != null) {
-									if(childElement.getChild("lowerValue").getAttributeValue("value") != null) {
-										lowerValue[i] = childElement.getChild("lowerValue")
+								if (childElement.getChild("lowerValue") != null) {
+									if (childElement.getChild("lowerValue")
+											.getAttributeValue("value") != null) {
+										lowerValue[i] = childElement.getChild(
+												"lowerValue")
 												.getAttributeValue("value");
-									}
-									else 
+									} else
 										lowerValue[i] = "0";
-								}
-								else
+								} else
 									lowerValue[i] = "1";
-								if(childElement.getChild("upperValue") != null) {
-									if(childElement.getChild("upperValue").getAttributeValue("value") != null) {
-										upperValue[i] = childElement.getChild("upperValue")
+								if (childElement.getChild("upperValue") != null) {
+									if (childElement.getChild("upperValue")
+											.getAttributeValue("value") != null) {
+										upperValue[i] = childElement.getChild(
+												"upperValue")
 												.getAttributeValue("value");
-									}
-									else 
+									} else
 										upperValue[i] = "0";
-								}
-								else
+								} else
 									upperValue[i] = "1";
 							}
 							endRole[i] = childElement.getAttributeValue("name");
 							i++;
 						}
-						firstMemberName = extractNames(childrenElements, ownedEnd[0]);
-						secondMemberName = extractNames(childrenElements, ownedEnd[1]);
+						firstMemberName = extractNames(childrenElements,
+								ownedEnd[0]);
+						secondMemberName = extractNames(childrenElements,
+								ownedEnd[1]);
 					}
 					// please fix this error
-					packagedList.add(new ClassAssociationElement(type, firstMemberName,
-							lowerValue[0], upperValue[0], endRole[0], secondMemberName,
-							lowerValue[1], upperValue[1], endRole[1]));
+					packagedList.add(new ClassAssociationElement(type,
+							firstMemberName, lowerValue[0], upperValue[0],
+							endRole[0], secondMemberName, lowerValue[1],
+							upperValue[1], endRole[1]));
 				}// end of association
-				
+
 				if (attributeArray[0].equals("uml:AssociationClass")) {
 					ArrayList<String> operation = null;
 					operation = new ArrayList<>();
@@ -239,74 +236,90 @@ public class XMIFileParser {
 					List<Element> nextChildrenElements = element.getChildren();
 					if (nextChildrenElements.size() > 0) {
 						for (Element childElement : nextChildrenElements) {
-							//endRole[i] = childElement.getAttributeValue("name");
+							// endRole[i] =
+							// childElement.getAttributeValue("name");
 							if (childElement.getName().equals("ownedAttribute")) {
-								String attr = childElement.getAttributeValue("name");
-								String attrType = childElement.getChild("type").getAttributeValue("href");
-								attrType = attrType.substring(attrType.lastIndexOf('#')+1, attrType.length());
+								String attr = childElement
+										.getAttributeValue("name");
+								String attrType = childElement.getChild("type")
+										.getAttributeValue("href");
+								attrType = attrType.substring(
+										attrType.lastIndexOf('#') + 1,
+										attrType.length());
 								map.put(attr, attrType);
 								attribute.add(map);
-							}
-							else if (childElement.getName().equals("ownedOperation")) {
-								String attr = childElement.getAttributeValue("name");
+							} else if (childElement.getName().equals(
+									"ownedOperation")) {
+								String attr = childElement
+										.getAttributeValue("name");
 								operation.add(attr);
-							}
-							else if (childElement.getName().equals("ownedEnd")) {
-								ownedEnd[i] = childElement.getAttributeValue("type");
-								if(childElement.getAttributeValue("aggregation") != null) {
-									if(childElement.getAttributeValue("aggregation").equals("shared"))
+							} else if (childElement.getName()
+									.equals("ownedEnd")) {
+								ownedEnd[i] = childElement
+										.getAttributeValue("type");
+								if (childElement
+										.getAttributeValue("aggregation") != null) {
+									if (childElement.getAttributeValue(
+											"aggregation").equals("shared"))
 										type = "AggregationClass";
-									else if(childElement.getAttributeValue("aggregation").equals("composite"))
+									else if (childElement.getAttributeValue(
+											"aggregation").equals("composite"))
 										type = "CompositionClass";
 								}
-								if(childElement.getChild("lowerValue") != null) {
-									if(childElement.getChild("lowerValue").getAttributeValue("value") != null) {
-										lowerValue[i] = childElement.getChild("lowerValue")
+								if (childElement.getChild("lowerValue") != null) {
+									if (childElement.getChild("lowerValue")
+											.getAttributeValue("value") != null) {
+										lowerValue[i] = childElement.getChild(
+												"lowerValue")
 												.getAttributeValue("value");
-									}
-									else 
+									} else
 										lowerValue[i] = "0";
-								}
-								else
+								} else
 									lowerValue[i] = "1";
-								if(childElement.getChild("upperValue") != null) {
-									if(childElement.getChild("upperValue").getAttributeValue("value") != null) {
-										upperValue[i] = childElement.getChild("upperValue")
+								if (childElement.getChild("upperValue") != null) {
+									if (childElement.getChild("upperValue")
+											.getAttributeValue("value") != null) {
+										upperValue[i] = childElement.getChild(
+												"upperValue")
 												.getAttributeValue("value");
-									}
-									else 
+									} else
 										upperValue[i] = "0";
-								}
-								else
+								} else
 									upperValue[i] = "1";
-								endRole[i] = childElement.getAttributeValue("name");
+								endRole[i] = childElement
+										.getAttributeValue("name");
 								i++;
 							}
-							//endRole[i] = childElement.getAttributeValue("name");
-							//i++;
+							// endRole[i] =
+							// childElement.getAttributeValue("name");
+							// i++;
 						}
-						firstMemberName = extractNames(childrenElements, ownedEnd[0]);
-						secondMemberName = extractNames(childrenElements, ownedEnd[1]);
+						firstMemberName = extractNames(childrenElements,
+								ownedEnd[0]);
+						secondMemberName = extractNames(childrenElements,
+								ownedEnd[1]);
 					}
-					packagedList.add(new AssociationClassElement(type, firstMemberName,
-							lowerValue[0], upperValue[0], endRole[0], secondMemberName,
-							lowerValue[1], upperValue[1], endRole[1], operation, attribute));
+					packagedList.add(new AssociationClassElement(type,
+							firstMemberName, lowerValue[0], upperValue[0],
+							endRole[0], secondMemberName, lowerValue[1],
+							upperValue[1], endRole[1], operation, attribute));
 				}// end of class association
 			}
 		}
 		return packagedList;
 	}
-	
-	private ArrayList<PackagedElement> readUsecaseXMIFile(String filePath) throws JDOMException, IOException {
+
+	private ArrayList<PackagedElement> readUsecaseXMIFile(String filePath)
+			throws JDOMException, IOException {
 		packagedList = new ArrayList<PackagedElement>();
 		SAXBuilder xmiBuilder = new SAXBuilder();
 		Document document = xmiBuilder.build(new File(filePath));
 		Element rootElement = document.getRootElement();
 		List<Element> childrenElements = rootElement.getChildren();
-		
+
 		for (Element element : childrenElements) {
 			String[] attributeArray = extractAttributeValues(element);
-			
+
 			if (element.getName().equals("packagedElement")) {
 				if (attributeArray[0].equals("uml:Actor")) {
 					String generalization = null;
@@ -314,14 +327,16 @@ public class XMIFileParser {
 					if (nextChildrenElements.size() > 0) {
 						for (Element childElement : nextChildrenElements) {
 							if (childElement.getName().equals("generalization")) {
-								String generalizationId = childElement.getAttributeValue("general");
+								String generalizationId = childElement
+										.getAttributeValue("general");
 								generalization = extractChildAttributeValues(
 										childrenElements, generalizationId)[1];
 							}
 						}
 					}
-					packagedList.add(new GeneralizableElement(attributeArray[0],
-							attributeArray[1], attributeArray[2], generalization));
+					packagedList.add(new GeneralizableElement(
+							attributeArray[0], attributeArray[1],
+							attributeArray[2], generalization));
 				}// end of actor
 
 				if (attributeArray[0].equals("uml:UseCase")) {
@@ -333,28 +348,34 @@ public class XMIFileParser {
 					if (nextChildrenElements.size() > 0) {
 						for (Element childElement : nextChildrenElements) {
 							if (childElement.getName().equals("generalization")) {
-								String generalizationId = childElement.getAttributeValue("general");
+								String generalizationId = childElement
+										.getAttributeValue("general");
 								generalization = extractChildAttributeValues(
 										childrenElements, generalizationId)[1];
 							}
 							if (childElement.getName().equals("include")) {
-							String inludeAdditionId = childElement.getAttributeValue("addition");
+								String inludeAdditionId = childElement
+										.getAttributeValue("addition");
 								inludeAddition = extractChildAttributeValues(
 										childrenElements, inludeAdditionId)[1];
 							}
 							if (childElement.getName().equals("extend")) {
-								String excludeAdditionnId = childElement.getAttributeValue("extendedCase");
+								String excludeAdditionnId = childElement
+										.getAttributeValue("extendedCase");
 								extensionAddition = extractChildAttributeValues(
-										childrenElements,excludeAdditionnId)[1];
+										childrenElements, excludeAdditionnId)[1];
 							}
 							if (childElement.getName().equals("extensionPoint")) {
-								String extensionPoint = childElement.getAttributeValue("name");
+								String extensionPoint = childElement
+										.getAttributeValue("name");
 								extensionPoints.add(extensionPoint);
 							}
 						}
 					}
-					packagedList.add(new UseCaseElement(attributeArray[0], attributeArray[1], attributeArray[2],
-							generalization, inludeAddition, extensionAddition, extensionPoints));
+					packagedList.add(new UseCaseElement(attributeArray[0],
+							attributeArray[1], attributeArray[2],
+							generalization, inludeAddition, extensionAddition,
+							extensionPoints));
 				}// end of usecase
 
 				if (attributeArray[0].equals("uml:Association")) {
@@ -366,27 +387,32 @@ public class XMIFileParser {
 					if (nextChildrenElements.size() > 0) {
 						for (Element childElement : nextChildrenElements) {
 							if (childElement.getName().equals("ownedEnd")) {
-								ownedEnd[i] = childElement.getAttributeValue("type");
+								ownedEnd[i] = childElement
+										.getAttributeValue("type");
 								i++;
 							}
-							firstMember = extractChildAttributeValues(childrenElements, ownedEnd[0]);
-							secondMember = extractChildAttributeValues(childrenElements, ownedEnd[1]);
+							firstMember = extractChildAttributeValues(
+									childrenElements, ownedEnd[0]);
+							secondMember = extractChildAttributeValues(
+									childrenElements, ownedEnd[1]);
 						}
 					}
-					packagedList.add(new AssociationElement(attributeArray[1], firstMember[1],
-							secondMember[1], firstMember[0], secondMember[0]));
+					packagedList.add(new AssociationElement(attributeArray[1],
+							firstMember[1], secondMember[1], firstMember[0],
+							secondMember[0]));
 				}// end of association
 			}
 		}
 		return packagedList;
-		
+
 	}
-	
+
 	private ArrayList<PackagedElement> readActivityXMIFile(String filePath) {
 		return new ArrayList<>();
 	}
-	
-	public Diagram readXMIFile(String filePath) throws IOException, XMLError, JDOMException {
+
+	public Diagram readXMIFile(String filePath) throws IOException, XMLError,
+			JDOMException {
 		Diagram diagram = null;
 		int diagramType = this.checkDiagramType(filePath);
 		switch (diagramType) {
@@ -401,14 +427,15 @@ public class XMIFileParser {
 			diagram = new Diagram(readActivityXMIFile(filePath), diagramType);
 			break;
 		case 4:
-			diagram = new Diagram(readStateMachineXMIFile(filePath), diagramType);
+			diagram = new Diagram(readStateMachineXMIFile(filePath),
+					diagramType);
 			break;
 		default:
 			break;
 		}
 		return diagram;
 	}
-	
+
 	private String extractNames(List<Element> childrenElements, String id) {
 		String name = null;
 		for (Element element2 : childrenElements) {
@@ -446,6 +473,22 @@ public class XMIFileParser {
 			}
 		}
 		return generalization;
+	}
+
+	public static void main(String[] args) throws JDOMException {
+		XMIFileParser parser = new XMIFileParser();
+		try {
+			parser.checkDiagramType("project7.xmi");
+			ArrayList<PackagedElement> output = parser
+					.readClassXMIFile("project7.xmi");
+			for (PackagedElement packagedElement : output) {
+				System.out.println(packagedElement);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (XMLError e) {
+			e.printStackTrace();
+		}
 	}
 
 	public ArrayList<PackagedElement> getPackagedList() {
