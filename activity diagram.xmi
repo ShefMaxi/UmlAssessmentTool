@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_8b-moM8GEeSflLBir6wrgg" name="activity diagram">
+  <eAnnotations xmi:id="_8b-moc8GEeSflLBir6wrgg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_8b-mos8GEeSflLBir6wrgg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_8b-mo88GEeSflLBir6wrgg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_8b-mpM8GEeSflLBir6wrgg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_8b_NsM8GEeSflLBir6wrgg" name="locals">
+      <ownedAttribute xmi:id="_8b_Nsc8GEeSflLBir6wrgg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_8b_Nss8GEeSflLBir6wrgg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_8b_Ns88GEeSflLBir6wrgg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_8b_NtM8GEeSflLBir6wrgg" aggregation="composite"/>
+    </nestedClassifier>
+    <node xmi:type="uml:InitialNode" xmi:id="_8b_Ntc8GEeSflLBir6wrgg" name="Initial Node" outgoing="_8b_N4M8GEeSflLBir6wrgg" inPartition="_8b_N-c8GEeSflLBir6wrgg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_8b_Nts8GEeSflLBir6wrgg" name="Action4" incoming="_8b_N4M8GEeSflLBir6wrgg" inPartition="_8b_N-c8GEeSflLBir6wrgg">
+      <body></body>
+    </node>
+    <node xmi:type="uml:InitialNode" xmi:id="_8b_Nt88GEeSflLBir6wrgg" name="Initial Node1" inPartition="_8b_N-c8GEeSflLBir6wrgg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_8b_NuM8GEeSflLBir6wrgg" name="Action" incoming="_8b_N6M8GEeSflLBir6wrgg">
+      <inputValue xmi:id="_8b_Nuc8GEeSflLBir6wrgg" name="Input Pin">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_8b_Nus8GEeSflLBir6wrgg" name="UpperBound" value="1"/>
+      </inputValue>
+      <outputValue xmi:id="_8b_Nu88GEeSflLBir6wrgg" name="Output Pin" outgoing="_8b_N4s8GEeSflLBir6wrgg">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_8b_NvM8GEeSflLBir6wrgg" name="UpperBound" value="1"/>
+      </outputValue> 
+      <body></body>
+    </node>
+    <node xmi:type="uml:CallBehaviorAction" xmi:id="_8b_Nvc8GEeSflLBir6wrgg" name="67"/>
+    <node xmi:type="uml:CallOperationAction" xmi:id="_8b_Nvs8GEeSflLBir6wrgg" name="Call Operation"/>
+    <node xmi:type="uml:StructuredActivityNode" xmi:id="_8b_Nv88GEeSflLBir6wrgg" name="Structured Node" incoming="_8b_N4s8GEeSflLBir6wrgg"/>
+    <node xmi:type="uml:ExpansionRegion" xmi:id="_8b_NwM8GEeSflLBir6wrgg" name="Expansion Region" inputElement="_8b_Nwc8GEeSflLBir6wrgg" outputElement="_8b_Nw88GEeSflLBir6wrgg">
+      <node xmi:type="uml:ExpansionNode" xmi:id="_8b_Nwc8GEeSflLBir6wrgg" name="Input Node" regionAsInput="_8b_NwM8GEeSflLBir6wrgg">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_8b_Nws8GEeSflLBir6wrgg" name="UpperBound" value="1"/>
+      </node>
+      <node xmi:type="uml:ExpansionNode" xmi:id="_8b_Nw88GEeSflLBir6wrgg" name="Output Node" regionAsOutput="_8b_NwM8GEeSflLBir6wrgg">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_8b_NxM8GEeSflLBir6wrgg" name="UpperBound" value="1"/>
+      </node>
+    </node>
+    <node xmi:type="uml:InitialNode" xmi:id="_8b_Nxc8GEeSflLBir6wrgg" name="Initial Node" outgoing="_8b_N5M8GEeSflLBir6wrgg _8b_N5s8GEeSflLBir6wrgg _8b_N6M8GEeSflLBir6wrgg _8b_N688GEeSflLBir6wrgg"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_8b_Nxs8GEeSflLBir6wrgg" name="Activity Final Node" incoming="_8b_N5M8GEeSflLBir6wrgg"/>
+    <node xmi:type="uml:FlowFinalNode" xmi:id="_8b_Nx88GEeSflLBir6wrgg" name="Flow Final Node" incoming="_8b_N5s8GEeSflLBir6wrgg _8b_N688GEeSflLBir6wrgg"/>
+    <node xmi:type="uml:ForkNode" xmi:id="_8b_NyM8GEeSflLBir6wrgg" name="Fork/Join" incoming="_8b_N7s8GEeSflLBir6wrgg"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_8b_Nyc8GEeSflLBir6wrgg" name="Decision-Merge" outgoing="_8b_N7s8GEeSflLBir6wrgg" incoming="_8b_N8M8GEeSflLBir6wrgg"/>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_8b_Nys8GEeSflLBir6wrgg" name="Send Signal"/>
+    <node xmi:type="uml:AcceptCallAction" xmi:id="_8b_Ny88GEeSflLBir6wrgg" name="Call Event"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_8b_NzM8GEeSflLBir6wrgg" name="Change Event"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_8b_Nzc8GEeSflLBir6wrgg" name="asdasd">
+      <handler xmi:id="_8b_Nzs8GEeSflLBir6wrgg" handlerBody="_8b_NuM8GEeSflLBir6wrgg" exceptionInput="_8b_Nuc8GEeSflLBir6wrgg"/>
+    </node>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_8b_Nz88GEeSflLBir6wrgg" name="Time Event" outgoing="_8b_N8M8GEeSflLBir6wrgg"/>
+    <node xmi:type="uml:CentralBufferNode" xmi:id="_8b_N0M8GEeSflLBir6wrgg" name="gfhxyz,xk,ujxj,xjxj">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_8b_N0c8GEeSflLBir6wrgg" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:DataStoreNode" xmi:id="_8b_N0s8GEeSflLBir6wrgg">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_8b_N088GEeSflLBir6wrgg" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:CentralBufferNode" xmi:id="_8b_N1M8GEeSflLBir6wrgg">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_8b_N1c8GEeSflLBir6wrgg" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_8b_N1s8GEeSflLBir6wrgg" name="Action1" outgoing="_8b_N8s8GEeSflLBir6wrgg">
+      <inputValue xmi:id="_8b_N188GEeSflLBir6wrgg" name="Input Pin" incoming="_8b_N9M8GEeSflLBir6wrgg">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_8b_N2M8GEeSflLBir6wrgg" name="UpperBound" value="1"/>
+      </inputValue>
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_8b_N2c8GEeSflLBir6wrgg" name="Action2">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_8b_N2s8GEeSflLBir6wrgg" name="Action3" outgoing="_8b_N9M8GEeSflLBir6wrgg">
+      <body></body>
+    </node>
+    <node xmi:type="uml:InitialNode" xmi:id="_8b_N288GEeSflLBir6wrgg" name="Initial Node1"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_8b_N3M8GEeSflLBir6wrgg" name="Initial Node2"/>
+    <node xmi:type="uml:CentralBufferNode" xmi:id="_8b_N3c8GEeSflLBir6wrgg" outgoing="_8b_N9s8GEeSflLBir6wrgg" incoming="_8b_N8s8GEeSflLBir6wrgg">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_8b_N3s8GEeSflLBir6wrgg" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_8b_N388GEeSflLBir6wrgg" name="Action4" incoming="_8b_N9s8GEeSflLBir6wrgg">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_8b_N4M8GEeSflLBir6wrgg" name="ControlFlow" source="_8b_Ntc8GEeSflLBir6wrgg" target="_8b_Nts8GEeSflLBir6wrgg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N4c8GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_8b_N4s8GEeSflLBir6wrgg" name="ObjectFlow" source="_8b_Nu88GEeSflLBir6wrgg" target="_8b_Nv88GEeSflLBir6wrgg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N488GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_8b_N5M8GEeSflLBir6wrgg" name="ControlFlow" source="_8b_Nxc8GEeSflLBir6wrgg" target="_8b_Nxs8GEeSflLBir6wrgg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N5c8GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_8b_N5s8GEeSflLBir6wrgg" name="ControlFlow" source="_8b_Nxc8GEeSflLBir6wrgg" target="_8b_Nx88GEeSflLBir6wrgg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N588GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_8b_N6M8GEeSflLBir6wrgg" name="ObjectFlow" source="_8b_Nxc8GEeSflLBir6wrgg" target="_8b_NuM8GEeSflLBir6wrgg">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_8b_N6c8GEeSflLBir6wrgg">
+        <body>this is guard</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N6s8GEeSflLBir6wrgg" value="9000"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_8b_N688GEeSflLBir6wrgg" name="ControlFlow" source="_8b_Nxc8GEeSflLBir6wrgg" target="_8b_Nx88GEeSflLBir6wrgg">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_8b_N7M8GEeSflLBir6wrgg">
+        <body>hfjfjk</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N7c8GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_8b_N7s8GEeSflLBir6wrgg" name="ControlFlow" source="_8b_Nyc8GEeSflLBir6wrgg" target="_8b_NyM8GEeSflLBir6wrgg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N788GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_8b_N8M8GEeSflLBir6wrgg" name="ControlFlow" source="_8b_Nz88GEeSflLBir6wrgg" target="_8b_Nyc8GEeSflLBir6wrgg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N8c8GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_8b_N8s8GEeSflLBir6wrgg" name="ObjectFlow" source="_8b_N1s8GEeSflLBir6wrgg" target="_8b_N3c8GEeSflLBir6wrgg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N888GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_8b_N9M8GEeSflLBir6wrgg" name="ObjectFlow" source="_8b_N2s8GEeSflLBir6wrgg" target="_8b_N188GEeSflLBir6wrgg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N9c8GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_8b_N9s8GEeSflLBir6wrgg" name="ObjectFlow" source="_8b_N3c8GEeSflLBir6wrgg" target="_8b_N388GEeSflLBir6wrgg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_8b_N988GEeSflLBir6wrgg" value="1"/>
+    </edge>
+    <group xmi:type="uml:InterruptibleActivityRegion" xmi:id="_8b_N-M8GEeSflLBir6wrgg"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_8b_N-c8GEeSflLBir6wrgg" name="Partition" node="_8b_Ntc8GEeSflLBir6wrgg _8b_Nts8GEeSflLBir6wrgg _8b_Nt88GEeSflLBir6wrgg"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_8b_N-s8GEeSflLBir6wrgg" name="Partition1"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_8b_N-88GEeSflLBir6wrgg" name="Partition2"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_8b_N_M8GEeSflLBir6wrgg" name="Partition3"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_8b_N_c8GEeSflLBir6wrgg" name="Partition4"/>
+    <group xmi:type="uml:InterruptibleActivityRegion" xmi:id="_8b_N_s8GEeSflLBir6wrgg"/>
+  </packagedElement>
+</uml:Model>
