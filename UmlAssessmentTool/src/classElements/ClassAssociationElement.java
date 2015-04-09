@@ -72,10 +72,8 @@ public class ClassAssociationElement extends PackagedElement{
 	double marks=0.0;
 	if (packagedElement instanceof ClassAssociationElement&&!(packagedElement instanceof AssociationClassElement)){
 		ClassAssociationElement studentElement=(ClassAssociationElement) packagedElement;		
-			//compare linked object name
+			//the 2 linked classes must be correct
 			if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0&&this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
-			marks++;
-			}
 			//compare multiplicity,1 point each for correct multiplicity
 			if(this.getFirstMemberUpperValue().compareToIgnoreCase(studentElement.getFirstMemberUpperValue())==0&&this.getFirstMemberLowerValue().compareToIgnoreCase(studentElement.getFirstMemberLowerValue())==0){
 				marks++;
@@ -86,6 +84,7 @@ public class ClassAssociationElement extends PackagedElement{
 			//compare end roles
 			if(this.getFirstMemberEndRole().compareToIgnoreCase(studentElement.getFirstMemberEndRole())==0&&this.getSecondMemberEndRole().compareToIgnoreCase(studentElement.getSecondMemberEndRole())==0){
 				marks++;
+			}
 			}
 		}	
 	return marks;

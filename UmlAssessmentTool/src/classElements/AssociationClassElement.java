@@ -38,11 +38,22 @@ public class AssociationClassElement extends ClassAssociationElement{
 	public double compareTo(PackagedElement packagedElement) {
 		double marks=0.0;
 		if (packagedElement instanceof AssociationClassElement_old){
-			AssociationClassElement_old studentElement=(AssociationClassElement_old) packagedElement;
+			AssociationClassElement studentElement=(AssociationClassElement) packagedElement;
 			//the 2 classes linked with association class must be correct
 			if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0&&this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
 			//compare association class name
 			if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
+				marks++;
+			}
+			//compare multiplicity,1 point each for correct multiplicity
+			if(this.getFirstMemberUpperValue().compareToIgnoreCase(studentElement.getFirstMemberUpperValue())==0&&this.getFirstMemberLowerValue().compareToIgnoreCase(studentElement.getFirstMemberLowerValue())==0){
+				marks++;
+			}
+			if(this.getSecondMemberLowerValue().compareToIgnoreCase(studentElement.getSecondMemberLowerValue())==0&&this.getSecondMemberUpperValue().compareToIgnoreCase(studentElement.getSecondMemberUpperValue())==0){
+				marks++;
+			}
+			//compare end roles
+			if(this.getFirstMemberEndRole().compareToIgnoreCase(studentElement.getFirstMemberEndRole())==0&&this.getSecondMemberEndRole().compareToIgnoreCase(studentElement.getSecondMemberEndRole())==0){
 				marks++;
 			}
 			//compare operation(name)
