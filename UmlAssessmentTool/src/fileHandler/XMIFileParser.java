@@ -211,7 +211,6 @@ public class XMIFileParser {
 						secondMemberName = extractNames(childrenElements,
 								ownedEnd[1]);
 					}
-					// please fix this error
 					packagedList.add(new ClassAssociationElement(type,
 							firstMemberName, lowerValue[0], upperValue[0],
 							endRole[0], secondMemberName, lowerValue[1],
@@ -230,15 +229,12 @@ public class XMIFileParser {
 					String[] lowerValue = new String[2];
 					String[] upperValue = new String[2];
 					String[] endRole = new String[2];
-					String type = "AssociationClass";					
-					String name="abcd";// added by Shupeng for test
+					String type = "AssociationClass";
 					String[] ownedEnd = new String[2];
 					int i = 0;
 					List<Element> nextChildrenElements = element.getChildren();
 					if (nextChildrenElements.size() > 0) {
 						for (Element childElement : nextChildrenElements) {
-							// endRole[i] =
-							// childElement.getAttributeValue("name");
 							if (childElement.getName().equals("ownedAttribute")) {
 								String attr = childElement
 										.getAttributeValue("name");
@@ -291,18 +287,13 @@ public class XMIFileParser {
 										.getAttributeValue("name");
 								i++;
 							}
-							// endRole[i] =
-							// childElement.getAttributeValue("name");
-							// i++;
 						}
 						firstMemberName = extractNames(childrenElements,
 								ownedEnd[0]);
 						secondMemberName = extractNames(childrenElements,
 								ownedEnd[1]);
-						//System.out.println(firstMemberName);
 					}
-					// unfixed error
-					packagedList.add(new AssociationClassElement(type,name,
+					packagedList.add(new AssociationClassElement(type, attributeArray[2],
 							firstMemberName, lowerValue[0], upperValue[0],
 							endRole[0], secondMemberName, lowerValue[1],
 							upperValue[1], endRole[1], operation, attribute));

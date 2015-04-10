@@ -14,7 +14,6 @@ public class AssociationClassElement extends ClassAssociationElement{
 			String firstMemberUpperValue, String firstMemberEndRole, String secondMemberName,
 			String secondMemberLowerValue, String secondMemberUpperValue, String secondMemberEndRole,
 			ArrayList<String> operation, ArrayList<HashMap<String, String>> attribute) {
-	//public AssociationClassElement(String type, String name,ArrayList<String> operation,ArrayList<HashMap<String, String>> attribute,String firstMemberName,String secondMemberName){
 		super(type, firstMemberName, firstMemberLowerValue, firstMemberUpperValue, firstMemberEndRole,
 				secondMemberName, secondMemberLowerValue, secondMemberUpperValue, secondMemberEndRole);
 		this.operation=operation;
@@ -31,7 +30,7 @@ public class AssociationClassElement extends ClassAssociationElement{
 		return this.attribute;
 	}
 	public String toString() {
-		return super.toString() + " operation : " + operation + " attribute : " + attribute;
+		return super.toString() + " name : " + name + " operation : " + operation + " attribute : " + attribute;
 	}
 	
 	@Override
