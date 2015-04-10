@@ -230,7 +230,8 @@ public class XMIFileParser {
 					String[] lowerValue = new String[2];
 					String[] upperValue = new String[2];
 					String[] endRole = new String[2];
-					String type = "AssociationClass";
+					String type = "AssociationClass";					
+					String name="abcd";// added by Shupeng for test
 					String[] ownedEnd = new String[2];
 					int i = 0;
 					List<Element> nextChildrenElements = element.getChildren();
@@ -300,7 +301,7 @@ public class XMIFileParser {
 								ownedEnd[1]);
 					}
 					// unfixed error
-					packagedList.add(new AssociationClassElement(type,
+					packagedList.add(new AssociationClassElement(type,name,
 							firstMemberName, lowerValue[0], upperValue[0],
 							endRole[0], secondMemberName, lowerValue[1],
 							upperValue[1], endRole[1], operation, attribute));
