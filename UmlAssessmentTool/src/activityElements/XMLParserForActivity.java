@@ -15,10 +15,11 @@ public class XMLParserForActivity {
 	
 	
 	
-	public static ArrayList<PackagedElement> readStateMachineXMIFile(String filePath)
+	public static ArrayList<PackagedElement> readActivityXMIFile(String filePath)
 			throws IOException, XMLError {
 
-		HashMap<String, String> NameIdMap = new HashMap<>();
+		HashMap<String, String> NameIdMap=null;
+		NameIdMap = new HashMap<>();
 		ArrayList<PackagedElement> result = new ArrayList<>();
 		File xmiFile = new File(filePath);
 		XMLReader reader = new XMLReader(xmiFile);
@@ -38,6 +39,21 @@ public class XMLParserForActivity {
 					String id = attributes.get(1).getValue();
 					String name = attributes.get(2).getValue();
 					NameIdMap.put(id, name);
+				}
+				Element e = (Element)content;
+				if (e.hasChildren()) {
+					Element inputV = e.getChild("inputValue");
+					if (inputV!=null) {
+						NameIdMap.put(inputV.getAttribute("xmi:id").getValue(), 
+								inputV.getAttribute("name").getValue());
+					}
+				
+					Element outputV = e.getChild("outputValue");
+					if (outputV!=null) {
+						NameIdMap.put(outputV.getAttribute("xmi:id").getValue(), 
+								outputV.getAttribute("name").getValue());
+					}
+					
 				}
 			}
 		}
@@ -76,42 +92,128 @@ public class XMLParserForActivity {
 			boolean outputValue = false;
 			List<Attribute> attributes = node.getAttributes();
 			
+			Element nodeElement = (Element)node;
+			// extracting inPartition from current node element
+			Attribute ip = nodeElement.getAttribute("inPartition");
+			if (ip!=null) {
+				inPartition=NameIdMap.get(ip.getValue());
+			}
+			
+			// extracting outgoing from current node element
+			Attribute og = nodeElement.getAttribute("outgoing");
+			if (og!=null) {
+				outgoingName=NameIdMap.get(og.getValue());
+			}
+			
+			// extracting incoming from current node element
+			Attribute ic = nodeElement.getAttribute("incoming");
+			if (ic!=null) {
+				incomingName=NameIdMap.get(ic.getValue());
+			}
+
+			// extracting name from current node element
+			Attribute nm = nodeElement.getAttribute("name");
+			if (nm!=null) {
+				name = nm.getValue();
+			}
 			switch (attributes.get(0).getValue()) {
+			
+			//***************************************************ActionNodeElement and Pins**************/
+			case "uml:CallOperationAction":
+			case "uml:CallBehaviorAction":
 			case "uml:OpaqueAction":
-				for (Attribute attribute : attributes) {
-					if (attribute.getIdentifier().equals("inPartition")) {
-						inPartition=NameIdMap.get(attribute.getValue());
-					}
-					if (attribute.getIdentifier().equals("outgoing")) {
-						outgoingName=NameIdMap.get(attribute.getValue());
-					}
-					if (attribute.getIdentifier().equals("incoming")) {
-						incomingName=NameIdMap.get(attribute.getValue());
-					}
-					if (node.hasContents()) {
-						Element e = (Element) node.getContent(1);
-						System.out.println(e);
+
+				
+				
+				// extracting inputValue from current node element if exists
+				Element iv = nodeElement.getChild("inputValue");
+				if (iv!=null) {
+					inputValue=true;
+					String ipId = null;
+					String ipName = null;
+					String ipIncoming = null;
+					String iN = null;
+					
+					Attribute iId = iv.getAttribute("id");
+					if (iId!=null) {
+						ipId = iId.getValue();
 					}
 					
+					Attribute iName = iv.getAttribute("name");
+					if (iName!=null) {
+						ipName = iName.getValue();
+					}
+					
+					Attribute iIncoming = iv.getAttribute("incoming");
+					if (iIncoming!=null) {
+						ipIncoming = iIncoming.getValue();
+						iN=NameIdMap.get(ipIncoming);
+	 
+					}
+					
+					
+					PackagedElement ivp = new InputPinElement("inputPin", ipId, inPartition, ipName, iN);
+					result.add(ivp);
 				}
-				if (attributes.size()>3) {
-					name = attributes.get(2).getValue();
+				
+				// extracting outputValue from current node element if exists
+				Element ov = nodeElement.getChild("outputValue");
+				if (ov!=null) {
+					outputValue=true;
+					String ipId = null;
+					String ipName = null;
+					String ipOutgoing = null;
+					String oN = null;
+					
+					Attribute iId = ov.getAttribute("id");
+					if (iId!=null) {
+						ipId = iId.getValue();
+					}
+					
+					Attribute iName = ov.getAttribute("name");
+					if (iName!=null) {
+						ipName = iName.getValue();
+					}
+					
+					Attribute iOutgoing = ov.getAttribute("incoming");
+					if (iOutgoing!=null) {
+						ipOutgoing = iOutgoing.getValue();
+						oN=NameIdMap.get(ipOutgoing);
+					}
+					PackagedElement ovp = new OutputPinElement("outputValue", ipId, inPartition, ipName, oN);
+					result.add(ovp);
 				}
-
+				
 				PackagedElement oa = new ActionNodeElement(attributes.get(0).getValue(),
 						attributes.get(1).getValue(),inPartition, name, 
 						incomingName, outgoingName, inputValue, outputValue);
 				result.add(oa);
 				break;
+				
+			//*****************************************************AcceptSignalElement***********/
+			case "uml:AcceptCallAction":
+			case "uml:AcceptEventAction":
+				
+				PackagedElement aea = new AcceptSignalElement(attributes.get(0).getValue(), 
+						attributes.get(1).getValue(),inPartition, name, outgoingName);
+				result.add(aea);
+				break;
+				
+			//*****************************************************ActivityFinalNodeElement*****/	
+			case "uml:ActivityFinalNode":
+				
+				PackagedElement afn = new ActivityFinalNodeElement(attributes.get(0).getValue(), 
+						attributes.get(1).getValue(), inPartition, outgoingName, incomingName);
+				result.add(afn);
+				break;
+				
+			//*****************************************************CentralBufferNode*****/	
 
 			default:
 				break;
 			}
 		}
 		
-		
-
-
 		return result;
 	}
 	
@@ -119,7 +221,7 @@ public class XMLParserForActivity {
 		
 		try {
 			System.out.println
-			(XMLParserForActivity.readStateMachineXMIFile("/Users/zhangyan/GitHub/UmlAssessmentTool/activity diagram.xmi"));
+			(XMLParserForActivity.readActivityXMIFile("/Users/zhangyan/GitHub/UmlAssessmentTool/UmlAssessmentTool/activity diagram.xmi"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

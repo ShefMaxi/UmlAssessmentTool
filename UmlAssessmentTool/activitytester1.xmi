@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_ToAUwN7TEeSflpxHm96-wQ" name="activitytester1">
+  <eAnnotations xmi:id="_ToAUwd7TEeSflpxHm96-wQ" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_ToAUwt7TEeSflpxHm96-wQ" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_ToAUw97TEeSflpxHm96-wQ" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ToAUxN7TEeSflpxHm96-wQ" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ToA70N7TEeSflpxHm96-wQ" name="locals"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ToA70d7TEeSflpxHm96-wQ" name="Action">
+      <inputValue xmi:id="_ToA70t7TEeSflpxHm96-wQ" name="Input Pin">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_ToA7097TEeSflpxHm96-wQ" name="UpperBound" value="1"/>
+      </inputValue>
+      <inputValue xmi:id="_ToA71N7TEeSflpxHm96-wQ" name="Input Pin1">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_ToA71d7TEeSflpxHm96-wQ" name="UpperBound" value="1"/>
+      </inputValue>
+      <outputValue xmi:id="_ToA71t7TEeSflpxHm96-wQ" name="Output Pin">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_ToA7197TEeSflpxHm96-wQ" name="UpperBound" value="1"/>
+      </outputValue>
+      <outputValue xmi:id="_ToA72N7TEeSflpxHm96-wQ" name="Output Pin1">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_ToA72d7TEeSflpxHm96-wQ" name="UpperBound" value="1"/>
+      </outputValue>
+      <body></body>
+    </node>
+  </packagedElement>
+</uml:Model>
