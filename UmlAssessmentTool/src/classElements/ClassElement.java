@@ -51,6 +51,7 @@ public String toString() {
 @Override
 public double compareTo(PackagedElement packagedElement) {
 	double marks=0.0;		
+	System.out.println("get into this compareTo method 3");
 	if (packagedElement instanceof ClassElement){
 		ClassElement studentElement=(ClassElement) packagedElement;
 		//compare class name

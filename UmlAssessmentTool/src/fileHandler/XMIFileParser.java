@@ -299,6 +299,7 @@ public class XMIFileParser {
 								ownedEnd[0]);
 						secondMemberName = extractNames(childrenElements,
 								ownedEnd[1]);
+						//System.out.println(firstMemberName);
 					}
 					// unfixed error
 					packagedList.add(new AssociationClassElement(type,name,
@@ -307,7 +308,8 @@ public class XMIFileParser {
 							upperValue[1], endRole[1], operation, attribute));
 				}// end of class association
 			}
-		}
+		}		
+		System.out.println("get elements");
 		return packagedList;
 	}
 

@@ -18,6 +18,7 @@ public class AssessmentMark {
 
 	public AssessmentMark(Diagram studentDiagram,
 			Diagram lecturerDiagram) {
+		System.out.println("-----------");
 		this.studentDiagram = studentDiagram;
 		this.lecturerDiagram = lecturerDiagram;
 	}

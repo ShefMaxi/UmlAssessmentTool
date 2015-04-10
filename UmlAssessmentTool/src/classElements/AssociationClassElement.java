@@ -37,7 +37,8 @@ public class AssociationClassElement extends ClassAssociationElement{
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
 		double marks=0.0;
-		if (packagedElement instanceof AssociationClassElement_old){
+		System.out.println("get into this compareTo method 1");
+		if (packagedElement instanceof AssociationClassElement){
 			AssociationClassElement studentElement=(AssociationClassElement) packagedElement;
 			//the 2 classes linked with association class must be correct
 			if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0&&this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
