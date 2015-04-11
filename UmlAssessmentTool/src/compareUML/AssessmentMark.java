@@ -52,7 +52,34 @@ public class AssessmentMark {
 			}
 		}
 	}
+	private void assessClassDiagram() {
+		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
+				studentDiagram);
+		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor
+				.preprocessForClass();
+		ElementsPreprocessor lecturerProcessor = new ElementsPreprocessor(
+				lecturerDiagram);
+		HashMap<String, ArrayList<PackagedElement>> lecturerMap = lecturerProcessor
+				.preprocessForClass();
+		// ---------------------------------------------------------------------------------------
+		String[] lecturerKeys = forkeys(lecturerMap);
+		// ----------------------------------------------------------------------------------------
 
+		for (String key : lecturerKeys) {
+			ArrayList<PackagedElement> selectedLecturerElements = lecturerMap
+					.get(key);
+			ArrayList<PackagedElement> selectedStudentElements = studentMap
+					.get(key);
+			System.out.println(selectedLecturerElements.size());
+			totalPoints += selectedLecturerElements.size();
+			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
+				for (PackagedElement studentPackagedElement : selectedStudentElements) {
+					marks += lecturerPackagedElement
+							.compareTo(studentPackagedElement);
+				}
+			}
+		}
+	}
 	// get keys from result of preprocessForUseCase
 	public static String[] forkeys(HashMap<String, ArrayList<PackagedElement>> h) {
 		Set<String> myKeys = h.keySet();
@@ -69,7 +96,7 @@ public class AssessmentMark {
 			assessUsecaseDiagram();
 			break;
 		case 2:
-			
+			assessClassDiagram();
 			break;
 		case 3:
 			

@@ -237,7 +237,6 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     		this.jTextAreaForLog.append("The student final mark for usecase diagram is " + xmiAssessor.getFinalMarks() + "%\n");
     		
 		} catch (IOException e) {
-			System.out.println("get exception 1");
 			// TODO: handle exception
 		} catch (JDOMException e) {
 			// TODO: handle exception

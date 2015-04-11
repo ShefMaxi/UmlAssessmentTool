@@ -294,6 +294,7 @@ public class XMIFileParser {
 						secondMemberName = extractNames(childrenElements,
 								ownedEnd[1]);
 					}
+					System.out.println("this is end role+    "+endRole[0]+" "+endRole[1]);
 					packagedList.add(new AssociationClassElement(type, attributeArray[2],
 							firstMemberName, lowerValue[0], upperValue[0],
 							endRole[0], secondMemberName, lowerValue[1],

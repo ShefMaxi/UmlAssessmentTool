@@ -57,26 +57,24 @@ public class AssociationClassElement extends ClassAssociationElement{
 				marks++;
 			}
 			//compare operation(name)
-		    String[] operations=(String[]) studentElement.getOperation().toArray();
-		    for(int i=0;i<operations.length;i++){
-		    if(this.operation.contains(operations[i])){
-		    	marks++;
-		    }
-		    }
-		  //compare attribute(name,type)
+		    ArrayList<String> operations=studentElement.getOperation();
+		    for(Object obj:operations){
+		    	if(this.operation.contains(obj)){
+		    		marks++;
+		    	}
+		    }	    
+		    //compare attribute(name,type)
 		    //get every HashMap from ArrayList
-			HashMap<String, String>[] lecAttributes=(HashMap<String, String>[]) this.getAttribute().toArray();
-		    HashMap<String, String>[] stuAttributes=(HashMap<String, String>[]) studentElement.getAttribute().toArray();
-		    //get a pair(name,type) from per HashMap and compare them
-		    for(int i=0;i<lecAttributes.length;i++){
-		    Map.Entry<String, String> lecturer=(Map.Entry<String, String>) lecAttributes[i];
-		    for(int j=0;j<stuAttributes.length;j++){	    	
-		    Map.Entry<String, String> student=(Map.Entry<String, String>) stuAttributes[j];
-		    if(lecturer.getKey().compareToIgnoreCase(student.getKey())==0&&lecturer.getValue().compareToIgnoreCase(student.getValue())==0){
-		    	marks++;
-		    }
-		    }
-		    }
+		    for(Object lecObj:this.getAttribute()){
+		    	for(Object stuObj:studentElement.getAttribute()){
+		    		//get every pair<type,name> from per HashMap
+		    		Map.Entry<String, String> lecturer=(Map.Entry<String, String>) lecObj;
+		    		Map.Entry<String, String> student=(Map.Entry<String, String>) stuObj;
+		    		if(lecturer.getKey().compareToIgnoreCase(student.getKey())==0&&lecturer.getValue().compareToIgnoreCase(student.getValue())==0){
+		    	    	marks++;
+		    	    }
+		    	}
+		    }	   	    
 		}
 		}
 		return marks;
