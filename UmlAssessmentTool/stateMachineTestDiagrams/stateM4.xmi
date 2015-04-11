@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_9HQGgOBEEeSK3pICxtF8GQ" name="project5">
+  <eAnnotations xmi:id="_9HQGgeBEEeSK3pICxtF8GQ" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_9HQGguBEEeSK3pICxtF8GQ" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_9HQGg-BEEeSK3pICxtF8GQ" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_9HQGhOBEEeSK3pICxtF8GQ" name="State Machine">
+    <region xmi:id="_9HQGheBEEeSK3pICxtF8GQ">
+      <subvertex xmi:type="uml:State" xmi:id="_9HQGhuBEEeSK3pICxtF8GQ" name="Park"/>
+      <subvertex xmi:type="uml:State" xmi:id="_9HQGh-BEEeSK3pICxtF8GQ" name="Neutral"/>
+      <subvertex xmi:type="uml:State" xmi:id="_9HQGiOBEEeSK3pICxtF8GQ" name="Reverse"/>
+      <subvertex xmi:type="uml:State" xmi:id="_9HQtkOBEEeSK3pICxtF8GQ" name="Drive">
+        <region xmi:id="_9HQtkeBEEeSK3pICxtF8GQ" name="Region">
+          <subvertex xmi:type="uml:State" xmi:id="_9HQtkuBEEeSK3pICxtF8GQ" name="First"/>
+          <subvertex xmi:type="uml:State" xmi:id="_9HQtk-BEEeSK3pICxtF8GQ" name="Second"/>
+          <subvertex xmi:type="uml:State" xmi:id="_9HQtlOBEEeSK3pICxtF8GQ" name="Third"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_9HQtleBEEeSK3pICxtF8GQ" name="Initial State"/>
+          <transition xmi:id="_9HQtluBEEeSK3pICxtF8GQ" name="Transition" source="_9HQtkuBEEeSK3pICxtF8GQ" target="_9HQtk-BEEeSK3pICxtF8GQ"/>
+          <transition xmi:id="_9HQtl-BEEeSK3pICxtF8GQ" name="Transition" source="_9HQtk-BEEeSK3pICxtF8GQ" target="_9HQtkuBEEeSK3pICxtF8GQ"/>
+          <transition xmi:id="_9HQtmOBEEeSK3pICxtF8GQ" name="Transition1" source="_9HQtk-BEEeSK3pICxtF8GQ" target="_9HQtlOBEEeSK3pICxtF8GQ"/>
+          <transition xmi:id="_9HQtmeBEEeSK3pICxtF8GQ" name="Transition" source="_9HQtlOBEEeSK3pICxtF8GQ" target="_9HQtk-BEEeSK3pICxtF8GQ"/>
+          <transition xmi:id="_9HQtmuBEEeSK3pICxtF8GQ" name="Transition" source="_9HQtleBEEeSK3pICxtF8GQ" target="_9HQtkuBEEeSK3pICxtF8GQ"/>
+        </region>
+      </subvertex>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_9HQtm-BEEeSK3pICxtF8GQ" name="Initial State"/>
+      <transition xmi:id="_9HQtnOBEEeSK3pICxtF8GQ" name="Transition" source="_9HQGhuBEEeSK3pICxtF8GQ" target="_9HQGh-BEEeSK3pICxtF8GQ"/>
+      <transition xmi:id="_9HQtneBEEeSK3pICxtF8GQ" name="Transition" source="_9HQGh-BEEeSK3pICxtF8GQ" target="_9HQGhuBEEeSK3pICxtF8GQ"/>
+      <transition xmi:id="_9HQtnuBEEeSK3pICxtF8GQ" name="Transition1" source="_9HQGh-BEEeSK3pICxtF8GQ" target="_9HQGiOBEEeSK3pICxtF8GQ"/>
+      <transition xmi:id="_9HQtn-BEEeSK3pICxtF8GQ" name="Transition2" source="_9HQGh-BEEeSK3pICxtF8GQ" target="_9HQtkOBEEeSK3pICxtF8GQ"/>
+      <transition xmi:id="_9HQtoOBEEeSK3pICxtF8GQ" name="Transition" source="_9HQGiOBEEeSK3pICxtF8GQ" target="_9HQGh-BEEeSK3pICxtF8GQ"/>
+      <transition xmi:id="_9HQtoeBEEeSK3pICxtF8GQ" name="Transition" source="_9HQtkOBEEeSK3pICxtF8GQ" target="_9HQGh-BEEeSK3pICxtF8GQ"/>
+      <transition xmi:id="_9HQtouBEEeSK3pICxtF8GQ" name="Transition" source="_9HQtm-BEEeSK3pICxtF8GQ" target="_9HQGhuBEEeSK3pICxtF8GQ"/>
+    </region>
+  </packagedElement>
+</uml:Model>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_zJh_gOBMEeSRFII68DmeuA" name="project2">
+  <eAnnotations xmi:id="_zJh_geBMEeSRFII68DmeuA" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_zJh_guBMEeSRFII68DmeuA" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_zJimkOBMEeSRFII68DmeuA" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_zJimkeBMEeSRFII68DmeuA" name="State Machine">
+    <region xmi:id="_zJimkuBMEeSRFII68DmeuA">
+      <subvertex xmi:type="uml:State" xmi:id="_zJimk-BMEeSRFII68DmeuA" name="on loan"/>
+      <subvertex xmi:type="uml:State" xmi:id="_zJimlOBMEeSRFII68DmeuA" name="Available"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_zJimleBMEeSRFII68DmeuA" name="Initial State"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_zJimluBMEeSRFII68DmeuA" name="Final State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_zJiml-BMEeSRFII68DmeuA" name="State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_zJimmOBMEeSRFII68DmeuA" name="State1"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_zJimmeBMEeSRFII68DmeuA" name="Fork" kind="fork"/>
+      <subvertex xmi:type="uml:State" xmi:id="_zJimmuBMEeSRFII68DmeuA" name="customer service">
+        <region xmi:id="_zJimm-BMEeSRFII68DmeuA" name="Region">
+          <subvertex xmi:type="uml:State" xmi:id="_zJimnOBMEeSRFII68DmeuA" name="authentication"/>
+          <subvertex xmi:type="uml:State" xmi:id="_zJimneBMEeSRFII68DmeuA" name="transaction"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_zJimnuBMEeSRFII68DmeuA" name="Initial State"/>
+          <subvertex xmi:type="uml:FinalState" xmi:id="_zJimn-BMEeSRFII68DmeuA" name="Final State"/>
+          <transition xmi:id="_zJimoOBMEeSRFII68DmeuA" name="Transition" source="_zJimnOBMEeSRFII68DmeuA" target="_zJimneBMEeSRFII68DmeuA"/>
+          <transition xmi:id="_zJimoeBMEeSRFII68DmeuA" name="Transition" source="_zJimneBMEeSRFII68DmeuA" target="_zJimn-BMEeSRFII68DmeuA"/>
+          <transition xmi:id="_zJimouBMEeSRFII68DmeuA" name="Transition" source="_zJimnuBMEeSRFII68DmeuA" target="_zJimnOBMEeSRFII68DmeuA"/>
+        </region>
+      </subvertex>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_zJimo-BMEeSRFII68DmeuA" name="Choice" kind="choice"/>
+      <subvertex xmi:type="uml:State" xmi:id="_zJimpOBMEeSRFII68DmeuA" name="State2"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_zJimpeBMEeSRFII68DmeuA" name="Junction" kind="junction"/>
+      <subvertex xmi:type="uml:State" xmi:id="_zJjNoOBMEeSRFII68DmeuA" name="State3"/>
+      <subvertex xmi:type="uml:State" xmi:id="_zJjNoeBMEeSRFII68DmeuA" name="State4"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_zJjNouBMEeSRFII68DmeuA" name="Join" kind="join"/>
+      <transition xmi:id="_zJjNo-BMEeSRFII68DmeuA" name="Transition" source="_zJimk-BMEeSRFII68DmeuA" target="_zJimlOBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJjNpOBMEeSRFII68DmeuA" name="Transition1" source="_zJimk-BMEeSRFII68DmeuA" target="_zJimk-BMEeSRFII68DmeuA" guard="_zJlp4OBMEeSRFII68DmeuA">
+        <ownedRule xmi:id="_zJlp4OBMEeSRFII68DmeuA" name="new issue" constrainedElement="_zJjNpOBMEeSRFII68DmeuA">
+          <specification xmi:type="uml:LiteralString" xmi:id="_zJlp4eBMEeSRFII68DmeuA" value="new issue"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_zJlp4uBMEeSRFII68DmeuA" name="Transition" source="_zJimlOBMEeSRFII68DmeuA" target="_zJimluBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp4-BMEeSRFII68DmeuA" name="Transition1" source="_zJimlOBMEeSRFII68DmeuA" target="_zJimk-BMEeSRFII68DmeuA" guard="_zJlp5OBMEeSRFII68DmeuA">
+        <ownedRule xmi:id="_zJlp5OBMEeSRFII68DmeuA" name="issue" constrainedElement="_zJlp4-BMEeSRFII68DmeuA">
+          <specification xmi:type="uml:LiteralString" xmi:id="_zJlp5eBMEeSRFII68DmeuA" value="issue"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_zJlp5uBMEeSRFII68DmeuA" name="Transition" source="_zJimleBMEeSRFII68DmeuA" target="_zJimk-BMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp5-BMEeSRFII68DmeuA" name="Transition" source="_zJiml-BMEeSRFII68DmeuA" target="_zJimmeBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp6OBMEeSRFII68DmeuA" name="Transition1" source="_zJiml-BMEeSRFII68DmeuA" target="_zJimo-BMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp6eBMEeSRFII68DmeuA" name="Transition" source="_zJimmOBMEeSRFII68DmeuA" target="_zJimmeBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp6uBMEeSRFII68DmeuA" name="Transition1" source="_zJimmOBMEeSRFII68DmeuA" target="_zJimmuBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp6-BMEeSRFII68DmeuA" name="Transition" source="_zJimmeBMEeSRFII68DmeuA" target="_zJimk-BMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp7OBMEeSRFII68DmeuA" name="Transition" source="_zJimmuBMEeSRFII68DmeuA" target="_zJimlOBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp7eBMEeSRFII68DmeuA" name="Transition1" source="_zJimmuBMEeSRFII68DmeuA" target="_zJimpeBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp7uBMEeSRFII68DmeuA" name="Transition" source="_zJimo-BMEeSRFII68DmeuA" target="_zJimpOBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp7-BMEeSRFII68DmeuA" name="Transition1" source="_zJimo-BMEeSRFII68DmeuA" target="_zJimmuBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp8OBMEeSRFII68DmeuA" name="Transition2" source="_zJimo-BMEeSRFII68DmeuA" target="_zJimpeBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp8eBMEeSRFII68DmeuA" name="Transition" source="_zJimpOBMEeSRFII68DmeuA" target="_zJimpeBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp8uBMEeSRFII68DmeuA" name="Transition" source="_zJimpeBMEeSRFII68DmeuA" target="_zJjNouBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJlp8-BMEeSRFII68DmeuA" name="Transition" source="_zJjNouBMEeSRFII68DmeuA" target="_zJjNoeBMEeSRFII68DmeuA"/>
+      <transition xmi:id="_zJmQ8OBMEeSRFII68DmeuA" name="Transition1" source="_zJjNouBMEeSRFII68DmeuA" target="_zJjNoOBMEeSRFII68DmeuA"/>
+    </region>
+  </packagedElement>
+</uml:Model>

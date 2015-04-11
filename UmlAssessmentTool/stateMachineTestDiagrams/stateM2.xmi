@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_NMGccOBAEeSK3pICxtF8GQ" name="project3">
+  <eAnnotations xmi:id="_NMGcceBAEeSK3pICxtF8GQ" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_NMGccuBAEeSK3pICxtF8GQ" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_NMGcc-BAEeSK3pICxtF8GQ" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_NMGcdOBAEeSK3pICxtF8GQ" name="State Machine">
+    <region xmi:id="_NMGcdeBAEeSK3pICxtF8GQ">
+      <subvertex xmi:type="uml:State" xmi:id="_NMGcduBAEeSK3pICxtF8GQ" name="available"/>
+      <subvertex xmi:type="uml:State" xmi:id="_NMGcd-BAEeSK3pICxtF8GQ" name="on loan"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_NMGceOBAEeSK3pICxtF8GQ" name="Initial State"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_NMGceeBAEeSK3pICxtF8GQ" name="Final State"/>
+      <transition xmi:id="_NMGceuBAEeSK3pICxtF8GQ" name="Transition" source="_NMGcduBAEeSK3pICxtF8GQ" target="_NMGceeBAEeSK3pICxtF8GQ"/>
+      <transition xmi:id="_NMGce-BAEeSK3pICxtF8GQ" name="Transition1" source="_NMGcduBAEeSK3pICxtF8GQ" target="_NMGcd-BAEeSK3pICxtF8GQ" guard="_NMGcfOBAEeSK3pICxtF8GQ">
+        <ownedRule xmi:id="_NMGcfOBAEeSK3pICxtF8GQ" name="issue" constrainedElement="_NMGce-BAEeSK3pICxtF8GQ">
+          <specification xmi:type="uml:LiteralString" xmi:id="_NMHDgOBAEeSK3pICxtF8GQ" value="issue"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_NMHDgeBAEeSK3pICxtF8GQ" name="Transition" source="_NMGcd-BAEeSK3pICxtF8GQ" target="_NMGcduBAEeSK3pICxtF8GQ" guard="_NMHDguBAEeSK3pICxtF8GQ">
+        <ownedRule xmi:id="_NMHDguBAEeSK3pICxtF8GQ" name="discharge" constrainedElement="_NMHDgeBAEeSK3pICxtF8GQ">
+          <specification xmi:type="uml:LiteralString" xmi:id="_NMHDg-BAEeSK3pICxtF8GQ" value="discharge"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_NMHDhOBAEeSK3pICxtF8GQ" name="Transition" source="_NMGceOBAEeSK3pICxtF8GQ" target="_NMGcd-BAEeSK3pICxtF8GQ"/>
+    </region>
+  </packagedElement>
+</uml:Model>

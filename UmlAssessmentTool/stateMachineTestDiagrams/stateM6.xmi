@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_e_jg4OBJEeSRFII68DmeuA" name="project6">
+  <eAnnotations xmi:id="_e_kH8OBJEeSRFII68DmeuA" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_e_kH8eBJEeSRFII68DmeuA" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_e_kH8uBJEeSRFII68DmeuA" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_e_kH8-BJEeSRFII68DmeuA" name="State Machine">
+    <region xmi:id="_e_kH9OBJEeSRFII68DmeuA">
+      <subvertex xmi:type="uml:State" xmi:id="_e_kH9eBJEeSRFII68DmeuA" name="Member"/>
+      <subvertex xmi:type="uml:State" xmi:id="_e_kH9uBJEeSRFII68DmeuA" name="under limit"/>
+      <subvertex xmi:type="uml:State" xmi:id="_e_kH9-BJEeSRFII68DmeuA" name="at limit"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_e_kH-OBJEeSRFII68DmeuA" name="Initial State"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_e_kH-eBJEeSRFII68DmeuA" name="Final State"/>
+      <transition xmi:id="_e_kH-uBJEeSRFII68DmeuA" name="Transition" source="_e_kH9eBJEeSRFII68DmeuA" target="_e_kH-eBJEeSRFII68DmeuA" guard="_e_kH--BJEeSRFII68DmeuA">
+        <ownedRule xmi:id="_e_kH--BJEeSRFII68DmeuA" name="leave" constrainedElement="_e_kH-uBJEeSRFII68DmeuA">
+          <specification xmi:type="uml:LiteralString" xmi:id="_e_kH_OBJEeSRFII68DmeuA" value="leave"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_e_kH_eBJEeSRFII68DmeuA" name="Transition1" source="_e_kH9eBJEeSRFII68DmeuA" target="_e_kH9uBJEeSRFII68DmeuA"/>
+      <transition xmi:id="_e_kH_uBJEeSRFII68DmeuA" name="Transition" source="_e_kH9uBJEeSRFII68DmeuA" target="_e_kH9eBJEeSRFII68DmeuA"/>
+      <transition xmi:id="_e_kH_-BJEeSRFII68DmeuA" name="Transition1" source="_e_kH9uBJEeSRFII68DmeuA" target="_e_kH9-BJEeSRFII68DmeuA"/>
+      <transition xmi:id="_e_kvAOBJEeSRFII68DmeuA" name="Transition2" source="_e_kH9uBJEeSRFII68DmeuA" target="_e_kH9uBJEeSRFII68DmeuA" guard="_e_kvAeBJEeSRFII68DmeuA">
+        <ownedRule xmi:id="_e_kvAeBJEeSRFII68DmeuA" name="loan&lt;n" constrainedElement="_e_kvAOBJEeSRFII68DmeuA">
+          <specification xmi:type="uml:LiteralString" xmi:id="_e_kvAuBJEeSRFII68DmeuA" value="loan&lt;n"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_e_kvA-BJEeSRFII68DmeuA" name="Transition" source="_e_kH9-BJEeSRFII68DmeuA" target="_e_kH9uBJEeSRFII68DmeuA"/>
+      <transition xmi:id="_e_kvBOBJEeSRFII68DmeuA" name="Transition" source="_e_kH-OBJEeSRFII68DmeuA" target="_e_kH9eBJEeSRFII68DmeuA"/>
+    </region>
+  </packagedElement>
+</uml:Model>
