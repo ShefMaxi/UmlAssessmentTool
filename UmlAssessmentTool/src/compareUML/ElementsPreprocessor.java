@@ -13,11 +13,11 @@ public class ElementsPreprocessor {
 
 	// private String[] DIAGRAMTYPE = {"usecase", "class", ""};
 	protected String[] USECASE_ELEMENT_TYPE = { "uml:Actor", "uml:Usecase", "Association" };
-	protected String diagramType;
+	protected int diagramType;
 	protected ArrayList<PackagedElement> diagramElements;
 
 	// accessors
-	public String getDiagramType() {
+	public int getDiagramType() {
 		return diagramType;
 	}
 
@@ -25,37 +25,17 @@ public class ElementsPreprocessor {
 		return diagramElements;
 	}
 
-	public ElementsPreprocessor(ArrayList<PackagedElement> elements) {
+	public ElementsPreprocessor(Diagram umlDiagram) {
 		// TODO Auto-generated constructor stub
-		this.diagramElements = elements;
-		identifyDiagramType();
+		this.diagramElements = umlDiagram.getElements();
+		this.diagramType = umlDiagram.getDiagramType();
 
 	}
 
-	protected boolean identifyDiagramType() {
-		for (PackagedElement packagedElement : diagramElements) {
-			if (packagedElement.getType().compareToIgnoreCase("uml:Actor") == 0) {
-				this.diagramType = "UseCase";
-				return true;
-			} else if (packagedElement.getType().compareToIgnoreCase("uml:Class") == 0) {
-				this.diagramType = "uml:Class";
-				return true;
-			} else if (packagedElement.getType().compareToIgnoreCase(
-					"OpaqueAction") == 0) {
-				this.diagramType = "Activity";
-				return true;
-			} else if (packagedElement.getType().compareToIgnoreCase("uml:State") == 0) {
-				// need to re-check
-				this.diagramType = "StateMachine";
-				return true;
-			}
-		}
-		return false;
-	}
 
 	public HashMap<String, ArrayList<PackagedElement>> preprocessForUseCase() {
 		HashMap<String, ArrayList<PackagedElement>> result = new HashMap<String, ArrayList<PackagedElement>>();
-		if (this.diagramType.compareToIgnoreCase("usecase") == 0) {
+		if (this.diagramType == 1) {
 			// can be optimized.
 			
 			for (String usecaseElementType : USECASE_ELEMENT_TYPE) {
