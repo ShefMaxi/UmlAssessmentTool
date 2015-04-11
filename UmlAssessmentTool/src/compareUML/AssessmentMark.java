@@ -19,17 +19,18 @@ public class AssessmentMark {
 	public AssessmentMark(Diagram studentDiagram,
 			Diagram lecturerDiagram) {
 		System.out.println("-----------");
+		System.out.println(studentDiagram);
 		this.studentDiagram = studentDiagram;
 		this.lecturerDiagram = lecturerDiagram;
 	}
 
 	private void assessUsecaseDiagram() {
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
-				studentDiagram.getElements());
+				studentDiagram);
 		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor
 				.preprocessForUseCase();
 		ElementsPreprocessor lecturerProcessor = new ElementsPreprocessor(
-				lecturerDiagram.getElements());
+				lecturerDiagram);
 		HashMap<String, ArrayList<PackagedElement>> lecturerMap = lecturerProcessor
 				.preprocessForUseCase();
 		// ---------------------------------------------------------------------------------------
@@ -61,7 +62,7 @@ public class AssessmentMark {
 	}
 
 	public double getFinalMarks() {
-
+		
 		
 		switch (studentDiagram.getDiagramType()) {
 		case 1:

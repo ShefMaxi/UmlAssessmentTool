@@ -229,6 +229,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     	try {
     		
     		Diagram lecturerDiagram = xmiFileParser.readXMIFile(lecturerFilePath);
+    		System.out.println(lecturerDiagram + " lot");
     		Diagram studentDigram = xmiFileParser.readXMIFile(studentFilePath);
     		
     		AssessmentMark xmiAssessor = new AssessmentMark(studentDigram, lecturerDiagram);
