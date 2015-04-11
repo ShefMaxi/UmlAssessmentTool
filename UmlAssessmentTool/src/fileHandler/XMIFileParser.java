@@ -36,15 +36,16 @@ public class XMIFileParser {
 		XMLReader reader = new XMLReader(xmiFile);
 		org.jast.xml.Document document = reader.readDocument();
 		// reader.close();
-		XPath usecasePath = new XPath(
+		XPath usecasePath1 = new XPath(
 				"//packagedElement[@xmi:type='uml:Actor']");
+		XPath usecasePath2 = new XPath("//packagedElement[@xmi:type='uml:UseCase']");
 		XPath classPath = new XPath("//packagedElement[@xmi:type='uml:Class']");
 		XPath activityPath = new XPath(
 				"//packagedElement[@xmi:type='uml:Activity']");
 		XPath stateMachinePath = new XPath(
 				"//packagedElement[@xmi:type='uml:StateMachine']");
 
-		if (usecasePath.match(document).size() != 0) {
+		if (usecasePath1.match(document).size() != 0 || usecasePath2.match(document).size() != 0) {
 			System.out.println("usecase");
 			return 1;
 		} else if (classPath.match(document).size() != 0) {
@@ -410,6 +411,7 @@ public class XMIFileParser {
 			JDOMException {
 		Diagram diagram = null;
 		int diagramType = this.checkDiagramType(filePath);
+		System.out.println(diagramType);
 		switch (diagramType) {
 		case 1:
 			diagram = new Diagram(readUsecaseXMIFile(filePath), diagramType);
