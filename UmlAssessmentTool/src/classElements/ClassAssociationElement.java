@@ -70,7 +70,6 @@ public class ClassAssociationElement extends PackagedElement{
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
 	double marks=0.0;
-	System.out.println("get into this compareTo method 2");
 	if (packagedElement instanceof ClassAssociationElement&&!(packagedElement instanceof AssociationClassElement)){
 		ClassAssociationElement studentElement=(ClassAssociationElement) packagedElement;		
 			//the 2 linked classes must be correct

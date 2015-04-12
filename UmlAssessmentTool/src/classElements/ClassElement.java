@@ -2,7 +2,9 @@ package classElements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import packagedElements.PackagedElement;
 
@@ -51,7 +53,6 @@ public String toString() {
 @Override
 public double compareTo(PackagedElement packagedElement) {
 	double marks=0.0;		
-	System.out.println("get into this compareTo method 3");
 	if (packagedElement instanceof ClassElement){
 		ClassElement studentElement=(ClassElement) packagedElement;
 		//compare class name
@@ -76,8 +77,12 @@ public double compareTo(PackagedElement packagedElement) {
 	    for(Object lecObj:this.getAttribute()){
 	    	for(Object stuObj:studentElement.getAttribute()){
 	    		//get every pair<type,name> from per HashMap
-	    		Map.Entry<String, String> lecturer=(Map.Entry<String, String>) lecObj;
-	    		Map.Entry<String, String> student=(Map.Entry<String, String>) stuObj;
+	    		Set<Map.Entry<String, String>> lecEntrySet = ((HashMap<String, String>) lecObj).entrySet();
+	    		Set<Map.Entry<String, String>> stuEntrySet = ((HashMap<String, String>) stuObj).entrySet();
+	    		 Iterator lec = lecEntrySet.iterator();
+	    		 Iterator stu = stuEntrySet.iterator();
+	    		Map.Entry<String, String> lecturer=(Map.Entry<String, String>)lec.next();
+	    		Map.Entry<String, String> student=(Map.Entry<String, String>) stu.next();
 	    		if(lecturer.getKey().compareToIgnoreCase(student.getKey())==0&&lecturer.getValue().compareToIgnoreCase(student.getValue())==0){
 	    	    	marks++;
 	    	    }
