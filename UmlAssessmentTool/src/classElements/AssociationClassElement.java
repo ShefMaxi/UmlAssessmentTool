@@ -53,8 +53,10 @@ public class AssociationClassElement extends ClassAssociationElement{
 				marks++;
 			}
 			//compare end roles
+			if(this.getFirstMemberEndRole()!=null&&this.getSecondMemberEndRole()!=null&&studentElement.getFirstMemberEndRole()!=null&&studentElement.getSecondMemberEndRole()!=null){
 			if(this.getFirstMemberEndRole().compareToIgnoreCase(studentElement.getFirstMemberEndRole())==0&&this.getSecondMemberEndRole().compareToIgnoreCase(studentElement.getSecondMemberEndRole())==0){
 				marks++;
+			}
 			}
 			//compare operation(name)
 		    ArrayList<String> operations=studentElement.getOperation();
