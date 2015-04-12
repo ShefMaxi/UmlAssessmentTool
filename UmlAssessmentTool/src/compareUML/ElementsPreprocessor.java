@@ -16,6 +16,9 @@ public class ElementsPreprocessor {
 	// statemachine	 : 4
 	protected String[] USECASE_ELEMENT_TYPE = { "uml:Actor", "uml:Usecase", "Association" };
 	protected String[] CLASS_ELEMENT_TYPE = { "uml:Class", "Association", "AssociationCLass" };
+	protected String[] ACTIVITY_ELEMENT_TYPE = {"uml:ActionNodeElement","uml:AcceptSignalElement",
+			"uml:ActivityFinalNodeElement","uml:CentralBufferNodeElement","uml:JoinNodeElement",
+			"uml:ForkNodeElement","uml:InitialNodeElement","uml:ControlFlow","uml:group","uml:InputPin","uml:OutputPin"};
 	protected String[] STATE_MACHINE_ELEMENT_TYPE = {"uml:State", "uml:Pseudostate", "uml:FinalState", "transition"};
 	protected int diagramType;
 	protected ArrayList<PackagedElement> diagramElements;
@@ -79,6 +82,28 @@ public class ElementsPreprocessor {
 				}
 
 				result.put(ClassElementType, processedElements);
+			}
+		}
+		return result;
+	}
+	
+	public HashMap<String, ArrayList<PackagedElement>> preprocessForActivity() {
+		HashMap<String, ArrayList<PackagedElement>> result = new HashMap<String, ArrayList<PackagedElement>>();
+		if (this.diagramType == 3) {
+			// can be optimized.
+			
+			for (String ActivityElementType : ACTIVITY_ELEMENT_TYPE) {
+				
+				ArrayList<PackagedElement> processedElements = new ArrayList<PackagedElement>();
+
+				for (PackagedElement packagedElement : diagramElements) {
+					if (packagedElement.getType().compareToIgnoreCase(
+							ActivityElementType) == 0) {
+						processedElements.add(packagedElement);
+					}
+				}
+
+				result.put(ActivityElementType, processedElements);
 			}
 		}
 		return result;

@@ -414,7 +414,6 @@ public class XMIFileParser {
 
 	}
 
-	
 	private ArrayList<PackagedElement> readActivityXMIFile(String filePath)
 			throws IOException, XMLError {
 		
@@ -568,7 +567,7 @@ public class XMIFileParser {
 					}
 					
 					
-					PackagedElement ivp = new InputPinElement("inputPin", ipId, inPartition, ipName, iN);
+					PackagedElement ivp = new InputPinElement("uml:InputPin", ipId, inPartition, ipName, iN);
 					result.add(ivp);
 				}
 				
@@ -596,11 +595,11 @@ public class XMIFileParser {
 						ipOutgoing = iOutgoing.getValue();
 						oN=NameIdMap.get(ipOutgoing);
 					}
-					PackagedElement ovp = new OutputPinElement("outputValue", ipId, inPartition, ipName, oN);
+					PackagedElement ovp = new OutputPinElement("uml:OutputPin", ipId, inPartition, ipName, oN);
 					result.add(ovp);
 				}
 				
-				PackagedElement oa = new ActionNodeElement(attributes.get(0).getValue(),
+				PackagedElement oa = new ActionNodeElement("uml:ActionNodeElement",
 						attributes.get(1).getValue(),inPartition, name, 
 						incomingName, outgoingName, inputValue, outputValue);
 				result.add(oa);
@@ -610,7 +609,7 @@ public class XMIFileParser {
 			case "uml:AcceptCallAction":
 			case "uml:AcceptEventAction":
 				
-				PackagedElement aea = new AcceptSignalElement(attributes.get(0).getValue(), 
+				PackagedElement aea = new AcceptSignalElement("uml:AcceptSignalElement", 
 						attributes.get(1).getValue(),inPartition, name, outgoingName);
 				result.add(aea);
 				break;
@@ -618,7 +617,7 @@ public class XMIFileParser {
 			//*****************************************************ActivityFinalNodeElement*****/	
 			case "uml:ActivityFinalNode":
 				
-				PackagedElement afn = new ActivityFinalNodeElement(attributes.get(0).getValue(), 
+				PackagedElement afn = new ActivityFinalNodeElement("uml:ActivityFinalNodeElement", 
 						attributes.get(1).getValue(), inPartition, name, incomingName);
 				result.add(afn);
 				break;
@@ -626,7 +625,7 @@ public class XMIFileParser {
 			//*****************************************************CentralBufferNode, object node*****/	
 			case "uml:CentralBufferNode":
 				
-				PackagedElement cbn = new CentralBufferNodeElement(attributes.get(0).getValue(), 
+				PackagedElement cbn = new CentralBufferNodeElement("uml:CentralBufferNodeElement", 
 						attributes.get(1).getValue(), inPartition, name, incomingName, outgoingName);
 				result.add(cbn);
 				break;
@@ -650,7 +649,7 @@ public class XMIFileParser {
 					}
 				}
 			
-				PackagedElement jn = new JoinNodeElement(attributes.get(0).getValue(), 
+				PackagedElement jn = new JoinNodeElement("uml:JoinNodeElement", 
 						attributes.get(1).getValue(), inPartition, name, outgoingName, incomingNamePaths);
 				
 				result.add(jn);
@@ -675,7 +674,7 @@ public class XMIFileParser {
 					}
 				}
 				
-				PackagedElement fn = new ForkNodeElement(attributes.get(0).getValue(), 
+				PackagedElement fn = new ForkNodeElement("uml:ForkNodeElement", 
 						attributes.get(1).getValue(), inPartition, name, outgoingNamePaths, incomingName);
 				result.add(fn);
 				break;
@@ -710,6 +709,7 @@ public class XMIFileParser {
             String targetNodeName = null;
             boolean weight = false;	// not needed in compare class, may be later
             if (weight) {;};// destroy warnings
+            if (type==null) {};// destroy warnings
             
             org.jast.xml.Element edgeElement = (org.jast.xml.Element)edge;
             
@@ -758,7 +758,7 @@ public class XMIFileParser {
                 if (vl!=null) {
                     value = vl.getValue();
                 }
-                PackagedElement edg= new EdgeElements(type, Id, name, sourceNodeName, targetNodeName);
+                PackagedElement edg= new EdgeElements("uml:ControlFlow", Id, name, sourceNodeName, targetNodeName);
                 result.add(edg);
             }
             for (Content group : groupElementList) {
@@ -768,6 +768,7 @@ public class XMIFileParser {
                 String gname = null;
                 String gId = null;
                 //String Node = null;
+                if (gtype==null) {;};// destroy warnings
                 
                 
                 org.jast.xml.Element groupElement = (org.jast.xml.Element)group;
@@ -789,7 +790,7 @@ public class XMIFileParser {
                     gtype = gtyp.getValue();
                 }
                 
-                PackagedElement grp= new GroupElements(gtype, gId, gname);
+                PackagedElement grp= new GroupElements("uml:group", gId, gname);
                 result.add(grp);
             }
         }
