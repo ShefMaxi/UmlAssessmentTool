@@ -4,13 +4,20 @@ import packagedElements.PackagedElement;
 
 public class CentralBufferNodeElement extends ActivityNodes {
 
-protected String outgoingName;
+	
+	protected String incomingName;	
+	protected String outgoingName;
 	
 	public CentralBufferNodeElement(String type, String id, String inPartition,
-			String name, String outgoingName) {
+			String name, String incomingName,String outgoingName) {
 		super(type, id, inPartition, name);
 		this.outgoingName=outgoingName;
+		this.incomingName=incomingName;
 		// TODO Auto-generated constructor stub
+	}
+	
+	public String getIncomingName(){
+		return this.incomingName;
 	}
 	
 	public String getOutgoingName(){
@@ -26,10 +33,18 @@ protected String outgoingName;
 			// make sure comparison under right type condition
 			if (this.getType().compareToIgnoreCase(student.getType())==0) {
 				
-				// 1 point for identifying right outgoing name
+				// 0.5 point for identifying right incoming name
+				if (this.getIncomingName()!=null) {
+					if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
+						mark+=0.5;
+					}
+				} 
+				
+				
+				// 0.5 point for identifying right outgoing name
 				if (this.getOutgoingName()!=null) {
 					if (this.getOutgoingName().compareToIgnoreCase(student.getOutgoingName())==0) {
-						mark+=1;
+						mark+=0.5;
 					}
 				}
 				// if a patition exists, judge if the node is in right partition. However, no point should be allocated if it's in wrong partition
