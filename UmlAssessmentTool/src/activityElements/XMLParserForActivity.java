@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-
 import org.jast.xml.*;
 import org.jast.xpath.*;
 
@@ -14,7 +14,7 @@ import packagedElements.PackagedElement;
 public class XMLParserForActivity {
 	
 	
-	
+	// writen by yan zhang and salisu
 	public static ArrayList<PackagedElement> readActivityXMIFile(String filePath)
 			throws IOException, XMLError {
 
@@ -31,7 +31,8 @@ public class XMLParserForActivity {
 		List<Content> nodeElementList = query.match(document);
 		List<Content> edgeElementList = query2.match(document);
 		List<Content> groupElementList = query3.match(document);
-
+		
+		// create id-name map for the whole document
 		if (nodeElementList!=null) {
 			for (Content content : nodeElementList) {
 				List<Attribute> attributes = content.getAttributes();
@@ -40,7 +41,8 @@ public class XMLParserForActivity {
 					String name = attributes.get(2).getValue();
 					NameIdMap.put(id, name);
 				}
-				Element e = (Element)content;
+                
+                Element e = (Element)content;
 				if (e.hasChildren()) {
 					Element inputV = e.getChild("inputValue");
 					if (inputV!=null) {
@@ -65,15 +67,15 @@ public class XMLParserForActivity {
 					String name = attributes.get(2).getValue();
 					NameIdMap.put(id, name);
 				}
-				//.......................Salisu.......................
-				Element e2 = (Element)content;
-				if (e2.hasChildren()) {
-					Element weight = e2.getChild("weight");
-					if (weight!=null) {
-						NameIdMap.put(weight.getAttribute("xmi:id").getValue(), 
-								weight.getAttribute("value").getValue());
-					}
-				}	
+                //.......................Salisu.......................
+                Element e2 = (Element)content;
+                if (e2.hasChildren()) {
+                    Element weight = e2.getChild("weight");
+                    if (weight!=null) {
+                        NameIdMap.put(weight.getAttribute("xmi:id").getValue(),
+                                      weight.getAttribute("value").getValue());
+                    }
+                }
 			}
 		}
 		if (groupElementList!=null) {
@@ -86,11 +88,12 @@ public class XMLParserForActivity {
 				}
 			}
 		}
-		
-		
-		
-		System.out.println(NameIdMap);
-		
+        System.out.println(NameIdMap);
+                
+         
+                
+                
+		//************** node Element builder ******************************************/
 		for (Content node : nodeElementList) {
 			
 			String inPartition = null;
@@ -125,6 +128,9 @@ public class XMLParserForActivity {
 			if (nm!=null) {
 				name = nm.getValue();
 			}
+			
+		
+			// builders 
 			switch (attributes.get(0).getValue()) {
 			
 			//***************************************************ActionNodeElement and Pins**************/
@@ -212,110 +218,180 @@ public class XMLParserForActivity {
 			case "uml:ActivityFinalNode":
 				
 				PackagedElement afn = new ActivityFinalNodeElement(attributes.get(0).getValue(), 
-						attributes.get(1).getValue(), inPartition, outgoingName, incomingName);
+						attributes.get(1).getValue(), inPartition, name, incomingName);
 				result.add(afn);
 				break;
 				
-			//*****************************************************CentralBufferNode*****/	
-
+			//*****************************************************CentralBufferNode, object node*****/	
+			case "uml:CentralBufferNode":
+				
+				PackagedElement cbn = new CentralBufferNodeElement(attributes.get(0).getValue(), 
+						attributes.get(1).getValue(), inPartition, name, incomingName, outgoingName);
+				result.add(cbn);
+				break;
+				
+			//******************************************************merge/joinNodeElement***********/
+			case "uml:JoinNode":
+			case "uml:MergeNode":
+				HashSet<String> incomingNamePaths=new HashSet<String>();
+				// extracting incoming from current node element
+				Attribute jog = nodeElement.getAttribute("incoming");
+				if (jog!=null) {
+					String incomingIds = jog.getValue();
+					
+					if (incomingIds!=null) {
+						
+						String[] temp = incomingIds.split(" ");
+						for (String jid : temp) {
+							String jName = NameIdMap.get(jid);
+							incomingNamePaths.add(jName);
+						}
+					}
+				}
+			
+				PackagedElement jn = new JoinNodeElement(attributes.get(0).getValue(), 
+						attributes.get(1).getValue(), inPartition, name, outgoingName, incomingNamePaths);
+				
+				result.add(jn);
+				break;
+				
+				//*****************************************************Fork/DecisionNodeElement***************/
+			case "uml:ForkNode":
+			case "uml:DecisionNode":	
+				HashSet<String> outgoingNamePaths=new HashSet<String>();
+				// extracting incoming from current node element
+				Attribute fog = nodeElement.getAttribute("outgoing");
+				if (fog!=null) {
+					String outgoingIds = fog.getValue();
+					
+					if (outgoingIds!=null) {
+						
+						String[] temp = outgoingIds.split(" ");
+						for (String jid : temp) {
+							String jName = NameIdMap.get(jid);
+							outgoingNamePaths.add(jName);
+						}
+					}
+				}
+				
+				PackagedElement fn = new ForkNodeElement(attributes.get(0).getValue(), 
+						attributes.get(1).getValue(), inPartition, name, outgoingNamePaths, incomingName);
+				result.add(fn);
+				break;
+				
+				
+				
+			//*****************************************************InitialNodeElement***************/
+			case "uml:InitialNode":
+				
+				PackagedElement in = new InitialNodeElement(attributes.get(0).getValue(), 
+						attributes.get(1).getValue(), inPartition, name, outgoingName);
+				result.add(in);
+				break;
+				
 			default:
+				
+				System.out.println("Can't parse this element!");
+				System.out.println("error element type: "+attributes.get(0).getValue());
 				break;
 			}
 		}
-		//.................Salisu......................................
-		for (Content edge : edgeElementList) {
-			
-			
-			String type = null;
-			String name = null;
-			String Id = null;
-			String sourceNodeName = null;
-			String targetNodeName = null;
-			boolean weight = false;	// not needed in compare class, may be later
-			
-			
-			Element edgeElement = (Element)edge;
-			
-			// extracting name from current node element
-				Attribute nm = edgeElement.getAttribute("name");
-				if (nm!=null) {
-					name = nm.getValue();
-				}
-
-				// extracting ID from current node element
-					Attribute id = edgeElement.getAttribute("xmi:id");
-					if (nm!=null) {
-						Id = id.getValue();
-					}
-					// extracting type from current edge element
-					Attribute typ = edgeElement.getAttribute("xmi:id");
-					if (nm!=null) {
-						type = typ.getValue();
-					}
-
-			// extracting SourceNode from current edge element
-			Attribute source = edgeElement.getAttribute("source");
-			if (source!=null) {
-				sourceNodeName=NameIdMap.get(source.getValue());
-			}
-			
-			// extracting incoming from current edge element
-			Attribute target = edgeElement.getAttribute("target");
-			if (target!=null) {
-				targetNodeName=NameIdMap.get(target.getValue());
-			}
-			Element iv = edgeElement.getChild("weight");
-			if (iv!=null) {
-				weight=true;
-				
-				String wiId = null;  // not needed in compare class
-				String value = null;	// not needed in compare class
-				
-				
-				Attribute iId = iv.getAttribute("xmi:id");
-				if (iId!=null) {
-					wiId = iId.getValue();
-				}
-				
-				Attribute vl = iv.getAttribute("value");
-				if (vl!=null) {
-					value = vl.getValue();
-				}
-				PackagedElement edg= new EdgeElements(type, Id, name, sourceNodeName, targetNodeName);
-				result.add(edg);
-			}
-			for (Content group : groupElementList) {
-				
-				
-				String gtype = null;
-				String gname = null;
-				String gId = null;
-			  //String Node = null;
-				
-				
-				Element groupElement = (Element)group;
-				
-				// extracting name from current group element
-					Attribute gnm = groupElement.getAttribute("name");
-					if (gnm!=null) {
-						gname = gnm.getValue();
-					}
-
-					// extracting ID from current group element
-						Attribute gid = edgeElement.getAttribute("xmi:id");
-						if (gid!=null) {
-							gId = gid.getValue();
-						}
-						// extracting type from current group element
-						Attribute gtyp = edgeElement.getAttribute("xmi:type");
-						if (gtyp!=null) {
-							gtype = gtyp.getValue();
-						}
-			
-			PackagedElement grp= new GroupElements(gtype, gId, gname);
-			result.add(grp);
-			}
-		}
+                
+        //**************************** edge and group element builders ***********************/
+        //.................Salisu......................................
+        for (Content edge : edgeElementList) {
+            
+            
+            String type = null;
+            String name = null;
+            String Id = null;
+            String sourceNodeName = null;
+            String targetNodeName = null;
+            boolean weight = false;	// not needed in compare class, may be later
+            
+            
+            Element edgeElement = (Element)edge;
+            
+            // extracting name from current node element
+            Attribute nm = edgeElement.getAttribute("name");
+            if (nm!=null) {
+                name = nm.getValue();
+            }
+            
+            // extracting ID from current node element
+            Attribute id = edgeElement.getAttribute("xmi:id");
+            if (nm!=null) {
+                Id = id.getValue();
+            }
+            // extracting type from current edge element
+            Attribute typ = edgeElement.getAttribute("xmi:id");
+            if (nm!=null) {
+                type = typ.getValue();
+            }
+            
+            // extracting SourceNode from current edge element
+            Attribute source = edgeElement.getAttribute("source");
+            if (source!=null) {
+                sourceNodeName=NameIdMap.get(source.getValue());
+            }
+            
+            // extracting incoming from current edge element
+            Attribute target = edgeElement.getAttribute("target");
+            if (target!=null) {
+                targetNodeName=NameIdMap.get(target.getValue());
+            }
+            Element iv = edgeElement.getChild("weight");
+            if (iv!=null) {
+                weight=true;
+                
+                String wiId = null;  // not needed in compare class
+                String value = null;	// not needed in compare class
+                
+                
+                Attribute iId = iv.getAttribute("xmi:id");
+                if (iId!=null) {
+                    wiId = iId.getValue();
+                }
+                
+                Attribute vl = iv.getAttribute("value");
+                if (vl!=null) {
+                    value = vl.getValue();
+                }
+                PackagedElement edg= new EdgeElements(type, Id, name, sourceNodeName, targetNodeName);
+                result.add(edg);
+            }
+            for (Content group : groupElementList) {
+                
+                
+                String gtype = null;
+                String gname = null;
+                String gId = null;
+                //String Node = null;
+                
+                
+                Element groupElement = (Element)group;
+                
+                // extracting name from current group element
+                Attribute gnm = groupElement.getAttribute("name");
+                if (gnm!=null) {
+                    gname = gnm.getValue();
+                }
+                
+                // extracting ID from current group element
+                Attribute gid = edgeElement.getAttribute("xmi:id");
+                if (gid!=null) {
+                    gId = gid.getValue();
+                }
+                // extracting type from current group element
+                Attribute gtyp = edgeElement.getAttribute("xmi:type");
+                if (gtyp!=null) {
+                    gtype = gtyp.getValue();
+                }
+                
+                PackagedElement grp= new GroupElements(gtype, gId, gname);
+                result.add(grp);
+            }
+        }
 		
 		return result;
 	}
@@ -324,7 +400,11 @@ public class XMLParserForActivity {
 		
 		try {
 			System.out.println
-			(XMLParserForActivity.readActivityXMIFile("C:/Users/Salisu/Documents/GitHub/UmlAssessmentTool/UmlAssessmentTool/ActivitySimple.xmi"));
+			(XMLParserForActivity.readActivityXMIFile("/Users/zhangyan/GitHub/UmlAssessmentTool/UmlAssessmentTool/activitytester3.xmi").size());
+			ArrayList<PackagedElement> a = XMLParserForActivity.readActivityXMIFile("/Users/zhangyan/GitHub/UmlAssessmentTool/UmlAssessmentTool/activitytester3.xmi");
+			for (PackagedElement packagedElement : a) {
+				
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

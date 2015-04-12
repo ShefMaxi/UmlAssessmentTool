@@ -1,4 +1,4 @@
-package activityElements;
+package deprecatedSourceCode;
 
 import packagedElements.PackagedElement;
 import useCaseElements.*;
@@ -13,6 +13,9 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+
+import activityElements.EdgeElements;
+import activityElements.GroupElements;
 
 public class XMIFileParser2 {
 	
