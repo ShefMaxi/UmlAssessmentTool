@@ -32,8 +32,27 @@ public class TransitionElement extends PackagedElement {
 	
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
-		// TODO Auto-generated method stub
-		return -1;
+		if (packagedElement instanceof TransitionElement) {
+			TransitionElement transitionElement = (TransitionElement) packagedElement;
+			if (this.sourceElement.getType().compareToIgnoreCase(transitionElement.getSourceElement().getType()) != 0) {
+				return 0;
+			}
+			if (this.targetElement.getType().compareToIgnoreCase(transitionElement.getTargetElement().getType()) != 0) {
+				return 0;
+			}
+			if (this.sourceElement.getName().compareToIgnoreCase(transitionElement.getSourceElement().getName()) != 0) {
+				return 0;
+			}
+			if (this.targetElement.getName().compareToIgnoreCase(transitionElement.getTargetElement().getName()) != 0) {
+				if (guard != null) {
+					if (guard.getValue().compareToIgnoreCase(transitionElement.getGuard().getValue()) == 0) {
+						return 1;
+					}
+				}
+				return 0.5;
+			}
+		}
+		return 0;
 	}
 	@Override
 	public String toString() {

@@ -11,8 +11,13 @@ public class SubvertexElement extends PackagedElement {
 
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
-		// TODO Auto-generated method stub
-		return -1;
+		if (packagedElement instanceof SubvertexElement) {
+			SubvertexElement subvertexElement = (SubvertexElement) packagedElement;
+			if (this.name.compareToIgnoreCase(subvertexElement.getName()) == 0) {
+				return 1;
+			}
+		}
+		return 0;
 	}
 	
 	public String getName() {
