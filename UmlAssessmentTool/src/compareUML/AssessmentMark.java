@@ -81,6 +81,7 @@ public class AssessmentMark {
 		}
 	}
 	private void assessStateMachineDiagram() {
+		
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
 				studentDiagram);
 		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor
@@ -89,6 +90,7 @@ public class AssessmentMark {
 				lecturerDiagram);
 		HashMap<String, ArrayList<PackagedElement>> lecturerMap = lecturerProcessor
 				.preprocessForStateMachine();
+		
 		// ---------------------------------------------------------------------------------------
 		String[] lecturerKeys = forkeys(lecturerMap);
 		// ---------------------------------------------------------------------------------------
@@ -98,8 +100,9 @@ public class AssessmentMark {
 					.get(key);
 			ArrayList<PackagedElement> selectedStudentElements = studentMap
 					.get(key);
-			System.out.println(selectedLecturerElements.size());
+			
 			totalPoints += selectedLecturerElements.size();
+			System.out.println("Total points = " + totalPoints);
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
 					marks += lecturerPackagedElement
