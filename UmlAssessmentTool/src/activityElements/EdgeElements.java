@@ -30,7 +30,7 @@ public class EdgeElements extends PackagedElement {
 	@Override
 	public String toString() {
 	
-		return super.toString() + "name : " + name + "sourceNode" + sourceNodeName + "targetNode "+ targetNodeName;
+		return super.toString() +" "+ "name : " + name + " "+ "sourceNode :" + sourceNodeName +" "+ "targetNode :"+ targetNodeName;
 	}
 
 	public double compareTo(PackagedElement packagedElement) {
@@ -40,7 +40,8 @@ public class EdgeElements extends PackagedElement {
 			// student's packagedElement
 			EdgeElements studentElement = (EdgeElements) packagedElement;
 			if (this.getType().compareToIgnoreCase(studentElement.getType()) == 0) {
-				if (this.getsourceNodeName()
+				if (this.getsourceNodeName()!=null && this.targetNodeName()!=null){
+					if (this.getsourceNodeName()
 						.compareToIgnoreCase(
 								studentElement
 										.getsourceNodeName()) == 0
@@ -50,6 +51,7 @@ public class EdgeElements extends PackagedElement {
 										studentElement
 												.targetNodeName()) == 0) {
 					return marks=marks+1;
+					}
 				}
 			}
 		}

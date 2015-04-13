@@ -18,7 +18,7 @@ public class GroupElements extends PackagedElement {
 	@Override
 	public String toString() {
 	
-		return super.toString() + "name : " + name;
+		return super.toString() + " " +"name : " + name;
 	}
 
 	public double compareTo(PackagedElement packagedElement) {
@@ -29,9 +29,11 @@ public class GroupElements extends PackagedElement {
 			GroupElements studentElement = (GroupElements) packagedElement;
 			if (this.getType().compareToIgnoreCase(studentElement.getType()) == 0) {
 				if (this.getType().compareToIgnoreCase(studentElement.getType()) == 0) {
-					if (this.getName().compareToIgnoreCase(
+					if (this.getName()!=null){
+						if (this.getName().compareToIgnoreCase(
 							(studentElement).getName()) == 0) {
 						marks++;
+						}
 					}
 				}
 			}
