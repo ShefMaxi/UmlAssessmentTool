@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_YZEwoOIAEeSCdeiv_YvsCg" name="test for class diagram">
+  <eAnnotations xmi:id="_YZEwoeIAEeSCdeiv_YvsCg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_YZEwouIAEeSCdeiv_YvsCg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_YZEwo-IAEeSCdeiv_YvsCg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YZEwpOIAEeSCdeiv_YvsCg" name="Class1">
+    <ownedAttribute xmi:id="_YZEwpeIAEeSCdeiv_YvsCg" name="Attribute1" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_YZEwpuIAEeSCdeiv_YvsCg" name="Operation1" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_YZEwp-IAEeSCdeiv_YvsCg" name="Class3" memberEnd="_YZEwquIAEeSCdeiv_YvsCg _YZEwrOIAEeSCdeiv_YvsCg">
+    <ownedAttribute xmi:id="_YZEwqOIAEeSCdeiv_YvsCg" name="Attribute3" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_YZEwqeIAEeSCdeiv_YvsCg" name="Operation3" visibility="public"/>
+    <ownedEnd xmi:id="_YZEwquIAEeSCdeiv_YvsCg" name="test2" visibility="public" type="_YZEws-IAEeSCdeiv_YvsCg" association="_YZEwp-IAEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YZEwq-IAEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_YZEwrOIAEeSCdeiv_YvsCg" name="test1" visibility="public" type="_YZEwpOIAEeSCdeiv_YvsCg" association="_YZEwp-IAEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YZEwreIAEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_YZEwruIAEeSCdeiv_YvsCg" memberEnd="_YZEwr-IAEeSCdeiv_YvsCg _YZEwseIAEeSCdeiv_YvsCg">
+    <ownedEnd xmi:id="_YZEwr-IAEeSCdeiv_YvsCg" name="test4" visibility="public" type="_YZEwvOIAEeSCdeiv_YvsCg" association="_YZEwruIAEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YZEwsOIAEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_YZEwseIAEeSCdeiv_YvsCg" name="test1" visibility="public" type="_YZEwpOIAEeSCdeiv_YvsCg" association="_YZEwruIAEeSCdeiv_YvsCg">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YZEwsuIAEeSCdeiv_YvsCg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YZEws-IAEeSCdeiv_YvsCg" name="Class2">
+    <ownedAttribute xmi:id="_YZEwtOIAEeSCdeiv_YvsCg" name="Attribute2" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_YZEwteIAEeSCdeiv_YvsCg" name="Operation2" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_YZEwtuIAEeSCdeiv_YvsCg" memberEnd="_YZEwt-IAEeSCdeiv_YvsCg _YZEwuuIAEeSCdeiv_YvsCg">
+    <ownedEnd xmi:id="_YZEwt-IAEeSCdeiv_YvsCg" name="test5" visibility="public" type="_YZEwv-IAEeSCdeiv_YvsCg" association="_YZEwtuIAEeSCdeiv_YvsCg">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YZEwuOIAEeSCdeiv_YvsCg" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YZEwueIAEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_YZEwuuIAEeSCdeiv_YvsCg" name="test2" visibility="public" type="_YZEws-IAEeSCdeiv_YvsCg" association="_YZEwtuIAEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YZEwu-IAEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YZEwvOIAEeSCdeiv_YvsCg" name="Class4">
+    <ownedAttribute xmi:id="_YZEwveIAEeSCdeiv_YvsCg" name="Attribute4" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_YZEwvuIAEeSCdeiv_YvsCg" name="Operation4" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YZEwv-IAEeSCdeiv_YvsCg" name="Class5">
+    <ownedAttribute xmi:id="_YZEwwOIAEeSCdeiv_YvsCg" name="Attribute5" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_YZEwweIAEeSCdeiv_YvsCg" name="Operation5" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YZEwwuIAEeSCdeiv_YvsCg" name="Class6">
+    <ownedAttribute xmi:id="_YZEww-IAEeSCdeiv_YvsCg" name="Attribute6" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_YZEwxOIAEeSCdeiv_YvsCg" name="Operation6" visibility="public"/>
+  </packagedElement>
+</uml:Model>

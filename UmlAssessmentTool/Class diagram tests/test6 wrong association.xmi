@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_TrsJkOICEeSCdeiv_YvsCg" name="test for class diagram">
+  <eAnnotations xmi:id="_TrsJkeICEeSCdeiv_YvsCg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_TrsJkuICEeSCdeiv_YvsCg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_TrsJk-ICEeSCdeiv_YvsCg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_TrsJlOICEeSCdeiv_YvsCg" name="Class1">
+    <ownedAttribute xmi:id="_TrsJleICEeSCdeiv_YvsCg" name="Attribute1" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_TrsJluICEeSCdeiv_YvsCg" name="Operation1" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_TrsJl-ICEeSCdeiv_YvsCg" name="Class3" memberEnd="_TrsJmuICEeSCdeiv_YvsCg _TrsJnOICEeSCdeiv_YvsCg">
+    <ownedAttribute xmi:id="_TrsJmOICEeSCdeiv_YvsCg" name="Attribute3" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_TrsJmeICEeSCdeiv_YvsCg" name="Operation3" visibility="public"/>
+    <ownedEnd xmi:id="_TrsJmuICEeSCdeiv_YvsCg" name="test2" visibility="public" type="_TrsJqOICEeSCdeiv_YvsCg" association="_TrsJl-ICEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TrsJm-ICEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_TrsJnOICEeSCdeiv_YvsCg" name="test1" visibility="public" type="_TrsJlOICEeSCdeiv_YvsCg" association="_TrsJl-ICEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TrsJneICEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_TrsJnuICEeSCdeiv_YvsCg" memberEnd="_TrsJn-ICEeSCdeiv_YvsCg _TrsJoeICEeSCdeiv_YvsCg">
+    <ownedEnd xmi:id="_TrsJn-ICEeSCdeiv_YvsCg" name="test4" visibility="public" type="_TrsJq-ICEeSCdeiv_YvsCg" association="_TrsJnuICEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TrsJoOICEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_TrsJoeICEeSCdeiv_YvsCg" name="test1" visibility="public" type="_TrsJlOICEeSCdeiv_YvsCg" association="_TrsJnuICEeSCdeiv_YvsCg">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TrsJouICEeSCdeiv_YvsCg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_TrsJo-ICEeSCdeiv_YvsCg" memberEnd="_TrsJpOICEeSCdeiv_YvsCg _TrsJpuICEeSCdeiv_YvsCg">
+    <ownedEnd xmi:id="_TrsJpOICEeSCdeiv_YvsCg" name="test5" visibility="public" type="_TrsJteICEeSCdeiv_YvsCg" association="_TrsJo-ICEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TrsJpeICEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_TrsJpuICEeSCdeiv_YvsCg" name="test2" visibility="public" type="_TrsJlOICEeSCdeiv_YvsCg" association="_TrsJo-ICEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TrsJp-ICEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_TrsJqOICEeSCdeiv_YvsCg" name="Class2">
+    <ownedAttribute xmi:id="_TrsJqeICEeSCdeiv_YvsCg" name="Attribute2" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_TrsJquICEeSCdeiv_YvsCg" name="Operation2" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_TrsJq-ICEeSCdeiv_YvsCg" name="Class4">
+    <ownedAttribute xmi:id="_TrsJrOICEeSCdeiv_YvsCg" name="Attribute4" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_TrsJreICEeSCdeiv_YvsCg" name="Operation4" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_TrsJruICEeSCdeiv_YvsCg" name="Class6" memberEnd="_TrsJseICEeSCdeiv_YvsCg _TrsJs-ICEeSCdeiv_YvsCg">
+    <ownedAttribute xmi:id="_TrsJr-ICEeSCdeiv_YvsCg" name="Attribute6" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_TrsJsOICEeSCdeiv_YvsCg" name="Operation6" visibility="public"/>
+    <ownedEnd xmi:id="_TrsJseICEeSCdeiv_YvsCg" name="test5" visibility="public" type="_TrsJteICEeSCdeiv_YvsCg" association="_TrsJruICEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TrsJsuICEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_TrsJs-ICEeSCdeiv_YvsCg" name="test4" visibility="public" type="_TrsJq-ICEeSCdeiv_YvsCg" association="_TrsJruICEeSCdeiv_YvsCg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TrsJtOICEeSCdeiv_YvsCg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_TrsJteICEeSCdeiv_YvsCg" name="Class5">
+    <ownedAttribute xmi:id="_TrsJtuICEeSCdeiv_YvsCg" name="Attribute5" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_TrsJt-ICEeSCdeiv_YvsCg" name="Operation5" visibility="public"/>
+  </packagedElement>
+</uml:Model>
