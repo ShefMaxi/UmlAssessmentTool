@@ -234,7 +234,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     		System.out.println(studentDigram);
     		AssessmentMark xmiAssessor = new AssessmentMark(studentDigram, lecturerDiagram);
     		
-    		this.jTextAreaForLog.append("The student final mark for usecase diagram is " + xmiAssessor.getFinalMarks() + "%\n");
+    		this.jTextAreaForLog.append("The student final mark for this diagram is " + xmiAssessor.getFinalMarks() + "%\n");
     		
 		} catch (IOException e) {
 			// TODO: handle exception
