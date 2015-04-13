@@ -14,11 +14,13 @@ public class ElementsPreprocessor {
 	// class		 : 2
 	// activity		 : 3
 	// statemachine	 : 4
+	
 	protected String[] USECASE_ELEMENT_TYPE = { "uml:Actor", "uml:Usecase", "Association" };
 	protected String[] CLASS_ELEMENT_TYPE = { "uml:Class", "Association", "AssociationCLass" };
 	protected String[] ACTIVITY_ELEMENT_TYPE = {"uml:ActionNodeElement","uml:AcceptSignalElement",
 			"uml:ActivityFinalNodeElement","uml:CentralBufferNodeElement","uml:JoinNodeElement",
 			"uml:ForkNodeElement","uml:InitialNodeElement","uml:ControlFlow","uml:group","uml:InputPin","uml:OutputPin"};
+	
 	protected String[] STATE_MACHINE_ELEMENT_TYPE = {"uml:State", "uml:Pseudostate", "uml:FinalState", "transition"};
 	protected int diagramType;
 	protected ArrayList<PackagedElement> diagramElements;
@@ -111,7 +113,6 @@ public class ElementsPreprocessor {
 
 	public HashMap<String, ArrayList<PackagedElement>> preprocessForStateMachine() {
 		HashMap<String, ArrayList<PackagedElement>> result = new HashMap<>();
-		
 		if (this.diagramType == 4) {
 			for (String elementType  : STATE_MACHINE_ELEMENT_TYPE) {
 				ArrayList<PackagedElement> processedElements = new ArrayList<>();
@@ -120,6 +121,7 @@ public class ElementsPreprocessor {
 						processedElements.add(packagedElement);
 					}
 				}
+				result.put(elementType, processedElements);
 			}
 		}
 		return result;
