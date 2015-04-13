@@ -25,7 +25,11 @@ public class AssociationClassElement extends ClassAssociationElement{
 	}
 	public void getTotalPoints(){
 <<<<<<< HEAD
+<<<<<<< HEAD
 		this.totalpoints=this.totalpoints+1+operation.size()+attribute.size()+2+1+1;
+=======
+		this.totalpoints=this.totalpoints+1+this.operation.size()+this.attribute.size()+2+1+1;
+>>>>>>> origin/master
 =======
 		this.totalpoints=this.totalpoints+1+this.operation.size()+this.attribute.size()+2+1+1;
 >>>>>>> origin/master

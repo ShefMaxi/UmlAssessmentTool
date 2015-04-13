@@ -31,7 +31,11 @@ public class ClassElement extends PackagedElement{
 		}
 	public void getTotalPoints(){
 <<<<<<< HEAD
+<<<<<<< HEAD
 		this.totalpoints=this.totalpoints+1+operation.size()+attribute.size();
+=======
+		this.totalpoints=this.totalpoints+1+this.operation.size()+this.attribute.size();
+>>>>>>> origin/master
 =======
 		this.totalpoints=this.totalpoints+1+this.operation.size()+this.attribute.size();
 >>>>>>> origin/master
