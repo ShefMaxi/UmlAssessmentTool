@@ -14,10 +14,10 @@ public class SubvertexElement extends PackagedElement {
 		if (packagedElement instanceof SubvertexElement) {
 			SubvertexElement subvertexElement = (SubvertexElement) packagedElement;
 			if (this.name.compareToIgnoreCase(subvertexElement.getName()) == 0) {
-				return 1;
+				return 1.0;
 			}
 		}
-		return 0;
+		return 0.0;
 	}
 	
 	public String getName() {

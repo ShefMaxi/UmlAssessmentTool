@@ -47,20 +47,20 @@ public class TransitionElement extends PackagedElement {
 				return 0;
 			}
 			if (this.targetElement.getName().compareToIgnoreCase(
-					transitionElement.getTargetElement().getName()) != 0) {
+					transitionElement.getTargetElement().getName()) == 0) {
 				if (guard != null && transitionElement.getGuard() != null) {
 					if (guard.getValue().compareToIgnoreCase(
 							transitionElement.getGuard().getValue()) == 0) {
-						return 1;
+						return 1.0;
 					}
 				}
 				if (guard == null && transitionElement.getGuard() == null) {
-					return 1;
+					return 1.0;
 				}
 				return 0.75;
 			}
 		}
-		return 0;
+		return 0.0;
 	}
 	@Override
 	public String toString() {
