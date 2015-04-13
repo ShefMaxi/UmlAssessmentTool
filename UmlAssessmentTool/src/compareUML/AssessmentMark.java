@@ -123,15 +123,21 @@ public class AssessmentMark {
 				
 		// --------------------------------------------------------------------------------------
 		String[] lecturerKeys = forkeys(lecturerMap);
-		// ---------------------------------------------------------------------------------------
+		// --------------------------------------------------------------------------------------
 
 		for (String key : lecturerKeys) {
 			ArrayList<PackagedElement> selectedLecturerElements = lecturerMap
 					.get(key);
 			ArrayList<PackagedElement> selectedStudentElements = studentMap
 					.get(key);
-			totalPoints += selectedLecturerElements.size();
-			studentPoints += selectedStudentElements.size();
+			if (key.compareToIgnoreCase("transition") == 0) {
+				totalPoints += selectedLecturerElements.size();
+				studentPoints += selectedStudentElements.size();
+			} else {
+				totalPoints += 1.5 * selectedLecturerElements.size();
+				studentPoints += 1.5 * selectedStudentElements.size();
+			}
+			
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
 					marks += lecturerPackagedElement
