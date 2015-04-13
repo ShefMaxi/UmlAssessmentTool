@@ -12,7 +12,7 @@ import packagedElements.PackagedElement;
 //Comparison method for Usecase diagram, written by Shupeng
 public class AssessmentMark {
 	protected double marks = 0.0;
-	protected int totalPoints = 0;
+	protected double totalPoints = 0;
 	private Diagram studentDiagram = null;
 	private Diagram lecturerDiagram = null;
 
@@ -72,8 +72,10 @@ public class AssessmentMark {
 			ArrayList<PackagedElement> selectedStudentElements = studentMap
 					.get(key);
 			System.out.println(selectedLecturerElements.size());
-			totalPoints += selectedLecturerElements.size();
-			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
+			for(PackagedElement lecturerPackagedElement : selectedLecturerElements){
+				totalPoints=totalPoints+lecturerPackagedElement.compareTo(lecturerPackagedElement);
+			}
+			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {				
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
@@ -146,7 +148,7 @@ public class AssessmentMark {
 			}
 		}
 		if (studentPoints > 2 * totalPoints) {
-			int temp = studentPoints / totalPoints;
+			double temp = studentPoints / totalPoints;
 			temp--;
 			marks = marks * totalPoints / (studentPoints -temp * 0.8 * totalPoints);
 		} else if (studentPoints > totalPoints) {
