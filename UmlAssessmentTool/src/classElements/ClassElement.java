@@ -30,13 +30,13 @@ public class ClassElement extends PackagedElement{
 			getTotalPoints();
 		}
 	public void getTotalPoints(){
-		if(this.operation.size()!=0&&this.attribute.size()!=0){
+		if(this.operation!=null&&this.attribute!=null){
 			this.totalpoints=this.totalpoints+1+operation.size()+attribute.size();
-			}else if(this.operation.size()==0&&this.attribute.size()!=0){
+			}else if(this.operation==null&&this.attribute!=null){
 			this.totalpoints=this.totalpoints+1+this.attribute.size();
-			}else if(this.operation.size()!=0&&this.attribute.size()==0){
+			}else if(this.operation!=null&&this.attribute==null){
 			this.totalpoints=this.totalpoints+1+this.operation.size();
-			}else if(this.operation.size()==0&&this.attribute.size()==0){
+			}else if(this.operation==null&&this.attribute==null){
 				this.totalpoints=1;
 			}		
 	}
