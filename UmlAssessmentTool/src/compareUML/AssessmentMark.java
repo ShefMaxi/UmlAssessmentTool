@@ -111,7 +111,7 @@ public class AssessmentMark {
 	}
 	
 	private void assessStateMachineDiagram() {
-		
+		int studentPoints = 0;
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
 				studentDiagram);
 		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor
@@ -131,12 +131,20 @@ public class AssessmentMark {
 			ArrayList<PackagedElement> selectedStudentElements = studentMap
 					.get(key);
 			totalPoints += selectedLecturerElements.size();
+			studentPoints += selectedStudentElements.size();
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
 				}
 			}
+		}
+		if (studentPoints > 2 * totalPoints) {
+			int temp = studentPoints / totalPoints;
+			temp--;
+			marks = marks * totalPoints / (studentPoints -temp * 0.8 * totalPoints);
+		} else if (studentPoints > totalPoints) {
+			marks = marks * totalPoints / studentPoints;
 		}
 	}
 	
