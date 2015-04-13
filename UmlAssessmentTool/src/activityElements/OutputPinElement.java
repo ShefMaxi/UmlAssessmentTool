@@ -28,13 +28,19 @@ protected String outgoingName;
 				
 				// 1 point for identifying right outgoing name
 				if (this.getOutgoingName()!=null) {
-					if (this.getOutgoingName().compareToIgnoreCase(student.getOutgoingName())==0) {
-						mark+=1;
+					if (student.getOutgoingName()!=null) {
+						if (this.getOutgoingName().compareToIgnoreCase(student.getOutgoingName())==0) {
+							mark+=1;
+						}
 					}
 				}
 				// if a patition exists, judge if the node is in right partition. However, no point should be allocated if it's in wrong partition
-				if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
-					mark=0;
+				if (this.getInPartition()!=null) {
+					if (student.getInPartition()!=null) {
+						if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
+							mark=0;
+						}
+					}
 				}
 				
 			}

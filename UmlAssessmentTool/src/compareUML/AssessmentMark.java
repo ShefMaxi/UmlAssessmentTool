@@ -104,8 +104,7 @@ public class AssessmentMark {
 			totalPoints += selectedLecturerElements.size();
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
-					marks += lecturerPackagedElement
-							.compareTo(studentPackagedElement);
+					marks += lecturerPackagedElement.compareTo(studentPackagedElement);
 				}
 			}
 		}

@@ -42,18 +42,22 @@ public class ActionNodeElement extends ActivityNodes {
 		if (packagedElement instanceof ActionNodeElement) {
 			ActionNodeElement student = (ActionNodeElement)packagedElement;
 			// make sure comparison under right type condition
-			if (this.getType().compareToIgnoreCase(student.getType())==0) {
+			if (this.getName().compareToIgnoreCase(student.getName())==0) {
 				
 				// 0.5 point for identifying right incoming name
 				if (this.getIncomingName()!=null) {
-					if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
-						mark+=0.5;
+					if (student.getIncomingName()!=null) {
+						if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
+							mark+=0.5;
+						}
 					}
 				}
 				// 0.5 point for identifying right outgoing name
 				if (this.getOutgoingName()!=null) {
-					if (this.getOutgoingName().compareToIgnoreCase(student.getOutgoingName())==0) {
-						mark+=0.5;
+					if (student.getOutgoingName()!=null) {
+						if (this.getOutgoingName().compareToIgnoreCase(student.getOutgoingName())==0) {
+							mark+=0.5;
+						}
 					}
 				}
 				// -0.25 point for not identifying input pin on action node
@@ -71,10 +75,13 @@ public class ActionNodeElement extends ActivityNodes {
 					}
 				}
 				// if a patition exists, judge if the node is in right partition
-				if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
-					mark=0;
+				if (this.getInPartition()!=null) {
+					if (student.getInPartition()!=null) {
+						if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
+							mark=0;
+						}
+					}
 				}
-				
 			}
 		}
 		return mark;
