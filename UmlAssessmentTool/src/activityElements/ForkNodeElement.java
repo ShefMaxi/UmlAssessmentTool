@@ -21,7 +21,7 @@ public class ForkNodeElement extends ActivityNodes {
 		return this.outgoingNamePaths;
 	}
 	
-	public String getincomingName(){
+	public String getIncomingName(){
 		return this.incomingName;
 	}
 	
@@ -32,24 +32,30 @@ public class ForkNodeElement extends ActivityNodes {
 		if (packagedElement instanceof ForkNodeElement) {
 			ForkNodeElement student = (ForkNodeElement)packagedElement;
 			// make sure comparison under right type condition
-			if (this.getType().compareToIgnoreCase(student.getType())==0) {
+			if (this.getName().compareToIgnoreCase(student.getName())==0) {
 				
 				// 0.5 point for identifying right incoming name
-				if (this.getincomingName()!=null) {
-					if (student.getincomingName().compareToIgnoreCase(this.getincomingName())==0) {
-						mark+=0.5;
+				if (this.getIncomingName()!=null) {
+					if (student.getIncomingName()!=null) {
+						if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
+							mark+=0.5;
+						}
 					}
 				}
 				// 0.5 point for identifying right outgoing names
 				if (this.getOutgoingNamePaths()!=null) {
-					if (this.getOutgoingNamePaths()!=null) {
+					if (student.getOutgoingNamePaths()!=null) {
 						mark+=0.5;
 					}
 				}
 				// if a patition exists, judge if the node is in right partition. 
 				// However, no point should be allocated if it's in wrong partition
-				if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
-					mark=0;
+				if (this.getInPartition()!=null) {
+					if (student.getInPartition()!=null) {
+						if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
+							mark=0;
+						}
+					}
 				}
 				
 			}

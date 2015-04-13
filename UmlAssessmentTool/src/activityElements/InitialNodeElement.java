@@ -32,13 +32,20 @@ public class InitialNodeElement extends ActivityNodes {
 		if (packagedElement instanceof InitialNodeElement) {
 			InitialNodeElement studentNode = (InitialNodeElement)packagedElement;
 			if (this.getType().compareToIgnoreCase(studentNode.getType())==0) {
-				if (this.getOutgoingName().compareToIgnoreCase(studentNode.getOutgoingName())==0) {
-					mark++;
+				// 1 point for identifying right outgoing name
+				if (this.getOutgoingName()!=null) {
+					if (studentNode.getOutgoingName()!=null) {
+						if (this.getOutgoingName().compareToIgnoreCase(studentNode.getOutgoingName())==0) {
+							mark+=1;
+						}
+					}
+				}
 					
-					// judgement for inpartition condition, if not same, 0.5 point should be deduced from this marking point
-					if (this.inPartition!=null) {
+				// judgement for inpartition condition, if not same, 0.5 point should be deduced from this marking point
+				if (this.getInPartition()!=null) {
+					if (studentNode.getInPartition()!=null) {
 						if (this.getInPartition().compareToIgnoreCase(studentNode.getInPartition())!=0) {
-							mark=mark-0.5;
+							mark=0;
 						}
 					}
 				}

@@ -28,15 +28,20 @@ public class InputPinElement extends ActivityNodes {
 				
 				// 1 point for identifying right incoming name
 				if (this.getIncomingName()!=null) {
-					if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
-						mark+=1;
+					if (student.getIncomingName()!=null) {
+						if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
+							mark+=1;
+						}
 					}
 				}
 				// if a patition exists, judge if the node is in right partition. However, no point should be allocated if it's in wrong partition
-				if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
-					mark=0;
+				if (this.getInPartition()!=null) {
+					if (student.getInPartition()!=null) {
+						if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
+							mark=0;
+						}
+					}
 				}
-				
 			}
 		}
 		return mark;
