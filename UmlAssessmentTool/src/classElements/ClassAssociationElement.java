@@ -31,7 +31,7 @@ public class ClassAssociationElement extends PackagedElement{
 		getTotalPoints();
 	}
 	public void getTotalPoints(){
-		this.totalpoints=this.totalpoints+2+1+1;
+		this.totalpoints=4;
 		
 	}
 	public String getFirstMemberName() {
