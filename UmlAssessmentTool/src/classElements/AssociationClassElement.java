@@ -24,13 +24,13 @@ public class AssociationClassElement extends ClassAssociationElement{
 		getTotalPoints();
 	}
 	public void getTotalPoints(){
-		if(this.operation.size()!=0&&this.attribute.size()!=0){
+		if(this.operation!=null&&this.attribute!=null){
 		this.totalpoints=this.totalpoints+1+operation.size()+attribute.size()+2+1+1;
-		}else if(this.operation.size()==0&&this.attribute.size()!=0){
+		}else if(this.operation==null&&this.attribute!=null){
 		this.totalpoints=this.totalpoints+1+this.attribute.size()+2+1+1;
-		}else if(this.operation.size()!=0&&this.attribute.size()==0){
+		}else if(this.operation!=null&&this.attribute==null){
 		this.totalpoints=this.totalpoints+1+this.operation.size()+2+1+1;
-		}else if(this.operation.size()==0&&this.attribute.size()==0){
+		}else if(this.operation==null&&this.attribute==null){
 			this.totalpoints=5;
 		}
 		
