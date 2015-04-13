@@ -58,16 +58,12 @@ public class XMIFileParser {
 				"//packagedElement[@xmi:type='uml:StateMachine']");
 
 		if (usecasePath1.match(document).size() != 0 || usecasePath2.match(document).size() != 0) {
-			System.out.println("usecase");
 			return 1;
 		} else if (classPath.match(document).size() != 0) {
-			System.out.println("class");
 			return 2;
 		} else if (activityPath.match(document).size() != 0) {
-			System.out.println("activity");
 			return 3;
 		} else if (stateMachinePath.match(document).size() != 0) {
-			System.out.println("state machine");
 			return 4;
 		}
 
@@ -802,7 +798,6 @@ public class XMIFileParser {
 			JDOMException {
 		Diagram diagram = null;
 		int diagramType = this.checkDiagramType(filePath);
-		System.out.println(diagramType);
 		switch (diagramType) {
 		case 1:
 			diagram = new Diagram(readUsecaseXMIFile(filePath), diagramType);
