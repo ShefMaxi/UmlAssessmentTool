@@ -34,22 +34,30 @@ public class TransitionElement extends PackagedElement {
 	public double compareTo(PackagedElement packagedElement) {
 		if (packagedElement instanceof TransitionElement) {
 			TransitionElement transitionElement = (TransitionElement) packagedElement;
-			if (this.sourceElement.getType().compareToIgnoreCase(transitionElement.getSourceElement().getType()) != 0) {
+			if (this.sourceElement.getType().compareToIgnoreCase(
+					transitionElement.getSourceElement().getType()) != 0) {
 				return 0;
 			}
-			if (this.targetElement.getType().compareToIgnoreCase(transitionElement.getTargetElement().getType()) != 0) {
+			if (this.targetElement.getType().compareToIgnoreCase(
+					transitionElement.getTargetElement().getType()) != 0) {
 				return 0;
 			}
-			if (this.sourceElement.getName().compareToIgnoreCase(transitionElement.getSourceElement().getName()) != 0) {
+			if (this.sourceElement.getName().compareToIgnoreCase(
+					transitionElement.getSourceElement().getName()) != 0) {
 				return 0;
 			}
-			if (this.targetElement.getName().compareToIgnoreCase(transitionElement.getTargetElement().getName()) != 0) {
-				if (guard != null) {
-					if (guard.getValue().compareToIgnoreCase(transitionElement.getGuard().getValue()) == 0) {
+			if (this.targetElement.getName().compareToIgnoreCase(
+					transitionElement.getTargetElement().getName()) != 0) {
+				if (guard != null && transitionElement.getGuard() != null) {
+					if (guard.getValue().compareToIgnoreCase(
+							transitionElement.getGuard().getValue()) == 0) {
 						return 1;
 					}
 				}
-				return 0.5;
+				if (guard == null && transitionElement.getGuard() == null) {
+					return 1;
+				}
+				return 0.75;
 			}
 		}
 		return 0;
