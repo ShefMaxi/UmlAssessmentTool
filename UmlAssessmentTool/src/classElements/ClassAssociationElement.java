@@ -1,9 +1,11 @@
 package classElements;
 
+
 import packagedElements.PackagedElement;
 
 
 public class ClassAssociationElement extends PackagedElement{
+	protected double totalpoints=0;
 	protected String type;
 	protected String firstMemberName;
 	protected String firstMemberLowerValue;
@@ -26,8 +28,12 @@ public class ClassAssociationElement extends PackagedElement{
 		this.secondMemberLowerValue=secondMemberLowerValue;
 		this.secondMemberUpperValue=secondMemberUpperValue;
 		this.secondMemberEndRole=secondMemberEndRole;
+		getTotalPoints();
 	}
-	
+	public void getTotalPoints(){
+		this.totalpoints=this.totalpoints+2+1+1;
+		
+	}
 	public String getFirstMemberName() {
 		return this.firstMemberName;
 	}
@@ -74,16 +80,17 @@ public class ClassAssociationElement extends PackagedElement{
 		ClassAssociationElement studentElement=(ClassAssociationElement) packagedElement;		
 			//the 2 linked classes must be correct
 			if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0&&this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
-			//compare multiplicity,1 point each for correct multiplicity
+			marks=marks+1/totalpoints;
+				//compare multiplicity,1 point each for correct multiplicity
 			if(this.getFirstMemberUpperValue().compareToIgnoreCase(studentElement.getFirstMemberUpperValue())==0&&this.getFirstMemberLowerValue().compareToIgnoreCase(studentElement.getFirstMemberLowerValue())==0){
-				marks++;
+				marks=marks+1/totalpoints;
 			}
 			if(this.getSecondMemberLowerValue().compareToIgnoreCase(studentElement.getSecondMemberLowerValue())==0&&this.getSecondMemberUpperValue().compareToIgnoreCase(studentElement.getSecondMemberUpperValue())==0){
-				marks++;
+				marks=marks+1/totalpoints;
 			}
 			//compare end roles
 			if(this.getFirstMemberEndRole().compareToIgnoreCase(studentElement.getFirstMemberEndRole())==0&&this.getSecondMemberEndRole().compareToIgnoreCase(studentElement.getSecondMemberEndRole())==0){
-				marks++;
+				marks=marks+1/totalpoints;
 			}
 			}
 		}	
