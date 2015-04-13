@@ -65,17 +65,20 @@ public class ClassElement extends PackagedElement{
 	@SuppressWarnings({ "unchecked" })
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
-		double marks=0.0;		
+		double marks=0.0;
+		int number=0;
 		if (packagedElement instanceof ClassElement){
 			ClassElement studentElement=(ClassElement) packagedElement;
 			//compare class name
 			if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
 				marks=marks+1/totalpoints;
+				number++;
 			}
 			//compare generalization
 		    if(this.isGeneralizable()==true&&studentElement.isGeneralizable()==true){		
 		    	if(this.getGeneralization().compareToIgnoreCase(studentElement.getGeneralization())==0){
 		    		marks=marks+1/totalpoints;
+		    		number++;
 		    	}
 		    }
 			//compare operation(name)
@@ -83,6 +86,7 @@ public class ClassElement extends PackagedElement{
 		    for(Object obj:operations){
 		    	if(this.operation.contains(obj)){
 		    		marks=marks+this.operation.size()/totalpoints;
+		    		number++;
 		    	}
 		    }	    
 		    //compare attribute(name,type)
@@ -98,10 +102,12 @@ public class ClassElement extends PackagedElement{
 		    		Map.Entry<String, String> student=(Map.Entry<String, String>) stu.next();
 		    		if(lecturer.getKey().compareToIgnoreCase(student.getKey())==0&&lecturer.getValue().compareToIgnoreCase(student.getValue())==0){
 		    			marks=marks+this.attribute.size()/totalpoints;
+		    			number++;
 		    	    }
 		    	}
 		    }	   	    
 		}
-		return marks;
+		//return marks;
+		return number;
 	}
 }

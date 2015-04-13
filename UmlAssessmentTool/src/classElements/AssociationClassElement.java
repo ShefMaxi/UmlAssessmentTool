@@ -51,26 +51,32 @@ public class AssociationClassElement extends ClassAssociationElement{
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
 		double marks=0.0;
+		int number=0;
 		if (packagedElement instanceof AssociationClassElement){
 			AssociationClassElement studentElement=(AssociationClassElement) packagedElement;
 			//the 2 classes linked with association class must be correct
 			if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0&&this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
 			marks=marks+1/totalpoints;
+			number++;
 				//compare association class name
 			if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
 				marks=marks+1/totalpoints;
+				number++;
 			}
 			//compare multiplicity,1 point each for correct multiplicity
 			if(this.getFirstMemberUpperValue().compareToIgnoreCase(studentElement.getFirstMemberUpperValue())==0&&this.getFirstMemberLowerValue().compareToIgnoreCase(studentElement.getFirstMemberLowerValue())==0){
 				marks=marks+1/totalpoints;
+				number++;
 			}
 			if(this.getSecondMemberLowerValue().compareToIgnoreCase(studentElement.getSecondMemberLowerValue())==0&&this.getSecondMemberUpperValue().compareToIgnoreCase(studentElement.getSecondMemberUpperValue())==0){
 				marks=marks+1/totalpoints;
+				number++;
 			}
 			//compare end roles
 			if(this.getFirstMemberEndRole()!=null&&this.getSecondMemberEndRole()!=null&&studentElement.getFirstMemberEndRole()!=null&&studentElement.getSecondMemberEndRole()!=null){
 			if(this.getFirstMemberEndRole().compareToIgnoreCase(studentElement.getFirstMemberEndRole())==0&&this.getSecondMemberEndRole().compareToIgnoreCase(studentElement.getSecondMemberEndRole())==0){
 				marks=marks+1/totalpoints;
+				number++;
 			}
 			}
 			//compare operation(name)
@@ -78,6 +84,7 @@ public class AssociationClassElement extends ClassAssociationElement{
 		    for(Object obj:operations){
 		    	if(this.operation.contains(obj)){
 		    		marks=marks+this.operation.size()/totalpoints;
+		    		number++;
 		    	}
 		    }	    
 		    //compare attribute(name,type)
@@ -93,11 +100,13 @@ public class AssociationClassElement extends ClassAssociationElement{
 		    		Map.Entry<String, String> student=(Map.Entry<String, String>) stu.next();
 		    		if(lecturer.getKey().compareToIgnoreCase(student.getKey())==0&&lecturer.getValue().compareToIgnoreCase(student.getValue())==0){
 		    			marks=marks+this.attribute.size()/totalpoints;
+		    			number++;
 		    	    }
 		    	}
 		    }	   	    
 		}
 		}
-		return marks;
+		//return marks;
+		return number;
 	}
 }

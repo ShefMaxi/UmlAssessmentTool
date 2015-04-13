@@ -76,24 +76,30 @@ public class ClassAssociationElement extends PackagedElement{
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
 	double marks=0.0;
+	int number=0;
 	if (packagedElement instanceof ClassAssociationElement&&!(packagedElement instanceof AssociationClassElement)){
 		ClassAssociationElement studentElement=(ClassAssociationElement) packagedElement;		
 			//the 2 linked classes must be correct
 			if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0&&this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
 			marks=marks+1/totalpoints;
+			number++;
 				//compare multiplicity,1 point each for correct multiplicity
 			if(this.getFirstMemberUpperValue().compareToIgnoreCase(studentElement.getFirstMemberUpperValue())==0&&this.getFirstMemberLowerValue().compareToIgnoreCase(studentElement.getFirstMemberLowerValue())==0){
 				marks=marks+1/totalpoints;
+				number++;
 			}
 			if(this.getSecondMemberLowerValue().compareToIgnoreCase(studentElement.getSecondMemberLowerValue())==0&&this.getSecondMemberUpperValue().compareToIgnoreCase(studentElement.getSecondMemberUpperValue())==0){
 				marks=marks+1/totalpoints;
+				number++;
 			}
 			//compare end roles
 			if(this.getFirstMemberEndRole().compareToIgnoreCase(studentElement.getFirstMemberEndRole())==0&&this.getSecondMemberEndRole().compareToIgnoreCase(studentElement.getSecondMemberEndRole())==0){
 				marks=marks+1/totalpoints;
+				number++;
 			}
 			}
 		}	
-	return marks;
+	//return marks;
+	return number;
 	}
 }
