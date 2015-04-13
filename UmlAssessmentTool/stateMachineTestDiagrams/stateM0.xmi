@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_Y5uFwOHjEeSRFII68DmeuA" name="project7">
+  <eAnnotations xmi:id="_Y5uFweHjEeSRFII68DmeuA" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_Y5us0OHjEeSRFII68DmeuA" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_Y5us0eHjEeSRFII68DmeuA" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_Y5us0uHjEeSRFII68DmeuA" name="State Machine">
+    <region xmi:id="_Y5us0-HjEeSRFII68DmeuA">
+      <subvertex xmi:type="uml:State" xmi:id="_Y5us1OHjEeSRFII68DmeuA" name="available"/>
+    </region>
+  </packagedElement>
+</uml:Model>
