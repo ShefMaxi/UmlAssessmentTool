@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_2egAoMHWEeS7aONzrtmQcg" name="maxitester6">
+  <eAnnotations xmi:id="_2egAocHWEeS7aONzrtmQcg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_2egAosHWEeS7aONzrtmQcg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_2egAo8HWEeS7aONzrtmQcg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_2egApMHWEeS7aONzrtmQcg" name="reader services"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2egApcHWEeS7aONzrtmQcg" memberEnd="_2egApsHWEeS7aONzrtmQcg _2egAqMHWEeS7aONzrtmQcg" navigableOwnedEnd="_2egApsHWEeS7aONzrtmQcg">
+    <ownedEnd xmi:id="_2egApsHWEeS7aONzrtmQcg" visibility="public" type="_2egAxMHWEeS7aONzrtmQcg" association="_2egApcHWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAp8HWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2egAqMHWEeS7aONzrtmQcg" visibility="public" type="_2egApMHWEeS7aONzrtmQcg" association="_2egApcHWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAqcHWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2egAqsHWEeS7aONzrtmQcg" memberEnd="_2egAq8HWEeS7aONzrtmQcg _2egArcHWEeS7aONzrtmQcg" navigableOwnedEnd="_2egAq8HWEeS7aONzrtmQcg">
+    <ownedEnd xmi:id="_2egAq8HWEeS7aONzrtmQcg" visibility="public" type="_2egA0sHWEeS7aONzrtmQcg" association="_2egAqsHWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egArMHWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2egArcHWEeS7aONzrtmQcg" visibility="public" type="_2egApMHWEeS7aONzrtmQcg" association="_2egAqsHWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egArsHWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2egAr8HWEeS7aONzrtmQcg" memberEnd="_2egAsMHWEeS7aONzrtmQcg _2egAssHWEeS7aONzrtmQcg" navigableOwnedEnd="_2egAsMHWEeS7aONzrtmQcg">
+    <ownedEnd xmi:id="_2egAsMHWEeS7aONzrtmQcg" visibility="public" type="_2egBB8HWEeS7aONzrtmQcg" association="_2egAr8HWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAscHWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2egAssHWEeS7aONzrtmQcg" visibility="public" type="_2egApMHWEeS7aONzrtmQcg" association="_2egAr8HWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAs8HWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_2egAtMHWEeS7aONzrtmQcg" name="borrower"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2egAtcHWEeS7aONzrtmQcg" memberEnd="_2egAtsHWEeS7aONzrtmQcg _2egAuMHWEeS7aONzrtmQcg" navigableOwnedEnd="_2egAtsHWEeS7aONzrtmQcg">
+    <ownedEnd xmi:id="_2egAtsHWEeS7aONzrtmQcg" visibility="public" type="_2egAxMHWEeS7aONzrtmQcg" association="_2egAtcHWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAt8HWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2egAuMHWEeS7aONzrtmQcg" visibility="public" type="_2egAtMHWEeS7aONzrtmQcg" association="_2egAtcHWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAucHWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2egAusHWEeS7aONzrtmQcg" memberEnd="_2egAu8HWEeS7aONzrtmQcg _2egAvcHWEeS7aONzrtmQcg" navigableOwnedEnd="_2egAu8HWEeS7aONzrtmQcg">
+    <ownedEnd xmi:id="_2egAu8HWEeS7aONzrtmQcg" visibility="public" type="_2egA0sHWEeS7aONzrtmQcg" association="_2egAusHWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAvMHWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2egAvcHWEeS7aONzrtmQcg" visibility="public" type="_2egAtMHWEeS7aONzrtmQcg" association="_2egAusHWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAvsHWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2egAv8HWEeS7aONzrtmQcg" memberEnd="_2egAwMHWEeS7aONzrtmQcg _2egAwsHWEeS7aONzrtmQcg" navigableOwnedEnd="_2egAwMHWEeS7aONzrtmQcg">
+    <ownedEnd xmi:id="_2egAwMHWEeS7aONzrtmQcg" visibility="public" type="_2egBB8HWEeS7aONzrtmQcg" association="_2egAv8HWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAwcHWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2egAwsHWEeS7aONzrtmQcg" visibility="public" type="_2egAtMHWEeS7aONzrtmQcg" association="_2egAv8HWEeS7aONzrtmQcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2egAw8HWEeS7aONzrtmQcg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2egAxMHWEeS7aONzrtmQcg" name="issue">
+    <ownedComment xmi:id="_2egAxcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAxsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAx8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAyMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAycHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAysHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAy8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAzMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAzcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAzsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egAz8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA0MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <generalization xmi:id="_2egA0cHWEeS7aONzrtmQcg" general="_2egA4MHWEeS7aONzrtmQcg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2egA0sHWEeS7aONzrtmQcg" name="renew">
+    <ownedComment xmi:id="_2egA08HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA1MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA1cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA1sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA18HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA2MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA2cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA2sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA28HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA3MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA3cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA3sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <generalization xmi:id="_2egA38HWEeS7aONzrtmQcg" general="_2egA4MHWEeS7aONzrtmQcg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2egA4MHWEeS7aONzrtmQcg" name="Loan item">
+    <ownedComment xmi:id="_2egA4cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA4sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA48HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA5MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA5cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA5sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA58HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA6MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA6cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA6sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA68HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA7MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2egA7cHWEeS7aONzrtmQcg" name="scan Ucard">
+    <ownedComment xmi:id="_2egA7sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA78HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA8MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA8cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA8sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA88HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA9MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA9cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA9sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA98HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA-MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA-cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2egA-sHWEeS7aONzrtmQcg" name="scan item">
+    <ownedComment xmi:id="_2egA-8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA_MHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA_cHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA_sHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egA_8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBAMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBAcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBAsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBA8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBBMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBBcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBBsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2egBB8HWEeS7aONzrtmQcg" name="discharge">
+    <ownedComment xmi:id="_2egBCMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBCcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBCsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBC8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBDMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBDcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBDsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBD8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBEMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBEcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBEsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBE8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2egBFMHWEeS7aONzrtmQcg" name="pay fine">
+    <ownedComment xmi:id="_2egBFcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBFsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBF8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBGMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBGcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBGsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBG8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBHMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBHcHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBHsHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBH8HWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_2egBIMHWEeS7aONzrtmQcg">
+      <body>...</body>
+    </ownedComment>
+    <extend xmi:id="_2egBIcHWEeS7aONzrtmQcg" name="UseCaseDependency" extendedCase="_2egBB8HWEeS7aONzrtmQcg"/>
+  </packagedElement>
+</uml:Model>
