@@ -30,16 +30,15 @@ public class ClassElement extends PackagedElement{
 			getTotalPoints();
 		}
 	public void getTotalPoints(){
-<<<<<<< HEAD
-<<<<<<< HEAD
-		this.totalpoints=this.totalpoints+1+operation.size()+attribute.size();
-=======
-		this.totalpoints=this.totalpoints+1+this.operation.size()+this.attribute.size();
->>>>>>> origin/master
-=======
-		this.totalpoints=this.totalpoints+1+this.operation.size()+this.attribute.size();
->>>>>>> origin/master
-		
+		if(this.operation.size()!=0&&this.attribute.size()!=0){
+			this.totalpoints=this.totalpoints+1+operation.size()+attribute.size();
+			}else if(this.operation.size()==0&&this.attribute.size()!=0){
+			this.totalpoints=this.totalpoints+1+this.attribute.size();
+			}else if(this.operation.size()!=0&&this.attribute.size()==0){
+			this.totalpoints=this.totalpoints+1+this.operation.size();
+			}else if(this.operation.size()==0&&this.attribute.size()==0){
+				this.totalpoints=1;
+			}		
 	}
 	public String getName(){
 		return this.name;

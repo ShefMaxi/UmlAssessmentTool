@@ -24,15 +24,15 @@ public class AssociationClassElement extends ClassAssociationElement{
 		getTotalPoints();
 	}
 	public void getTotalPoints(){
-<<<<<<< HEAD
-<<<<<<< HEAD
+		if(this.operation.size()!=0&&this.attribute.size()!=0){
 		this.totalpoints=this.totalpoints+1+operation.size()+attribute.size()+2+1+1;
-=======
-		this.totalpoints=this.totalpoints+1+this.operation.size()+this.attribute.size()+2+1+1;
->>>>>>> origin/master
-=======
-		this.totalpoints=this.totalpoints+1+this.operation.size()+this.attribute.size()+2+1+1;
->>>>>>> origin/master
+		}else if(this.operation.size()==0&&this.attribute.size()!=0){
+		this.totalpoints=this.totalpoints+1+this.attribute.size()+2+1+1;
+		}else if(this.operation.size()!=0&&this.attribute.size()==0){
+		this.totalpoints=this.totalpoints+1+this.operation.size()+2+1+1;
+		}else if(this.operation.size()==0&&this.attribute.size()==0){
+			this.totalpoints=5;
+		}
 		
 	}
 	public String getName(){
