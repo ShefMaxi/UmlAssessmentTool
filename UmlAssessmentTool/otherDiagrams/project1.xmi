@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_UgO3YL3QEeSzcIiCuybH7Q" name="project1">
+  <eAnnotations xmi:id="_UgO3Yb3QEeSzcIiCuybH7Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_UgO3Yr3QEeSzcIiCuybH7Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UgO3Y73QEeSzcIiCuybH7Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_UgO3ZL3QEeSzcIiCuybH7Q" name="Use Case">
+    <ownedComment xmi:id="_UgO3Zb3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3Zr3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3Z73QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3aL3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3ab3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3ar3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <extensionPoint xmi:id="_UgO3a73QEeSzcIiCuybH7Q" name="Extension Point"/>
+    <extensionPoint xmi:id="_UgO3bL3QEeSzcIiCuybH7Q" name="Extension Point1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_UgO3bb3QEeSzcIiCuybH7Q" name="Use Case1">
+    <ownedComment xmi:id="_UgO3br3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3b73QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3cL3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3cb3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3cr3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3c73QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <include xmi:id="_UgO3dL3QEeSzcIiCuybH7Q" name="UseCaseDependency" addition="_UgO3ZL3QEeSzcIiCuybH7Q"/>
+    <extend xmi:id="_UgO3db3QEeSzcIiCuybH7Q" name="UseCaseDependency" extendedCase="_UgO3ZL3QEeSzcIiCuybH7Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_UgO3dr3QEeSzcIiCuybH7Q" name="Use Case2">
+    <ownedComment xmi:id="_UgO3d73QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3eL3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3eb3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3er3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3e73QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_UgO3fL3QEeSzcIiCuybH7Q">
+      <body>...</body>
+    </ownedComment>
+    <generalization xmi:id="_UgO3fb3QEeSzcIiCuybH7Q" general="_UgO3bb3QEeSzcIiCuybH7Q"/>
+  </packagedElement>
+</uml:Model>

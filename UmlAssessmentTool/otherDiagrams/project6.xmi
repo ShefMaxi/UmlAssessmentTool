@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_SXq6MNyiEeSn5cN7z8nkQQ" name="project6">
+  <eAnnotations xmi:id="_SXq6MdyiEeSn5cN7z8nkQQ" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_SXq6MtyiEeSn5cN7z8nkQQ" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_SXq6M9yiEeSn5cN7z8nkQQ" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_SXq6NNyiEeSn5cN7z8nkQQ" name="Class">
+    <ownedAttribute xmi:id="_SXq6NdyiEeSn5cN7z8nkQQ" name="Attribute" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_SXq6NtyiEeSn5cN7z8nkQQ" name="Attribute1" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_SXq6N9yiEeSn5cN7z8nkQQ" memberEnd="_SXq6ONyiEeSn5cN7z8nkQQ _SXq6OtyiEeSn5cN7z8nkQQ">
+    <ownedEnd xmi:id="_SXq6ONyiEeSn5cN7z8nkQQ" name="class1" visibility="public" type="_SXq6O9yiEeSn5cN7z8nkQQ" aggregation="composite" association="_SXq6N9yiEeSn5cN7z8nkQQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SXq6OdyiEeSn5cN7z8nkQQ"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_SXq6OtyiEeSn5cN7z8nkQQ" visibility="public" type="_SXq6NNyiEeSn5cN7z8nkQQ" association="_SXq6N9yiEeSn5cN7z8nkQQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_SXq6O9yiEeSn5cN7z8nkQQ" name="Class1">
+    <ownedOperation xmi:id="_SXq6PNyiEeSn5cN7z8nkQQ" name="Operation" visibility="public"/>
+    <ownedOperation xmi:id="_SXq6PdyiEeSn5cN7z8nkQQ" name="Operation1" visibility="public"/>
+  </packagedElement>
+</uml:Model>

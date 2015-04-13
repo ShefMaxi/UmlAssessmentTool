@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_v8cEwNhyEeSqcaiLcMJrdg" name="project3">
+  <eAnnotations xmi:id="_v8cEwdhyEeSqcaiLcMJrdg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_v8cEwthyEeSqcaiLcMJrdg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_v8cEw9hyEeSqcaiLcMJrdg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_v8cExNhyEeSqcaiLcMJrdg" name="State Machine">
+    <region xmi:id="_v8cExdhyEeSqcaiLcMJrdg">
+      <subvertex xmi:type="uml:State" xmi:id="_v8cExthyEeSqcaiLcMJrdg" name="State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_v8cEx9hyEeSqcaiLcMJrdg" name="State1"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_v8cr0NhyEeSqcaiLcMJrdg" name="Initial State"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_v8cr0dhyEeSqcaiLcMJrdg" name="Final State"/>
+      <transition xmi:id="_v8cr0thyEeSqcaiLcMJrdg" name="Transition" source="_v8cExthyEeSqcaiLcMJrdg" target="_v8cr0dhyEeSqcaiLcMJrdg"/>
+      <transition xmi:id="_v8cr09hyEeSqcaiLcMJrdg" name="Transition" source="_v8cEx9hyEeSqcaiLcMJrdg" target="_v8cExthyEeSqcaiLcMJrdg" guard="_v8cr1NhyEeSqcaiLcMJrdg">
+        <ownedRule xmi:id="_v8cr1NhyEeSqcaiLcMJrdg" name=";;;;llll" constrainedElement="_v8cr09hyEeSqcaiLcMJrdg">
+          <specification xmi:type="uml:LiteralString" xmi:id="_v8cr1dhyEeSqcaiLcMJrdg" value=";;;;llll"></specification>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_v8cr1thyEeSqcaiLcMJrdg" name="Transition" source="_v8cr0NhyEeSqcaiLcMJrdg" target="_v8cEx9hyEeSqcaiLcMJrdg"/>
+    </region>
+  </packagedElement>
+</uml:Model>

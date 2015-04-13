@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_p-8OwN1YEeS-BZcqJLEk-w" name="project7">
+  <eAnnotations xmi:id="_p-8Owd1YEeS-BZcqJLEk-w" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_p-8Owt1YEeS-BZcqJLEk-w" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_p-8Ow91YEeS-BZcqJLEk-w" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_p-8OxN1YEeS-BZcqJLEk-w" name="Class"/>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_p-8Oxd1YEeS-BZcqJLEk-w" name="Class2" memberEnd="_p-8OyN1YEeS-BZcqJLEk-w _p-8Oyt1YEeS-BZcqJLEk-w">
+    <ownedAttribute xmi:id="_p-8Oxt1YEeS-BZcqJLEk-w" name="Attribute" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_p-8Ox91YEeS-BZcqJLEk-w" name="Operation" visibility="public"/>
+    <ownedEnd xmi:id="_p-8OyN1YEeS-BZcqJLEk-w" name="class1" visibility="public" type="_p-8OzN1YEeS-BZcqJLEk-w" aggregation="shared" association="_p-8Oxd1YEeS-BZcqJLEk-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p-8Oyd1YEeS-BZcqJLEk-w"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_p-8Oyt1YEeS-BZcqJLEk-w" visibility="public" type="_p-8OxN1YEeS-BZcqJLEk-w" association="_p-8Oxd1YEeS-BZcqJLEk-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p-8Oy91YEeS-BZcqJLEk-w"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_p-8OzN1YEeS-BZcqJLEk-w" name="Class1"/>
+</uml:Model>
