@@ -13,9 +13,9 @@ public class ZipFileHandler {
 	
 	private List<String> entriesList = new ArrayList<String>();
 	
-	public  void extractFile(String inputFile) {
+	public void extractFile(String inputFile) {
 		
-		String destinationFile = "C:/Uml Assessment Tool/";
+		String destinationFile = "C:/UmlAssessmentTool/";
 		
 		File dir = new File(destinationFile);
 		
@@ -64,7 +64,7 @@ public class ZipFileHandler {
 					file.delete();
 				}
 				
-				if (name.endsWith(".xmi")) {
+				if (name.endsWith(".pdf")) {
 					
 					entriesList.add(name);
 				}
@@ -90,5 +90,10 @@ public class ZipFileHandler {
 	
 	public ArrayList<String> getEntriesList() {
 		return (ArrayList<String>)entriesList;
+	}
+	public static void main(String[] args) {
+		ZipFileHandler zipFileHandler = new ZipFileHandler();
+		zipFileHandler.extractFile("C:\\Users\\Paul\\Desktop\\test1.zip");
+		System.out.println(zipFileHandler.getEntriesList());
 	}
 }
