@@ -12,9 +12,6 @@ public class InitialNodeElement extends ActivityNodes {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getType(){
-		return this.type;
-	}
 	
 	public String getOutgoingName(){
 		return this.outgoingName;

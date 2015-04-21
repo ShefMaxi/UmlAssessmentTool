@@ -17,10 +17,7 @@ public class ElementsPreprocessor {
 	
 	protected String[] USECASE_ELEMENT_TYPE = { "uml:Actor", "uml:Usecase", "Association" };
 	protected String[] CLASS_ELEMENT_TYPE = { "uml:Class", "Association", "AssociationCLass" };
-	protected String[] ACTIVITY_ELEMENT_TYPE = {"uml:ActionNodeElement","uml:AcceptSignalElement",
-			"uml:ActivityFinalNodeElement","uml:CentralBufferNodeElement","uml:JoinNodeElement",
-			"uml:ForkNodeElement","uml:InitialNodeElement","uml:ControlFlow","uml:group","uml:InputPin","uml:OutputPin"};
-	
+	protected String[] ACTIVITY_ELEMENT_TYPE = {"node", "edge", "group"};
 	protected String[] STATE_MACHINE_ELEMENT_TYPE = {"uml:State", "uml:Pseudostate", "uml:FinalState", "transition"};
 	protected int diagramType;
 	protected ArrayList<PackagedElement> diagramElements;
@@ -94,19 +91,28 @@ public class ElementsPreprocessor {
 		if (this.diagramType == 3) {
 			// can be optimized.
 			
-			for (String ActivityElementType : ACTIVITY_ELEMENT_TYPE) {
+			
 				
-				ArrayList<PackagedElement> processedElements = new ArrayList<PackagedElement>();
+				ArrayList<PackagedElement> processedElementsNode = new ArrayList<PackagedElement>();
+				ArrayList<PackagedElement> processedElementsEdge = new ArrayList<PackagedElement>();
+				ArrayList<PackagedElement> processedElementsGroup = new ArrayList<PackagedElement>();
 
 				for (PackagedElement packagedElement : diagramElements) {
-					if (packagedElement.getType().compareToIgnoreCase(
-							ActivityElementType) == 0) {
-						processedElements.add(packagedElement);
+					if (packagedElement.getType().compareToIgnoreCase("uml:ControlFlow")==0) {
+						processedElementsEdge.add(packagedElement);
+					}
+					else if(packagedElement.getType().compareToIgnoreCase("uml:group")==0){
+						processedElementsGroup.add(packagedElement);
+					}
+					else {
+						processedElementsNode.add(packagedElement);
 					}
 				}
 
-				result.put(ActivityElementType, processedElements);
-			}
+				result.put(ACTIVITY_ELEMENT_TYPE[0], processedElementsNode);
+				result.put(ACTIVITY_ELEMENT_TYPE[1], processedElementsEdge);
+				result.put(ACTIVITY_ELEMENT_TYPE[2], processedElementsGroup);
+			
 		}
 		return result;
 	}

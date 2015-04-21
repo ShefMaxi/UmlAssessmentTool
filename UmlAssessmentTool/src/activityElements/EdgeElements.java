@@ -41,15 +41,8 @@ public class EdgeElements extends PackagedElement {
 			EdgeElements studentElement = (EdgeElements) packagedElement;
 			if (this.getType().compareToIgnoreCase(studentElement.getType()) == 0) {
 				if (this.getsourceNodeName()!=null && this.targetNodeName()!=null){
-					if (this.getsourceNodeName()
-						.compareToIgnoreCase(
-								studentElement
-										.getsourceNodeName()) == 0
-						&& this
-								.targetNodeName()
-								.compareToIgnoreCase(
-										studentElement
-												.targetNodeName()) == 0) {
+					if (this.getsourceNodeName().compareToIgnoreCase(studentElement.getsourceNodeName()) == 0
+							&& this.targetNodeName().compareToIgnoreCase(studentElement.targetNodeName()) == 0) {
 					return marks=marks+1;
 					}
 				}

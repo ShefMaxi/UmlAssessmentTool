@@ -484,7 +484,7 @@ public class XMIFileParser {
 				}
 			}
 		}
-        System.out.println(NameIdMap);
+        //System.out.println(NameIdMap);
                 
          
                 
@@ -714,6 +714,9 @@ public class XMIFileParser {
             if (nm!=null) {
                 name = nm.getValue();
             }
+            else{
+            	name=null;
+            }
             
             // extracting ID from current node element
             org.jast.xml.Attribute id = edgeElement.getAttribute("xmi:id");
@@ -754,9 +757,10 @@ public class XMIFileParser {
                 if (vl!=null) {
                     value = vl.getValue();
                 }
+            }
                 PackagedElement edg= new EdgeElements("uml:ControlFlow", Id, name, sourceNodeName, targetNodeName);
                 result.add(edg);
-            }
+            
             for (Content group : groupElementList) {
                 
                 

@@ -85,28 +85,29 @@ public class AssessmentMark {
 	}
 	
 	private void assessActivityDiagram() {
-		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
-				studentDiagram);
-		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor
-				.preprocessForActivity();
-		ElementsPreprocessor lecturerProcessor = new ElementsPreprocessor(
-				lecturerDiagram);
-		HashMap<String, ArrayList<PackagedElement>> lecturerMap = lecturerProcessor
-				.preprocessForActivity();
+		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(studentDiagram);
+		ElementsPreprocessor lecturerProcessor = new ElementsPreprocessor(lecturerDiagram);
+		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor.preprocessForActivity();
+		HashMap<String, ArrayList<PackagedElement>> lecturerMap = lecturerProcessor.preprocessForActivity();
 		// ---------------------------------------------------------------------------------------
 		String[] lecturerKeys = forkeys(lecturerMap);
 		// ----------------------------------------------------------------------------------------
 
 		for (String key : lecturerKeys) {
-			ArrayList<PackagedElement> selectedLecturerElements = lecturerMap
-					.get(key);
+			ArrayList<PackagedElement> selectedLecturerElements = lecturerMap.get(key);
 			ArrayList<PackagedElement> selectedStudentElements = studentMap
 					.get(key);
 			System.out.println(selectedLecturerElements.size());
 			totalPoints += selectedLecturerElements.size();
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
-					marks += lecturerPackagedElement.compareTo(studentPackagedElement);
+					
+					if (lecturerPackagedElement.getType().equals(studentPackagedElement.getType())) {
+						double mark= lecturerPackagedElement.compareTo(studentPackagedElement);
+						System.out.println(lecturerPackagedElement.getType());
+						System.out.println(mark);
+						marks+=mark;
+					}
 				}
 			}
 		}
