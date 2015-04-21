@@ -57,7 +57,7 @@ public class AssociationClassElement extends ClassAssociationElement{
 			//the 2 classes linked with association class must be correct
 			if(this.getFirstMemberName().compareToIgnoreCase(studentElement.getFirstMemberName())==0&&this.getSecondMemberName().compareToIgnoreCase(studentElement.getSecondMemberName())==0){
 			marks=marks+1/totalpoints;
-			number++;
+			number++;			
 				//compare association class name
 			if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
 				marks=marks+1/totalpoints;

@@ -16,7 +16,7 @@ public class ElementsPreprocessor {
 	// statemachine	 : 4
 	
 	protected String[] USECASE_ELEMENT_TYPE = { "uml:Actor", "uml:Usecase", "Association" };
-	protected String[] CLASS_ELEMENT_TYPE = { "uml:Class", "Association", "AssociationCLass" };
+	protected String[] CLASS_ELEMENT_TYPE = { "uml:Class", "Association","aggregation","composition", "AssociationCLass" };
 	protected String[] ACTIVITY_ELEMENT_TYPE = {"node", "edge", "group"};
 	protected String[] STATE_MACHINE_ELEMENT_TYPE = {"uml:State", "uml:Pseudostate", "uml:FinalState", "transition"};
 	protected int diagramType;

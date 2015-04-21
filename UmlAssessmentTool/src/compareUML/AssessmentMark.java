@@ -43,7 +43,9 @@ public class AssessmentMark {
 			ArrayList<PackagedElement> selectedStudentElements = studentMap
 					.get(key);
 			System.out.println(selectedLecturerElements.size());
-			totalPoints += selectedLecturerElements.size();
+			for(PackagedElement lecturerPackagedElement : selectedLecturerElements){
+				totalPoints=totalPoints+lecturerPackagedElement.compareTo(lecturerPackagedElement);
+			}
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
 					marks += lecturerPackagedElement

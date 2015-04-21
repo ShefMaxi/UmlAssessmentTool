@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_w8-wgOgwEeSsk9tWYXe8mg" name="test for class diagram">
+  <eAnnotations xmi:id="_w8-wgegwEeSsk9tWYXe8mg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_w8-wgugwEeSsk9tWYXe8mg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_w8-wg-gwEeSsk9tWYXe8mg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_w8-whOgwEeSsk9tWYXe8mg" name="Class1">
+    <ownedAttribute xmi:id="_w8-whegwEeSsk9tWYXe8mg" name="Attribute1" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_w8-whugwEeSsk9tWYXe8mg" name="Operation1" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_w8-wh-gwEeSsk9tWYXe8mg" name="Class3" memberEnd="_w8-wiugwEeSsk9tWYXe8mg _w8-wjOgwEeSsk9tWYXe8mg">
+    <ownedAttribute xmi:id="_w8-wiOgwEeSsk9tWYXe8mg" name="Attribute3" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_w8-wiegwEeSsk9tWYXe8mg" name="Operation3" visibility="public"/>
+    <ownedEnd xmi:id="_w8-wiugwEeSsk9tWYXe8mg" name="test2" visibility="public" type="_w8-wk-gwEeSsk9tWYXe8mg" association="_w8-wh-gwEeSsk9tWYXe8mg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w8-wi-gwEeSsk9tWYXe8mg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_w8-wjOgwEeSsk9tWYXe8mg" name="test1" visibility="public" type="_w8-whOgwEeSsk9tWYXe8mg" association="_w8-wh-gwEeSsk9tWYXe8mg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w8-wjegwEeSsk9tWYXe8mg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_w8-wjugwEeSsk9tWYXe8mg" memberEnd="_w8-wj-gwEeSsk9tWYXe8mg _w8-wkegwEeSsk9tWYXe8mg">
+    <ownedEnd xmi:id="_w8-wj-gwEeSsk9tWYXe8mg" name="test4" visibility="public" type="_w8-wm-gwEeSsk9tWYXe8mg" association="_w8-wjugwEeSsk9tWYXe8mg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w8-wkOgwEeSsk9tWYXe8mg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_w8-wkegwEeSsk9tWYXe8mg" name="test1" visibility="public" type="_w8-whOgwEeSsk9tWYXe8mg" association="_w8-wjugwEeSsk9tWYXe8mg">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w8-wkugwEeSsk9tWYXe8mg" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_w8-wk-gwEeSsk9tWYXe8mg" name="Class2">
+    <ownedAttribute xmi:id="_w8-wlOgwEeSsk9tWYXe8mg" name="Attribute2" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_w8-wlegwEeSsk9tWYXe8mg" name="Operation2" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_w8-wlugwEeSsk9tWYXe8mg" memberEnd="_w8-wl-gwEeSsk9tWYXe8mg _w8-wmegwEeSsk9tWYXe8mg">
+    <ownedEnd xmi:id="_w8-wl-gwEeSsk9tWYXe8mg" name="test5" visibility="public" type="_w8-wpegwEeSsk9tWYXe8mg" association="_w8-wlugwEeSsk9tWYXe8mg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w8-wmOgwEeSsk9tWYXe8mg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_w8-wmegwEeSsk9tWYXe8mg" name="test2" visibility="public" type="_w8-wk-gwEeSsk9tWYXe8mg" association="_w8-wlugwEeSsk9tWYXe8mg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w8-wmugwEeSsk9tWYXe8mg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_w8-wm-gwEeSsk9tWYXe8mg" name="Class4">
+    <ownedAttribute xmi:id="_w8-wnOgwEeSsk9tWYXe8mg" name="Attribute4" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_w8-wnegwEeSsk9tWYXe8mg" name="Operation4" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_w8-wnugwEeSsk9tWYXe8mg" name="Class6" memberEnd="_w8-woegwEeSsk9tWYXe8mg _w8-wo-gwEeSsk9tWYXe8mg">
+    <ownedAttribute xmi:id="_w8-wn-gwEeSsk9tWYXe8mg" name="Attribute6" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_w8-woOgwEeSsk9tWYXe8mg" name="Operation6" visibility="public"/>
+    <ownedEnd xmi:id="_w8-woegwEeSsk9tWYXe8mg" name="test5" visibility="public" type="_w8-wpegwEeSsk9tWYXe8mg" association="_w8-wnugwEeSsk9tWYXe8mg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w8-wougwEeSsk9tWYXe8mg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_w8-wo-gwEeSsk9tWYXe8mg" name="test4" visibility="public" type="_w8-wm-gwEeSsk9tWYXe8mg" association="_w8-wnugwEeSsk9tWYXe8mg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w8-wpOgwEeSsk9tWYXe8mg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_w8-wpegwEeSsk9tWYXe8mg" name="Class5">
+    <ownedAttribute xmi:id="_w8-wpugwEeSsk9tWYXe8mg" name="Attribute5" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_w8-wp-gwEeSsk9tWYXe8mg" name="Operation5" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_w8-wqOgwEeSsk9tWYXe8mg" memberEnd="_w8-wqegwEeSsk9tWYXe8mg _w8-wq-gwEeSsk9tWYXe8mg">
+    <ownedEnd xmi:id="_w8-wqegwEeSsk9tWYXe8mg" visibility="public" type="_w8-wregwEeSsk9tWYXe8mg" aggregation="shared" association="_w8-wqOgwEeSsk9tWYXe8mg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w8-wqugwEeSsk9tWYXe8mg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_w8-wq-gwEeSsk9tWYXe8mg" visibility="public" type="_w8-wh-gwEeSsk9tWYXe8mg" association="_w8-wqOgwEeSsk9tWYXe8mg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w8-wrOgwEeSsk9tWYXe8mg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_w8-wregwEeSsk9tWYXe8mg" name="Class"/>
+</uml:Model>

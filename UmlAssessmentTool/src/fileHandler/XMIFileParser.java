@@ -224,6 +224,7 @@ public class XMIFileParser {
 							firstMemberName, lowerValue[0], upperValue[0],
 							endRole[0], secondMemberName, lowerValue[1],
 							upperValue[1], endRole[1]));
+					//System.out.println(type);
 				}// end of association
 
 				if (attributeArray[0].equals("uml:AssociationClass")) {
