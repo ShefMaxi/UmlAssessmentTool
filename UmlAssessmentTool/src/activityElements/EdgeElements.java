@@ -36,14 +36,20 @@ public class EdgeElements extends PackagedElement {
 	public double compareTo(PackagedElement packagedElement) {
 		// compare to student's element
 		double marks = 0.0;
-		if (packagedElement instanceof EdgeElements&&!(packagedElement instanceof EdgeElements)) {
+		System.out.println("----#######----------");
+		if (packagedElement instanceof EdgeElements) {
 			// student's packagedElement
 			EdgeElements studentElement = (EdgeElements) packagedElement;
+					
 			if (this.getType().compareToIgnoreCase(studentElement.getType()) == 0) {
+			
 				if (this.getsourceNodeName()!=null && this.targetNodeName()!=null){
+					
 					if (this.getsourceNodeName().compareToIgnoreCase(studentElement.getsourceNodeName()) == 0
 							&& this.targetNodeName().compareToIgnoreCase(studentElement.targetNodeName()) == 0) {
-					return marks=marks+1;
+						System.out.println(this.getsourceNodeName());
+						System.out.println(studentElement.getsourceNodeName());
+					 marks++;
 					}
 				}
 			}

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_n1eBIOgqEeSMZqOnDJFimg" name="project5">
+  <eAnnotations xmi:id="_n1eBIegqEeSMZqOnDJFimg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_n1eBIugqEeSMZqOnDJFimg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_n1eBI-gqEeSMZqOnDJFimg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_n1eBJOgqEeSMZqOnDJFimg" name="Class">
+    <ownedAttribute xmi:id="_n1eBJegqEeSMZqOnDJFimg" name="Attribute" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_n1eBJugqEeSMZqOnDJFimg" name="Operation" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_n1eBJ-gqEeSMZqOnDJFimg" name="Actor"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_n1eBKOgqEeSMZqOnDJFimg" memberEnd="_n1eBKegqEeSMZqOnDJFimg _n1eBK-gqEeSMZqOnDJFimg" navigableOwnedEnd="_n1eBKegqEeSMZqOnDJFimg">
+    <ownedEnd xmi:id="_n1eBKegqEeSMZqOnDJFimg" visibility="public" type="_n1eBLegqEeSMZqOnDJFimg" association="_n1eBKOgqEeSMZqOnDJFimg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n1eBKugqEeSMZqOnDJFimg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_n1eBK-gqEeSMZqOnDJFimg" visibility="public" type="_n1eBJ-gqEeSMZqOnDJFimg" association="_n1eBKOgqEeSMZqOnDJFimg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n1eBLOgqEeSMZqOnDJFimg"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_n1eBLegqEeSMZqOnDJFimg" name="Use Case">
+    <ownedComment xmi:id="_n1eBLugqEeSMZqOnDJFimg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_n1eBL-gqEeSMZqOnDJFimg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_n1eBMOgqEeSMZqOnDJFimg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_n1eBMegqEeSMZqOnDJFimg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_n1eBMugqEeSMZqOnDJFimg">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_n1eBM-gqEeSMZqOnDJFimg">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_n1eBNOgqEeSMZqOnDJFimg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_n1eBNegqEeSMZqOnDJFimg" name="locals">
+      <ownedAttribute xmi:id="_n1eBNugqEeSMZqOnDJFimg" aggregation="composite"/>
+    </nestedClassifier>
+    <ownedParameter xmi:id="_n1eBN-gqEeSMZqOnDJFimg" isUnique="false" effect="read">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n1eBOOgqEeSMZqOnDJFimg" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n1eBOegqEeSMZqOnDJFimg" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_n1eBOugqEeSMZqOnDJFimg" value=""/>
+    </ownedParameter>
+    <ownedParameter xmi:id="_n1eBO-gqEeSMZqOnDJFimg" isUnique="false" effect="read">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n1eBPOgqEeSMZqOnDJFimg" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n1eBPegqEeSMZqOnDJFimg" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_n1eBPugqEeSMZqOnDJFimg" value=""/>
+    </ownedParameter>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_n1eBP-gqEeSMZqOnDJFimg" name="Action" outgoing="_n1eBVegqEeSMZqOnDJFimg" incoming="_n1eBXegqEeSMZqOnDJFimg">
+      <inputValue xmi:id="_n1eBQOgqEeSMZqOnDJFimg" name="Input Pin" outgoing="_n1eBV-gqEeSMZqOnDJFimg">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_n1eBQegqEeSMZqOnDJFimg" name="UpperBound" value="1"/>
+      </inputValue>
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_n1eBQugqEeSMZqOnDJFimg" name="Action1" outgoing="_n1eBWegqEeSMZqOnDJFimg" incoming="_n1eBVegqEeSMZqOnDJFimg _n1eBY-gqEeSMZqOnDJFimg">
+      <outputValue xmi:id="_n1eBQ-gqEeSMZqOnDJFimg" name="Output Pin" outgoing="_n1eBW-gqEeSMZqOnDJFimg">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_n1eBROgqEeSMZqOnDJFimg" name="UpperBound" value="1"/>
+      </outputValue>
+      <body></body>
+    </node>
+    <node xmi:type="uml:InitialNode" xmi:id="_n1eBRegqEeSMZqOnDJFimg" name="Initial Node" outgoing="_n1eBXegqEeSMZqOnDJFimg"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_n1eBRugqEeSMZqOnDJFimg" name="Activity Final Node"/>
+    <node xmi:type="uml:ExpansionRegion" xmi:id="_n1eBR-gqEeSMZqOnDJFimg" name="Expansion Region"/>
+    <node xmi:type="uml:ForkNode" xmi:id="_n1eBSOgqEeSMZqOnDJFimg" name="Fork/Join" outgoing="_n1eBX-gqEeSMZqOnDJFimg _n1eBYegqEeSMZqOnDJFimg"/>
+    <node xmi:type="uml:JoinNode" xmi:id="_n1eBSegqEeSMZqOnDJFimg" name="Fork/Join1" incoming="_n1eBX-gqEeSMZqOnDJFimg _n1eBYegqEeSMZqOnDJFimg">
+      <joinSpec xmi:type="uml:LiteralString" xmi:id="_n1eBSugqEeSMZqOnDJFimg" value="and"/>
+    </node>
+    <node xmi:type="uml:ActivityParameterNode" xmi:id="_n1eBS-gqEeSMZqOnDJFimg" incoming="_n1eBV-gqEeSMZqOnDJFimg" parameter="_n1eBN-gqEeSMZqOnDJFimg">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_n1eBTOgqEeSMZqOnDJFimg" name="UpperBound" value="1"/>
+    </node>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_n1eBTegqEeSMZqOnDJFimg" name="Time Event"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_n1eBTugqEeSMZqOnDJFimg" name="Accept Signal" outgoing="_n1eBY-gqEeSMZqOnDJFimg"/>
+    <node xmi:type="uml:AcceptCallAction" xmi:id="_n1eBT-gqEeSMZqOnDJFimg" name="Call Event"/>
+    <node xmi:type="uml:SendSignalAction" xmi:id="_n1eBUOgqEeSMZqOnDJFimg" name="Send Signal" outgoing="_n1eBZegqEeSMZqOnDJFimg" incoming="_n1eBW-gqEeSMZqOnDJFimg"/>
+    <node xmi:type="uml:ForkNode" xmi:id="_n1eBUegqEeSMZqOnDJFimg" name="Fork/Join"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_n1eBUugqEeSMZqOnDJFimg" name="Decision-Merge" incoming="_n1eBWegqEeSMZqOnDJFimg _n1eBZegqEeSMZqOnDJFimg"/>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_n1eBU-gqEeSMZqOnDJFimg" name="Conditional Node"/>
+    <node xmi:type="uml:LoopNode" xmi:id="_n1eBVOgqEeSMZqOnDJFimg" name="Loop Node"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_n1eBVegqEeSMZqOnDJFimg" name="ControlFlow" source="_n1eBP-gqEeSMZqOnDJFimg" target="_n1eBQugqEeSMZqOnDJFimg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_n1eBVugqEeSMZqOnDJFimg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_n1eBV-gqEeSMZqOnDJFimg" name="ObjectFlow" source="_n1eBQOgqEeSMZqOnDJFimg" target="_n1eBS-gqEeSMZqOnDJFimg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_n1eBWOgqEeSMZqOnDJFimg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_n1eBWegqEeSMZqOnDJFimg" name="ControlFlow" source="_n1eBQugqEeSMZqOnDJFimg" target="_n1eBUugqEeSMZqOnDJFimg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_n1eBWugqEeSMZqOnDJFimg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_n1eBW-gqEeSMZqOnDJFimg" name="ObjectFlow" source="_n1eBQ-gqEeSMZqOnDJFimg" target="_n1eBUOgqEeSMZqOnDJFimg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_n1eBXOgqEeSMZqOnDJFimg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_n1eBXegqEeSMZqOnDJFimg" name="ControlFlow" source="_n1eBRegqEeSMZqOnDJFimg" target="_n1eBP-gqEeSMZqOnDJFimg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_n1eBXugqEeSMZqOnDJFimg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_n1eBX-gqEeSMZqOnDJFimg" name="ControlFlow" source="_n1eBSOgqEeSMZqOnDJFimg" target="_n1eBSegqEeSMZqOnDJFimg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_n1eBYOgqEeSMZqOnDJFimg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_n1eBYegqEeSMZqOnDJFimg" name="ObjectFlow" source="_n1eBSOgqEeSMZqOnDJFimg" target="_n1eBSegqEeSMZqOnDJFimg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_n1eBYugqEeSMZqOnDJFimg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_n1eBY-gqEeSMZqOnDJFimg" name="ControlFlow" source="_n1eBTugqEeSMZqOnDJFimg" target="_n1eBQugqEeSMZqOnDJFimg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_n1eBZOgqEeSMZqOnDJFimg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_n1eBZegqEeSMZqOnDJFimg" name="ObjectFlow" source="_n1eBUOgqEeSMZqOnDJFimg" target="_n1eBUugqEeSMZqOnDJFimg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_n1eBZugqEeSMZqOnDJFimg" value="1"/>
+    </edge>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_n1eBZ-gqEeSMZqOnDJFimg" name="Partition"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_n1eBaOgqEeSMZqOnDJFimg" name="Partition1"/>
+    <group xmi:type="uml:InterruptibleActivityRegion" xmi:id="_n1eBaegqEeSMZqOnDJFimg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_n1eBaugqEeSMZqOnDJFimg" name="State Machine">
+    <region xmi:id="_n1eBa-gqEeSMZqOnDJFimg">
+      <subvertex xmi:type="uml:State" xmi:id="_n1eBbOgqEeSMZqOnDJFimg" name="State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_n1eBbegqEeSMZqOnDJFimg" name="State1"/>
+      <transition xmi:id="_n1eBbugqEeSMZqOnDJFimg" name="Transition" source="_n1eBbegqEeSMZqOnDJFimg" target="_n1eBbOgqEeSMZqOnDJFimg">
+        <ownedComment xmi:id="_n1eBb-gqEeSMZqOnDJFimg">
+          <body></body>
+        </ownedComment>
+      </transition>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InformationFlow" xmi:id="_n1eBcOgqEeSMZqOnDJFimg" name="InformationFlow" informationSource="_n1eBQugqEeSMZqOnDJFimg" informationTarget="_n1eBRugqEeSMZqOnDJFimg"/>
+  <packagedElement xmi:type="uml:InformationFlow" xmi:id="_n1eBcegqEeSMZqOnDJFimg" informationSource="_n1eBP-gqEeSMZqOnDJFimg" informationTarget="_n1eBQugqEeSMZqOnDJFimg" realizingActivityEdge="_n1eBVegqEeSMZqOnDJFimg"/>
+</uml:Model>
