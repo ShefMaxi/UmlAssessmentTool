@@ -24,7 +24,7 @@ public class GroupElements extends PackagedElement {
 	public double compareTo(PackagedElement packagedElement) {
 		// compare to student's element
 		double marks = 0.0;
-		if (packagedElement instanceof GroupElements&&!(packagedElement instanceof GroupElements)) {
+		if (packagedElement instanceof GroupElements) {
 			// student's packagedElement
 			GroupElements studentElement = (GroupElements) packagedElement;
 			if (this.getType().compareToIgnoreCase(studentElement.getType()) == 0) {
