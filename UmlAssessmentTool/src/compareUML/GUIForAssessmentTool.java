@@ -6,8 +6,12 @@
 package compareUML;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.swing.JFileChooser;
+
 import org.jdom2.JDOMException;
+
 import fileHandler.*;
 
 /**
@@ -233,6 +237,12 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     		Diagram studentDigram = xmiFileParser.readXMIFile(studentFilePath);
     		System.out.println(studentDigram);
     		AssessmentMark xmiAssessor = new AssessmentMark(studentDigram, lecturerDiagram);
+    		ArrayList<String[]> f = xmiAssessor.getFeedBack();
+    		for (String[] ss : f) {
+				for (String s : ss) {
+					System.out.println(s);
+				}
+			}
     		
     		this.jTextAreaForLog.append("The student final mark for this diagram is " + xmiAssessor.getFinalMarks() + "%\n");
     		

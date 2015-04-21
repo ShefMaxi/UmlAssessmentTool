@@ -3,6 +3,7 @@ package compareUML;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+
 import packagedElements.PackagedElement;
 //usecase		 : 1
 //class			 : 2
@@ -15,6 +16,8 @@ public class AssessmentMark {
 	protected double totalPoints = 0;
 	private Diagram studentDiagram = null;
 	private Diagram lecturerDiagram = null;
+	private ArrayList<String[]> feedback = new ArrayList<>();
+	private double highestMark;
 
 	public AssessmentMark(Diagram studentDiagram,
 			Diagram lecturerDiagram) {
@@ -102,15 +105,38 @@ public class AssessmentMark {
 			System.out.println(selectedLecturerElements.size());
 			totalPoints += selectedLecturerElements.size();
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
+				highestMark=0;
+				String feedBackInfo = null;
+				double mark = 0;
+				boolean flag = true;
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
 					
 					if (lecturerPackagedElement.getType().equals(studentPackagedElement.getType())) {
-						double mark= lecturerPackagedElement.compareTo(studentPackagedElement);
+						mark= lecturerPackagedElement.compareTo(studentPackagedElement);
 						System.out.println(lecturerPackagedElement.getType());
 						System.out.println(mark);
-						marks+=mark;
+						if (flag) {
+							highestMark=mark;
+							flag=false;
+						}
+						if (mark>highestMark) {
+							highestMark=mark;
+						}
 					}
 				}
+				marks+=highestMark;
+				if (highestMark==0) {
+					feedBackInfo="Element is missing or incorrect.";
+				} 
+				else if (highestMark==1){
+					feedBackInfo = "Element is correct.";
+				}
+				else {
+					feedBackInfo = "Element is partly correct.";
+				}
+				String[] f = new String[]{lecturerPackagedElement.getType(),lecturerPackagedElement.getId(),feedBackInfo};
+				feedback.add(f);
+				
 			}
 		}
 	}
@@ -169,6 +195,12 @@ public class AssessmentMark {
 		return keys;
 	}
 
+	public ArrayList<String[]> getFeedBack(){
+		assessActivityDiagram();
+		return this.feedback;
+	}
+	
+	
 	public double getFinalMarks() {
 
 		switch (studentDiagram.getDiagramType()) {
@@ -191,4 +223,6 @@ public class AssessmentMark {
 		System.out.println("correct comparison amount is: " + marks);
 		return 100 * marks / totalPoints;
 	}
+	
+	
 }

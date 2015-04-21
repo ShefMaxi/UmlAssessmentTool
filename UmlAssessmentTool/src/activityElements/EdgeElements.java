@@ -36,7 +36,7 @@ public class EdgeElements extends PackagedElement {
 	public double compareTo(PackagedElement packagedElement) {
 		// compare to student's element
 		double marks = 0.0;
-		System.out.println("----#######----------");
+		//System.out.println("----#######----------");
 		if (packagedElement instanceof EdgeElements) {
 			// student's packagedElement
 			EdgeElements studentElement = (EdgeElements) packagedElement;
@@ -47,8 +47,8 @@ public class EdgeElements extends PackagedElement {
 					
 					if (this.getsourceNodeName().compareToIgnoreCase(studentElement.getsourceNodeName()) == 0
 							&& this.targetNodeName().compareToIgnoreCase(studentElement.targetNodeName()) == 0) {
-						System.out.println(this.getsourceNodeName());
-						System.out.println(studentElement.getsourceNodeName());
+						//System.out.println(this.getsourceNodeName());
+						//System.out.println(studentElement.getsourceNodeName());
 					 marks++;
 					}
 				}
