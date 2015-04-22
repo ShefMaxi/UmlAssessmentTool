@@ -234,7 +234,7 @@ public class AssessmentMark {
 				}
 				String elementName=null;
 				if(lecturerPackagedElement instanceof TransitionElement){
-					elementName= ((TransitionElement) lecturerPackagedElement).toString();
+					elementName= ((TransitionElement) lecturerPackagedElement).getTransition();
 				}
 				else if (lecturerPackagedElement instanceof SubvertexElement){
 					elementName=((SubvertexElement) lecturerPackagedElement).getName();
@@ -247,7 +247,10 @@ public class AssessmentMark {
 				}
 				String[] f = new String[]{lecturerPackagedElement.getType(),elementName};
 				feedback.add(f);
+				System.out.println(lecturerPackagedElement.getType()+":"+elementName );
+				//System.out.println(lecturerPackagedElement.getType()+":"+lecturerPackagedElement.toString());
 			}
+	//	}
 		}
 		if (studentPoints > 2 * totalPoints) {
 			double temp = studentPoints / totalPoints;

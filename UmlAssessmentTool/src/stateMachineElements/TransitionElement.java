@@ -72,4 +72,10 @@ public class TransitionElement extends PackagedElement {
 		return super.toString() + " name : " + name + " source : " 
 		+ sourceElement.getName() + " target : " + targetElement.getName() + " guard : " + this.guard;
 	}
+	
+	public String getTransition() {
+		
+		return "source: " +sourceElement.getName()+ ",	Target: "+targetElement.getName();
+		
+	}
 }
