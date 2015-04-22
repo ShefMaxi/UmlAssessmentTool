@@ -23,12 +23,12 @@ public class MAIN {
 			ZipFileHandler studentsZip = new ZipFileHandler();
 			String studentPat = frame.getStudentPath();
 			if (studentPat.endsWith(".zip")) {
-				studentsZip.extractFile(studentPat);
-				for (String str : studentsZip.getEntriesList()) {
-					XMIFileParser studentXMI = new XMIFileParser();
-					studentXMI.readXMIFile(str);
-					studentXMI.getPackagedList();
-				}
+//				studentsZip.extractFile(studentPat);
+//				for (String str : studentsZip.getEntriesList()) {
+//					XMIFileParser studentXMI = new XMIFileParser();
+//					studentXMI.readXMIFile(str);
+//					studentXMI.getPackagedList();
+//				}
 			}
 		} catch (NullPointerException e) {
 
