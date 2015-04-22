@@ -1,4 +1,4 @@
-Name: Alireza Amiri (aca12aa)
+﻿Name: Alireza Amiri (aca12aa)
 Assignment: UML Exercise 1: Requirements
 Date Submitted: Thursday, 14 November 2013 14:15:40 o'clock GMT
 Current Grade: Needs Grading
@@ -12,5 +12,5 @@ Unfortunatly I did not manage to get rid of Watermarks that might be there becau
 
 Files:
 	Original filename: UMLAssignment1.aca12aa.pdf
-	Filename: UML Exercise 1  Requirements_aca12aa_attempt_2013-11-14-14-15-40_UMLAssignment1.aca12aa.pdf
+	Filename: UML Exercise 1  Requirements_aca12aa_attempt_2013-11-14-14-15-40_UMLAssignment1.aca12aa.zip
 

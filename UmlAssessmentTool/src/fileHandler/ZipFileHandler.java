@@ -4,96 +4,84 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.io.*;
 
 public class ZipFileHandler {
 	
-	private List<String> entriesList = new ArrayList<String>();
-	
-	public void extractFile(String inputFile) {
+	public List<String> extractFile(String inputFile, String extension) {
+		List<String> entriesList = new ArrayList<String>();
+		String destinationFile = null;//System.getProperty("java.io.tmpdir");
 		
-		String destinationFile = "C:/UmlAssessmentTool/";
+		//if(!destinationFile.endsWith("\\"))
+			//destinationFile = destinationFile+"\\";
+		 
+		if(extension.equals("txt"))
+			destinationFile = "C:/UmlAssessmentTool/"+inputFile.substring(0, inputFile.length()-4)+"/";
+		else
+			destinationFile = inputFile.substring(0, inputFile.length()-4)+"/";
 		
 		File dir = new File(destinationFile);
-		
 		dir.mkdir();
-		
 		try {
-			
 			ZipFile zipFile = new ZipFile(inputFile);
-			
 			Enumeration<?> enu = zipFile.entries();
 			
-			while (enu.hasMoreElements()) {
-				
+			while (enu.hasMoreElements()) {	
 				ZipEntry zipEntry = (ZipEntry) enu.nextElement();
-				
 				String name = destinationFile+zipEntry.getName();
-				
 				name = name.toLowerCase();
-				
 				File file = new File(name);
 				
-				if (name.endsWith("/")) {
-					
+				if (name.endsWith("/")) {	
 					file.mkdirs();
-					
 					continue;
 				}
 				
 				InputStream is = zipFile.getInputStream(zipEntry);
-				
 				FileOutputStream fos = new FileOutputStream(name);
-				
 				byte[] bytes = new byte[1024];
-				
 				int length;
-				
 				while ((length = is.read(bytes)) >= 0) {
-					
 					fos.write(bytes, 0, length);
 				}
 				
-				if (name.endsWith(".zip")) {
-					
+				/*if (name.endsWith(".zip")) {
 					extractFile(name); //extractFile(name,destinationFile+zipEntry.getName());
-					
 					file.delete();
-				}
+				}*/
 				
-				if (name.endsWith(".pdf")) {
-					
+				if (name.endsWith("."+extension)) {
 					entriesList.add(name);
 				}
-								
 				is.close();
-				
 				fos.close();
 			}
-			
 			zipFile.close();
-			
-			if (entriesList.size()==0) {
-				
-				System.out.println("This zip file does not contain any XMI file");
-				
-				System.exit(0);
-			}
 		} catch (IOException e) {
-			
 			e.printStackTrace();
 		}
+		return entriesList;
 	}
 	
-	public ArrayList<String> getEntriesList() {
-		return (ArrayList<String>)entriesList;
+	public Map<String,List<String>> getStudentFiles(String inputFile) {
+		Map<String,List<String>> map = new HashMap<String,List<String>>();
+		TextReader reader = new TextReader(extractFile(inputFile, "txt"));
+		for (Map.Entry<String, String> entry : reader.getStudentFilePathMap().entrySet()) {
+			List<String> list = new ArrayList<String>();
+			list.addAll(extractFile(entry.getValue(), "xmi"));
+			map.put(entry.getKey(), list);
+		}
+		return map;
 	}
 	public static void main(String[] args) {
+		//System.out.println(System.getProperty("java.io.tmpdir"));
+		
 		ZipFileHandler zipFileHandler = new ZipFileHandler();
-		zipFileHandler.extractFile("C:\\Users\\Paul\\Desktop\\test1.zip");
-		System.out.println(zipFileHandler.getEntriesList());
+		System.out.println(zipFileHandler.getStudentFiles("test.zip"));
 	}
 }
