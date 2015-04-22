@@ -147,8 +147,8 @@ public class AssessmentMark {
 					
 					if (lecturerPackagedElement.getType().equals(studentPackagedElement.getType())) {
 						mark= lecturerPackagedElement.compareTo(studentPackagedElement);
-						System.out.println(lecturerPackagedElement.getType());
-						System.out.println(mark);
+						//System.out.println(lecturerPackagedElement.getType());
+						//System.out.println(mark);
 						if (flag) {
 							highestMark=mark;
 							flag=false;
@@ -168,7 +168,7 @@ public class AssessmentMark {
 				else {
 					feedBackInfo = "Element is partly correct.";
 				}
-				
+
 				String elementName = null;
 				if (lecturerPackagedElement instanceof ActivityNodes) {
 					elementName = ((ActivityNodes) lecturerPackagedElement).getName();	
@@ -184,7 +184,7 @@ public class AssessmentMark {
 				}
 				String[] f = new String[]{lecturerPackagedElement.getType(),elementName,feedBackInfo};
 				feedback.add(f);
-				
+				System.out.println(lecturerPackagedElement.getType()+"("+elementName+"):"+highestMark+": "+feedBackInfo);
 			}
 		}
 	}
