@@ -239,6 +239,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     		AssessmentMark xmiAssessor = new AssessmentMark(studentDigram, lecturerDiagram);
     		ArrayList<String[]> f = xmiAssessor.getFeedBack();
     		for (String[] ss : f) {
+    			System.out.println("\n");
 				for (String s : ss) {
 					System.out.println(s);
 				}

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import activityElements.ActivityNodes;
+import activityElements.EdgeElements;
+import activityElements.GroupElements;
 import packagedElements.PackagedElement;
 //usecase		 : 1
 //class			 : 2
@@ -25,6 +28,22 @@ public class AssessmentMark {
 		this.studentDiagram = studentDiagram;
 		this.lecturerDiagram = lecturerDiagram;
 		
+		switch (studentDiagram.getDiagramType()) {
+		case 1:
+			assessUsecaseDiagram();
+			break;
+		case 2:
+			assessClassDiagram();
+			break;
+		case 3:
+			assessActivityDiagram();
+			break;
+		case 4:
+			assessStateMachineDiagram();
+			break;
+		default:
+			break;
+		}
 	}
 
 	private void assessUsecaseDiagram() {
@@ -104,6 +123,21 @@ public class AssessmentMark {
 					.get(key);
 			System.out.println(selectedLecturerElements.size());
 			totalPoints += selectedLecturerElements.size();
+			
+			// statistics map
+			HashMap<String, Integer> statsMap = new HashMap<>();
+			for (PackagedElement studentPackagementElement : selectedStudentElements) {
+				if (studentPackagementElement instanceof ActivityNodes) {
+					String usedWord = ((ActivityNodes) studentPackagementElement).getName();
+					if (statsMap.containsKey(usedWord)) {
+						statsMap.put(usedWord, statsMap.get(usedWord) + 1);
+					} else {
+						statsMap.put(usedWord, Integer(0));
+					}
+				}
+			}
+			
+			
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 				highestMark=0;
 				String feedBackInfo = null;
@@ -134,13 +168,32 @@ public class AssessmentMark {
 				else {
 					feedBackInfo = "Element is partly correct.";
 				}
-				String[] f = new String[]{lecturerPackagedElement.getType(),lecturerPackagedElement.getId(),feedBackInfo};
+				
+				String elementName = null;
+				if (lecturerPackagedElement instanceof ActivityNodes) {
+					elementName = ((ActivityNodes) lecturerPackagedElement).getName();	
+				}
+				else if (lecturerPackagedElement instanceof EdgeElements) {
+					elementName = ((EdgeElements) lecturerPackagedElement).getName();
+				}
+				else if (lecturerPackagedElement instanceof GroupElements) {
+					elementName = ((GroupElements) lecturerPackagedElement).getName();
+				}
+				else {
+					System.out.println("error");
+				}
+				String[] f = new String[]{lecturerPackagedElement.getType(),elementName,feedBackInfo};
 				feedback.add(f);
 				
 			}
 		}
 	}
 	
+	private Integer Integer(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	private void assessStateMachineDiagram() {
 		int studentPoints = 0;
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
@@ -196,29 +249,12 @@ public class AssessmentMark {
 	}
 
 	public ArrayList<String[]> getFeedBack(){
-		assessActivityDiagram();
 		return this.feedback;
 	}
 	
 	
 	public double getFinalMarks() {
 
-		switch (studentDiagram.getDiagramType()) {
-		case 1:
-			assessUsecaseDiagram();
-			break;
-		case 2:
-			assessClassDiagram();
-			break;
-		case 3:
-			assessActivityDiagram();
-			break;
-		case 4:
-			assessStateMachineDiagram();
-			break;
-		default:
-			break;
-		}
 		System.out.println("total point is: " + totalPoints);
 		System.out.println("correct comparison amount is: " + marks);
 		return 100 * marks / totalPoints;
