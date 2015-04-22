@@ -8,10 +8,13 @@ import activityElements.ActivityNodes;
 import activityElements.EdgeElements;
 import activityElements.GroupElements;
 import packagedElements.PackagedElement;
+import stateMachineElements.Guard;
+import stateMachineElements.SubvertexElement;
 //usecase		 : 1
 //class			 : 2
 //activity		 : 3
 //statemachine	 : 4
+import stateMachineElements.TransitionElement;
 
 //Comparison method for Usecase diagram, written by Shupeng
 public class AssessmentMark {
@@ -217,6 +220,8 @@ public class AssessmentMark {
 			if (key.compareToIgnoreCase("transition") == 0) {
 				totalPoints += selectedLecturerElements.size();
 				studentPoints += selectedStudentElements.size();
+			//	System.out.println(selectedStudentElements.get(0));
+			//	System.out.println(selectedLecturerElements.getClass());
 			} else {
 				totalPoints += 1.5 * selectedLecturerElements.size();
 				studentPoints += 1.5 * selectedStudentElements.size();
@@ -227,6 +232,21 @@ public class AssessmentMark {
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
 				}
+				String elementName=null;
+				if(lecturerPackagedElement instanceof TransitionElement){
+					elementName= ((TransitionElement) lecturerPackagedElement).toString();
+				}
+				else if (lecturerPackagedElement instanceof SubvertexElement){
+					elementName=((SubvertexElement) lecturerPackagedElement).getName();
+				}
+				//else if (lecturerPackagedElement instanceof Guard) {
+			//		elementName=((Guard) lecturerPackagedElement).getValue();
+			//	}
+				else {
+					System.out.println("error");
+				}
+				String[] f = new String[]{lecturerPackagedElement.getType(),elementName};
+				feedback.add(f);
 			}
 		}
 		if (studentPoints > 2 * totalPoints) {
@@ -236,6 +256,10 @@ public class AssessmentMark {
 		} else if (studentPoints > totalPoints) {
 			marks = marks * totalPoints / studentPoints;
 		}
+		
+		
+		
+		
 	}
 	
 	
