@@ -16,14 +16,15 @@ public class ZipFileHandler {
 	public List<String> extractFile(String inputFile, String extension) {
 		List<String> entriesList = new ArrayList<String>();
 		String destinationFile = System.getProperty("java.io.tmpdir");
-		
-		if(!destinationFile.endsWith("\\"))
-			destinationFile = destinationFile+"\\";
+		System.out.println(destinationFile);
+		destinationFile = destinationFile.replace('\\', '/');
+		if(!destinationFile.endsWith("/"))
+			destinationFile = destinationFile+"/";
 		 
 		if(extension.equals("txt"))
-			destinationFile = destinationFile+inputFile.substring(0, inputFile.length()-4)+"\\";
+			destinationFile = destinationFile+inputFile.substring(0, inputFile.length()-4)+"/";
 		else
-			destinationFile = inputFile.substring(0, inputFile.length()-4)+"\\";
+			destinationFile = inputFile.substring(0, inputFile.length()-4)+"/";
 		
 		File dir = new File(destinationFile);
 		dir.mkdir();
