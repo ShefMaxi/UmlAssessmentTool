@@ -16,7 +16,6 @@ public class ZipFileHandler {
 	public List<String> extractFile(String inputFile, String extension) {
 		List<String> entriesList = new ArrayList<String>();
 		String destinationFile = System.getProperty("java.io.tmpdir");
-		System.out.println(destinationFile);
 		destinationFile = destinationFile.replace('\\', '/');
 		if(!destinationFile.endsWith("/"))
 			destinationFile = destinationFile+"/";
