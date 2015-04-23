@@ -15,15 +15,15 @@ public class ZipFileHandler {
 	
 	public List<String> extractFile(String inputFile, String extension) {
 		List<String> entriesList = new ArrayList<String>();
-		String destinationFile = null;//System.getProperty("java.io.tmpdir");
+		String destinationFile = System.getProperty("java.io.tmpdir");
 		
-		//if(!destinationFile.endsWith("\\"))
-			//destinationFile = destinationFile+"\\";
+		if(!destinationFile.endsWith("\\"))
+			destinationFile = destinationFile+"\\";
 		 
 		if(extension.equals("txt"))
-			destinationFile = "C:/UmlAssessmentTool/"+inputFile.substring(0, inputFile.length()-4)+"/";
+			destinationFile = destinationFile+inputFile.substring(0, inputFile.length()-4)+"\\";
 		else
-			destinationFile = inputFile.substring(0, inputFile.length()-4)+"/";
+			destinationFile = inputFile.substring(0, inputFile.length()-4)+"\\";
 		
 		File dir = new File(destinationFile);
 		dir.mkdir();
@@ -79,8 +79,6 @@ public class ZipFileHandler {
 		return map;
 	}
 	public static void main(String[] args) {
-		//System.out.println(System.getProperty("java.io.tmpdir"));
-		
 		ZipFileHandler zipFileHandler = new ZipFileHandler();
 		System.out.println(zipFileHandler.getStudentFiles("test.zip"));
 	}
