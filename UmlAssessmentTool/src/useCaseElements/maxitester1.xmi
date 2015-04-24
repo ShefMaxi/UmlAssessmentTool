@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_ibkesMDiEeSs8rjlMJ9_hw" name="maxitester1">
+  <eAnnotations xmi:id="_ibkescDiEeSs8rjlMJ9_hw" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_ibkessDiEeSs8rjlMJ9_hw" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_ibkes8DiEeSs8rjlMJ9_hw" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_ibketMDiEeSs8rjlMJ9_hw" name="paul"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ibketcDiEeSs8rjlMJ9_hw" memberEnd="_ibketsDiEeSs8rjlMJ9_hw _ibkeuMDiEeSs8rjlMJ9_hw" navigableOwnedEnd="_ibketsDiEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_ibketsDiEeSs8rjlMJ9_hw" visibility="public" type="_ibke1cDiEeSs8rjlMJ9_hw" association="_ibketcDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibket8DiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_ibkeuMDiEeSs8rjlMJ9_hw" visibility="public" type="_ibketMDiEeSs8rjlMJ9_hw" association="_ibketcDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkeucDiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ibkeusDiEeSs8rjlMJ9_hw" memberEnd="_ibkeu8DiEeSs8rjlMJ9_hw _ibkevcDiEeSs8rjlMJ9_hw" navigableOwnedEnd="_ibkeu8DiEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_ibkeu8DiEeSs8rjlMJ9_hw" visibility="public" type="_ibke3MDiEeSs8rjlMJ9_hw" association="_ibkeusDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkevMDiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_ibkevcDiEeSs8rjlMJ9_hw" visibility="public" type="_ibketMDiEeSs8rjlMJ9_hw" association="_ibkeusDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkevsDiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:id="_ibkev8DiEeSs8rjlMJ9_hw" name="shupeng" credit="20"></packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ibkewMDiEeSs8rjlMJ9_hw" memberEnd="_ibkewcDiEeSs8rjlMJ9_hw _ibkew8DiEeSs8rjlMJ9_hw" navigableOwnedEnd="_ibkewcDiEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_ibkewcDiEeSs8rjlMJ9_hw" visibility="public" type="_ibke1cDiEeSs8rjlMJ9_hw" association="_ibkewMDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkewsDiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_ibkew8DiEeSs8rjlMJ9_hw" visibility="public" type="_ibkev8DiEeSs8rjlMJ9_hw" association="_ibkewMDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkexMDiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ibkexcDiEeSs8rjlMJ9_hw" memberEnd="_ibkexsDiEeSs8rjlMJ9_hw _ibkeyMDiEeSs8rjlMJ9_hw" navigableOwnedEnd="_ibkexsDiEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_ibkexsDiEeSs8rjlMJ9_hw" visibility="public" type="_ibke3MDiEeSs8rjlMJ9_hw" association="_ibkexcDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkex8DiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_ibkeyMDiEeSs8rjlMJ9_hw" visibility="public" type="_ibkev8DiEeSs8rjlMJ9_hw" association="_ibkexcDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkeycDiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_ibkeysDiEeSs8rjlMJ9_hw" name="nico"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ibkey8DiEeSs8rjlMJ9_hw" memberEnd="_ibkezMDiEeSs8rjlMJ9_hw _ibkezsDiEeSs8rjlMJ9_hw" navigableOwnedEnd="_ibkezMDiEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_ibkezMDiEeSs8rjlMJ9_hw" visibility="public" type="_ibke1cDiEeSs8rjlMJ9_hw" association="_ibkey8DiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkezcDiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_ibkezsDiEeSs8rjlMJ9_hw" visibility="public" type="_ibkeysDiEeSs8rjlMJ9_hw" association="_ibkey8DiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibkez8DiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ibke0MDiEeSs8rjlMJ9_hw" memberEnd="_ibke0cDiEeSs8rjlMJ9_hw _ibke08DiEeSs8rjlMJ9_hw" navigableOwnedEnd="_ibke0cDiEeSs8rjlMJ9_hw">
+    <ownedEnd xmi:id="_ibke0cDiEeSs8rjlMJ9_hw" visibility="public" type="_ibke3MDiEeSs8rjlMJ9_hw" association="_ibke0MDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibke0sDiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_ibke08DiEeSs8rjlMJ9_hw" visibility="public" type="_ibkeysDiEeSs8rjlMJ9_hw" association="_ibke0MDiEeSs8rjlMJ9_hw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ibke1MDiEeSs8rjlMJ9_hw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ibke1cDiEeSs8rjlMJ9_hw" name="writeCode">
+    <ownedComment xmi:id="_ibke1sDiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke18DiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke2MDiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke2cDiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke2sDiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke28DiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ibke3MDiEeSs8rjlMJ9_hw" name="debugCode">
+    <ownedComment xmi:id="_ibke3cDiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke3sDiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke38DiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke4MDiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke4cDiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_ibke4sDiEeSs8rjlMJ9_hw">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+</uml:Model>

@@ -73,14 +73,14 @@ public class ClassElement extends PackagedElement{
 			if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
 				marks=marks+1/totalpoints;
 				number++;
+				//compare generalization
+			    if(this.isGeneralizable()==true&&studentElement.isGeneralizable()==true){		
+			    	if(this.getGeneralization().compareToIgnoreCase(studentElement.getGeneralization())==0){
+			    		marks=marks+1/totalpoints;
+			    		number++;
+			    	}
+			    }
 			}
-			//compare generalization
-		    if(this.isGeneralizable()==true&&studentElement.isGeneralizable()==true){		
-		    	if(this.getGeneralization().compareToIgnoreCase(studentElement.getGeneralization())==0){
-		    		marks=marks+1/totalpoints;
-		    		number++;
-		    	}
-		    }
 			//compare operation(name)
 		    ArrayList<String> operations=studentElement.getOperation();
 		    for(Object obj:operations){

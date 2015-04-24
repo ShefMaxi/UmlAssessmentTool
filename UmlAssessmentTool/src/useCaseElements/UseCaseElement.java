@@ -74,14 +74,14 @@ public class UseCaseElement extends GeneralizableElement {
 			if(this.getType().compareToIgnoreCase(studentElement.getType())==0){								
 				if(this.getName().compareToIgnoreCase(studentElement.getName())==0){
 					marks++;
+					//compare generalization
+				    if(this.isGeneralizable()==true&&studentElement.isGeneralizable()==true){		
+				    	if(this.getGeneralization().compareToIgnoreCase(studentElement.getGeneralization())==0){
+				    		marks++;
+				    	}
+				    }
 				}
-			}	
-			//compare generalization
-			    if(this.isGeneralizable()==true&&studentElement.isGeneralizable()==true){		
-			    	if(this.getGeneralization().compareToIgnoreCase(studentElement.getGeneralization())==0){
-			    		marks++;
-			    	}
-			    }
+			}				
 			//compare inludeAddition
 			if(this.hasIncludeAdditionLink()==true&&studentElement.hasIncludeAdditionLink()==true){
 				if(this.getIncludeAddition().compareToIgnoreCase(studentElement.getIncludeAddition())==0){
