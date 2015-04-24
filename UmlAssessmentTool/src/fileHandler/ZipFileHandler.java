@@ -12,6 +12,7 @@ import java.util.zip.ZipFile;
 import java.io.*;
 
 public class ZipFileHandler {
+	private Map<String, String> studentInfoMap = null;
 	
 	public List<String> extractFile(String inputFile, String extension) {
 		List<String> entriesList = new ArrayList<String>();
@@ -71,6 +72,7 @@ public class ZipFileHandler {
 	public Map<String,List<String>> getStudentFiles(String inputFile) {
 		Map<String,List<String>> map = new HashMap<String,List<String>>();
 		TextReader reader = new TextReader(extractFile(inputFile, "txt"));
+		this.studentInfoMap = reader.getStudentInfoMap();
 		for (Map.Entry<String, String> entry : reader.getStudentFilePathMap().entrySet()) {
 			List<String> list = new ArrayList<String>();
 			list.addAll(extractFile(entry.getValue(), "xmi"));
@@ -78,6 +80,11 @@ public class ZipFileHandler {
 		}
 		return map;
 	}
+	
+	public Map<String, String> getStudentInfoMap() {
+		return studentInfoMap;
+	}
+	
 	public static void main(String[] args) {
 		ZipFileHandler zipFileHandler = new ZipFileHandler();
 		System.out.println(zipFileHandler.getStudentFiles("test.zip"));

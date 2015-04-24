@@ -27,7 +27,7 @@ public class ForkNodeElement extends ActivityNodes {
 	
 	@Override
 	public double compareTo(PackagedElement packagedElement) {
-		// TODO Auto-generated method stub
+		// undone
 		double mark=0;
 		if (packagedElement instanceof ForkNodeElement) {
 			ForkNodeElement student = (ForkNodeElement)packagedElement;
