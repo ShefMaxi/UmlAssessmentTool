@@ -280,6 +280,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
     private void jButtonForXMLActionPerformed(java.awt.event.ActionEvent evt) {
     	JFileChooser jFileChooser = new javax.swing.JFileChooser();
+    	jFileChooser.setAcceptAllFileFilterUsed(false);
     	FileFilter fileFilter = new FileNameExtensionFilter("Extensible Markup Language", "xml");
     	jFileChooser.setFileFilter(fileFilter);
         jFileChooser.setDialogTitle("Choose a file");
