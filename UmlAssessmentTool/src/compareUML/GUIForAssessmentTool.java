@@ -41,7 +41,8 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
         jLabelForStudents = new javax.swing.JLabel();
         jButtonForStudents = new javax.swing.JButton();
         jButtonForStartAssessment = new javax.swing.JButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        jProgressBar = new javax.swing.JProgressBar();
+        jProgressBar.setStringPainted(true);
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextAreaForLog = new javax.swing.JTextArea();
         jButtonForFeedback = new javax.swing.JButton();
@@ -128,7 +129,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
                                 .addComponent(jLabelForTitle))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(167, 167, 167)
-                                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
@@ -188,7 +189,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
                             .addComponent(jButtonForStartAssessment, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonForFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(58, 58, 58)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
@@ -217,7 +218,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     private void AssessXMIFiles() {
     	XMIFileParser xmiFileParser = new XMIFileParser();
     	try {
-    		
+    		jProgressBar.setToolTipText("Assessing");
     		Diagram lecturerDiagram = xmiFileParser.readXMIFile(lecturerFilePath);
     		System.out.println(lecturerDiagram);
     		Diagram studentDigram = xmiFileParser.readXMIFile(studentFilePath);
@@ -230,10 +231,10 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 //					System.out.println(s);
 //				}
 //			}
-    		
+
     		this.jTextAreaForLog.append("The student final mark for this diagram is " + xmiAssessor.getFinalMarks() + "%\n");
-    		
-		} catch (IOException e) {
+    		jProgressBar.setToolTipText("Finish assessment.");
+    	} catch (IOException e) {
 			// TODO: handle exception
 		} catch (JDOMException e) {
 			// TODO: handle exception
@@ -254,6 +255,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			this.jLabelForLectureFile.setText(name);
 			this.jTextAreaForLog.append("Lecturer's file : " + name + "\n");
 			this.lecturerFileIsSelected = true;
+			this.jProgressBar.setValue(0);
 		}
     }
 
@@ -271,11 +273,12 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			this.jLabelForStudentFile.setText(name);
 			this.jTextAreaForLog.append("Students' file : " + name + "\n");
 			this.studentFileIsSelected = true;
+			this.jProgressBar.setValue(0);
 		}
     }
 
     private void jButtonForFeedbackActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        // TODO output feedback to user and student
     }
 
     private void jButtonForXMLActionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,7 +292,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
         	String path = jFileChooser.getSelectedFile().getAbsolutePath();
 			String name = jFileChooser.getSelectedFile().getName();
 			path = path.replace('\\', '/');
-			studentFilePath = path;
+			xmlFilePath = path;
 			this.jLabelForXMLFile.setText(name);
 			this.jTextAreaForLog.append("XML file: " + name + "\n");
         }
@@ -347,7 +350,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelForTitle;
     private javax.swing.JLabel jLabelForXML;
     private javax.swing.JLabel jLabelForXMLFile;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JProgressBar jProgressBar;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextAreaForLog;
     // End of variables declaration//GEN-END:variables
