@@ -75,7 +75,6 @@ public class AssessmentMark {
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
-					System.out.println(marks);
 				}
 			}
 		}
