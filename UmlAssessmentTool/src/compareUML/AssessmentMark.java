@@ -186,6 +186,10 @@ public class AssessmentMark {
 				else {
 					System.out.println("error");
 				}
+				StringBuffer sb = new StringBuffer();
+				sb.append("Element Type: "+lecturerPackagedElement.getType()+";");
+				sb.append("Name: "+elementName+";");
+				sb.append(feedBackInfo);
 				String[] f = new String[]{lecturerPackagedElement.getType(),elementName,feedBackInfo};
 				feedback.add(f);
 				System.out.println(lecturerPackagedElement.getType()+"("+elementName+"):"+highestMark+": "+feedBackInfo);
@@ -278,6 +282,10 @@ public class AssessmentMark {
 
 	public ArrayList<String[]> getFeedBack(){
 		return this.feedback;
+	}
+	
+	public int getDiagramType(){
+		return this.lecturerDiagram.getDiagramType();
 	}
 	
 	

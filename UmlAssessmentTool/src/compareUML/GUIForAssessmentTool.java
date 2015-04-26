@@ -224,14 +224,10 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     		Diagram studentDigram = xmiFileParser.readXMIFile(studentFilePath);
     		System.out.println(studentDigram);
     		AssessmentMark xmiAssessor = new AssessmentMark(studentDigram, lecturerDiagram);
+    		int diagramType = lecturerDiagram.getDiagramType();
     		ArrayList<String[]> f = xmiAssessor.getFeedBack();
     		
-//    		for (String[] ss : f) {
-//    			System.out.println("\n");
-//				for (String s : ss) {
-//					System.out.println(s);
-//				}
-//			}
+
 
     		this.jTextAreaForLog.append("The student final mark for this diagram is " + xmiAssessor.getFinalMarks() + "%\n");
     		jProgressBar.setToolTipText("Finish assessment.");
