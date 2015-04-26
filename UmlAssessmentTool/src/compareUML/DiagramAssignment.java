@@ -1,8 +1,8 @@
 package compareUML;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 
 import fileHandler.XMIFileParser;
 
@@ -10,8 +10,9 @@ public class DiagramAssignment {
 	private List<Diagram> diagrams = new ArrayList<Diagram>();
 	private String username = "", studentName = "";
 	
-	public DiagramAssignment(List<String> xmiPaths) {
-		
+	public DiagramAssignment(String username, String studentName, List<String> xmiPaths) {
+		this.username = username;
+		this.studentName = studentName;
 		XMIFileParser fileParser = new XMIFileParser();
 		for (String path : xmiPaths) {
 			Diagram diagram = fileParser.readXMIFile(path);
@@ -56,6 +57,5 @@ public class DiagramAssignment {
 		}
 		return null;
 	}
-	
 
 }
