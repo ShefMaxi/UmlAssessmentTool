@@ -20,13 +20,15 @@ public class ZipFileHandler {
 		List<String> entriesList = new ArrayList<String>();
 		String destinationFile = System.getProperty("java.io.tmpdir");
 		destinationFile = destinationFile.replace('\\', '/');
+		inputFile = inputFile.replace('\\', '/');
 		if(!destinationFile.endsWith("/"))
 			destinationFile = destinationFile+"/";
 		 
-		if(extension.equals("txt"))
-			destinationFile = destinationFile+inputFile.substring(0, inputFile.length()-4)+"/";
-		else
-			destinationFile = inputFile.substring(0, inputFile.length()-4)+"/";
+		if(extension.equals("txt")) {
+			destinationFile = destinationFile+inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.length()-4)+"/";
+		} else {
+			destinationFile = inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.length()-4)+"/";
+		}
 		
 		File dir = new File(destinationFile);
 		dir.mkdir();
@@ -46,6 +48,7 @@ public class ZipFileHandler {
 				}
 				
 				InputStream is = zipFile.getInputStream(zipEntry);
+				System.out.println(name);
 				FileOutputStream fos = new FileOutputStream(name);
 				byte[] bytes = new byte[1024];
 				int length;
@@ -87,8 +90,8 @@ public class ZipFileHandler {
 		return studentInfoMap;
 	}
 	
-	public static void main(String[] args) {
-		ZipFileHandler zipFileHandler = new ZipFileHandler();
-		System.out.println(zipFileHandler.getStudentFiles("test.zip"));
-	}
+//	public static void main(String[] args) {
+//		ZipFileHandler zipFileHandler = new ZipFileHandler();
+//		System.out.println(zipFileHandler.getStudentFiles("C:\\Users\\Paul\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\test.zip"));
+//	}
 }
