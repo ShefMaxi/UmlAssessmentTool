@@ -27,7 +27,7 @@ public class ZipFileHandler {
 		if(extension.equals("txt")) {
 			destinationFile = destinationFile+inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.length()-4)+"/";
 		} else {
-			destinationFile = inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.length()-4)+"/";
+			destinationFile = inputFile.substring(0, inputFile.length()-4)+"/";
 		}
 		
 		File dir = new File(destinationFile);
@@ -92,6 +92,6 @@ public class ZipFileHandler {
 	
 //	public static void main(String[] args) {
 //		ZipFileHandler zipFileHandler = new ZipFileHandler();
-//		System.out.println(zipFileHandler.getStudentFiles("C:\\Users\\Paul\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\test.zip"));
+//		System.out.println(zipFileHandler.getStudentFiles("C:\\Users\\Dell\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\test.zip"));
 //	}
 }
