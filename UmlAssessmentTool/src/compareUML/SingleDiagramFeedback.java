@@ -2,7 +2,7 @@ package compareUML;
 
 import java.util.ArrayList;
 
-public class StudentFeedback {
+public class SingleDiagramFeedback {
 	
 	private String studentName=null;
 	private String studentId=null;
@@ -12,7 +12,7 @@ public class StudentFeedback {
 	
 	
 	
-	public StudentFeedback(String studentName,String studentId,int totalMark,
+	public SingleDiagramFeedback(String studentName,String studentId,int totalMark,
 			int diagramType,ArrayList<String[]> feedbackInfo){
 		this.studentName=studentName;
 		this.studentId=studentId;
