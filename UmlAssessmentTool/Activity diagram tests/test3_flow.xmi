@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_QQ-70OxLEeSeH4W556u6wg" name="test for activity diagram">
+  <eAnnotations xmi:id="_QQ-70exLEeSeH4W556u6wg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_QQ-70uxLEeSeH4W556u6wg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_QQ-70-xLEeSeH4W556u6wg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_QQ-71OxLEeSeH4W556u6wg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_QQ-71exLEeSeH4W556u6wg" name="locals"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_QQ-71uxLEeSeH4W556u6wg" name="Activity Final Node" incoming="_QQ-72OxLEeSeH4W556u6wg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_QQ-71-xLEeSeH4W556u6wg" name="Initial Node" outgoing="_QQ-72OxLEeSeH4W556u6wg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_QQ-72OxLEeSeH4W556u6wg" name="ControlFlow" source="_QQ-71-xLEeSeH4W556u6wg" target="_QQ-71uxLEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_QQ-72exLEeSeH4W556u6wg" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

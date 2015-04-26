@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_6qa7sOxNEeSeH4W556u6wg" name="test for activity diagram">
+  <eAnnotations xmi:id="_6qa7sexNEeSeH4W556u6wg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_6qa7suxNEeSeH4W556u6wg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_6qa7s-xNEeSeH4W556u6wg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_6qa7tOxNEeSeH4W556u6wg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_6qa7texNEeSeH4W556u6wg" name="locals">
+      <ownedAttribute xmi:id="_6qa7tuxNEeSeH4W556u6wg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_6qa7t-xNEeSeH4W556u6wg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_6qa7uOxNEeSeH4W556u6wg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_6qa7uexNEeSeH4W556u6wg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_6qa7uuxNEeSeH4W556u6wg" aggregation="composite"/>
+    </nestedClassifier>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_6qa7u-xNEeSeH4W556u6wg" name="Activity Final Node" incoming="_6qa7wexNEeSeH4W556u6wg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_6qa7vOxNEeSeH4W556u6wg" name="Initial Node" outgoing="_6qa7v-xNEeSeH4W556u6wg"/>
+    <node xmi:type="uml:CentralBufferNode" xmi:id="_6qa7vexNEeSeH4W556u6wg" outgoing="_6qa7wexNEeSeH4W556u6wg" incoming="_6qa7v-xNEeSeH4W556u6wg">
+      <upperBound xmi:type="uml:LiteralString" xmi:id="_6qa7vuxNEeSeH4W556u6wg" name="UpperBound" value="1"/>
+    </node>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_6qa7v-xNEeSeH4W556u6wg" name="ObjectFlow" source="_6qa7vOxNEeSeH4W556u6wg" target="_6qa7vexNEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_6qa7wOxNEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_6qa7wexNEeSeH4W556u6wg" name="ObjectFlow" source="_6qa7vexNEeSeH4W556u6wg" target="_6qa7u-xNEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_6qa7wuxNEeSeH4W556u6wg" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

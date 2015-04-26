@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_gxUFIOxMEeSeH4W556u6wg" name="test for activity diagram">
+  <eAnnotations xmi:id="_gxUFIexMEeSeH4W556u6wg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_gxUFIuxMEeSeH4W556u6wg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_gxUFI-xMEeSeH4W556u6wg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_gxUFJOxMEeSeH4W556u6wg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_gxUFJexMEeSeH4W556u6wg" name="locals"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_gxUFJuxMEeSeH4W556u6wg" name="Activity Final Node" incoming="_gxUsOexMEeSeH4W556u6wg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_gxUFJ-xMEeSeH4W556u6wg" name="Initial Node" outgoing="_gxUsM-xMEeSeH4W556u6wg"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_gxUsMOxMEeSeH4W556u6wg" name="Time Event" outgoing="_gxUsNexMEeSeH4W556u6wg" incoming="_gxUsN-xMEeSeH4W556u6wg"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_gxUsMexMEeSeH4W556u6wg" name="Accept Signal" outgoing="_gxUsN-xMEeSeH4W556u6wg" incoming="_gxUsM-xMEeSeH4W556u6wg"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_gxUsMuxMEeSeH4W556u6wg" name="Time Event1" outgoing="_gxUsOexMEeSeH4W556u6wg" incoming="_gxUsNexMEeSeH4W556u6wg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gxUsM-xMEeSeH4W556u6wg" name="ControlFlow" source="_gxUFJ-xMEeSeH4W556u6wg" target="_gxUsMexMEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gxUsNOxMEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gxUsNexMEeSeH4W556u6wg" name="ControlFlow" source="_gxUsMOxMEeSeH4W556u6wg" target="_gxUsMuxMEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gxUsNuxMEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gxUsN-xMEeSeH4W556u6wg" name="ControlFlow" source="_gxUsMexMEeSeH4W556u6wg" target="_gxUsMOxMEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gxUsOOxMEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gxUsOexMEeSeH4W556u6wg" name="ControlFlow" source="_gxUsMuxMEeSeH4W556u6wg" target="_gxUFJuxMEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gxUsOuxMEeSeH4W556u6wg" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>
