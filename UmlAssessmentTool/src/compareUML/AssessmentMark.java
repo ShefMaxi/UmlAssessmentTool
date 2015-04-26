@@ -136,7 +136,7 @@ public class AssessmentMark {
 					if (statsMap.containsKey(usedWord)) {
 						statsMap.put(usedWord, statsMap.get(usedWord) + 1);
 					} else {
-						statsMap.put(usedWord, Integer(0));
+						statsMap.put(usedWord, 0);
 					}
 				}
 			}
@@ -195,11 +195,6 @@ public class AssessmentMark {
 				System.out.println(lecturerPackagedElement.getType()+"("+elementName+"):"+highestMark+": "+feedBackInfo);
 			}
 		}
-	}
-	
-	private Integer Integer(int i) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	private void assessStateMachineDiagram() {
@@ -269,8 +264,6 @@ public class AssessmentMark {
 		
 		
 	}
-	
-	
 	
 	// get keys from result of preprocessForUseCase
 	public static String[] forkeys(HashMap<String, ArrayList<PackagedElement>> h) {

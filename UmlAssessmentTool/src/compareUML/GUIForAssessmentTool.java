@@ -16,6 +16,7 @@ import org.jdom2.JDOMException;
 
 import fileHandler.SynonymDictionary;
 import fileHandler.XMIFileParser;
+import fileHandler.ZipFileHandler;
 
 
 public class GUIForAssessmentTool extends javax.swing.JFrame {
@@ -206,6 +207,23 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     	if (!this.lecturerFileIsSelected) {
 			this.jTextAreaForLog.append("Lecturer's file is not selected.\n");
 		}
+    	
+		
+		if (studentFilePath
+				.substring(studentFilePath.lastIndexOf("."))
+				.equalsIgnoreCase(
+						lecturerFilePath.substring(lecturerFilePath.lastIndexOf(".")))) {
+			// zip files
+			if (studentFilePath.substring(studentFilePath.lastIndexOf(".")).equalsIgnoreCase(".zip")) {
+				ZipFileHandler zipFileHandler = new ZipFileHandler();
+				System.out.println(zipFileHandler.getStudentFiles(studentFilePath));
+				System.out.println(zipFileHandler.getStudentInfoMap());
+				
+				System.out.println("finished.....................");
+				
+			}
+		}
+
     	if (this.studentFileIsSelected && this.lecturerFileIsSelected) {
     		this.jTextAreaForLog.append("Start Assessment.\n");
     		// start assessment
