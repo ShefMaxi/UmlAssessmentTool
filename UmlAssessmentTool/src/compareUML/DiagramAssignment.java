@@ -1,11 +1,8 @@
 package compareUML;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-
-import org.jast.xml.XMLError;
-import org.jdom2.JDOMException;
 
 import fileHandler.XMIFileParser;
 
@@ -14,11 +11,51 @@ public class DiagramAssignment {
 	private String username = "", studentName = "";
 	
 	public DiagramAssignment(List<String> xmiPaths) {
+		
 		XMIFileParser fileParser = new XMIFileParser();
 		for (String path : xmiPaths) {
-				diagrams.add(fileParser.readXMIFile(path));
-
+			Diagram diagram = fileParser.readXMIFile(path);
+			if (diagram == null) {
+				this.diagrams.add(diagram);
+			} else {
+				// add information for error
+			}
 		}
 	}
+	
+	// accessors
+	public List<Diagram> getDiagrams() {
+		return diagrams;
+	}
+	
+	public String getStudentName() {
+		return studentName;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public void markAssignment(List<Diagram> lecturerDiagrams) {
+		for (Diagram lectDiagram : lecturerDiagrams) {
+			Diagram stuDiagram = getDiagramByType(lectDiagram.getDiagramType());
+			if (stuDiagram != null) {
+				AssessmentMark assessor = new AssessmentMark(stuDiagram, lectDiagram);
+			} else {
+				// add information for missing diagram
+			}
+			
+		}
+	}
+	
+	private Diagram getDiagramByType(int type) {
+		for (Diagram diagram : this.diagrams) {
+			if (diagram.getDiagramType() == type) {
+				return diagram;
+			}
+		}
+		return null;
+	}
+	
 
 }

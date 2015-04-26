@@ -10,6 +10,7 @@ import packagedElements.PackagedElement;
 // statemachine	 : 4
 
 public class Diagram {
+	public static final int Usecase = 1, Class = 2, Activity = 3, StateMachine = 4;
 	private ArrayList<PackagedElement> allElements;
 	private int diagramType = 0;
 	public Diagram(ArrayList<PackagedElement> elements, int diagramType) {
@@ -46,6 +47,8 @@ public class Diagram {
 			diagramTypeString = "Unrecogized diagram";
 			break;
 		}
-		return diagramTypeString + " : contains " + allElements.size() + " elements..." ;
+		return diagramTypeString + " : contains " + allElements.size()
+				+ " elements...";
 	}
 }
+
