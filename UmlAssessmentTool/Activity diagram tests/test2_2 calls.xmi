@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_1z-4kOxKEeSeH4W556u6wg" name="test for activity diagram">
+  <eAnnotations xmi:id="_1z-4kexKEeSeH4W556u6wg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_1z-4kuxKEeSeH4W556u6wg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_1z-4k-xKEeSeH4W556u6wg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_1z-4lOxKEeSeH4W556u6wg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_1z-4lexKEeSeH4W556u6wg" name="locals"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_1z-4luxKEeSeH4W556u6wg" name="Activity Final Node" incoming="_1z-4nuxKEeSeH4W556u6wg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_1z-4l-xKEeSeH4W556u6wg" name="Initial Node" outgoing="_1z-4muxKEeSeH4W556u6wg"/>
+    <node xmi:type="uml:CallBehaviorAction" xmi:id="_1z-4mOxKEeSeH4W556u6wg" name="Call Behavior" outgoing="_1z-4nOxKEeSeH4W556u6wg" incoming="_1z-4muxKEeSeH4W556u6wg"/>
+    <node xmi:type="uml:CallOperationAction" xmi:id="_1z-4mexKEeSeH4W556u6wg" name="Call Operation" outgoing="_1z-4nuxKEeSeH4W556u6wg" incoming="_1z-4nOxKEeSeH4W556u6wg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_1z-4muxKEeSeH4W556u6wg" name="ControlFlow" source="_1z-4l-xKEeSeH4W556u6wg" target="_1z-4mOxKEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_1z-4m-xKEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_1z-4nOxKEeSeH4W556u6wg" name="ControlFlow" source="_1z-4mOxKEeSeH4W556u6wg" target="_1z-4mexKEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_1z-4nexKEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_1z-4nuxKEeSeH4W556u6wg" name="ControlFlow" source="_1z-4mexKEeSeH4W556u6wg" target="_1z-4luxKEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_1z-4n-xKEeSeH4W556u6wg" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

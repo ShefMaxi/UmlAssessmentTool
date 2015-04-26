@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_gloPAOxLEeSeH4W556u6wg" name="test for activity diagram">
+  <eAnnotations xmi:id="_gloPAexLEeSeH4W556u6wg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_gloPAuxLEeSeH4W556u6wg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_gloPA-xLEeSeH4W556u6wg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_gloPBOxLEeSeH4W556u6wg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_gloPBexLEeSeH4W556u6wg" name="locals"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_gloPBuxLEeSeH4W556u6wg" name="Activity Final Node" incoming="_gloPDuxLEeSeH4W556u6wg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_gloPB-xLEeSeH4W556u6wg" name="Initial Node" outgoing="_gloPCuxLEeSeH4W556u6wg"/>
+    <node xmi:type="uml:ForkNode" xmi:id="_gloPCOxLEeSeH4W556u6wg" name="Fork/Join" outgoing="_gloPDOxLEeSeH4W556u6wg" incoming="_gloPCuxLEeSeH4W556u6wg"/>
+    <node xmi:type="uml:ForkNode" xmi:id="_gloPCexLEeSeH4W556u6wg" name="Fork/Join1" outgoing="_gloPDuxLEeSeH4W556u6wg" incoming="_gloPDOxLEeSeH4W556u6wg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gloPCuxLEeSeH4W556u6wg" name="ControlFlow" source="_gloPB-xLEeSeH4W556u6wg" target="_gloPCOxLEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gloPC-xLEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gloPDOxLEeSeH4W556u6wg" name="ControlFlow" source="_gloPCOxLEeSeH4W556u6wg" target="_gloPCexLEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gloPDexLEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gloPDuxLEeSeH4W556u6wg" name="ControlFlow" source="_gloPCexLEeSeH4W556u6wg" target="_gloPBuxLEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gloPD-xLEeSeH4W556u6wg" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

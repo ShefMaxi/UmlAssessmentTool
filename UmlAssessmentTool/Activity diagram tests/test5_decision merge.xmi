@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="__gMpwOxLEeSeH4W556u6wg" name="test for activity diagram">
+  <eAnnotations xmi:id="__gNQ0OxLEeSeH4W556u6wg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="__gNQ0exLEeSeH4W556u6wg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="__gNQ0uxLEeSeH4W556u6wg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="__gNQ0-xLEeSeH4W556u6wg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="__gNQ1OxLEeSeH4W556u6wg" name="locals"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="__gNQ1exLEeSeH4W556u6wg" name="Activity Final Node" incoming="__gNQ2uxLEeSeH4W556u6wg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="__gNQ1uxLEeSeH4W556u6wg" name="Initial Node" outgoing="__gNQ2OxLEeSeH4W556u6wg"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="__gNQ1-xLEeSeH4W556u6wg" name="Decision-Merge" outgoing="__gNQ2uxLEeSeH4W556u6wg" incoming="__gNQ2OxLEeSeH4W556u6wg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="__gNQ2OxLEeSeH4W556u6wg" name="ControlFlow" source="__gNQ1uxLEeSeH4W556u6wg" target="__gNQ1-xLEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="__gNQ2exLEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="__gNQ2uxLEeSeH4W556u6wg" name="ControlFlow" source="__gNQ1-xLEeSeH4W556u6wg" target="__gNQ1exLEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="__gNQ2-xLEeSeH4W556u6wg" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

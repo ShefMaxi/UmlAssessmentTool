@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_nM7LwOxOEeSeH4W556u6wg" name="test for activity diagram">
+  <eAnnotations xmi:id="_nM7LwexOEeSeH4W556u6wg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_nM7LwuxOEeSeH4W556u6wg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_nM7Lw-xOEeSeH4W556u6wg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_nM7LxOxOEeSeH4W556u6wg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_nM7LxexOEeSeH4W556u6wg" name="locals">
+      <ownedAttribute xmi:id="_nM7LxuxOEeSeH4W556u6wg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_nM7Lx-xOEeSeH4W556u6wg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_nM7LyOxOEeSeH4W556u6wg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_nM7LyexOEeSeH4W556u6wg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_nM7LyuxOEeSeH4W556u6wg" aggregation="composite"/>
+      <ownedAttribute xmi:id="_nM7Ly-xOEeSeH4W556u6wg" aggregation="composite"/>
+    </nestedClassifier>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_nM7LzOxOEeSeH4W556u6wg" name="Activity Final Node" incoming="_nM7L1exOEeSeH4W556u6wg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_nM7LzexOEeSeH4W556u6wg" name="Initial Node" outgoing="_nM7L0-xOEeSeH4W556u6wg"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_nM7LzuxOEeSeH4W556u6wg" name="Action" outgoing="_nM7L1exOEeSeH4W556u6wg" incoming="_nM7L0-xOEeSeH4W556u6wg">
+      <inputValue xmi:id="_nM7Lz-xOEeSeH4W556u6wg" name="Input Pin">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_nM7L0OxOEeSeH4W556u6wg" name="UpperBound" value="1"/>
+      </inputValue>
+      <outputValue xmi:id="_nM7L0exOEeSeH4W556u6wg" name="Output Pin">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_nM7L0uxOEeSeH4W556u6wg" name="UpperBound" value="1"/>
+      </outputValue>
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_nM7L0-xOEeSeH4W556u6wg" name="ControlFlow" source="_nM7LzexOEeSeH4W556u6wg" target="_nM7LzuxOEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_nM7L1OxOEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_nM7L1exOEeSeH4W556u6wg" name="ControlFlow" source="_nM7LzuxOEeSeH4W556u6wg" target="_nM7LzOxOEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_nM7L1uxOEeSeH4W556u6wg" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

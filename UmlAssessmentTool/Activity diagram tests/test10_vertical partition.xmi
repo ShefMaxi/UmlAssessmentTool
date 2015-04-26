@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_kpRGwOxPEeSeH4W556u6wg" name="test for activity diagram">
+  <eAnnotations xmi:id="_kpRGwexPEeSeH4W556u6wg" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_kpRt0OxPEeSeH4W556u6wg" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_kpRt0exPEeSeH4W556u6wg" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_kpRt0uxPEeSeH4W556u6wg" name="Activity">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_kpRt0-xPEeSeH4W556u6wg" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_kpRt1OxPEeSeH4W556u6wg" name="Initial Node" outgoing="_kpRt2OxPEeSeH4W556u6wg" inPartition="_kpRt3OxPEeSeH4W556u6wg"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_kpRt1exPEeSeH4W556u6wg" name="Activity Final Node" incoming="_kpRt2OxPEeSeH4W556u6wg" inPartition="_kpRt3OxPEeSeH4W556u6wg"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_kpRt1uxPEeSeH4W556u6wg" name="Initial Node" outgoing="_kpRt2uxPEeSeH4W556u6wg" inPartition="_kpRt3exPEeSeH4W556u6wg"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_kpRt1-xPEeSeH4W556u6wg" name="Activity Final Node" incoming="_kpRt2uxPEeSeH4W556u6wg" inPartition="_kpRt3exPEeSeH4W556u6wg"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_kpRt2OxPEeSeH4W556u6wg" name="ControlFlow" source="_kpRt1OxPEeSeH4W556u6wg" target="_kpRt1exPEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_kpRt2exPEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_kpRt2uxPEeSeH4W556u6wg" name="ControlFlow" source="_kpRt1uxPEeSeH4W556u6wg" target="_kpRt1-xPEeSeH4W556u6wg">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_kpRt2-xPEeSeH4W556u6wg" value="1"/>
+    </edge>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_kpRt3OxPEeSeH4W556u6wg" name="Partition" node="_kpRt1OxPEeSeH4W556u6wg _kpRt1exPEeSeH4W556u6wg"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_kpRt3exPEeSeH4W556u6wg" name="Partition1" node="_kpRt1uxPEeSeH4W556u6wg _kpRt1-xPEeSeH4W556u6wg"/>
+  </packagedElement>
+</uml:Model>
