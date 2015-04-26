@@ -25,7 +25,6 @@ public class SynonymDictionary {
 			readXMLFile();
 			System.out.println("no error.");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("has error.");
 		}
@@ -38,10 +37,12 @@ public class SynonymDictionary {
 
 	// read XML file
 	private void readXMLFile() throws IOException, XMLError {
+		// read file from path
 		File xmiFile = new File(filePath);
 		XMLReader reader = new XMLReader(xmiFile);
 		org.jast.xml.Document document = reader.readDocument();
-		//System.out.println(document.getRootElement().getName());
+
+		// search dictionary
 		XPath dictionaryPath = new XPath(
 				"//dictionary/*");
 		Iterator<Content> iterator = dictionaryPath.match(document).iterator();

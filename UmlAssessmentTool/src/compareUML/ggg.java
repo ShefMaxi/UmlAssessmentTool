@@ -230,7 +230,6 @@ public class ggg extends javax.swing.JFrame {
 
     private void AssessXMIFiles() {
     	XMIFileParser xmiFileParser = new XMIFileParser();
-    	try {
     		
     		Diagram lecturerDiagram = xmiFileParser.readXMIFile(lecturerFilePath);
     		System.out.println(lecturerDiagram);
@@ -245,29 +244,7 @@ public class ggg extends javax.swing.JFrame {
 			}
     		
     		this.jTextAreaForLog.append("The student final mark for this diagram is " + xmiAssessor.getFinalMarks() + "%\n");
-    		
-		} catch (IOException e) {
-			// TODO: handle exception
-		} catch (JDOMException e) {
-			// TODO: handle exception
-		}
-    	
-    	
-//    	for (String path : paths) {
-//    		try {
-//				xmiFileParser.readXMIFile(path);
-//				AssessmentMark xmiAssessor = new AssessmentMark(xmiFileParser.getPackagedList());
-//				double mark = xmiAssessor.getFinalMarks();
-//				this.jTextAreaForLog.append("The student mark is " + mark + ".\n");
-//			} catch (IOException e) {
-//				// TODO: handle exception
-//				System.err.println("IOException.");
-//			} catch (JDOMException e2) {
-//				// TODO: handle exception
-//				System.err.println("JDOM exception.");
-//			}
-//			
-//		}
+
     	
     }
     /**

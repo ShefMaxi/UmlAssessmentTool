@@ -16,6 +16,7 @@ import packagedElements.*;
 import useCaseElements.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,10 +44,17 @@ public class XMIFileParser {
 
 	private ArrayList<PackagedElement> packagedList = null;
 
-	private int checkDiagramType(String filePath) throws IOException, XMLError {
+	private int checkDiagramType(String filePath) {
 		File xmiFile = new File(filePath);
-		XMLReader reader = new XMLReader(xmiFile);
-		org.jast.xml.Document document = reader.readDocument();
+		XMLReader reader;
+		org.jast.xml.Document document;
+		try {
+			reader = new XMLReader(xmiFile);
+			document = reader.readDocument();
+		} catch (Exception e) {
+			return 0;
+		}
+		
 		// reader.close();
 		XPath usecasePath1 = new XPath(
 				"//packagedElement[@xmi:type='uml:Actor']");
@@ -799,27 +807,31 @@ public class XMIFileParser {
 		return result;
 	}
 
-	public Diagram readXMIFile(String filePath) throws IOException, XMLError,
-			JDOMException {
+	public Diagram readXMIFile(String filePath) {
 		Diagram diagram = null;
 		int diagramType = this.checkDiagramType(filePath);
-		switch (diagramType) {
-		case 1:
-			diagram = new Diagram(readUsecaseXMIFile(filePath), diagramType);
-			break;
-		case 2:
-			diagram = new Diagram(readClassXMIFile(filePath), diagramType);
+		try {
+			switch (diagramType) {
+			case 1:
+				diagram = new Diagram(readUsecaseXMIFile(filePath), diagramType);
+				break;
+			case 2:
+				diagram = new Diagram(readClassXMIFile(filePath), diagramType);
 
-			break;
-		case 3:
-			diagram = new Diagram(readActivityXMIFile(filePath), diagramType);
-			break;
-		case 4:
-			diagram = new Diagram(readStateMachineXMIFile(filePath),
-					diagramType);
-			break;
-		default:
-			break;
+				break;
+			case 3:
+				diagram = new Diagram(readActivityXMIFile(filePath),
+						diagramType);
+				break;
+			case 4:
+				diagram = new Diagram(readStateMachineXMIFile(filePath),
+						diagramType);
+				break;
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			// exception
 		}
 		return diagram;
 	}

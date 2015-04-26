@@ -217,7 +217,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     
     private void AssessXMIFiles() {
     	XMIFileParser xmiFileParser = new XMIFileParser();
-    	try {
+
     		jProgressBar.setToolTipText("Assessing");
     		Diagram lecturerDiagram = xmiFileParser.readXMIFile(lecturerFilePath);
     		System.out.println(lecturerDiagram);
@@ -231,11 +231,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
     		this.jTextAreaForLog.append("The student final mark for this diagram is " + xmiAssessor.getFinalMarks() + "%\n");
     		jProgressBar.setToolTipText("Finish assessment.");
-    	} catch (IOException e) {
-			// TODO: handle exception
-		} catch (JDOMException e) {
-			// TODO: handle exception
-		}
+
     }
 
     private void jButtonForLecturerActionPerformed(java.awt.event.ActionEvent evt) {

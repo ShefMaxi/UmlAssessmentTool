@@ -12,6 +12,8 @@ import java.util.zip.ZipFile;
 import java.io.*;
 
 public class ZipFileHandler {
+	
+	// map<username, student_name>
 	private Map<String, String> studentInfoMap = null;
 	
 	public List<String> extractFile(String inputFile, String extension) {
