@@ -14,6 +14,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.jdom2.JDOMException;
 
+import fileHandler.SynonymDictionary;
 import fileHandler.XMIFileParser;
 
 
@@ -284,10 +285,18 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
         if (fileIsChosen == JFileChooser.APPROVE_OPTION) {
         	String path = jFileChooser.getSelectedFile().getAbsolutePath();
 			String name = jFileChooser.getSelectedFile().getName();
-			path = path.replace('\\', '/');
-			xmlFilePath = path;
-			this.jLabelForXMLFile.setText(name);
-			this.jTextAreaForLog.append("XML file: " + name + "\n");
+			this.dictionary = new SynonymDictionary(path);
+			if (this.dictionary.checkDictionary()) {
+				path = path.replace('\\', '/');
+				this.xmlFilePath = path;
+				this.jLabelForXMLFile.setText(name);
+				this.jTextAreaForLog.append("XML file : " + name + "\n");
+			} else {
+				this.xmlFilePath = null;
+				this.dictionary = null;
+				this.jLabelForXMLFile.setText("Not Chosen");
+				this.jTextAreaForLog.append("XML file : " + name + " has error.\n");
+			}
         }
     }
 
@@ -329,6 +338,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 	private String studentFilePath = null;
 	private String lecturerFilePath = null;
 	private String xmlFilePath = null;
+	private SynonymDictionary dictionary = null;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonForFeedback;
