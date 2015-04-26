@@ -4,32 +4,24 @@ import java.util.ArrayList;
 
 public class SingleDiagramFeedback {
 	
-	private String studentName=null;
-	private String studentId=null;
-	private int totalMark=0;
+	
+	private double totalMark=0.0;
 	private int diagramType=0;
 	private ArrayList<String[]> feedbackInfo=new ArrayList<>();
 	
 	
 	
-	public SingleDiagramFeedback(String studentName,String studentId,int totalMark,
-			int diagramType,ArrayList<String[]> feedbackInfo){
-		this.studentName=studentName;
-		this.studentId=studentId;
+	public SingleDiagramFeedback(double totalMark,int diagramType,ArrayList<String[]> feedbackInfo){
+		
 		this.totalMark=totalMark;
 		this.diagramType=diagramType;
 		this.feedbackInfo=feedbackInfo;
+		
 	}
 	
-	public String getStudentName(){
-		return this.studentName;
-	}
 	
-	public String getStudentId() {
-		return this.studentId;
-	}
 	
-	public int getTotalMark() {
+	public double getTotalMark() {
 		return this.totalMark;
 	}
 	
@@ -44,8 +36,7 @@ public class SingleDiagramFeedback {
 	public String toString() {
 		// TODO Auto-generated method stub
 		StringBuffer sb = new StringBuffer();
-		sb.append("Id: "+this.studentId+"\n");
-		sb.append("Name: "+this.studentName+"\n");
+		
 		switch (diagramType) {
 		case 0:
 			return "diagram not exist";
@@ -66,7 +57,7 @@ public class SingleDiagramFeedback {
 			return "error";
 		}
 		sb.append("\n");
-		sb.append("Mark: "+totalMark);
+		sb.append("Mark: "+totalMark+"\n"+"Feedback information:\n");
 		for (String[] fs : feedbackInfo) {
 			for (String s : fs) {
 				sb.append(s+"\n");

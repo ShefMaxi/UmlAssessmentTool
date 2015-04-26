@@ -1,14 +1,18 @@
 package compareUML;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-
 
 import fileHandler.XMIFileParser;
 
 public class DiagramAssignment {
 	private List<Diagram> diagrams = new ArrayList<Diagram>();
 	private String username = "", studentName = "";
+	private List<SingleDiagramFeedback> feedbacks;
+    private StudentFeedback singleStudentFeedback;
 	
 	public DiagramAssignment(String username, String studentName, List<String> xmiPaths) {
 		this.username = username;
@@ -16,7 +20,7 @@ public class DiagramAssignment {
 		XMIFileParser fileParser = new XMIFileParser();
 		for (String path : xmiPaths) {
 			Diagram diagram = fileParser.readXMIFile(path);
-			if (diagram == null) {
+			if (diagram != null) {
 				this.diagrams.add(diagram);
 			} else {
 				// add information for error
@@ -37,16 +41,40 @@ public class DiagramAssignment {
 		return username;
 	}
 	
+	public StudentFeedback getSingleStudentFeedback() {
+		return this.singleStudentFeedback;
+	}
+	
+	
+	
 	public void markAssignment(List<Diagram> lecturerDiagrams) {
 		for (Diagram lectDiagram : lecturerDiagrams) {
 			Diagram stuDiagram = getDiagramByType(lectDiagram.getDiagramType());
 			if (stuDiagram != null) {
 				AssessmentMark assessor = new AssessmentMark(stuDiagram, lectDiagram);
+			
+				SingleDiagramFeedback sdf = new SingleDiagramFeedback(assessor.getFinalMarks(), 
+						stuDiagram.getDiagramType(), assessor.getFeedBack());
+				feedbacks.add(sdf);
 			} else {
 				// add information for missing diagram
-			}
-			
+			}	
 		}
+		singleStudentFeedback = new StudentFeedback(studentName, username, feedbacks);
+		try {
+			PrintWriter pw = null;
+			if (username!=null) {
+				pw = new PrintWriter(new File(username+".txt"));
+				pw.append(singleStudentFeedback.toString());
+			} else {
+				System.out.println("invalid username");
+			}
+			pw.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("file");
+		}
+		
 	}
 	
 	private Diagram getDiagramByType(int type) {
