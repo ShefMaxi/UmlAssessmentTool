@@ -49,7 +49,7 @@ public class ActionNodeElement extends ActivityNodes {
 						if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
 							mark+=0.5;
 						}
-						else if (this.getOutgoingName().compareToIgnoreCase(student.getOutgoingName())==0) {
+						if (this.getOutgoingName().compareToIgnoreCase(student.getOutgoingName())==0) {
 							mark+=0.5;
 						}
 					}

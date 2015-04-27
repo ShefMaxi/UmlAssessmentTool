@@ -31,30 +31,33 @@ public class CentralBufferNodeElement extends ActivityNodes {
 		if (packagedElement instanceof CentralBufferNodeElement) {
 			CentralBufferNodeElement student = (CentralBufferNodeElement)packagedElement;
 			// make sure comparison under right type condition
-			if (this.getName().compareToIgnoreCase(student.getType())==0) {
-				
-				if (this.getIncomingName()!=null) {
-					if (this.getOutgoingName()!=null) {
-						if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
-							mark+=0.5;
-						}
-						else if (this.getOutgoingName().compareToIgnoreCase(student.getOutgoingName())==0) {
-							mark+=0.5;
-						}
-					}
-				}
-				
-				
-				// if a patition exists, judge if the node is in right partition. However, no point should be allocated if it's in wrong partition
-				if (this.getInPartition()!=null) {
-					if (student.getInPartition()!=null) {
-						if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
-							mark=0;
+			if (this.getName()!=null) {
+				if (this.getName().compareToIgnoreCase(student.getType())==0) {
+					
+					if (this.getIncomingName()!=null) {
+						if (this.getOutgoingName()!=null) {
+							if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
+								mark+=0.5;
+							}
+							if (this.getOutgoingName().compareToIgnoreCase(student.getOutgoingName())==0) {
+								mark+=0.5;
+							}
 						}
 					}
+					
+					
+					// if a patition exists, judge if the node is in right partition. However, no point should be allocated if it's in wrong partition
+					if (this.getInPartition()!=null) {
+						if (student.getInPartition()!=null) {
+							if (this.getInPartition().compareToIgnoreCase(student.getInPartition())!=0) {
+								mark=0;
+							}
+						}
+					}
+					
 				}
-				
 			}
+			
 		}
 		return mark;
 	}
