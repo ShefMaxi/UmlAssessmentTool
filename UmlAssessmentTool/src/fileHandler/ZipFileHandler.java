@@ -23,6 +23,7 @@ public class ZipFileHandler {
 		inputFile = inputFile.replace('\\', '/');
 		if(!destinationFile.endsWith("/"))
 			destinationFile = destinationFile+"/";
+		destinationFile = destinationFile+"UmlAssessmentTool/";
 		File dir = new File(destinationFile);
 		dir.mkdir();
 		destinationFile = destinationFile+inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.length()-4)+"/";
