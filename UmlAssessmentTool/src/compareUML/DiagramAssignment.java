@@ -11,8 +11,7 @@ import fileHandler.XMIFileParser;
 public class DiagramAssignment {
 	private List<Diagram> diagrams = new ArrayList<Diagram>();
 	private String username = "", studentName = "";
-	private List<SingleDiagramFeedback> feedbacks;
-    private StudentFeedback singleStudentFeedback;
+    private StudentFeedback studentFeedback;
 	
 	public DiagramAssignment(String username, String studentName, List<String> xmiPaths) {
 		this.username = username;
@@ -42,30 +41,31 @@ public class DiagramAssignment {
 	}
 	
 	public StudentFeedback getSingleStudentFeedback() {
-		return this.singleStudentFeedback;
+		return this.studentFeedback;
 	}
 	
 	
 	
 	public void markAssignment(List<Diagram> lecturerDiagrams) {
+		List<DiagramFeedback> feedbacks = new ArrayList<DiagramFeedback>();
 		for (Diagram lectDiagram : lecturerDiagrams) {
 			Diagram stuDiagram = getDiagramByType(lectDiagram.getDiagramType());
 			if (stuDiagram != null) {
 				AssessmentMark assessor = new AssessmentMark(stuDiagram, lectDiagram);
 			
-				SingleDiagramFeedback sdf = new SingleDiagramFeedback(assessor.getFinalMarks(), 
+				DiagramFeedback sdf = new DiagramFeedback(assessor.getFinalMarks(), 
 						stuDiagram.getDiagramType(), assessor.getFeedBack());
 				feedbacks.add(sdf);
 			} else {
 				// add information for missing diagram
 			}	
 		}
-		singleStudentFeedback = new StudentFeedback(studentName, username, feedbacks);
+		studentFeedback = new StudentFeedback(studentName, username, feedbacks);
 		try {
 			PrintWriter pw = null;
 			if (username!=null) {
 				pw = new PrintWriter(new File(username+".txt"));
-				pw.append(singleStudentFeedback.toString());
+				pw.append(studentFeedback.toString());
 			} else {
 				System.out.println("invalid username");
 			}
