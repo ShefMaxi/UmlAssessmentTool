@@ -73,7 +73,15 @@ public class XMLParserForActivity {
 						NameIdMap.put(weight.getAttribute("xmi:id").getValue(), 
 								weight.getAttribute("value").getValue());
 					}
-				}	
+				}
+				if (e2.hasChildren()) {
+					Element guard = e2.getChild("guard");
+					if (guard!=null) {
+						NameIdMap.put(guard.getAttribute("xmi:id").getValue(), 
+								guard.getAttribute("xmi:type").getValue());
+						
+					}
+				}
 			}
 		}
 		if (groupElementList!=null) {
@@ -231,7 +239,7 @@ public class XMLParserForActivity {
 			String Id = null;
 			String sourceNodeName = null;
 			String targetNodeName = null;
-			boolean weight = false;	// not needed in compare class, may be later
+			boolean guard = false;	// not needed in compare class, may be later
 			
 			
 			Element edgeElement = (Element)edge;
@@ -264,25 +272,28 @@ public class XMLParserForActivity {
 			if (target!=null) {
 				targetNodeName=NameIdMap.get(target.getValue());
 			}
-			Element iv = edgeElement.getChild("weight");
+			Element iv = edgeElement.getChild("guard");
 			if (iv!=null) {
-				weight=true;
+				guard=true;
 				
-				String wiId = null;  // not needed in compare class
-				String value = null;	// not needed in compare class
-				
+				String gdId = null;  
+				String value = null;	
+				String gbody=null;
 				
 				Attribute iId = iv.getAttribute("xmi:id");
 				if (iId!=null) {
-					wiId = iId.getValue();
+					gdId = iId.getValue();
 				}
 				
-				Attribute vl = iv.getAttribute("value");
+				Attribute vl = iv.getAttribute("xmi:type");
 				if (vl!=null) {
 					value = vl.getValue();
 				}
+				 gbody=iv.getChild("body").getText();
+				 PackagedElement eguard= new EdgeGuard(value, gdId, gbody);
 				PackagedElement edg= new EdgeElements(type, Id, name, sourceNodeName, targetNodeName);
 				result.add(edg);
+				result.add(eguard);
 			}
 			for (Content group : groupElementList) {
 				
@@ -324,7 +335,7 @@ public class XMLParserForActivity {
 		
 		try {
 			System.out.println
-			(XMLParserForActivity.readActivityXMIFile("C:/Users/Salisu/Documents/GitHub/UmlAssessmentTool/UmlAssessmentTool/ActivitySimple.xmi"));
+			(XMLParserForActivity.readActivityXMIFile("/Users/zhangyan/GitHub/UmlAssessmentTool/UmlAssessmentTool/activitytest1-2.xmi"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
