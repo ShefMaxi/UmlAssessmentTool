@@ -214,23 +214,17 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 				.equalsIgnoreCase(
 						lecturerFilePath.substring(lecturerFilePath.lastIndexOf(".")))) {
 			// zip files
-			if (studentFilePath.substring(studentFilePath.lastIndexOf(".")).equalsIgnoreCase(".zip")) {
+			if (studentFilePath.toLowerCase().endsWith(".zip")) {
 				ZipFileHandler zipFileHandler = new ZipFileHandler();
 				System.out.println(zipFileHandler.getStudentFiles(studentFilePath));
 				System.out.println(zipFileHandler.getStudentInfoMap());
+				System.out.println("finished.");
 				
-				System.out.println("finished.....................");
-				
+			} else if (studentFilePath.toLowerCase().endsWith(".xmi")){
+				this.jTextAreaForLog.append("Start Assessment.\n");
+				AssessXMIFiles();
+				this.jTextAreaForLog.append("Finished Assessment.\n");
 			}
-		}
-
-    	if (this.studentFileIsSelected && this.lecturerFileIsSelected) {
-    		this.jTextAreaForLog.append("Start Assessment.\n");
-    		// start assessment
-//    		ZipFileHandler zipFileHandler = new ZipFileHandler();
-//    		zipFileHandler.extractFile(studentFilePath);
-    		AssessXMIFiles();
-    		this.jTextAreaForLog.append("Finished Assessment.\n");
 		}
     }
     
@@ -252,11 +246,15 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     		jProgressBar.setToolTipText("Finish assessment.");
 
     }
-
+    
     private void jButtonForLecturerActionPerformed(java.awt.event.ActionEvent evt) {
     	JFileChooser jFileChooser = new javax.swing.JFileChooser();
-    	FileFilter fileFilter = new FileNameExtensionFilter("Zip Files", "zip");
-    	jFileChooser.setFileFilter(fileFilter);
+    	FileFilter zipFileFilter = new FileNameExtensionFilter("Zip Files", "zip");
+    	FileFilter xmiFileFilter = new FileNameExtensionFilter("XML Metadata Interchange", "xmi");
+    	jFileChooser.setAcceptAllFileFilterUsed(false);
+
+    	jFileChooser.setFileFilter(zipFileFilter);
+    	jFileChooser.addChoosableFileFilter(xmiFileFilter);
         jFileChooser.setDialogTitle("Choose a file");
         int fileIsChosen = jFileChooser.showOpenDialog(null);
         if (fileIsChosen == JFileChooser.APPROVE_OPTION) {
@@ -273,8 +271,12 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
     private void jButtonForStudentsActionPerformed(java.awt.event.ActionEvent evt) {
     	JFileChooser jFileChooser = new javax.swing.JFileChooser();
-    	FileFilter fileFilter = new FileNameExtensionFilter("Zip Files", "zip");
-    	jFileChooser.setFileFilter(fileFilter);
+    	FileFilter zipFileFilter = new FileNameExtensionFilter("Zip Files", "zip");
+    	FileFilter xmiFileFilter = new FileNameExtensionFilter("XML Metadata Interchange", "xmi");
+    	jFileChooser.setAcceptAllFileFilterUsed(false);
+
+    	jFileChooser.setFileFilter(zipFileFilter);
+    	jFileChooser.addChoosableFileFilter(xmiFileFilter);
         jFileChooser.setDialogTitle("Choose a file");
         int fileIsChosen = jFileChooser.showOpenDialog(null);
         if (fileIsChosen == JFileChooser.APPROVE_OPTION) {
