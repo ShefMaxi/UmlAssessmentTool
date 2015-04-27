@@ -1,7 +1,6 @@
 package fileHandler;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,8 +10,6 @@ import java.util.Map;
 
 import org.jast.xml.*;
 import org.jast.xpath.*;
-
-import com.sun.org.apache.bcel.internal.generic.I2F;
 
 public class SynonymDictionary {
 	private String filePath = "";

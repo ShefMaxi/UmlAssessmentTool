@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-import activityElements.ActivityNodes;
-import activityElements.EdgeElements;
-import activityElements.GroupElements;
+import activityElements.*;
 import packagedElements.PackagedElement;
-import stateMachineElements.Guard;
 import stateMachineElements.SubvertexElement;
 //usecase		 : 1
 //class			 : 2
