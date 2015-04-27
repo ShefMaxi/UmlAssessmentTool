@@ -6,9 +6,9 @@ public class StudentFeedback {
 	
 	private String studentName=null;
 	private String studentId=null;
-	private List<SingleDiagramFeedback> feedbacks;
+	private List<DiagramFeedback> feedbacks;
 	
-	public StudentFeedback(String studentName,String studentId,List<SingleDiagramFeedback> studentFeedbacks){
+	public StudentFeedback(String studentName,String studentId,List<DiagramFeedback> studentFeedbacks){
 		this.studentName=studentName;
 		this.studentId=studentId;
 		this.feedbacks=studentFeedbacks;
@@ -22,14 +22,14 @@ public class StudentFeedback {
 		return this.studentId;
 	}
 	
-	public List<SingleDiagramFeedback> getFeedbacks() {
+	public List<DiagramFeedback> getFeedbacks() {
 		return this.feedbacks;
 	}
 	
 	public String getAbstractStudentInfo() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("StudentId:"+studentId+" Name:"+studentName+"\n");
-		for (SingleDiagramFeedback df : feedbacks) {
+		for (DiagramFeedback df : feedbacks) {
 			switch (df.getDiagramType()) {
 			case 1:
 				sb.append("Use case diagram---mark:"+df.getTotalMark());
@@ -57,7 +57,7 @@ public class StudentFeedback {
 		StringBuffer sb = new StringBuffer();
 		sb.append("Id: "+this.studentId+"\n");
 		sb.append("Name: "+this.studentName+"\n");
-		for (SingleDiagramFeedback sdf : feedbacks) {
+		for (DiagramFeedback sdf : feedbacks) {
 			sb.append("\n");
 			sb.append(sdf.toString());
 		}

@@ -2,7 +2,7 @@ package compareUML;
 
 import java.util.ArrayList;
 
-public class SingleDiagramFeedback {
+public class DiagramFeedback {
 	
 	
 	private double totalMark=0.0;
@@ -11,7 +11,7 @@ public class SingleDiagramFeedback {
 	
 	
 	
-	public SingleDiagramFeedback(double totalMark,int diagramType,ArrayList<String[]> feedbackInfo){
+	public DiagramFeedback(double totalMark,int diagramType,ArrayList<String[]> feedbackInfo){
 		
 		this.totalMark=totalMark;
 		this.diagramType=diagramType;
