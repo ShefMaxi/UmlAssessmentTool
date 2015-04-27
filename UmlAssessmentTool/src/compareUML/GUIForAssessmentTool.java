@@ -220,13 +220,22 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 						lecturerFilePath.substring(lecturerFilePath.lastIndexOf(".")))) {
 			// zip files only
 			if (studentFilePath.toLowerCase().endsWith(".zip")) {
+				this.jTextAreaForLog.append("Start Assessment.\n");
 				this.zipFileHandler = new ZipFileHandler();
-				this.AssessZipFiles();
+				System.out.println("Not supported.");
+				//this.AssessZipFiles();
+				this.jTextAreaForLog.append("Finished Assessment.\n");
 			} 
-			// xmi files only
+			// xmi files only 
 			else if (studentFilePath.toLowerCase().endsWith(".xmi")){
 				this.jTextAreaForLog.append("Start Assessment.\n");
 				this.AssessXMIFiles();
+				this.jTextAreaForLog.append("Finished Assessment.\n");
+			}
+			// students' files with one lecturer file
+			else if (studentFilePath.toLowerCase().endsWith(".zip") && lecturerFilePath.toLowerCase().endsWith(".xmi")){
+				this.jTextAreaForLog.append("Start Assessment.\n");
+				this.AssessZipFiles();
 				this.jTextAreaForLog.append("Finished Assessment.\n");
 			}
 		}
@@ -251,7 +260,9 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 	// assess method for ZIP files
 	private void AssessZipFiles() {
 		// get lecturer's diagrams
+		XMIFileParser xmiFileParser = new XMIFileParser();
 		List<Diagram> lecturerDiagrams = new ArrayList<Diagram>();
+		lecturerDiagrams.add(xmiFileParser.readXMIFile(lecturerFilePath));
 		// NOT FINISHED.
 		
 		// use dictionary
