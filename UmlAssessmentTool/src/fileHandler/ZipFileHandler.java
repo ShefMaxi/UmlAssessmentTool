@@ -30,8 +30,7 @@ public class ZipFileHandler {
 		destinationFile = destinationFile+inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.length()-4)+"/";
 		File dir2 = new File(destinationFile);
 		dir2.mkdir();
-		File dir3 = new File(destinationFile+"/lec");
-		dir3.mkdir();
+		
 		try {
 			ZipFile zipFile = new ZipFile(inputFile);
 			Enumeration<?> enu = zipFile.entries();

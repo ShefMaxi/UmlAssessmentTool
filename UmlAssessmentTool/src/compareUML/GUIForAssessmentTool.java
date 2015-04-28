@@ -283,10 +283,20 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 		System.out.println(zipFileHandler.getTempFolderPath()+"----------------");
 
 		// start assessment
+		String folderPath=null;
+		if (studentFilePath!=null) {
+			int last = studentFilePath.lastIndexOf("/");
+			folderPath=studentFilePath.substring(0, last);
+			
+			
+		}
+		File dir3 = new File(folderPath+"/feedback");
+		if (dir3.mkdir()) {
+			System.out.println("succeed");
+		}
 		for (String username : studUsernames) {
 			DiagramAssignment assignment = new DiagramAssignment(username, studentInfo.get(username), studentFiles.get(username));
-			assignment.setStudentPath(studentFilePath);
-			System.out.println(studentFilePath);
+			assignment.setStudentPath(folderPath+"/feedback");
 			assignment.markAssignment(lecturerDiagrams);
 		}
 				

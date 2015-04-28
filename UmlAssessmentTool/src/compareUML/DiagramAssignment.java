@@ -67,6 +67,8 @@ public class DiagramAssignment {
 		try {
 			PrintWriter pw = null;
 			if (username!=null) {
+				
+				
 				pw = new PrintWriter(new File(stuFolderPath+"/"+username+".txt"));
 				pw.append(studentFeedback.toString());
 			} else {
