@@ -15,10 +15,11 @@ public class ZipFileHandler {
 
 	// map<username, student_name>
 	private Map<String, String> studentInfoMap = null;
-
+	private String destinationFile;
+	
 	public List<String> extractFile(String inputFile, String extension) {
 		List<String> entriesList = new ArrayList<String>();
-		String destinationFile = System.getProperty("java.io.tmpdir");
+		destinationFile = System.getProperty("java.io.tmpdir");
 		destinationFile = destinationFile.replace('\\', '/');
 		inputFile = inputFile.replace('\\', '/');
 		if(!destinationFile.endsWith("/"))
@@ -29,6 +30,8 @@ public class ZipFileHandler {
 		destinationFile = destinationFile+inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.length()-4)+"/";
 		File dir2 = new File(destinationFile);
 		dir2.mkdir();
+		File dir3 = new File(destinationFile+"/lec");
+		dir3.mkdir();
 		try {
 			ZipFile zipFile = new ZipFile(inputFile);
 			Enumeration<?> enu = zipFile.entries();
@@ -76,6 +79,10 @@ public class ZipFileHandler {
 		}
 		return map;
 	}
+	
+	public String getTempFolderPath() {
+		return this.destinationFile;
+	}
 
 	public List<String> getLecturerFiles(String inputFile) {
 		return extractFile(inputFile, "xmi");
@@ -87,7 +94,7 @@ public class ZipFileHandler {
 
 	public static void main(String[] args) {
 		ZipFileHandler zipFileHandler = new ZipFileHandler();
-		System.out.println(zipFileHandler.getStudentFiles("C:\\Users\\Dell\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\test.zip"));
-		System.out.println(zipFileHandler.getLecturerFiles("C:\\Users\\Dell\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\studentWork.zip"));
+		System.out.println(zipFileHandler.getStudentFiles("/Users/zhangyan/GitHub/UmlAssessmentTool/UmlAssessmentTool/test.zip"));
+		//System.out.println(zipFileHandler.getLecturerFiles("C:\\Users\\Dell\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\studentWork.zip"));
 	}
 }

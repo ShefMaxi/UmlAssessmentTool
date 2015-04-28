@@ -12,6 +12,7 @@ public class DiagramAssignment {
 	private List<Diagram> diagrams = new ArrayList<Diagram>();
 	private String username = "", studentName = "";
     private StudentFeedback studentFeedback;
+    private String stuFolderPath;
 	
 	public DiagramAssignment(String username, String studentName, List<String> xmiPaths) {
 		this.username = username;
@@ -44,7 +45,9 @@ public class DiagramAssignment {
 		return this.studentFeedback;
 	}
 	
-	
+	public void setStudentPath(String stuPath){
+		this.stuFolderPath=stuPath;
+	}
 	
 	public void markAssignment(List<Diagram> lecturerDiagrams) {
 		List<DiagramFeedback> feedbacks = new ArrayList<DiagramFeedback>();
@@ -64,7 +67,7 @@ public class DiagramAssignment {
 		try {
 			PrintWriter pw = null;
 			if (username!=null) {
-				pw = new PrintWriter(new File(username+".txt"));
+				pw = new PrintWriter(new File(stuFolderPath+"/"+username+".txt"));
 				pw.append(studentFeedback.toString());
 			} else {
 				System.out.println("invalid username");

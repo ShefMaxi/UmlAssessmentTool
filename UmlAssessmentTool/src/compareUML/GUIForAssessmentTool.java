@@ -243,6 +243,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 		}
 	}
     
+    
     // assess method for XMI files
 	private void AssessXMIFiles() {
 		XMIFileParser xmiFileParser = new XMIFileParser();
@@ -270,7 +271,6 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 //			lecturerDiagrams.add(xmiFileParser.readXMIFile(file));
 //		}
 		lecturerDiagrams.add(xmiFileParser.readXMIFile(lecturerFilePath));
-		
 		// use dictionary
 		if (this.dictionary != null && this.dictionary.checkDictionary()) {
 			// multiple word 
@@ -280,10 +280,13 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 		Map<String, List<String>> studentFiles = zipFileHandler.getStudentFiles(studentFilePath);
 		Map<String, String> studentInfo = zipFileHandler.getStudentInfoMap();
 		Set<String> studUsernames = studentFiles.keySet();
-		
+		System.out.println(zipFileHandler.getTempFolderPath()+"----------------");
+
 		// start assessment
 		for (String username : studUsernames) {
 			DiagramAssignment assignment = new DiagramAssignment(username, studentInfo.get(username), studentFiles.get(username));
+			assignment.setStudentPath(studentFilePath);
+			System.out.println(studentFilePath);
 			assignment.markAssignment(lecturerDiagrams);
 		}
 				
