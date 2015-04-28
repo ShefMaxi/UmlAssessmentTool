@@ -222,8 +222,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			if (studentFilePath.toLowerCase().endsWith(".zip")) {
 				this.jTextAreaForLog.append("Start Assessment.\n");
 				this.zipFileHandler = new ZipFileHandler();
-				System.out.println("Not supported.");
-				// this.AssessZipFiles();
+				this.AssessZipFiles();
 				this.jTextAreaForLog.append("Finished Assessment.\n");
 			}
 			// xmi files only
@@ -262,10 +261,12 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 	// assess method for ZIP files
 	private void AssessZipFiles() {
 		// get lecturer's diagrams
-		XMIFileParser xmiFileParser = new XMIFileParser();
 		List<Diagram> lecturerDiagrams = new ArrayList<Diagram>();
-		lecturerDiagrams.add(xmiFileParser.readXMIFile(lecturerFilePath));
-		// NOT FINISHED.
+		XMIFileParser xmiFileParser = new XMIFileParser();
+		List<String> lecturerFilesList = this.zipFileHandler.getLecturerFiles(lecturerFilePath);
+		for (String file : lecturerFilesList) {
+			lecturerDiagrams.add(xmiFileParser.readXMIFile(file));
+		}
 		
 		// use dictionary
 		if (this.dictionary != null && this.dictionary.checkDictionary()) {
@@ -276,6 +277,8 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 		Map<String, List<String>> studentFiles = zipFileHandler.getStudentFiles(studentFilePath);
 		Map<String, String> studentInfo = zipFileHandler.getStudentInfoMap();
 		Set<String> studUsernames = studentFiles.keySet();
+		
+		// start assessment
 		for (String username : studUsernames) {
 			DiagramAssignment assignment = new DiagramAssignment(username, studentInfo.get(username), studentFiles.get(username));
 			assignment.markAssignment(lecturerDiagrams);
