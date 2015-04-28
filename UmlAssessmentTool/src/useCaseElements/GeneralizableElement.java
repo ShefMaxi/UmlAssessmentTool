@@ -51,6 +51,12 @@ public class GeneralizableElement extends PackagedElement {
 					marks++;
 				}
 			}
+			//compare generalization
+		    if(this.isGeneralizable()==true&&studentElement.isGeneralizable()==true){		
+		    	if(this.getGeneralization().compareToIgnoreCase(studentElement.getGeneralization())==0){
+		    		marks++;
+		    	}
+		    }
 		}
 		return marks;
 	}
