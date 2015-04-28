@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package compareUML;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
 
 
 import fileHandler.SynonymDictionary;
@@ -337,6 +339,25 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
     private void jButtonForFeedbackActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO output feedback to user and student
+    	// set file chooser
+    	// save as zip file
+    	JFileChooser jFileChooser = new JFileChooser();
+    	jFileChooser.setDialogType(JFileChooser.SAVE_DIALOG);
+    	jFileChooser.setDialogTitle("Save a file");
+    	jFileChooser.setAcceptAllFileFilterUsed(false);
+    	FileFilter zipFileFilter = new FileNameExtensionFilter("Zip Files", "zip");
+    	jFileChooser.setFileFilter(zipFileFilter);
+    	jFileChooser.setSelectedFile(new File("feedback.zip"));
+
+    	// open dialog box
+    	int fileIsSaved = jFileChooser.showSaveDialog(null);
+    	if (fileIsSaved == jFileChooser.APPROVE_OPTION) {
+    		String savePath = jFileChooser.getSelectedFile().getAbsolutePath();
+    		savePath = savePath.replace('\\', '/');
+			savePath = savePath.substring(0, savePath.lastIndexOf("/") + 1);
+			System.out.println(savePath);
+		}
+    	
     }
 
     private void jButtonForXMLActionPerformed(java.awt.event.ActionEvent evt) {
