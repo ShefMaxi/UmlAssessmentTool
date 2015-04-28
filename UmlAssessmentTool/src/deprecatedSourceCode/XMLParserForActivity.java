@@ -1,4 +1,4 @@
-package activityElements;
+package deprecatedSourceCode;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,6 +9,14 @@ import java.util.List;
 import org.jast.xml.*;
 import org.jast.xpath.*;
 
+import activityElements.AcceptSignalElement;
+import activityElements.ActionNodeElement;
+import activityElements.ActivityFinalNodeElement;
+import activityElements.EdgeElements;
+import activityElements.EdgeGuard;
+import activityElements.GroupElements;
+import activityElements.InputPinElement;
+import activityElements.OutputPinElement;
 import packagedElements.PackagedElement;
 
 public class XMLParserForActivity {
