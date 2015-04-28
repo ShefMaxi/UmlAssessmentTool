@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package compareUML;
+import java.awt.Dimension;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -80,7 +81,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
         jLabelForTitle.setText("UML Assessment Tool");
 
         jLabelForLecturer.setText("Lecturer");
-
+        
         jLabelForStudents.setText("Students");
 
         jButtonForStudents.setText("Upload");
@@ -121,13 +122,17 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
         });
 
         jLabelForXML.setText("XML Config");
-
+        
+        // maximum length for jlabel is 28 chars
         jLabelForLectureFile.setText("Not Chosen");
 
         jLabelForStudentFile.setText("Not Chosen");
 
         jLabelForXMLFile.setText("Not Chosen");
-
+        
+        //jLabelForXMLFile.setMaximumSize(new Dimension(10, 15));System.out.println(jLabelForXMLFile.getMaximumSize());
+        jLabelForXMLFile.setPreferredSize(new Dimension(10, 15));
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -325,6 +330,9 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			String name = jFileChooser.getSelectedFile().getName();
 			path = path.replace('\\', '/');
 			lecturerFilePath = path;
+			if (name.length() >= 30) {
+				name = name.substring(0, 25) + "...";
+			}
 			this.jLabelForLectureFile.setText(name);
 			this.jTextAreaForLog.append("Lecturer's file : " + name + "\n");
 			this.jProgressBar.setValue(0);
@@ -349,6 +357,9 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			String name = jFileChooser.getSelectedFile().getName();
 			path = path.replace('\\', '/');
 			studentFilePath = path;
+			if (name.length() >= 30) {
+				name = name.substring(0, 25) + "...";
+			}
 			this.jLabelForStudentFile.setText(name);
 			this.jTextAreaForLog.append("Students' file : " + name + "\n");
 			this.jProgressBar.setValue(0);
@@ -369,7 +380,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
     	// open dialog box
     	int fileIsSaved = jFileChooser.showSaveDialog(null);
-    	if (fileIsSaved == jFileChooser.APPROVE_OPTION) {
+    	if (fileIsSaved == JFileChooser.APPROVE_OPTION) {
     		String savePath = jFileChooser.getSelectedFile().getAbsolutePath();
     		savePath = savePath.replace('\\', '/');
 			savePath = savePath.substring(0, savePath.lastIndexOf("/") + 1);
