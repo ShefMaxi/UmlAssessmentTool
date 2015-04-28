@@ -1,0 +1,24 @@
+Id: acp13aaa
+Name: Rabia Sultan Abbasi
+
+Diagram type: Activity diagram
+Mark: 66.66666666666667
+Feedback information:
+uml:ActionNodeElement
+Action
+Element is missing or incorrect.
+uml:ActionNodeElement
+Action1
+Element is correct.
+uml:ActionNodeElement
+Action2
+Element is correct.
+uml:ActionNodeElement
+Action3
+Element is missing or incorrect.
+uml:ForkNodeElement
+Decision-Merge
+Element is correct.
+uml:JoinNodeElement
+Decision-Merge1
+Element is correct.

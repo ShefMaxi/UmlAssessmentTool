@@ -221,7 +221,6 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			// zip files only
 			if (studentFilePath.toLowerCase().endsWith(".zip")) {
 				this.jTextAreaForLog.append("Start Assessment.\n");
-				this.zipFileHandler = new ZipFileHandler();
 				this.AssessZipFiles();
 				this.jTextAreaForLog.append("Finished Assessment.\n");
 			}
@@ -261,12 +260,14 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 	// assess method for ZIP files
 	private void AssessZipFiles() {
 		// get lecturer's diagrams
+		this.zipFileHandler = new ZipFileHandler();
 		List<Diagram> lecturerDiagrams = new ArrayList<Diagram>();
 		XMIFileParser xmiFileParser = new XMIFileParser();
-		List<String> lecturerFilesList = this.zipFileHandler.getLecturerFiles(lecturerFilePath);
-		for (String file : lecturerFilesList) {
-			lecturerDiagrams.add(xmiFileParser.readXMIFile(file));
-		}
+//		List<String> lecturerFilesList = this.zipFileHandler.getLecturerFiles(lecturerFilePath);
+//		for (String file : lecturerFilesList) {
+//			lecturerDiagrams.add(xmiFileParser.readXMIFile(file));
+//		}
+		lecturerDiagrams.add(xmiFileParser.readXMIFile(lecturerFilePath));
 		
 		// use dictionary
 		if (this.dictionary != null && this.dictionary.checkDictionary()) {
