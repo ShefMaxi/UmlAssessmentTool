@@ -196,6 +196,7 @@ public class AssessmentMark {
 
 	private void assessStateMachineDiagram() {
 		int studentPoints = 0;
+		String feedBackInfo = null;
 		ElementsPreprocessor studentProcessor = new ElementsPreprocessor(
 				studentDiagram);
 		HashMap<String, ArrayList<PackagedElement>> studentMap = studentProcessor
@@ -229,6 +230,16 @@ public class AssessmentMark {
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
 				}
+				if (studentPoints==1.0){
+					 feedBackInfo = "element is correct";
+				}
+				else if (studentPoints==0) {
+					feedBackInfo = "element is missing";
+				}
+				else {
+					feedBackInfo="partly correct";
+				}
+				
 				String elementName=null;
 				if(lecturerPackagedElement instanceof TransitionElement){
 					elementName= ((TransitionElement) lecturerPackagedElement).getTransition();
@@ -244,7 +255,7 @@ public class AssessmentMark {
 				}
 				String[] f = new String[]{lecturerPackagedElement.getType(),elementName};
 				feedback.add(f);
-				System.out.println(lecturerPackagedElement.getType()+":"+elementName );
+				System.out.println(lecturerPackagedElement.getType()+":"+elementName +": "+feedBackInfo);
 				//System.out.println(lecturerPackagedElement.getType()+":"+lecturerPackagedElement.toString());
 			}
 	//	}
@@ -257,8 +268,7 @@ public class AssessmentMark {
 			marks = marks * totalPoints / studentPoints;
 		}
 		
-		
-		
+	
 		
 	}
 	
