@@ -57,11 +57,12 @@ public class DiagramFeedback {
 			return "error";
 		}
 		sb.append("\n");
-		sb.append("Mark: "+totalMark+"\n"+"Feedback information:\n");
+		sb.append("Mark: "+(int)totalMark+"\n\n"+"Feedback information:\n\n");
 		for (String[] fs : feedbackInfo) {
 			for (String s : fs) {
 				sb.append(s+"\n");
 			}
+			sb.append("\n");
 		}
 		return sb.toString();
 	}

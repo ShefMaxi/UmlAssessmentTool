@@ -5,6 +5,8 @@
  */
 package compareUML;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,7 @@ import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
 
 
 
@@ -286,18 +289,20 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 		String folderPath=null;
 		if (studentFilePath!=null) {
 			int last = studentFilePath.lastIndexOf("/");
-			folderPath=studentFilePath.substring(0, last);
-			
-			
+			folderPath=studentFilePath.substring(0, last);	
 		}
+		
 		File dir3 = new File(folderPath+"/feedback");
 		if (dir3.mkdir()) {
 			System.out.println("succeed");
 		}
 		for (String username : studUsernames) {
-			DiagramAssignment assignment = new DiagramAssignment(username, studentInfo.get(username), studentFiles.get(username));
+			DiagramAssignment assignment = new DiagramAssignment(username, 
+					studentInfo.get(username), studentFiles.get(username));
 			assignment.setStudentPath(folderPath+"/feedback");
 			assignment.markAssignment(lecturerDiagrams);
+			studentFeedbacks.add(assignment.getSingleStudentFeedback());
+			
 		}
 				
 	}
@@ -368,6 +373,23 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     		String savePath = jFileChooser.getSelectedFile().getAbsolutePath();
     		savePath = savePath.replace('\\', '/');
 			savePath = savePath.substring(0, savePath.lastIndexOf("/") + 1);
+			if (studentFeedbacks!=null) {
+				StringBuffer s = new StringBuffer();
+				for (StudentFeedback sf : studentFeedbacks) {
+					s.append(sf.getAbstractStudentInfo()+"\n");
+				}
+				try {
+					PrintWriter pw = null;
+					if (s!=null) {
+						pw = new PrintWriter(new File(savePath+"feedbackForLecture"+".txt"));
+						pw.append(s.toString());
+					} 
+					pw.close();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					System.out.println("file not found");
+				}
+			}
 			System.out.println(savePath);
 		}
     	
@@ -431,6 +453,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 	private String lecturerFilePath = null;
 	private SynonymDictionary dictionary = null;
 	private ZipFileHandler zipFileHandler = null;
+	private List<StudentFeedback> studentFeedbacks = new ArrayList<StudentFeedback>();
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

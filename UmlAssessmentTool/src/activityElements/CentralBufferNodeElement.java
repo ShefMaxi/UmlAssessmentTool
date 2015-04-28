@@ -32,7 +32,7 @@ public class CentralBufferNodeElement extends ActivityNodes {
 			CentralBufferNodeElement student = (CentralBufferNodeElement)packagedElement;
 			// make sure comparison under right type condition
 			if (this.getName()!=null) {
-				if (this.getName().compareToIgnoreCase(student.getType())==0) {
+				if (this.getType().compareToIgnoreCase(student.getType())==0) {
 					
 					if (this.getIncomingName()!=null) {
 						if (this.getOutgoingName()!=null) {

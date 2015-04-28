@@ -32,16 +32,16 @@ public class StudentFeedback {
 		for (DiagramFeedback df : feedbacks) {
 			switch (df.getDiagramType()) {
 			case 1:
-				sb.append("Use case diagram---mark:"+df.getTotalMark());
+				sb.append("Use case diagram---mark:"+(int)df.getTotalMark());
 				break;
 			case 2:
-				sb.append("Class diagram---mark:"+df.getTotalMark());
+				sb.append("Class diagram---mark:"+(int)df.getTotalMark());
 				break;
 			case 3:
-				sb.append("Activity diagram---mark:"+df.getTotalMark());
+				sb.append("Activity diagram---mark:"+(int)df.getTotalMark());
 				break;
 			case 4:
-				sb.append("State Machine diagram---mark:"+df.getTotalMark());
+				sb.append("State Machine diagram---mark:"+(int)df.getTotalMark());
 				break;
 			default:
 				return "missing information";
