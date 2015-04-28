@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_cV77IO2uEeSj5b1zqxexug" name="project1">
+  <eAnnotations xmi:id="_cV77Ie2uEeSj5b1zqxexug" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_cV77Iu2uEeSj5b1zqxexug" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_cV77I-2uEeSj5b1zqxexug" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <ownedRule xmi:id="_cV77JO2uEeSj5b1zqxexug" name="new issue" constrainedElement="_cV77PO2uEeSj5b1zqxexug">
+    <specification xmi:type="uml:LiteralString" xmi:id="_cV77Je2uEeSj5b1zqxexug" value="new issue"/>
+  </ownedRule>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_cV77Ju2uEeSj5b1zqxexug" name="State Machine">
+    <region xmi:id="_cV77J-2uEeSj5b1zqxexug">
+      <subvertex xmi:type="uml:State" xmi:id="_cV77KO2uEeSj5b1zqxexug" name="on loan"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_cV77Ke2uEeSj5b1zqxexug" name="Initial State"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_cV77Ku2uEeSj5b1zqxexug" name="Final State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_cV77K-2uEeSj5b1zqxexug" name="State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_cV77LO2uEeSj5b1zqxexug" name="State1"/>
+      <subvertex xmi:type="uml:State" xmi:id="_cV77Le2uEeSj5b1zqxexug" name="customer service">
+        <region xmi:id="_cV77Lu2uEeSj5b1zqxexug" name="Region">
+          <subvertex xmi:type="uml:State" xmi:id="_cV77L-2uEeSj5b1zqxexug" name="authentication"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_cV77MO2uEeSj5b1zqxexug" name="Initial State"/>
+          <subvertex xmi:type="uml:FinalState" xmi:id="_cV77Me2uEeSj5b1zqxexug" name="Final State"/>
+          <subvertex xmi:type="uml:State" xmi:id="_cV77Mu2uEeSj5b1zqxexug" name="transaction"/>
+          <transition xmi:id="_cV77M-2uEeSj5b1zqxexug" name="Transition" source="_cV77L-2uEeSj5b1zqxexug" target="_cV77Mu2uEeSj5b1zqxexug"/>
+          <transition xmi:id="_cV77NO2uEeSj5b1zqxexug" name="Transition" source="_cV77MO2uEeSj5b1zqxexug" target="_cV77L-2uEeSj5b1zqxexug"/>
+          <transition xmi:id="_cV77Ne2uEeSj5b1zqxexug" name="Transition" source="_cV77Mu2uEeSj5b1zqxexug" target="_cV77Me2uEeSj5b1zqxexug"/>
+        </region>
+      </subvertex>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_cV77Nu2uEeSj5b1zqxexug" name="Choice" kind="choice"/>
+      <subvertex xmi:type="uml:State" xmi:id="_cV77N-2uEeSj5b1zqxexug" name="State2"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_cV77OO2uEeSj5b1zqxexug" name="Junction" kind="junction"/>
+      <subvertex xmi:type="uml:State" xmi:id="_cV77Oe2uEeSj5b1zqxexug" name="State3"/>
+      <subvertex xmi:type="uml:State" xmi:id="_cV77Ou2uEeSj5b1zqxexug" name="State4"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_cV77O-2uEeSj5b1zqxexug" name="Join" kind="join"/>
+      <transition xmi:id="_cV77PO2uEeSj5b1zqxexug" name="Transition1" source="_cV77KO2uEeSj5b1zqxexug" target="_cV77KO2uEeSj5b1zqxexug" guard="_cV77Pe2uEeSj5b1zqxexug">
+        <ownedRule xmi:id="_cV77Pe2uEeSj5b1zqxexug" name="new issue" constrainedElement="_cV77PO2uEeSj5b1zqxexug">
+          <specification xmi:type="uml:LiteralString" xmi:id="_cV77Pu2uEeSj5b1zqxexug" value="new issue"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_cV77P-2uEeSj5b1zqxexug" name="Transition" source="_cV77KO2uEeSj5b1zqxexug" target="_cV77UO2uEeSj5b1zqxexug" guard="_cV77QO2uEeSj5b1zqxexug">
+        <ownedRule xmi:id="_cV77QO2uEeSj5b1zqxexug" name="issue" constrainedElement="_cV77P-2uEeSj5b1zqxexug">
+          <specification xmi:type="uml:LiteralString" xmi:id="_cV77Qe2uEeSj5b1zqxexug" value="issue"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_cV77Qu2uEeSj5b1zqxexug" name="Transition" source="_cV77Ke2uEeSj5b1zqxexug" target="_cV77KO2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77Q-2uEeSj5b1zqxexug" name="Transition1" source="_cV77K-2uEeSj5b1zqxexug" target="_cV77Nu2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77RO2uEeSj5b1zqxexug" name="Transition1" source="_cV77LO2uEeSj5b1zqxexug" target="_cV77Le2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77Re2uEeSj5b1zqxexug" name="Transition1" source="_cV77Le2uEeSj5b1zqxexug" target="_cV77OO2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77Ru2uEeSj5b1zqxexug" name="Transition" source="_cV77Le2uEeSj5b1zqxexug" target="_cV77UO2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77R-2uEeSj5b1zqxexug" name="Transition" source="_cV77Nu2uEeSj5b1zqxexug" target="_cV77N-2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77SO2uEeSj5b1zqxexug" name="Transition1" source="_cV77Nu2uEeSj5b1zqxexug" target="_cV77Le2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77Se2uEeSj5b1zqxexug" name="Transition2" source="_cV77Nu2uEeSj5b1zqxexug" target="_cV77OO2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77Su2uEeSj5b1zqxexug" name="Transition" source="_cV77N-2uEeSj5b1zqxexug" target="_cV77OO2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77S-2uEeSj5b1zqxexug" name="Transition" source="_cV77OO2uEeSj5b1zqxexug" target="_cV77O-2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77TO2uEeSj5b1zqxexug" name="Transition" source="_cV77O-2uEeSj5b1zqxexug" target="_cV77Ou2uEeSj5b1zqxexug"/>
+      <transition xmi:id="_cV77Te2uEeSj5b1zqxexug" name="Transition1" source="_cV77O-2uEeSj5b1zqxexug" target="_cV77Oe2uEeSj5b1zqxexug"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_cV77Tu2uEeSj5b1zqxexug" name="State Machine1">
+    <region xmi:id="_cV77T-2uEeSj5b1zqxexug">
+      <subvertex xmi:type="uml:State" xmi:id="_cV77UO2uEeSj5b1zqxexug" name="Available"/>
+      <transition xmi:id="_cV77Ue2uEeSj5b1zqxexug" name="Transition" source="_cV77UO2uEeSj5b1zqxexug" target="_cV77Ku2uEeSj5b1zqxexug"/>
+    </region>
+  </packagedElement>
+</uml:Model>

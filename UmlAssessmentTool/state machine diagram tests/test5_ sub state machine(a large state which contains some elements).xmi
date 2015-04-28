@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_mlFIUO2xEeSj5b1zqxexug" name="project1">
+  <eAnnotations xmi:id="_mlFIUe2xEeSj5b1zqxexug" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_mlFIUu2xEeSj5b1zqxexug" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_mlFIU-2xEeSj5b1zqxexug" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <ownedRule xmi:id="_mlFIVO2xEeSj5b1zqxexug" name="new issue" constrainedElement="_mlFIYe2xEeSj5b1zqxexug">
+    <specification xmi:type="uml:LiteralString" xmi:id="_mlFIVe2xEeSj5b1zqxexug" value="new issue"/>
+  </ownedRule>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_mlFIVu2xEeSj5b1zqxexug" name="State Machine">
+    <region xmi:id="_mlFIV-2xEeSj5b1zqxexug">
+      <subvertex xmi:type="uml:State" xmi:id="_mlFIWO2xEeSj5b1zqxexug" name="on loan"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_mlFIWe2xEeSj5b1zqxexug" name="Initial State"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_mlFIWu2xEeSj5b1zqxexug" name="Final State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_mlFIW-2xEeSj5b1zqxexug" name="State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_mlFIXO2xEeSj5b1zqxexug" name="State1"/>
+      <subvertex xmi:type="uml:State" xmi:id="_mlFIXe2xEeSj5b1zqxexug" name="State2"/>
+      <subvertex xmi:type="uml:State" xmi:id="_mlFIXu2xEeSj5b1zqxexug" name="State3"/>
+      <subvertex xmi:type="uml:State" xmi:id="_mlFIX-2xEeSj5b1zqxexug" name="State4"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_mlFIYO2xEeSj5b1zqxexug" name="Join" kind="join"/>
+      <transition xmi:id="_mlFIYe2xEeSj5b1zqxexug" name="Transition1" source="_mlFIWO2xEeSj5b1zqxexug" target="_mlFIWO2xEeSj5b1zqxexug" guard="_mlFIYu2xEeSj5b1zqxexug">
+        <ownedRule xmi:id="_mlFIYu2xEeSj5b1zqxexug" name="new issue" constrainedElement="_mlFIYe2xEeSj5b1zqxexug">
+          <specification xmi:type="uml:LiteralString" xmi:id="_mlFIY-2xEeSj5b1zqxexug" value="new issue"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_mlFIZO2xEeSj5b1zqxexug" name="Transition" source="_mlFIWO2xEeSj5b1zqxexug" target="_mlFIcO2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIZe2xEeSj5b1zqxexug" name="Transition" source="_mlFIWe2xEeSj5b1zqxexug" target="_mlFIWO2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIZu2xEeSj5b1zqxexug" name="Transition" source="_mlFIW-2xEeSj5b1zqxexug" target="_mlFIbu2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIZ-2xEeSj5b1zqxexug" name="Transition1" source="_mlFIW-2xEeSj5b1zqxexug" target="_mlFIb-2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIaO2xEeSj5b1zqxexug" name="Transition" source="_mlFIXO2xEeSj5b1zqxexug" target="_mlFIbu2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIae2xEeSj5b1zqxexug" name="Transition" source="_mlFIXe2xEeSj5b1zqxexug" target="_mlFIce2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIau2xEeSj5b1zqxexug" name="Transition" source="_mlFIYO2xEeSj5b1zqxexug" target="_mlFIX-2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIa-2xEeSj5b1zqxexug" name="Transition1" source="_mlFIYO2xEeSj5b1zqxexug" target="_mlFIXu2xEeSj5b1zqxexug"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_mlFIbO2xEeSj5b1zqxexug" name="State Machine1">
+    <region xmi:id="_mlFIbe2xEeSj5b1zqxexug">
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_mlFIbu2xEeSj5b1zqxexug" name="Fork" kind="fork"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_mlFIb-2xEeSj5b1zqxexug" name="Choice" kind="choice"/>
+      <subvertex xmi:type="uml:State" xmi:id="_mlFIcO2xEeSj5b1zqxexug" name="Available"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_mlFIce2xEeSj5b1zqxexug" name="Junction" kind="junction"/>
+      <transition xmi:id="_mlFIcu2xEeSj5b1zqxexug" name="Transition" source="_mlFIbu2xEeSj5b1zqxexug" target="_mlFIWO2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIc-2xEeSj5b1zqxexug" name="Transition2" source="_mlFIb-2xEeSj5b1zqxexug" target="_mlFIXe2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIdO2xEeSj5b1zqxexug" name="Transition1" source="_mlFIb-2xEeSj5b1zqxexug" target="_mlFIce2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIde2xEeSj5b1zqxexug" name="Transition" source="_mlFIcO2xEeSj5b1zqxexug" target="_mlFIWu2xEeSj5b1zqxexug"/>
+      <transition xmi:id="_mlFIdu2xEeSj5b1zqxexug" name="Transition" source="_mlFIce2xEeSj5b1zqxexug" target="_mlFIYO2xEeSj5b1zqxexug"/>
+    </region>
+  </packagedElement>
+</uml:Model>
