@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package compareUML;
+package deprecatedSourceCode;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 
 import org.jdom2.JDOMException;
+
+import compareUML.AssessmentMark;
+import compareUML.Diagram;
+import compareUML.GUIForAssessmentTool;
 
 import fileHandler.*;
 

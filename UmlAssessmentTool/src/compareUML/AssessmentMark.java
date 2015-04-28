@@ -4,15 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-import classElements.AssociationClassElement;
-import classElements.ClassAssociationElement;
-import classElements.ClassElement;
-
-import activityElements.ActivityNodes;
-import activityElements.EdgeElements;
-import activityElements.GroupElements;
+import activityElements.*;
 import packagedElements.PackagedElement;
-import stateMachineElements.Guard;
 import stateMachineElements.SubvertexElement;
 //usecase		 : 1
 //class			 : 2
@@ -112,23 +105,6 @@ public class AssessmentMark {
 							.compareTo(studentPackagedElement);
 					//System.out.println(marks);
 				}
-				String elementName=null;
-				if (lecturerPackagedElement instanceof ClassElement){
-					elementName=((ClassElement) lecturerPackagedElement).getOnlyName();
-				}
-				else if (lecturerPackagedElement instanceof AssociationClassElement) {
-					elementName=((AssociationClassElement) lecturerPackagedElement).getOnlyName();
-				}
-				else if (lecturerPackagedElement instanceof ClassAssociationElement) {
-					elementName=((ClassAssociationElement) lecturerPackagedElement).getValues();
-							}
-				else {
-					System.out.println("error");
-					}
-				String[] f = new String[]{lecturerPackagedElement.getType(),elementName};
-				feedback.add(f);
-				System.out.println(":"+elementName );
-				
 			}
 		}
 	}
@@ -256,7 +232,6 @@ public class AssessmentMark {
 				String elementName=null;
 				if(lecturerPackagedElement instanceof TransitionElement){
 					elementName= ((TransitionElement) lecturerPackagedElement).getTransition();
-					
 				}
 				else if (lecturerPackagedElement instanceof SubvertexElement){
 					elementName=((SubvertexElement) lecturerPackagedElement).getName();

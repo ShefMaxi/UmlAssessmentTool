@@ -5,6 +5,7 @@ import activityElements.ActionNodeElement;
 import activityElements.ActivityFinalNodeElement;
 import activityElements.CentralBufferNodeElement;
 import activityElements.EdgeElements;
+import activityElements.EdgeGuard;
 import activityElements.ForkNodeElement;
 import activityElements.GroupElements;
 import activityElements.InitialNodeElement;
@@ -16,7 +17,6 @@ import packagedElements.*;
 import useCaseElements.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -474,13 +474,21 @@ public class XMIFileParser {
 				}
                 //.......................Salisu.......................
 				org.jast.xml.Element e2 = (org.jast.xml.Element)content;
-                if (e2.hasChildren()) {
-                	org.jast.xml.Element weight = e2.getChild("weight");
-                    if (weight!=null) {
-                        NameIdMap.put(weight.getAttribute("xmi:id").getValue(),
-                                      weight.getAttribute("value").getValue());
-                    }
-                }
+				if (e2.hasChildren()) {
+					org.jast.xml.Element weight = e2.getChild("weight");
+					if (weight!=null) {
+						NameIdMap.put(weight.getAttribute("xmi:id").getValue(), 
+								weight.getAttribute("value").getValue());
+					}
+				}
+				if (e2.hasChildren()) {
+					org.jast.xml.Element guard = e2.getChild("guard");
+					if (guard!=null) {
+						NameIdMap.put(guard.getAttribute("xmi:id").getValue(), 
+								guard.getAttribute("xmi:type").getValue());
+						
+					}
+				}
 			}
 		}
 		if (groupElementList!=null) {
@@ -712,8 +720,8 @@ public class XMIFileParser {
             String Id = null;
             String sourceNodeName = null;
             String targetNodeName = null;
-            boolean weight = false;	// not needed in compare class, may be later
-            if (weight) {;};// destroy warnings
+            boolean guard = false;	// not needed in compare class, may be later
+            if (guard) {;};// destroy warnings
             if (type==null) {};// destroy warnings
             
             org.jast.xml.Element edgeElement = (org.jast.xml.Element)edge;
@@ -749,27 +757,29 @@ public class XMIFileParser {
             if (target!=null) {
                 targetNodeName=NameIdMap.get(target.getValue());
             }
-            org.jast.xml.Element iv = edgeElement.getChild("weight");
-            if (iv!=null) {
-                weight=true;
-                
-                String wiId = null;  // not needed in compare class
-                String value = null;	// not needed in compare class
-                if ((wiId!=null)||(value!=null)) {;}// destroy warnings
-                
-                org.jast.xml.Attribute iId = iv.getAttribute("xmi:id");
-                if (iId!=null) {
-                    wiId = iId.getValue();
-                }
-                
-                org.jast.xml.Attribute vl = iv.getAttribute("value");
-                if (vl!=null) {
-                    value = vl.getValue();
-                }
-            }
-                PackagedElement edg= new EdgeElements("uml:ControlFlow", Id, name, sourceNodeName, targetNodeName);
-                result.add(edg);
-            
+            org.jast.xml.Element iv = edgeElement.getChild("guard");
+			if (iv!=null) {
+				guard=true;
+				
+				String gdId = null;  
+				String value = null;	
+				String gbody=null;
+				
+				org.jast.xml.Attribute iId = iv.getAttribute("xmi:id");
+				if (iId!=null) {
+					gdId = iId.getValue();
+				}
+				
+				org.jast.xml.Attribute vl = iv.getAttribute("xmi:type");
+				if (vl!=null) {
+					value = vl.getValue();
+				}
+				 gbody=iv.getChild("body").getText();
+				 PackagedElement eguard= new EdgeGuard(value, gdId, gbody);
+				PackagedElement edg= new EdgeElements(type, Id, name, sourceNodeName, targetNodeName);
+				result.add(edg);
+				result.add(eguard);
+			}
             for (Content group : groupElementList) {
                 
                 
@@ -875,21 +885,21 @@ public class XMIFileParser {
 		return generalization;
 	}
 
-	public static void main(String[] args) throws JDOMException {
-		XMIFileParser parser = new XMIFileParser();
-		try {
-			parser.checkDiagramType("project7.xmi");
-			ArrayList<PackagedElement> output = parser
-					.readClassXMIFile("project7.xmi");
-			for (PackagedElement packagedElement : output) {
-				System.out.println(packagedElement);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (XMLError e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void main(String[] args) throws JDOMException {
+//		XMIFileParser parser = new XMIFileParser();
+//		try {
+//			parser.checkDiagramType("project7.xmi");
+//			ArrayList<PackagedElement> output = parser
+//					.readClassXMIFile("project7.xmi");
+//			for (PackagedElement packagedElement : output) {
+//				System.out.println(packagedElement);
+//			}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} catch (XMLError e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	public ArrayList<PackagedElement> getPackagedList() {
 		return (ArrayList<PackagedElement>) packagedList;

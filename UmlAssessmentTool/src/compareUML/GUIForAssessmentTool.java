@@ -4,15 +4,16 @@
  * and open the template in the editor.
  */
 package compareUML;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.jdom2.JDOMException;
 
 import fileHandler.SynonymDictionary;
 import fileHandler.XMIFileParser;
@@ -22,6 +23,10 @@ import fileHandler.ZipFileHandler;
 public class GUIForAssessmentTool extends javax.swing.JFrame {
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
      * Creates new form GUIForAssessmentTool
      */
@@ -198,66 +203,98 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ 
+    // main method for assessment
     private void jButtonForStartAssessmentActionPerformed(java.awt.event.ActionEvent evt) {
-        // main method for assessment 
-    	if (!this.studentFileIsSelected) {
+
+		if (this.studentFilePath == null) {
 			this.jTextAreaForLog.append("Students' file is not selected.\n");
 		}
-    	if (!this.lecturerFileIsSelected) {
+		if (this.studentFilePath == null) {
 			this.jTextAreaForLog.append("Lecturer's file is not selected.\n");
 		}
-    	
-		
-		if (studentFilePath
-				.substring(studentFilePath.lastIndexOf("."))
+
+		if (studentFilePath.substring(studentFilePath.lastIndexOf("."))
 				.equalsIgnoreCase(
-						lecturerFilePath.substring(lecturerFilePath.lastIndexOf(".")))) {
-			// zip files
-			if (studentFilePath.substring(studentFilePath.lastIndexOf(".")).equalsIgnoreCase(".zip")) {
-				ZipFileHandler zipFileHandler = new ZipFileHandler();
-				System.out.println(zipFileHandler.getStudentFiles(studentFilePath));
-				System.out.println(zipFileHandler.getStudentInfoMap());
-				
-				System.out.println("finished.....................");
-				
+						lecturerFilePath.substring(lecturerFilePath
+								.lastIndexOf(".")))) {
+			// zip files only
+			if (studentFilePath.toLowerCase().endsWith(".zip")) {
+				this.jTextAreaForLog.append("Start Assessment.\n");
+				this.zipFileHandler = new ZipFileHandler();
+				System.out.println("Not supported.");
+				// this.AssessZipFiles();
+				this.jTextAreaForLog.append("Finished Assessment.\n");
 			}
-		}
+			// xmi files only
+			else if (studentFilePath.toLowerCase().endsWith(".xmi")) {
+				this.jTextAreaForLog.append("Start Assessment.\n");
+				this.AssessXMIFiles();
+				this.jTextAreaForLog.append("Finished Assessment.\n");
+			}
 
-    	if (this.studentFileIsSelected && this.lecturerFileIsSelected) {
-    		this.jTextAreaForLog.append("Start Assessment.\n");
-    		// start assessment
-//    		ZipFileHandler zipFileHandler = new ZipFileHandler();
-//    		zipFileHandler.extractFile(studentFilePath);
-    		AssessXMIFiles();
-    		this.jTextAreaForLog.append("Finished Assessment.\n");
 		}
-    }
+		// students' files with one lecturer file
+		else if (studentFilePath.toLowerCase().endsWith(".zip")
+				&& lecturerFilePath.toLowerCase().endsWith(".xmi")) {
+			this.jTextAreaForLog.append("Start Assessment.\n");
+			this.AssessZipFiles();
+			this.jTextAreaForLog.append("Finished Assessment.\n");
+		}
+	}
     
-    private void AssessXMIFiles() {
-    	XMIFileParser xmiFileParser = new XMIFileParser();
-
-    		jProgressBar.setToolTipText("Assessing");
-    		Diagram lecturerDiagram = xmiFileParser.readXMIFile(lecturerFilePath);
-    		System.out.println(lecturerDiagram);
-    		Diagram studentDigram = xmiFileParser.readXMIFile(studentFilePath);
-    		System.out.println(studentDigram);
-    		AssessmentMark xmiAssessor = new AssessmentMark(studentDigram, lecturerDiagram);
-    		int diagramType = lecturerDiagram.getDiagramType();
-    		ArrayList<String[]> f = xmiAssessor.getFeedBack();
-    		
-
-
-    		this.jTextAreaForLog.append("The student final mark for this diagram is " + xmiAssessor.getFinalMarks() + "%\n");
-    		jProgressBar.setToolTipText("Finish assessment.");
-
-    }
-
+    // assess method for XMI files
+	private void AssessXMIFiles() {
+		XMIFileParser xmiFileParser = new XMIFileParser();
+		jProgressBar.setToolTipText("Assessing");
+		Diagram lecturerDiagram = xmiFileParser.readXMIFile(lecturerFilePath);
+		System.out.println(lecturerDiagram);
+		Diagram studentDigram = xmiFileParser.readXMIFile(studentFilePath);
+		System.out.println(studentDigram);
+		AssessmentMark xmiAssessor = new AssessmentMark(studentDigram,
+				lecturerDiagram);
+		this.jTextAreaForLog
+				.append("The student final mark for this diagram is "
+						+ xmiAssessor.getFinalMarks() + "%\n");
+		jProgressBar.setToolTipText("Finish assessment.");
+	}
+	
+	// assess method for ZIP files
+	private void AssessZipFiles() {
+		// get lecturer's diagrams
+		XMIFileParser xmiFileParser = new XMIFileParser();
+		List<Diagram> lecturerDiagrams = new ArrayList<Diagram>();
+		lecturerDiagrams.add(xmiFileParser.readXMIFile(lecturerFilePath));
+		// NOT FINISHED.
+		
+		// use dictionary
+		if (this.dictionary != null && this.dictionary.checkDictionary()) {
+			// multiple word 
+		}
+		
+		// get students' diagrams
+		Map<String, List<String>> studentFiles = zipFileHandler.getStudentFiles(studentFilePath);
+		Map<String, String> studentInfo = zipFileHandler.getStudentInfoMap();
+		Set<String> studUsernames = studentFiles.keySet();
+		for (String username : studUsernames) {
+			DiagramAssignment assignment = new DiagramAssignment(username, studentInfo.get(username), studentFiles.get(username));
+			assignment.markAssignment(lecturerDiagrams);
+		}
+				
+	}
+    
     private void jButtonForLecturerActionPerformed(java.awt.event.ActionEvent evt) {
+    	// set file chooser
+    	// accept zip and xmi only
     	JFileChooser jFileChooser = new javax.swing.JFileChooser();
-    	FileFilter fileFilter = new FileNameExtensionFilter("Zip Files", "zip");
-    	jFileChooser.setFileFilter(fileFilter);
-        jFileChooser.setDialogTitle("Choose a file");
+    	FileFilter zipFileFilter = new FileNameExtensionFilter("Zip Files", "zip");
+    	FileFilter xmiFileFilter = new FileNameExtensionFilter("XML Metadata Interchange", "xmi");
+    	jFileChooser.setAcceptAllFileFilterUsed(false);
+    	jFileChooser.setFileFilter(zipFileFilter);
+    	jFileChooser.addChoosableFileFilter(xmiFileFilter);
+        jFileChooser.setDialogTitle("Choose a file");  
+        
+        // open file
         int fileIsChosen = jFileChooser.showOpenDialog(null);
         if (fileIsChosen == JFileChooser.APPROVE_OPTION) {
         	String path = jFileChooser.getSelectedFile().getAbsolutePath();
@@ -266,16 +303,22 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			lecturerFilePath = path;
 			this.jLabelForLectureFile.setText(name);
 			this.jTextAreaForLog.append("Lecturer's file : " + name + "\n");
-			this.lecturerFileIsSelected = true;
 			this.jProgressBar.setValue(0);
 		}
     }
 
     private void jButtonForStudentsActionPerformed(java.awt.event.ActionEvent evt) {
+    	// set file chooser
+    	// accept zip and xmi only
     	JFileChooser jFileChooser = new javax.swing.JFileChooser();
-    	FileFilter fileFilter = new FileNameExtensionFilter("Zip Files", "zip");
-    	jFileChooser.setFileFilter(fileFilter);
+    	FileFilter zipFileFilter = new FileNameExtensionFilter("Zip Files", "zip");
+    	FileFilter xmiFileFilter = new FileNameExtensionFilter("XML Metadata Interchange", "xmi");
+    	jFileChooser.setAcceptAllFileFilterUsed(false);
+    	jFileChooser.setFileFilter(zipFileFilter);
+    	jFileChooser.addChoosableFileFilter(xmiFileFilter);
         jFileChooser.setDialogTitle("Choose a file");
+     
+        // open file
         int fileIsChosen = jFileChooser.showOpenDialog(null);
         if (fileIsChosen == JFileChooser.APPROVE_OPTION) {
         	String path = jFileChooser.getSelectedFile().getAbsolutePath();
@@ -284,7 +327,6 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			studentFilePath = path;
 			this.jLabelForStudentFile.setText(name);
 			this.jTextAreaForLog.append("Students' file : " + name + "\n");
-			this.studentFileIsSelected = true;
 			this.jProgressBar.setValue(0);
 		}
     }
@@ -294,11 +336,15 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     }
 
     private void jButtonForXMLActionPerformed(java.awt.event.ActionEvent evt) {
+    	// set file chooser
+    	// accept XML only
     	JFileChooser jFileChooser = new javax.swing.JFileChooser();
     	jFileChooser.setAcceptAllFileFilterUsed(false);
     	FileFilter fileFilter = new FileNameExtensionFilter("Extensible Markup Language", "xml");
     	jFileChooser.setFileFilter(fileFilter);
         jFileChooser.setDialogTitle("Choose a file");
+        
+        // open file
         int fileIsChosen = jFileChooser.showOpenDialog(null);
         if (fileIsChosen == JFileChooser.APPROVE_OPTION) {
         	String path = jFileChooser.getSelectedFile().getAbsolutePath();
@@ -306,11 +352,9 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			this.dictionary = new SynonymDictionary(path);
 			if (this.dictionary.checkDictionary()) {
 				path = path.replace('\\', '/');
-				this.xmlFilePath = path;
 				this.jLabelForXMLFile.setText(name);
 				this.jTextAreaForLog.append("XML file : " + name + "\n");
 			} else {
-				this.xmlFilePath = null;
 				this.dictionary = null;
 				this.jLabelForXMLFile.setText("Not Chosen");
 				this.jTextAreaForLog.append("XML file : " + name + " has error.\n");
@@ -326,12 +370,6 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 
         try {
         	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(GUIForAssessmentTool.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -351,12 +389,11 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
         });
     }
 
-    private boolean lecturerFileIsSelected = false;
-	private boolean studentFileIsSelected = false;
 	private String studentFilePath = null;
 	private String lecturerFilePath = null;
-	private String xmlFilePath = null;
 	private SynonymDictionary dictionary = null;
+	private ZipFileHandler zipFileHandler = null;
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonForFeedback;

@@ -12,10 +12,10 @@ import java.util.zip.ZipFile;
 import java.io.*;
 
 public class ZipFileHandler {
-	
+
 	// map<username, student_name>
 	private Map<String, String> studentInfoMap = null;
-	
+
 	public List<String> extractFile(String inputFile, String extension) {
 		List<String> entriesList = new ArrayList<String>();
 		String destinationFile = System.getProperty("java.io.tmpdir");
@@ -23,44 +23,35 @@ public class ZipFileHandler {
 		inputFile = inputFile.replace('\\', '/');
 		if(!destinationFile.endsWith("/"))
 			destinationFile = destinationFile+"/";
-		 
-		if(extension.equals("txt")) {
-			destinationFile = destinationFile+inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.length()-4)+"/";
-		} else {
-			destinationFile = inputFile.substring(0, inputFile.length()-4)+"/";
-		}
-		
+		destinationFile = destinationFile+"UmlAssessmentTool/";
 		File dir = new File(destinationFile);
 		dir.mkdir();
+		destinationFile = destinationFile+inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.length()-4)+"/";
+		File dir2 = new File(destinationFile);
+		dir2.mkdir();
 		try {
 			ZipFile zipFile = new ZipFile(inputFile);
 			Enumeration<?> enu = zipFile.entries();
-			
 			while (enu.hasMoreElements()) {	
 				ZipEntry zipEntry = (ZipEntry) enu.nextElement();
 				String name = destinationFile+zipEntry.getName();
 				name = name.toLowerCase();
 				File file = new File(name);
-				
 				if (name.endsWith("/")) {	
 					file.mkdirs();
 					continue;
 				}
-				
 				InputStream is = zipFile.getInputStream(zipEntry);
-				System.out.println(name);
 				FileOutputStream fos = new FileOutputStream(name);
 				byte[] bytes = new byte[1024];
 				int length;
 				while ((length = is.read(bytes)) >= 0) {
 					fos.write(bytes, 0, length);
 				}
-				
 				/*if (name.endsWith(".zip")) {
 					extractFile(name); //extractFile(name,destinationFile+zipEntry.getName());
 					file.delete();
 				}*/
-				
 				if (name.endsWith("."+extension)) {
 					entriesList.add(name);
 				}
@@ -73,7 +64,7 @@ public class ZipFileHandler {
 		}
 		return entriesList;
 	}
-	
+
 	public Map<String,List<String>> getStudentFiles(String inputFile) {
 		Map<String,List<String>> map = new HashMap<String,List<String>>();
 		TextReader reader = new TextReader(extractFile(inputFile, "txt"));
@@ -85,13 +76,18 @@ public class ZipFileHandler {
 		}
 		return map;
 	}
-	
+
+	public List<String> getLecturerFiles(String inputFile) {
+		return extractFile(inputFile, "xmi");
+	}
+
 	public Map<String, String> getStudentInfoMap() {
 		return studentInfoMap;
 	}
-	
-//	public static void main(String[] args) {
-//		ZipFileHandler zipFileHandler = new ZipFileHandler();
-//		System.out.println(zipFileHandler.getStudentFiles("C:\\Users\\Dell\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\test.zip"));
-//	}
+
+	public static void main(String[] args) {
+		ZipFileHandler zipFileHandler = new ZipFileHandler();
+		System.out.println(zipFileHandler.getStudentFiles("C:\\Users\\Dell\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\test.zip"));
+		System.out.println(zipFileHandler.getLecturerFiles("C:\\Users\\Dell\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\studentWork.zip"));
+	}
 }
