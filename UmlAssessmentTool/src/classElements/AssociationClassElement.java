@@ -47,6 +47,9 @@ public class AssociationClassElement extends ClassAssociationElement{
 	public String toString() {
 		return super.toString() + " name : " + name + " operation : " + operation + " attribute : " + attribute;
 	}
+	public String getOnlyName(){
+		return name;
+	}
 	
 	@Override
 	public double compareTo(PackagedElement packagedElement) {

@@ -72,6 +72,10 @@ public class ClassAssociationElement extends PackagedElement{
 				+ " secondMember : " + secondMemberName + " lowerValue : " + secondMemberLowerValue 
 				+ " upperValue : " + secondMemberUpperValue + " endRole : " + secondMemberEndRole;
 	}
+	public String getValues() {
+		return "first member:=- "+firstMemberName+":second member- "+secondMemberName;
+		
+	}
 	
 	@Override
 	public double compareTo(PackagedElement packagedElement) {

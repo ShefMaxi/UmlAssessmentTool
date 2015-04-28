@@ -24,4 +24,9 @@ public abstract class PackagedElement {	// abstract
 	}
 	
 	public abstract double compareTo(PackagedElement packagedElement);
+
+	public String getOnlyName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

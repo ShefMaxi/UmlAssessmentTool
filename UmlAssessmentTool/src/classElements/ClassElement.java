@@ -64,6 +64,9 @@ public class ClassElement extends PackagedElement{
 	}
 	@SuppressWarnings({ "unchecked" })
 	@Override
+	public String getOnlyName(){
+		return name;
+	}
 	public double compareTo(PackagedElement packagedElement) {
 		double marks=0.0;
 		int number=0;
