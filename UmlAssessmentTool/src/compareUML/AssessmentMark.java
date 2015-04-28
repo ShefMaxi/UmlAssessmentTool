@@ -245,14 +245,16 @@ public class AssessmentMark {
 			}
 			
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
+				double mark=0;
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
-					marks += lecturerPackagedElement
+					mark = lecturerPackagedElement
 							.compareTo(studentPackagedElement);
+					marks+=mark;
 				}
-				if (studentPoints==1.0){
+				if (mark==1.5){
 					 feedBackInfo = "element is correct";
 				}
-				else if (studentPoints==0) {
+				else if (mark==0) {
 					feedBackInfo = "element is missing";
 				}
 				else {
@@ -277,7 +279,6 @@ public class AssessmentMark {
 				System.out.println(lecturerPackagedElement.getType()+":"+elementName +": "+feedBackInfo);
 				//System.out.println(lecturerPackagedElement.getType()+":"+lecturerPackagedElement.toString());
 			}
-	//	}
 		}
 		if (studentPoints > 2 * totalPoints) {
 			double temp = studentPoints / totalPoints;
