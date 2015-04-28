@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -85,39 +86,49 @@ public class XMIFileParser {
 		File xmiFile = new File(filePath);
 		XMLReader reader = new XMLReader(xmiFile);
 		org.jast.xml.Document document = reader.readDocument();
-
+		
+		HashMap<String, SubvertexElement> matchingMap = new HashMap<>();
 		XPath query = new XPath("//region");
 		List<Content> contentsList = query.match(document);
-		Content rootContent = contentsList.get(0);
+		// ------------------start
+		for (Content region : contentsList) {
+			List<Content> allContents = region.getContents();
+			for (Content content : allContents) {
+				if (content.getName().compareToIgnoreCase("subvertex") == 0) {
+					List<org.jast.xml.Attribute> attributes = content
+							.getAttributes();
+					SubvertexElement element = new SubvertexElement(attributes
+							.get(0).getValue(), attributes.get(1).getValue(),
+							attributes.get(2).getValue());
+					result.add(element);
+					matchingMap.put(attributes.get(1).getValue(),
+							(SubvertexElement) result.get(result.size() - 1));
 
-		HashMap<String, SubvertexElement> matchingMap = new HashMap<>();
-		List<Content> allContents = rootContent.getContents();
-
-		for (Content content : allContents) {
-			if (content.getName().compareToIgnoreCase("subvertex") == 0) {
-				List<org.jast.xml.Attribute> attributes = content
-						.getAttributes();
-				SubvertexElement element = new SubvertexElement(attributes.get(
-						0).getValue(), attributes.get(1).getValue(), attributes
-						.get(2).getValue());
-				result.add(element);
-				matchingMap.put(attributes.get(1).getValue(),
-						(SubvertexElement) result.get(result.size() - 1));
-
-			} else if (content.getName().compareToIgnoreCase("transition") == 0) {
-				List<org.jast.xml.Attribute> attributes = content
-						.getAttributes();
-				TransitionElement element = new TransitionElement(attributes
-						.get(0).getValue(), attributes.get(1).getValue(),
-						matchingMap.get(attributes.get(2).getValue()),
-						matchingMap.get(attributes.get(3).getValue()));
-				if (attributes.size() == 5) {
-					element.setGuard(new Guard(content.getContent(0)
-							.getAttributes().get(1).getValue()));
 				}
-				result.add(element);
 			}
 		}
+
+		for (Content region : contentsList) {
+			List<Content> allContents = region.getContents();
+			for (Content content : allContents) {
+				if (content.getName().compareToIgnoreCase("transition") == 0) {
+					List<org.jast.xml.Attribute> attributes = content
+							.getAttributes();
+					TransitionElement element = new TransitionElement(
+							attributes.get(0).getValue(), attributes.get(1)
+									.getValue(), matchingMap.get(attributes
+									.get(2).getValue()),
+							matchingMap.get(attributes.get(3).getValue()));
+					if (attributes.size() == 5) {
+						element.setGuard(new Guard(content.getContent(0)
+								.getAttributes().get(1).getValue()));
+					}
+					result.add(element);
+				}
+			}
+
+		}
+		// ------------------end
 
 		return result;
 	}
@@ -822,6 +833,7 @@ public class XMIFileParser {
 	public Diagram readXMIFile(String filePath) {
 		Diagram diagram = null;
 		int diagramType = this.checkDiagramType(filePath);
+		System.out.println("start reading");
 		try {
 			switch (diagramType) {
 			case 1:

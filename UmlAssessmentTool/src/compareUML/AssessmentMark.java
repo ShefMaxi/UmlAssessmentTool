@@ -243,7 +243,6 @@ public class AssessmentMark {
 				totalPoints += 1.5 * selectedLecturerElements.size();
 				studentPoints += 1.5 * selectedStudentElements.size();
 			}
-			
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 				double mark=0;
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
