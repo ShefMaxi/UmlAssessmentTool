@@ -776,10 +776,12 @@ public class XMIFileParser {
 				}
 				 gbody=iv.getChild("body").getText();
 				 PackagedElement eguard= new EdgeGuard(value, gdId, gbody);
+				 result.add(eguard);
+			}
 				PackagedElement edg= new EdgeElements(type, Id, name, sourceNodeName, targetNodeName);
 				result.add(edg);
-				result.add(eguard);
-			}
+				
+			
             for (Content group : groupElementList) {
                 
                 
