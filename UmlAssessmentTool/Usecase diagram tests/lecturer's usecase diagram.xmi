@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_qHvpsO2kEeSj5b1zqxexug" name="test for use case diagram">
+  <eAnnotations xmi:id="_qHvpse2kEeSj5b1zqxexug" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_qHvpsu2kEeSj5b1zqxexug" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_qHvps-2kEeSj5b1zqxexug" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_qHvptO2kEeSj5b1zqxexug" name="Actor"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qHvpte2kEeSj5b1zqxexug" memberEnd="_qHvptu2kEeSj5b1zqxexug _qHvpuO2kEeSj5b1zqxexug" navigableOwnedEnd="_qHvptu2kEeSj5b1zqxexug">
+    <ownedEnd xmi:id="_qHvptu2kEeSj5b1zqxexug" visibility="public" type="_qHvpv-2kEeSj5b1zqxexug" association="_qHvpte2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvpt-2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qHvpuO2kEeSj5b1zqxexug" visibility="public" type="_qHvptO2kEeSj5b1zqxexug" association="_qHvpte2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvpue2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qHvpuu2kEeSj5b1zqxexug" memberEnd="_qHvpu-2kEeSj5b1zqxexug _qHvpve2kEeSj5b1zqxexug" navigableOwnedEnd="_qHvpu-2kEeSj5b1zqxexug">
+    <ownedEnd xmi:id="_qHvpu-2kEeSj5b1zqxexug" visibility="public" type="_qHvpx-2kEeSj5b1zqxexug" association="_qHvpuu2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvpvO2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qHvpve2kEeSj5b1zqxexug" visibility="public" type="_qHvptO2kEeSj5b1zqxexug" association="_qHvpuu2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvpvu2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_qHvpv-2kEeSj5b1zqxexug" name="Use Case">
+    <ownedComment xmi:id="_qHvpwO2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpwe2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpwu2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpw-2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpxO2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpxe2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <generalization xmi:id="_qHvpxu2kEeSj5b1zqxexug" general="_qHvp0O2kEeSj5b1zqxexug"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_qHvpx-2kEeSj5b1zqxexug" name="Use Case1">
+    <ownedComment xmi:id="_qHvpyO2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpye2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpyu2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpy-2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpzO2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvpze2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <generalization xmi:id="_qHvpzu2kEeSj5b1zqxexug" general="_qHvp0O2kEeSj5b1zqxexug"/>
+    <include xmi:id="_qHvpz-2kEeSj5b1zqxexug" name="UseCaseDependency" addition="_qHvp9u2kEeSj5b1zqxexug"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_qHvp0O2kEeSj5b1zqxexug" name="Use Case2">
+    <ownedComment xmi:id="_qHvp0e2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp0u2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp0-2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp1O2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp1e2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp1u2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_qHvp1-2kEeSj5b1zqxexug" name="Actor1">
+    <generalization xmi:id="_qHvp2O2kEeSj5b1zqxexug" general="_qHvptO2kEeSj5b1zqxexug"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qHvp2e2kEeSj5b1zqxexug" memberEnd="_qHvp2u2kEeSj5b1zqxexug _qHvp3O2kEeSj5b1zqxexug" navigableOwnedEnd="_qHvp2u2kEeSj5b1zqxexug">
+    <ownedEnd xmi:id="_qHvp2u2kEeSj5b1zqxexug" visibility="public" type="_qHvp7u2kEeSj5b1zqxexug" association="_qHvp2e2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvp2-2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qHvp3O2kEeSj5b1zqxexug" visibility="public" type="_qHvp1-2kEeSj5b1zqxexug" association="_qHvp2e2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvp3e2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qHvp3u2kEeSj5b1zqxexug" memberEnd="_qHvp3-2kEeSj5b1zqxexug _qHvp4e2kEeSj5b1zqxexug" navigableOwnedEnd="_qHvp3-2kEeSj5b1zqxexug">
+    <ownedEnd xmi:id="_qHvp3-2kEeSj5b1zqxexug" visibility="public" type="_qHvp_e2kEeSj5b1zqxexug" association="_qHvp3u2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvp4O2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qHvp4e2kEeSj5b1zqxexug" visibility="public" type="_qHvp1-2kEeSj5b1zqxexug" association="_qHvp3u2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvp4u2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_qHvp4-2kEeSj5b1zqxexug" name="Actor2"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qHvp5O2kEeSj5b1zqxexug" memberEnd="_qHvp5e2kEeSj5b1zqxexug _qHvp5-2kEeSj5b1zqxexug" navigableOwnedEnd="_qHvp5e2kEeSj5b1zqxexug">
+    <ownedEnd xmi:id="_qHvp5e2kEeSj5b1zqxexug" visibility="public" type="_qHvp0O2kEeSj5b1zqxexug" association="_qHvp5O2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvp5u2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qHvp5-2kEeSj5b1zqxexug" visibility="public" type="_qHvp4-2kEeSj5b1zqxexug" association="_qHvp5O2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvp6O2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qHvp6e2kEeSj5b1zqxexug" memberEnd="_qHvp6u2kEeSj5b1zqxexug _qHvp7O2kEeSj5b1zqxexug" navigableOwnedEnd="_qHvp6u2kEeSj5b1zqxexug">
+    <ownedEnd xmi:id="_qHvp6u2kEeSj5b1zqxexug" visibility="public" type="_qHvp9u2kEeSj5b1zqxexug" association="_qHvp6e2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvp6-2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qHvp7O2kEeSj5b1zqxexug" visibility="public" type="_qHvp4-2kEeSj5b1zqxexug" association="_qHvp6e2kEeSj5b1zqxexug">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qHvp7e2kEeSj5b1zqxexug"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_qHvp7u2kEeSj5b1zqxexug" name="Use Case3">
+    <ownedComment xmi:id="_qHvp7-2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp8O2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp8e2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp8u2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp8-2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp9O2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <extend xmi:id="_qHvp9e2kEeSj5b1zqxexug" name="UseCaseDependency" extendedCase="_qHvp_e2kEeSj5b1zqxexug"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_qHvp9u2kEeSj5b1zqxexug" name="Use Case4">
+    <ownedComment xmi:id="_qHvp9-2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp-O2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp-e2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp-u2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp--2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp_O2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_qHvp_e2kEeSj5b1zqxexug" name="Use Case5">
+    <ownedComment xmi:id="_qHvp_u2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvp_-2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvqAO2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvqAe2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvqAu2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+    <ownedComment xmi:id="_qHvqA-2kEeSj5b1zqxexug">
+      <body>...</body>
+    </ownedComment>
+  </packagedElement>
+</uml:Model>
