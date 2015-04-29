@@ -330,7 +330,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			String name = jFileChooser.getSelectedFile().getName();
 			path = path.replace('\\', '/');
 			lecturerFilePath = path;
-			if (name.length() >= 30) {
+			if (name.length() >= 28) {
 				name = name.substring(0, 25) + "...";
 			}
 			this.jLabelForLectureFile.setText(name);
@@ -357,7 +357,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 			String name = jFileChooser.getSelectedFile().getName();
 			path = path.replace('\\', '/');
 			studentFilePath = path;
-			if (name.length() >= 30) {
+			if (name.length() >= 28) {
 				name = name.substring(0, 25) + "...";
 			}
 			this.jLabelForStudentFile.setText(name);
