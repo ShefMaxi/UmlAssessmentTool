@@ -374,9 +374,9 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
     	jFileChooser.setDialogType(JFileChooser.SAVE_DIALOG);
     	jFileChooser.setDialogTitle("Save a file");
     	jFileChooser.setAcceptAllFileFilterUsed(false);
-    	FileFilter zipFileFilter = new FileNameExtensionFilter("Zip Files", "zip");
+    	FileFilter zipFileFilter = new FileNameExtensionFilter("Txt Files", "txt");
     	jFileChooser.setFileFilter(zipFileFilter);
-    	jFileChooser.setSelectedFile(new File("feedback.zip"));
+    	jFileChooser.setSelectedFile(new File("feedbackForLecture.txt"));
 
     	// open dialog box
     	int fileIsSaved = jFileChooser.showSaveDialog(null);
