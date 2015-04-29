@@ -2,26 +2,43 @@ Id: acp13aba
 Name: Rabia Sultan ajsd
 
 Diagram type: Activity diagram
-Mark: 28.571428571428573
+Mark: 33
+
 Feedback information:
+
+uml:ActionNodeElement
+Action
+Element is correct.
+
+uml:ActionNodeElement
+Action1
+Element is missing or incorrect.
+
+uml:ActionNodeElement
+Action2
+Element is missing or incorrect.
+
 uml:ActivityFinalNodeElement
 Activity Final Node
 Element is correct.
+
 uml:InitialNode
 Initial Node
 Element is correct.
-uml:ActionNodeElement
-Call Behavior
-Element is missing or incorrect.
-uml:ActionNodeElement
-Call Operation
-Element is missing or incorrect.
-_1z-4muxKEeSeH4W556u6wg
+
+_e7jaO-xIEeSeH4W556u6wg
 ControlFlow
 Element is missing or incorrect.
-_1z-4nOxKEeSeH4W556u6wg
+
+_e7jaPexIEeSeH4W556u6wg
 ControlFlow
 Element is missing or incorrect.
-_1z-4nuxKEeSeH4W556u6wg
+
+_e7jaP-xIEeSeH4W556u6wg
 ControlFlow
 Element is missing or incorrect.
+
+_e7jaQexIEeSeH4W556u6wg
+ControlFlow
+Element is missing or incorrect.
+

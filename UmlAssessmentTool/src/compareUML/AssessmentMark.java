@@ -237,8 +237,6 @@ public class AssessmentMark {
 			if (key.compareToIgnoreCase("transition") == 0) {
 				totalPoints += selectedLecturerElements.size();
 				studentPoints += selectedStudentElements.size();
-			//	System.out.println(selectedStudentElements.get(0));
-			//	System.out.println(selectedLecturerElements.getClass());
 			} else {
 				totalPoints += 1.5 * selectedLecturerElements.size();
 				studentPoints += 1.5 * selectedStudentElements.size();
@@ -252,6 +250,9 @@ public class AssessmentMark {
 				}
 				if (mark==1.5){
 					 feedBackInfo = "element is correct";
+				}
+				else if (mark == 1.0) {
+					feedBackInfo = "element is correct";
 				}
 				else if (mark==0) {
 					feedBackInfo = "element is missing";

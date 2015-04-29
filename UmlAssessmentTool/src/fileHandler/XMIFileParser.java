@@ -88,7 +88,7 @@ public class XMIFileParser {
 		org.jast.xml.Document document = reader.readDocument();
 		
 		HashMap<String, SubvertexElement> matchingMap = new HashMap<>();
-		XPath query = new XPath("//region");
+		XPath query = new XPath("//packagedElement/region");
 		List<Content> contentsList = query.match(document);
 		// ------------------start
 		for (Content region : contentsList) {
@@ -103,7 +103,6 @@ public class XMIFileParser {
 					result.add(element);
 					matchingMap.put(attributes.get(1).getValue(),
 							(SubvertexElement) result.get(result.size() - 1));
-
 				}
 			}
 		}
