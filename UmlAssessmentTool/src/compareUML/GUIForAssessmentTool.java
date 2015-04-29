@@ -288,7 +288,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 		Map<String, List<String>> studentFiles = zipFileHandler.getStudentFiles(studentFilePath);
 		Map<String, String> studentInfo = zipFileHandler.getStudentInfoMap();
 		Set<String> studUsernames = studentFiles.keySet();
-		System.out.println(zipFileHandler.getTempFolderPath()+"----------------");
+		System.out.println("Temporary folder path: "+zipFileHandler.getTempFolderPath()+"----------------");
 
 		// start assessment
 		String folderPath=null;
