@@ -137,12 +137,25 @@ public class AssessmentMark {
 			for(PackagedElement lecturerPackagedElement : selectedLecturerElements){
 				totalPoints=totalPoints+lecturerPackagedElement.compareTo(lecturerPackagedElement);
 			}
+			double mark = 0;
+			double totalpoint=0;
+			double studentMark=0;
+			double highestMark=0;
+			double currentMark=0;
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {				
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
+					totalpoint=lecturerPackagedElement.compareTo(lecturerPackagedElement);
+					System.out.println("------totalpoint"+totalpoint);
+					studentMark = lecturerPackagedElement.compareTo(studentPackagedElement);
+					System.out.println("------studentMark"+studentMark);
+					mark=studentMark/totalpoint;
+					System.out.println("------mark"+mark);
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
-					//System.out.println(marks);
-				}
+                    currentMark=mark;
+                    if(currentMark>highestMark){
+					highestMark=currentMark;
+                    }
 				String elementName=null;
 				if (lecturerPackagedElement instanceof ClassElement){
 					elementName=((ClassElement) lecturerPackagedElement).getOnlyName();
@@ -157,11 +170,11 @@ public class AssessmentMark {
 					System.out.println("error");
 					}
 				String feedBackInfo = null;
-				if (marks==1){
+				if (mark==1){
 					 feedBackInfo = "element is correct";
 				}
 				
-				else if (marks==0) {
+				else if (mark==0) {
 					feedBackInfo = "element is missing";
 				}
 				else {
@@ -171,6 +184,7 @@ public class AssessmentMark {
 				String[] f = new String[]{lecturerPackagedElement.getType(),elementName,feedBackInfo};
 				feedback.add(f);
 				System.out.println(":"+elementName );
+				}
 			}
 		}
 	}

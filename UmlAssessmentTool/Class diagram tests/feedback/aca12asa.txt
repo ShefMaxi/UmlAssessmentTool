@@ -6,27 +6,99 @@ Mark: 91
 
 Feedback information:
 
-AssociationClass
-Class3
-
-AssociationClass
-Class6
-
-Association
-first member:=- Class4:second member- Class1
-
-Association
-first member:=- Class5:second member- Class2
+uml:Class
+Class1
+element is correct
 
 uml:Class
 Class1
+element is missing
+
+uml:Class
+Class1
+element is missing
+
+uml:Class
+Class1
+element is missing
 
 uml:Class
 Class2
+element is missing
+
+uml:Class
+Class2
+element is correct
+
+uml:Class
+Class2
+element is missing
+
+uml:Class
+Class2
+element is missing
 
 uml:Class
 Class4
+element is missing
+
+uml:Class
+Class4
+element is missing
+
+uml:Class
+Class4
+element is correct
+
+uml:Class
+Class4
+element is missing
 
 uml:Class
 Class5
+element is missing
+
+uml:Class
+Class5
+element is missing
+
+uml:Class
+Class5
+element is missing
+
+uml:Class
+Class5
+element is correct
+
+Association
+first member:=- Class4:second member- Class1
+element is correct
+
+Association
+first member:=- Class4:second member- Class1
+element is missing
+
+Association
+first member:=- Class5:second member- Class2
+element is missing
+
+Association
+first member:=- Class5:second member- Class2
+element is correct
+
+AssociationClass
+Class3
+partly correct
+
+AssociationClass
+Class3
+element is missing
+
+AssociationClass
+Class6
+element is missing
+
+AssociationClass
+Class6
+element is correct
 
