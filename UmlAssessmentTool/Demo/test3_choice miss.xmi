@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_AMU6MO2wEeSj5b1zqxexug" name="project1">
+  <eAnnotations xmi:id="_AMU6Me2wEeSj5b1zqxexug" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_AMU6Mu2wEeSj5b1zqxexug" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_AMU6M-2wEeSj5b1zqxexug" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <ownedRule xmi:id="_AMU6NO2wEeSj5b1zqxexug" name="new issue" constrainedElement="_AMU6S-2wEeSj5b1zqxexug">
+    <specification xmi:type="uml:LiteralString" xmi:id="_AMU6Ne2wEeSj5b1zqxexug" value="new issue"/>
+  </ownedRule>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_AMU6Nu2wEeSj5b1zqxexug" name="State Machine">
+    <region xmi:id="_AMU6N-2wEeSj5b1zqxexug">
+      <subvertex xmi:type="uml:State" xmi:id="_AMU6OO2wEeSj5b1zqxexug" name="on loan"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_AMU6Oe2wEeSj5b1zqxexug" name="Initial State"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_AMU6Ou2wEeSj5b1zqxexug" name="Final State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_AMU6O-2wEeSj5b1zqxexug" name="State"/>
+      <subvertex xmi:type="uml:State" xmi:id="_AMU6PO2wEeSj5b1zqxexug" name="State1"/>
+      <subvertex xmi:type="uml:State" xmi:id="_AMU6Pe2wEeSj5b1zqxexug" name="customer service">
+        <region xmi:id="_AMU6Pu2wEeSj5b1zqxexug" name="Region">
+          <subvertex xmi:type="uml:State" xmi:id="_AMU6P-2wEeSj5b1zqxexug" name="authentication"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_AMU6QO2wEeSj5b1zqxexug" name="Initial State"/>
+          <subvertex xmi:type="uml:FinalState" xmi:id="_AMU6Qe2wEeSj5b1zqxexug" name="Final State"/>
+          <subvertex xmi:type="uml:State" xmi:id="_AMU6Qu2wEeSj5b1zqxexug" name="transaction"/>
+          <transition xmi:id="_AMU6Q-2wEeSj5b1zqxexug" name="Transition" source="_AMU6P-2wEeSj5b1zqxexug" target="_AMU6Qu2wEeSj5b1zqxexug"/>
+          <transition xmi:id="_AMU6RO2wEeSj5b1zqxexug" name="Transition" source="_AMU6QO2wEeSj5b1zqxexug" target="_AMU6P-2wEeSj5b1zqxexug"/>
+          <transition xmi:id="_AMU6Re2wEeSj5b1zqxexug" name="Transition" source="_AMU6Qu2wEeSj5b1zqxexug" target="_AMU6Qe2wEeSj5b1zqxexug"/>
+        </region>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_AMU6Ru2wEeSj5b1zqxexug" name="State2"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_AMU6R-2wEeSj5b1zqxexug" name="Junction" kind="junction"/>
+      <subvertex xmi:type="uml:State" xmi:id="_AMU6SO2wEeSj5b1zqxexug" name="State3"/>
+      <subvertex xmi:type="uml:State" xmi:id="_AMU6Se2wEeSj5b1zqxexug" name="State4"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_AMU6Su2wEeSj5b1zqxexug" name="Join" kind="join"/>
+      <transition xmi:id="_AMU6S-2wEeSj5b1zqxexug" name="Transition1" source="_AMU6OO2wEeSj5b1zqxexug" target="_AMU6OO2wEeSj5b1zqxexug" guard="_AMU6TO2wEeSj5b1zqxexug">
+        <ownedRule xmi:id="_AMU6TO2wEeSj5b1zqxexug" name="new issue" constrainedElement="_AMU6S-2wEeSj5b1zqxexug">
+          <specification xmi:type="uml:LiteralString" xmi:id="_AMU6Te2wEeSj5b1zqxexug" value="new issue"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_AMU6Tu2wEeSj5b1zqxexug" name="Transition" source="_AMU6OO2wEeSj5b1zqxexug" target="_AMU6Xe2wEeSj5b1zqxexug" guard="_AMU6T-2wEeSj5b1zqxexug">
+        <ownedRule xmi:id="_AMU6T-2wEeSj5b1zqxexug" name="issue" constrainedElement="_AMU6Tu2wEeSj5b1zqxexug">
+          <specification xmi:type="uml:LiteralString" xmi:id="_AMU6UO2wEeSj5b1zqxexug" value="issue"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:id="_AMU6Ue2wEeSj5b1zqxexug" name="Transition" source="_AMU6Oe2wEeSj5b1zqxexug" target="_AMU6OO2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6Uu2wEeSj5b1zqxexug" name="Transition" source="_AMU6O-2wEeSj5b1zqxexug" target="_AMU6Xu2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6U-2wEeSj5b1zqxexug" name="Transition1" source="_AMU6PO2wEeSj5b1zqxexug" target="_AMU6Pe2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6VO2wEeSj5b1zqxexug" name="Transition" source="_AMU6PO2wEeSj5b1zqxexug" target="_AMU6Xu2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6Ve2wEeSj5b1zqxexug" name="Transition1" source="_AMU6Pe2wEeSj5b1zqxexug" target="_AMU6R-2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6Vu2wEeSj5b1zqxexug" name="Transition" source="_AMU6Pe2wEeSj5b1zqxexug" target="_AMU6Xe2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6V-2wEeSj5b1zqxexug" name="Transition" source="_AMU6Ru2wEeSj5b1zqxexug" target="_AMU6R-2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6WO2wEeSj5b1zqxexug" name="Transition" source="_AMU6R-2wEeSj5b1zqxexug" target="_AMU6Su2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6We2wEeSj5b1zqxexug" name="Transition" source="_AMU6Su2wEeSj5b1zqxexug" target="_AMU6Se2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6Wu2wEeSj5b1zqxexug" name="Transition1" source="_AMU6Su2wEeSj5b1zqxexug" target="_AMU6SO2wEeSj5b1zqxexug"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_AMU6W-2wEeSj5b1zqxexug" name="State Machine1">
+    <region xmi:id="_AMU6XO2wEeSj5b1zqxexug">
+      <subvertex xmi:type="uml:State" xmi:id="_AMU6Xe2wEeSj5b1zqxexug" name="Available"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_AMU6Xu2wEeSj5b1zqxexug" name="Fork" kind="fork"/>
+      <transition xmi:id="_AMU6X-2wEeSj5b1zqxexug" name="Transition" source="_AMU6Xe2wEeSj5b1zqxexug" target="_AMU6Ou2wEeSj5b1zqxexug"/>
+      <transition xmi:id="_AMU6YO2wEeSj5b1zqxexug" name="Transition" source="_AMU6Xu2wEeSj5b1zqxexug" target="_AMU6OO2wEeSj5b1zqxexug"/>
+    </region>
+  </packagedElement>
+</uml:Model>

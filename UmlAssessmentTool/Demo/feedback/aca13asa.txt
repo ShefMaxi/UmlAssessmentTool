@@ -1,0 +1,212 @@
+Id: aca13asa
+Name: Abdulrahem Al Abri
+
+Diagram type: Class diagram
+Mark: 67
+
+Feedback information:
+
+uml:Class
+Class1
+element is correct
+
+uml:Class
+Class1
+element is missing
+
+uml:Class
+Class1
+element is missing
+
+uml:Class
+Class1
+element is missing
+
+uml:Class
+Class2
+element is missing
+
+uml:Class
+Class2
+element is correct
+
+uml:Class
+Class2
+element is missing
+
+uml:Class
+Class2
+element is missing
+
+uml:Class
+Class4
+element is missing
+
+uml:Class
+Class4
+element is missing
+
+uml:Class
+Class4
+element is correct
+
+uml:Class
+Class4
+element is missing
+
+uml:Class
+Class5
+element is missing
+
+uml:Class
+Class5
+element is missing
+
+uml:Class
+Class5
+element is missing
+
+uml:Class
+Class5
+element is correct
+
+Association
+first member:=- Class4:second member- Class1
+element is correct
+
+Association
+first member:=- Class4:second member- Class1
+element is missing
+
+Association
+first member:=- Class5:second member- Class2
+element is missing
+
+Association
+first member:=- Class5:second member- Class2
+element is missing
+
+AssociationClass
+Class3
+element is correct
+
+AssociationClass
+Class3
+element is missing
+
+AssociationClass
+Class6
+element is missing
+
+AssociationClass
+Class6
+element is missing
+
+
+Diagram type: Use case diagram
+Mark: 80
+
+Feedback information:
+
+Association
+Use Case
+element is correct
+
+Association
+Use Case1
+partly correct
+
+Association
+Use Case3
+partly correct
+
+Association
+Use Case5
+partly correct
+
+Association
+Use Case2
+partly correct
+
+Association
+Use Case4
+partly correct
+
+uml:UseCase
+Use Case
+partly correct
+
+uml:UseCase
+Use Case1
+partly correct
+
+uml:UseCase
+Use Case2
+partly correct
+
+uml:UseCase
+Use Case3
+partly correct
+
+uml:UseCase
+Use Case4
+partly correct
+
+uml:UseCase
+Use Case5
+partly correct
+
+uml:Actor
+Actor
+partly correct
+
+uml:Actor
+Actor1
+partly correct
+
+uml:Actor
+Actor2
+partly correct
+
+
+Diagram type: Activity diagram
+Mark: 22
+
+Feedback information:
+
+uml:ActionNodeElement
+Action
+Element is missing or incorrect.
+
+uml:ActionNodeElement
+Action1
+Element is missing or incorrect.
+
+uml:ActionNodeElement
+Action2
+Element is missing or incorrect.
+
+uml:ActivityFinalNodeElement
+Activity Final Node
+Element is correct.
+
+uml:InitialNode
+Initial Node
+Element is correct.
+
+_e7jaO-xIEeSeH4W556u6wg
+ControlFlow
+Element is missing or incorrect.
+
+_e7jaPexIEeSeH4W556u6wg
+ControlFlow
+Element is missing or incorrect.
+
+_e7jaP-xIEeSeH4W556u6wg
+ControlFlow
+Element is missing or incorrect.
+
+_e7jaQexIEeSeH4W556u6wg
+ControlFlow
+Element is missing or incorrect.
+

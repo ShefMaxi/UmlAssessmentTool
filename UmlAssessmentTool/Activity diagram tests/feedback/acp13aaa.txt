@@ -1,27 +1,2 @@
 Id: acp13aaa
 Name: Rabia Sultan Abbasi
-
-Diagram type: Activity diagram
-Mark: 0.0
-Feedback information:
-uml:ActivityFinalNodeElement
-Activity Final Node
-Element is missing or incorrect.
-uml:InitialNode
-Initial Node
-Element is missing or incorrect.
-uml:ActionNodeElement
-Call Behavior
-Element is missing or incorrect.
-uml:ActionNodeElement
-Call Operation
-Element is missing or incorrect.
-_1z-4muxKEeSeH4W556u6wg
-ControlFlow
-Element is missing or incorrect.
-_1z-4nOxKEeSeH4W556u6wg
-ControlFlow
-Element is missing or incorrect.
-_1z-4nuxKEeSeH4W556u6wg
-ControlFlow
-Element is missing or incorrect.
