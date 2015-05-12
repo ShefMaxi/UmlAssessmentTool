@@ -305,9 +305,13 @@ public class AssessmentMark {
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
 				double mark=0;
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {
-					mark = lecturerPackagedElement
+					double tempMark = lecturerPackagedElement
 							.compareTo(studentPackagedElement);
-					marks+=mark;
+					if (tempMark > mark) {
+						mark = tempMark;
+						marks+=mark;
+						break;
+					}
 				}
 				if (mark==1.5){
 					 feedBackInfo = "element is correct";
