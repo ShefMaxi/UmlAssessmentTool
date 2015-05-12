@@ -44,8 +44,8 @@ public class ActionNodeElement extends ActivityNodes {
 			// make sure comparison under right type condition
 			if (this.getName().compareToIgnoreCase(student.getName())==0) {
 				
-				if (this.getIncomingName()!=null) {
-					if (this.getOutgoingName()!=null) {
+				if (this.getIncomingName()!=null&&student.getIncomingName()!=null) {
+					if (this.getOutgoingName()!=null&&student.getIncomingName()!=null) {
 						if (this.getIncomingName().compareToIgnoreCase(student.getIncomingName())==0) {
 							mark+=0.5;
 						}
