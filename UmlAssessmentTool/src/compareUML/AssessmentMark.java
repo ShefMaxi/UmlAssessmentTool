@@ -15,6 +15,9 @@ import stateMachineElements.SubvertexElement;
 //activity		 : 3
 //statemachine	 : 4
 import stateMachineElements.TransitionElement;
+import useCaseElements.AssociationElement;
+import useCaseElements.GeneralizableElement;
+import useCaseElements.UseCaseElement;
 
 //Comparison method for Usecase diagram, written by Shupeng
 public class AssessmentMark {
@@ -76,6 +79,38 @@ public class AssessmentMark {
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
 				}
+				
+				String elementName=null;
+				String feedBackInfo = null;
+				if (marks==1){
+					 feedBackInfo = "element is correct";
+				}
+				
+				else if (marks==0) {
+					feedBackInfo = "element is missing";
+				}
+				else {
+					feedBackInfo="partly correct";
+				}
+				
+				if (lecturerPackagedElement instanceof UseCaseElement) {
+					elementName=((UseCaseElement) lecturerPackagedElement).getName();
+				}
+				else if (lecturerPackagedElement instanceof AssociationElement) {
+					elementName=((AssociationElement) lecturerPackagedElement).getFirstMemberName();
+				}
+				else if (lecturerPackagedElement instanceof GeneralizableElement) {
+					elementName=((GeneralizableElement) lecturerPackagedElement).getName();
+				}
+			
+				else {
+					System.out.println("error");
+					}
+				
+				String[] f = new String[]{lecturerPackagedElement.getType(),elementName,feedBackInfo};
+				feedback.add(f);
+				System.out.println(lecturerPackagedElement.getType()+":"+elementName +": "+feedBackInfo);
+				
 			}
 		}
 	}
@@ -121,7 +156,19 @@ public class AssessmentMark {
 				else {
 					System.out.println("error");
 					}
-				String[] f = new String[]{lecturerPackagedElement.getType(),elementName};
+				String feedBackInfo = null;
+				if (marks==1){
+					 feedBackInfo = "element is correct";
+				}
+				
+				else if (marks==0) {
+					feedBackInfo = "element is missing";
+				}
+				else {
+					feedBackInfo="partly correct";
+				}
+				
+				String[] f = new String[]{lecturerPackagedElement.getType(),elementName,feedBackInfo};
 				feedback.add(f);
 				System.out.println(":"+elementName );
 			}
@@ -274,7 +321,7 @@ public class AssessmentMark {
 				else {
 					System.out.println("error");
 				}
-				String[] f = new String[]{lecturerPackagedElement.getType(),elementName};
+				String[] f = new String[]{lecturerPackagedElement.getType(),elementName,feedBackInfo};
 				feedback.add(f);
 				System.out.println(lecturerPackagedElement.getType()+":"+elementName +": "+feedBackInfo);
 				//System.out.println(lecturerPackagedElement.getType()+":"+lecturerPackagedElement.toString());

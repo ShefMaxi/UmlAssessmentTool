@@ -66,6 +66,10 @@ public class UseCaseElement extends GeneralizableElement {
 	public ArrayList<String> getExtensionPoint() {
 		return this.extensionPoints;
 	}
+	
+	public String getName(){
+		return name;
+	}
 	public double compareTo(PackagedElement packagedElement){
 		double marks=0.0;
 		if(packagedElement instanceof UseCaseElement){
