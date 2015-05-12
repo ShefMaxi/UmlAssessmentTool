@@ -216,7 +216,7 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
  
     // main method for assessment
     private void jButtonForStartAssessmentActionPerformed(java.awt.event.ActionEvent evt) {
-
+    	this.jProgressBar.setValue(0);
 		if (this.studentFilePath == null) {
 			this.jTextAreaForLog.append("Students' file is not selected.\n");
 		}
@@ -240,14 +240,17 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 				this.AssessXMIFiles();
 				this.jTextAreaForLog.append("Finished Assessment.\n");
 			}
+			this.jProgressBar.setValue(100);
 
 		}
 		// students' files with one lecturer file
 		else if (studentFilePath.toLowerCase().endsWith(".zip")
 				&& lecturerFilePath.toLowerCase().endsWith(".xmi")) {
-			this.jTextAreaForLog.append("Start Assessment.\n");
-			this.AssessZipFiles();
-			this.jTextAreaForLog.append("Finished Assessment.\n");
+//			this.jTextAreaForLog.append("Start Assessment.\n");
+//			this.AssessZipFiles();
+//			this.jTextAreaForLog.append("Finished Assessment.\n");
+//			this.jProgressBar.setValue(100);
+			this.jTextAreaForLog.append("Not supported.\n");
 		}
 	}
     
