@@ -142,16 +142,18 @@ public class AssessmentMark {
 			double studentMark=0;
 			double highestMark=0;
 			double currentMark=0;
-			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {				
-				for (PackagedElement studentPackagedElement : selectedStudentElements) {
-					totalpoint=lecturerPackagedElement.compareTo(lecturerPackagedElement);
-					System.out.println("------totalpoint"+totalpoint);
-					studentMark = lecturerPackagedElement.compareTo(studentPackagedElement);
-					System.out.println("------studentMark"+studentMark);
-					mark=studentMark/totalpoint;
-					System.out.println("------mark"+mark);
+			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {	
+				totalpoint=lecturerPackagedElement.compareTo(lecturerPackagedElement);
+				System.out.println("-----totalpoint"+totalpoint);
+				for (PackagedElement studentPackagedElement : selectedStudentElements) {						
+					studentMark+=lecturerPackagedElement
+							.compareTo(studentPackagedElement);
+					System.out.println("-----studentmark"+studentMark);
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
+				}
+				mark=studentMark/totalpoint;
+				System.out.println("-----mark"+mark);
                     currentMark=mark;
                     if(currentMark>highestMark){
 					highestMark=currentMark;
@@ -184,7 +186,7 @@ public class AssessmentMark {
 				String[] f = new String[]{lecturerPackagedElement.getType(),elementName,feedBackInfo};
 				feedback.add(f);
 				System.out.println(":"+elementName );
-				}
+				studentMark=0;
 			}
 		}
 	}
