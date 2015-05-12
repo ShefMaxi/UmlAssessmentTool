@@ -74,43 +74,50 @@ public class AssessmentMark {
 			for(PackagedElement lecturerPackagedElement : selectedLecturerElements){
 				totalPoints=totalPoints+lecturerPackagedElement.compareTo(lecturerPackagedElement);
 			}
-			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {
-				for (PackagedElement studentPackagedElement : selectedStudentElements) {
+			double mark = 0;
+			double totalpoint=0;
+			double studentMark=0;
+			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {	
+				totalpoint=lecturerPackagedElement.compareTo(lecturerPackagedElement);
+				//System.out.println("-----totalpoint"+totalpoint);
+				for (PackagedElement studentPackagedElement : selectedStudentElements) {						
+					studentMark+=lecturerPackagedElement
+							.compareTo(studentPackagedElement);
+					//System.out.println("-----studentmark"+studentMark);
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
 				}
-				
+				mark=studentMark/totalpoint;
+				//System.out.println("-----mark"+mark);                
 				String elementName=null;
+				if (lecturerPackagedElement instanceof ClassElement){
+					elementName=((ClassElement) lecturerPackagedElement).getOnlyName();
+				}
+				else if (lecturerPackagedElement instanceof AssociationClassElement) {
+					elementName=((AssociationClassElement) lecturerPackagedElement).getOnlyName();
+				}
+				else if (lecturerPackagedElement instanceof ClassAssociationElement) {
+					elementName=((ClassAssociationElement) lecturerPackagedElement).getValues();
+							}
+				else {
+					System.out.println("error");
+					}
 				String feedBackInfo = null;
-				if (marks==1){
+				if (mark==1){
 					 feedBackInfo = "element is correct";
 				}
 				
-				else if (marks==0) {
+				else if (mark==0) {
 					feedBackInfo = "element is missing";
 				}
 				else {
 					feedBackInfo="partly correct";
 				}
 				
-				if (lecturerPackagedElement instanceof UseCaseElement) {
-					elementName=((UseCaseElement) lecturerPackagedElement).getName();
-				}
-				else if (lecturerPackagedElement instanceof AssociationElement) {
-					elementName=((AssociationElement) lecturerPackagedElement).getFirstMemberName();
-				}
-				else if (lecturerPackagedElement instanceof GeneralizableElement) {
-					elementName=((GeneralizableElement) lecturerPackagedElement).getName();
-				}
-			
-				else {
-					System.out.println("error");
-					}
-				
 				String[] f = new String[]{lecturerPackagedElement.getType(),elementName,feedBackInfo};
 				feedback.add(f);
-				System.out.println(lecturerPackagedElement.getType()+":"+elementName +": "+feedBackInfo);
-				
+				System.out.println(":"+elementName );
+				studentMark=0;
 			}
 		}
 	}
@@ -140,24 +147,15 @@ public class AssessmentMark {
 			double mark = 0;
 			double totalpoint=0;
 			double studentMark=0;
-			double highestMark=0;
-			double currentMark=0;
 			for (PackagedElement lecturerPackagedElement : selectedLecturerElements) {	
 				totalpoint=lecturerPackagedElement.compareTo(lecturerPackagedElement);
-				System.out.println("-----totalpoint"+totalpoint);
 				for (PackagedElement studentPackagedElement : selectedStudentElements) {						
 					studentMark+=lecturerPackagedElement
 							.compareTo(studentPackagedElement);
-					System.out.println("-----studentmark"+studentMark);
 					marks += lecturerPackagedElement
 							.compareTo(studentPackagedElement);
 				}
-				mark=studentMark/totalpoint;
-				System.out.println("-----mark"+mark);
-                    currentMark=mark;
-                    if(currentMark>highestMark){
-					highestMark=currentMark;
-                    }
+				mark=studentMark/totalpoint;               
 				String elementName=null;
 				if (lecturerPackagedElement instanceof ClassElement){
 					elementName=((ClassElement) lecturerPackagedElement).getOnlyName();
