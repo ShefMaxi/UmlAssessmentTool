@@ -751,7 +751,7 @@ public class XMIFileParser {
                 Id = id.getValue();
             }
             // extracting type from current edge element
-            org.jast.xml.Attribute typ = edgeElement.getAttribute("xmi:id");
+            org.jast.xml.Attribute typ = edgeElement.getAttribute("xmi:type");
             if (nm!=null) {
                 type = typ.getValue();
             }
