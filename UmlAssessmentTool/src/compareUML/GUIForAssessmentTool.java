@@ -274,11 +274,11 @@ public class GUIForAssessmentTool extends javax.swing.JFrame {
 		this.zipFileHandler = new ZipFileHandler();
 		List<Diagram> lecturerDiagrams = new ArrayList<Diagram>();
 		XMIFileParser xmiFileParser = new XMIFileParser();
-//		List<String> lecturerFilesList = this.zipFileHandler.getLecturerFiles(lecturerFilePath);
-//		for (String file : lecturerFilesList) {
-//			lecturerDiagrams.add(xmiFileParser.readXMIFile(file));
-//		}
-		lecturerDiagrams.add(xmiFileParser.readXMIFile(lecturerFilePath));
+		List<String> lecturerFilesList = this.zipFileHandler.getLecturerFiles(lecturerFilePath);
+		for (String file : lecturerFilesList) {
+			lecturerDiagrams.add(xmiFileParser.readXMIFile(file));
+		}
+//		lecturerDiagrams.add(xmiFileParser.readXMIFile(lecturerFilePath));
 		// use dictionary
 		if (this.dictionary != null && this.dictionary.checkDictionary()) {
 			// multiple word 

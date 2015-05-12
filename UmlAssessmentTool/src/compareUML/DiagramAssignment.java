@@ -52,6 +52,7 @@ public class DiagramAssignment {
 	public void markAssignment(List<Diagram> lecturerDiagrams) {
 		List<DiagramFeedback> feedbacks = new ArrayList<DiagramFeedback>();
 		for (Diagram lectDiagram : lecturerDiagrams) {
+			System.out.println(lectDiagram);
 			Diagram stuDiagram = getDiagramByType(lectDiagram.getDiagramType());
 			if (stuDiagram != null) {
 				AssessmentMark assessor = new AssessmentMark(stuDiagram, lectDiagram);

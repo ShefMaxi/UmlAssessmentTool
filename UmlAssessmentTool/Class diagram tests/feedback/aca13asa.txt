@@ -1,0 +1,32 @@
+Id: aca13asa
+Name: Abdulrahem Al Abri
+
+Diagram type: Class diagram
+Mark: 67
+
+Feedback information:
+
+AssociationClass
+Class3
+
+AssociationClass
+Class6
+
+Association
+first member:=- Class4:second member- Class1
+
+Association
+first member:=- Class5:second member- Class2
+
+uml:Class
+Class1
+
+uml:Class
+Class2
+
+uml:Class
+Class4
+
+uml:Class
+Class5
+
