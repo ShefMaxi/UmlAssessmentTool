@@ -86,12 +86,5 @@ public class SynonymDictionary {
 			}
 		}
 	}
-	public static void main(String[] args) {
-		SynonymDictionary dictionary = new SynonymDictionary("C:/Users/Paul/Documents/GitHub/UmlAssessmentTool/UmlAssessmentTool/synonym.xml");
-		System.out.println(dictionary.isCorrect);
-		System.out.println(dictionary.getSynonymDictionary());
-		String aString = "C:/Users/Paul/Documents/GitHub/UmlAssessmentTool/UmlAssessmentTool/synonym.xml";
-		System.out.println(aString.substring(aString.lastIndexOf(".")));
-	}
 
 }

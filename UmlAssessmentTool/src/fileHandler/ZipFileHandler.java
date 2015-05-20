@@ -91,9 +91,4 @@ public class ZipFileHandler {
 		return studentInfoMap;
 	}
 
-	public static void main(String[] args) {
-		ZipFileHandler zipFileHandler = new ZipFileHandler();
-		System.out.println(zipFileHandler.getStudentFiles("/Users/zhangyan/GitHub/UmlAssessmentTool/UmlAssessmentTool/test.zip"));
-		//System.out.println(zipFileHandler.getLecturerFiles("C:\\Users\\Dell\\Documents\\GitHub\\UmlAssessmentTool\\UmlAssessmentTool\\studentWork.zip"));
-	}
 }

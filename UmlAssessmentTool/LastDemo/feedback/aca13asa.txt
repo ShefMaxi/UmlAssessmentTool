@@ -1,0 +1,244 @@
+Id: aca13asa
+Name: Abdulrahem Al Abri
+
+Diagram type: Class diagram
+Mark: 67
+
+Feedback information:
+
+uml:Class
+Class1
+element is correct
+
+uml:Class
+Class2
+element is correct
+
+uml:Class
+Class4
+element is correct
+
+uml:Class
+Class5
+element is correct
+
+Association
+first member:=- Class4:second member- Class1
+element is correct
+
+Association
+first member:=- Class5:second member- Class2
+element is missing
+
+AssociationClass
+Class3
+element is correct
+
+AssociationClass
+Class6
+element is missing
+
+
+Diagram type: State Machine diagram
+Mark: 81
+
+Feedback information:
+
+uml:FinalState
+Final State
+element is correct
+
+uml:Pseudostate
+Initial State
+element is correct
+
+uml:Pseudostate
+Fork
+element is correct
+
+uml:Pseudostate
+Choice
+element is correct
+
+uml:Pseudostate
+Junction
+element is missing
+
+uml:Pseudostate
+Join
+element is correct
+
+uml:State
+on loan
+element is correct
+
+uml:State
+Available
+element is correct
+
+uml:State
+State
+element is correct
+
+uml:State
+State1
+element is correct
+
+uml:State
+customer service
+element is correct
+
+uml:State
+State2
+element is correct
+
+uml:State
+State3
+element is correct
+
+uml:State
+State4
+element is correct
+
+transition
+source: on loan,	Target: Available
+element is correct
+
+transition
+source: on loan,	Target: on loan
+element is correct
+
+transition
+source: Available,	Target: Final State
+element is correct
+
+transition
+source: Available,	Target: on loan
+element is missing
+
+transition
+source: Initial State,	Target: on loan
+element is correct
+
+transition
+source: State,	Target: Fork
+element is correct
+
+transition
+source: State,	Target: Choice
+element is correct
+
+transition
+source: State1,	Target: Fork
+element is correct
+
+transition
+source: State1,	Target: customer service
+element is correct
+
+transition
+source: Fork,	Target: on loan
+element is correct
+
+transition
+source: customer service,	Target: Available
+element is missing
+
+transition
+source: customer service,	Target: Junction
+element is missing
+
+transition
+source: Choice,	Target: State2
+element is correct
+
+transition
+source: Choice,	Target: customer service
+element is correct
+
+transition
+source: Choice,	Target: Junction
+element is missing
+
+transition
+source: State2,	Target: Junction
+element is missing
+
+transition
+source: Junction,	Target: Join
+element is missing
+
+transition
+source: Join,	Target: State4
+element is correct
+
+transition
+source: Join,	Target: State3
+element is correct
+
+
+Diagram type: Use case diagram
+Mark: 80
+
+Feedback information:
+
+Association
+null
+element is correct
+
+Association
+null
+element is correct
+
+Association
+null
+element is missing
+
+Association
+null
+element is missing
+
+Association
+null
+element is correct
+
+Association
+null
+element is correct
+
+uml:UseCase
+null
+element is correct
+
+uml:UseCase
+null
+element is correct
+
+uml:UseCase
+null
+element is correct
+
+uml:UseCase
+null
+element is correct
+
+uml:UseCase
+null
+element is correct
+
+uml:UseCase
+null
+element is correct
+
+uml:Actor
+null
+element is correct
+
+uml:Actor
+null
+element is missing
+
+uml:Actor
+null
+element is correct
+
